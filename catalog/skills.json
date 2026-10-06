@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "release_candidate": "1.0.1",
+  "release_candidate": "1.0.2",
   "checked_at": "2026-10-06T05:03:13.643423+00:00",
   "repository": "https://github.com/LuCheremisina/marketing-skills",
   "status_vocabulary": [
@@ -544,12 +544,12 @@
       "id": "research-loop",
       "path": "skills/research-loop",
       "origin": "authored",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "license": "MIT",
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/research-loop",
-      "source_status": "reviewed-authorized-universal-candidate",
+      "source_status": "reviewed-authorized-native-discovery-candidate",
       "category": "research",
       "title": "Client history and reactivation eligibility",
       "inputs": "Company identity; available internal evidence; checkpoint",
@@ -565,12 +565,13 @@
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "27 workflows, three synthetic scenarios each; single evaluator context",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "native_discovery": "Quoted single-line description prepared after ChatGPT omitted the valid YAML continuation form; re-import verification pending"
       },
       "redistribution": "MIT-authored",
       "description": "Исследовать существующего или бывшего клиента перед реактивацией строго по RESEARCH-LOOP-001 v1.0. Использовать для Research Loop, проверки истории клиента, CLIENT_STATE, REACTIVATION_ELIGIBILITY и безопасного routing. Адаптивно собирать evidence из доступных CRM, почты, документов и финансов; не запускать продажи или реактивацию.",
-      "content_sha256": "a29c223944920d0b688b77833bb48945bbc1c86eec5dee1b7012b5d1333ac5f0",
-      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "content_sha256": "007a5190da2c149f6921fb04eda7525eb588f5b2a5df0d543b094c72db87c012",
+      "checked_at": "2026-10-06",
       "redistribution_allowed": true
     },
     {

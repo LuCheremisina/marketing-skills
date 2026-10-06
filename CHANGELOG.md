@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.2 — native discovery candidate, 2026-10-06
+
+- Changed `research-loop` description to one quoted YAML line with the same parsed text after ChatGPT displayed 26 of the 27 skills and omitted this workflow.
+- Increased `research-loop` package version to 1.0.1; workflow body and resources are unchanged.
+- Synchronized plugin versions at 1.0.2 and added a discovery-format regression check.
+- Kept the other 40 individual archives unchanged. Native re-import and execution are checked separately from YAML validity.
+
 ## 1.0.1 — packaging candidate, 2026-10-06
 
 - Shortened both plugin listing subtitles to the OpenAI 30-character limit.

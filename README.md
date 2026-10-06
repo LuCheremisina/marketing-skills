@@ -8,6 +8,8 @@ Reusable AI workflows for marketing research, campaign analytics, SEO/GEO, edito
 
 The library contains **27 original methodology workflows** and **14 licensed third-party engineering skills**. It follows the [Agent Skills format](https://agentskills.io/specification). The public packages contain no client profiles, account credentials or personal workstation paths. Brand, author, business and data profiles are supplied by the user at run time.
 
+Current package candidate: **1.0.2**. Individual skill versions are tracked independently in the catalogue.
+
 ## Choose a workflow
 
 | Business task | Start with | Reviewable result |
