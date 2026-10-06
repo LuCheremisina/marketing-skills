@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.1 — packaging candidate, 2026-10-06
+
+- Shortened both plugin listing subtitles to the OpenAI 30-character limit.
+- Synchronized portable and native plugin versions and added manifest checks.
+- Kept every individual skill archive byte-identical to the accepted 1.0.0 candidate.
+- Version 1.0.0 was an accepted unpublished candidate; this packaging correction does not change skill methodology.
+
 ## 1.0.0 — candidate, 2026-10-06
 
 - Reconciled 16 original registry workflows with local methodology changes.

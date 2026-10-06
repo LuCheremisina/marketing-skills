@@ -62,6 +62,11 @@ def build(root: Path, output: Path, version: str, previous_manifest: Path | None
     report = validate(root)
     if not report["ok"]:
         raise SkillError("validation failed: " + json.dumps(report["issues"], ensure_ascii=False))
+    catalog_path = root / "catalog/skills.json"
+    if catalog_path.exists():
+        candidate_version = json.loads(catalog_path.read_text()).get("release_candidate")
+        if candidate_version is not None and candidate_version != version:
+            raise SkillError("requested release version differs from catalog release_candidate")
     output = output.resolve()
     for skill_root in (root / "skills", root / "vendor/skills"):
         try:

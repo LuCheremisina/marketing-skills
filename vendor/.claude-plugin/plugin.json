@@ -1,0 +1,18 @@
+{
+  "name": "marketing-skills-vendor",
+  "version": "1.0.1",
+  "description": "Optional engineering skills by Cloudflare and nick-vels, with original licenses and source provenance.",
+  "author": {
+    "name": "Cloudflare and nick-vels; packaging maintained by Lyubov Cheremisina",
+    "url": "https://github.com/LuCheremisina/marketing-skills"
+  },
+  "homepage": "https://github.com/LuCheremisina/marketing-skills",
+  "repository": "https://github.com/LuCheremisina/marketing-skills",
+  "license": "MIT AND Apache-2.0",
+  "keywords": [
+    "agent-skills",
+    "cloudflare",
+    "engineering",
+    "automation"
+  ]
+}

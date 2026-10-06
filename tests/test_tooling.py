@@ -47,7 +47,7 @@ https://github.com/LuCheremisina/marketing-skills
 def fixture(root, ids=("example-analysis",), version="1.0.0"):
     root.mkdir(parents=True, exist_ok=True)
     (root / "LICENSE").write_text("MIT License\nCopyright Synthetic Test\n")
-    (root / "plugin.json").write_text('{"name":"marketing-skills","skills":"./skills"}')
+    json_write(root / "plugin.json", {"name": "marketing-skills", "version": "1.0.0"})
     for ident in ids:
         folder = root / "skills" / ident
         (folder / "references").mkdir(parents=True)
@@ -76,6 +76,43 @@ class ToolingTest(unittest.TestCase):
         data, _, _ = frontmatter(self.root / "skills/example-analysis/SKILL.md")
         self.assertIn("It labels unavailable", data["description"])
         self.assertTrue(validate(self.root)["ok"])
+
+    def test_openai_listing_subtitle_30_and_31_character_boundaries(self):
+        path = self.root / "plugin.json"
+        manifest = json.loads(path.read_text())
+        for length, accepted in ((30, True), (31, False)):
+            manifest["extensions"] = {"com.openai": {"interface": {"shortDescription": "x" * length}}}
+            json_write(path, manifest)
+            report = validate(self.root)
+            self.assertEqual(report["ok"], accepted)
+            if not accepted:
+                self.assertTrue(any("30 characters" in issue["message"] for issue in report["issues"]))
+
+    def test_plugin_semver_and_native_identity_version_presentation_sync(self):
+        path = self.root / "plugin.json"
+        for invalid in ("01.0.1", "1.0", "1.0.1-01"):
+            json_write(path, {"name": "marketing-skills", "version": invalid})
+            self.assertFalse(validate(self.root)["ok"])
+        portable = {"name": "marketing-skills", "version": "1.0.1", "description": "Evidence-led marketing"}
+        json_write(path, portable)
+        overlay = self.root / ".codex-plugin/plugin.json"
+        json_write(overlay, portable)
+        self.assertTrue(validate(self.root)["ok"])
+        for key, value in (("name", "different-package"), ("version", "1.0.0"), ("description", "Stale presentation")):
+            json_write(overlay, {**portable, key: value})
+            self.assertFalse(validate(self.root)["ok"])
+
+    def test_plugin_and_catalog_release_versions_must_match(self):
+        json_write(self.root / "catalog/skills.json", {"release_candidate": "1.0.1", "skills": [{"id": "example-analysis", "path": "skills/example-analysis"}]})
+        self.assertFalse(validate(self.root)["ok"])
+        json_write(self.root / "plugin.json", {"name": "marketing-skills", "version": "1.0.1"})
+        self.assertTrue(validate(self.root)["ok"])
+
+    def test_portable_manifest_rejects_native_top_level_discovery_fields(self):
+        path = self.root / "plugin.json"
+        for key in ("skills", "mcpServers", "apps", "interface"):
+            json_write(path, {"name": "marketing-skills", "version": "1.0.0", key: {}})
+            self.assertFalse(validate(self.root)["ok"])
 
     def test_yaml_duplicate_and_nonstring_metadata_rejected(self):
         path = self.root / "skills/example-analysis/SKILL.md"
@@ -173,6 +210,8 @@ class ToolingTest(unittest.TestCase):
             path = self.root / name
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text('{}' if path.suffix == '.json' else "Public synthetic example\n")
+        for directory in (".claude-plugin", ".codex-plugin"):
+            json_write(self.root / directory / "plugin.json", {"name": "marketing-skills", "version": "1.0.0"})
         self.release()
         with zipfile.ZipFile(self.output / "marketing-skills-1.0.0.zip") as archive:
             files = set(archive.namelist())

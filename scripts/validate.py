@@ -11,6 +11,7 @@ from common import ROOT, SkillError, entries, frontmatter, json_write, runtime_f
 
 NAME = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*\Z")
 VERSION = re.compile(r"\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?(?:\+[0-9A-Za-z.-]+)?\Z")
+PLUGIN_VERSION = re.compile(r"(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:-(?:0|[1-9]\d*|\d*[A-Za-z-][0-9A-Za-z-]*)(?:\.(?:0|[1-9]\d*|\d*[A-Za-z-][0-9A-Za-z-]*))*)?(?:\+[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?\Z")
 ALLOWED = {"name", "description", "license", "compatibility", "metadata", "allowed-tools"}
 AUTHOR = "Любовь Черемисина"
 AUTHOR_LINKS = ("https://cheremisina.ru", "https://cheremisina.online", "https://github.com/LuCheremisina/marketing-skills")
@@ -39,8 +40,70 @@ def resource_targets(text, entrypoint=False):
                     targets.append((target.rstrip(",.;"), True))
     return targets
 
-def validate(root: Path):
+def plugin_issues(root):
+    """Check portable listing limits and the native overlays before making archives."""
     issues = []
+    def add(path, message):
+        issues.append({"level": "error", "path": path.relative_to(root).as_posix(), "message": message})
+    catalog_path = root / "catalog/skills.json"
+    try:
+        release = json.loads(catalog_path.read_text()).get("release_candidate") if catalog_path.exists() else None
+    except (ValueError, OSError, AttributeError):
+        release = None  # The catalogue parser below reports its own errors.
+    for base, identity in ((root, "marketing-skills"), (root / "vendor", "marketing-skills-vendor")):
+        path = base / "plugin.json"
+        if not path.exists():
+            continue
+        try:
+            portable = json.loads(path.read_text())
+            if not isinstance(portable, dict):
+                raise ValueError("plugin manifest must be an object")
+        except (ValueError, OSError) as exc:
+            add(path, str(exc))
+            continue
+        if portable.get("name") != identity:
+            add(path, "portable plugin identity differs from package identity")
+        version = portable.get("version")
+        if not isinstance(version, str) or not PLUGIN_VERSION.fullmatch(version):
+            add(path, "plugin version must be strict SemVer")
+        if release is not None and version != release:
+            add(path, "plugin version differs from catalog release_candidate")
+        for key in ("skills", "mcpServers", "apps", "interface"):
+            if key in portable:
+                add(path, f"portable manifest must not contain top-level {key}")
+        try:
+            interface = portable.get("extensions", {}).get("com.openai", {}).get("interface")
+            if interface is not None:
+                if not isinstance(interface, dict):
+                    raise ValueError("OpenAI interface must be an object")
+                short = interface.get("shortDescription")
+                if not isinstance(short, str) or not short.strip() or len(short) > 30:
+                    add(path, "OpenAI shortDescription must be nonempty text at most 30 characters")
+                prompts = interface.get("defaultPrompt")
+                if prompts is not None and not (isinstance(prompts, str) or isinstance(prompts, list) and 1 <= len(prompts) <= 3 and all(isinstance(item, str) for item in prompts)):
+                    add(path, "OpenAI defaultPrompt must be text or one to three strings")
+        except (ValueError, AttributeError) as exc:
+            add(path, str(exc))
+        for directory in (".claude-plugin", ".codex-plugin"):
+            overlay_path = base / directory / "plugin.json"
+            if not overlay_path.exists():
+                continue
+            try:
+                overlay = json.loads(overlay_path.read_text())
+                if not isinstance(overlay, dict):
+                    raise ValueError("native plugin manifest must be an object")
+                for key in ("name", "version"):
+                    if overlay.get(key) != portable.get(key):
+                        add(overlay_path, f"native {key} differs from portable manifest")
+                for key in ("description", "author", "homepage", "repository", "license", "keywords"):
+                    if key in overlay and overlay[key] != portable.get(key):
+                        add(overlay_path, f"native presentation field {key} differs from portable manifest")
+            except (ValueError, OSError) as exc:
+                add(overlay_path, str(exc))
+    return issues
+
+def validate(root: Path):
+    issues = plugin_issues(root)
     def add(level, path, message):
         issues.append({"level": level, "path": str(path), "message": message})
     try:

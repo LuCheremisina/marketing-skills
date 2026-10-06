@@ -14,3 +14,5 @@ The standalone `manifest.json` is authoritative for all release archives. The co
 Before publication, verify SHA256SUMS, licensing, attribution, synthetic examples and runtime evidence. Review the exact repository commit and archive manifest. Publication, release upload and global installation are separate acceptance steps. Record successful public anonymous repository/download checks after publication; do not infer them from a local build.
 
 GitHub's verification workflow builds a candidate and does not publish it. The monthly workflow prepares a PR and cannot substitute for release acceptance.
+
+The verification workflow derives its candidate version from `plugin.json`. It rebuilds a clean candidate without a previous-release file and does not authorize publication. Before an actual subsequent release, the maintainer must supply the accepted previous release manifest with `--previous-manifest`; the source checks alone cannot enforce immutability against historical artifacts. Current packaging candidate: 1.0.1. Its 41 individual skill archives are unchanged from the accepted unpublished 1.0.0 candidate.

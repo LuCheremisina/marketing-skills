@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "marketing-skills-vendor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Optional engineering skills by Cloudflare and nick-vels, with original licenses and source provenance.",
   "author": {
     "name": "Cloudflare and nick-vels; packaging maintained by Lyubov Cheremisina",
@@ -10,12 +10,17 @@
   "homepage": "https://github.com/LuCheremisina/marketing-skills",
   "repository": "https://github.com/LuCheremisina/marketing-skills",
   "license": "MIT AND Apache-2.0",
-  "keywords": ["agent-skills", "cloudflare", "engineering", "automation"],
+  "keywords": [
+    "agent-skills",
+    "cloudflare",
+    "engineering",
+    "automation"
+  ],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "Marketing Skills — Third-party Tools",
-        "shortDescription": "Licensed Cloudflare and autopilot engineering skills",
+        "shortDescription": "Licensed engineering skills",
         "longDescription": "Original skills by Cloudflare and nick-vels. Source commits, original licenses and notices are retained in each skill. Packaging adaptations are documented separately. Runtime tools and account connections require separate verification.",
         "developerName": "Lyubov Cheremisina — packaging maintainer",
         "category": "Productivity",
