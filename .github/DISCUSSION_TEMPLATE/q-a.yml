@@ -1,0 +1,35 @@
+title: '[Installation help] '
+body:
+- type: markdown
+  attributes:
+    value: Describe your client, skill and the step that failed. Keep credentials
+      and private client data out of the discussion.
+- type: textarea
+  id: client
+  attributes:
+    label: AI client and version
+    description: 'For example: Codex CLI, Claude Code or Cursor.'
+  validations:
+    required: true
+- type: textarea
+  id: skill
+  attributes:
+    label: Skill name
+    description: Use the folder name from the catalogue.
+  validations:
+    required: true
+- type: textarea
+  id: steps
+  attributes:
+    label: Steps and observed result
+    description: Use a synthetic example. Remove account IDs, local personal paths
+      and secrets.
+  validations:
+    required: true
+- type: textarea
+  id: expected
+  attributes:
+    label: Expected result
+    description: What should happen?
+  validations:
+    required: true

@@ -1,6 +1,8 @@
 # Skill catalogue
 
-All inputs and examples are synthetic or supplied at run time. Status `not_verified` means the native platform workflow has not been accepted, even when the package validates. Two Codex skills have sampled isolated CLI evidence; none is globally installed by this release preparation.
+**27 original marketing workflows + 14 optional engineering skills.** [Start with five tasks](START-HERE.md) or [install one skill](INSTALL.md#quick-install). The individual workflow pages below explain inputs, outputs and required capabilities.
+
+Examples use synthetic inputs or data supplied at run time. Package installation and native execution are different checks; current evidence is in the [dated verification record](VERIFICATION-2026-10-06.md).
 
 | Task / skill | Input | Output | Required capability |
 |---|---|---|---|

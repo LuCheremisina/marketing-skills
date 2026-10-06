@@ -1,14 +1,48 @@
-# Marketing Skills
+# AI Marketing Skills — research, SEO/GEO, analytics & content
 
-Reusable AI workflows for marketing research, campaign analytics, SEO/GEO, editorial content and business decisions. Each workflow defines its inputs, source requirements, expected output and limits so a team can review the result before acting.
+Research a market, audit a website, analyse Yandex campaigns, find search demand, or turn evidence into an expert article with reusable AI workflows.
 
-[Русская версия](README.ru.md) · [Skill catalogue](docs/CATALOG.md) · [Installation](docs/INSTALL.md) · [Platform compatibility](docs/PLATFORMS.md) · [Releases](https://github.com/LuCheremisina/marketing-skills/releases)
+**27 original marketing workflows + 14 optional engineering skills.** Open Agent Skills packages for Codex, Claude Code and Cursor; ChatGPT plugin packages are also available. Each workflow lists the inputs and connections it needs. [Platform status](docs/PLATFORMS.md).
+
+[**Install your first skill**](#quick-install) · [**Start with 5 marketing skills**](docs/START-HERE.md) · [**Browse all 41**](docs/CATALOG.md) · [**Download the latest release**](https://github.com/LuCheremisina/marketing-skills/releases/latest) · [Русская версия](README.ru.md)
+
+## Quick install
+
+With **Node.js 22.20+ and Git**, run this inside your project:
+
+```sh
+npx skills add LuCheremisina/marketing-skills --skill deep-research
+```
+
+Select your AI client if prompted, then ask it to use `deep-research` for your question. [Try the example](docs/use-cases/deep-research.md#try-it). Prefer a ZIP? [Download Deep Research 2.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v1.0.2/deep-research-2.0.0.zip) and follow the [client installation guide](docs/INSTALL.md#zip-and-plugin-installation).
+
+The CLI installs into the current project by default. For an existing installation, or a release pinned to checksums, use [verified installation](docs/INSTALL.md#verified-installation). Quick install was checked with `skills` CLI 1.7.0; installation does not connect accounts or establish runtime compatibility.
+
+## Start here: 5 useful marketing skills
+
+| Your task | Skill and example | What you can get | Needs |
+|---|---|---|---|
+| Research a market or compare options | [Deep Research](docs/use-cases/deep-research.md) | A sourced report with findings, uncertainty and decision options | A research question; web access or supplied sources |
+| Audit search and AI-search visibility | [SEO/GEO Auditor](docs/use-cases/seo-geo-auditor.md) | A website audit with evidence and prioritised fixes | An authorised URL; Python and crawl/read tools |
+| Find demand in Yandex search | [Wordstat Keyword Research](docs/use-cases/wordstat-keyword-research.md) | Query clusters with region, frequency and intent | Wordstat connection or an authorised export |
+| Diagnose advertising performance | [Yandex Direct Analytics](docs/use-cases/direct-analytics-skill.md) | Source-separated advertising and attribution tables | Direct/Metrika read access or prepared exports |
+| Create a sourced expert article | [Expert Article Workflow](docs/use-cases/expert-article-workflow.md) | A draft, claim ledger and editorial checks | A brief, sources and an author/brand profile |
+
+Each page includes a sample request, expected output, install command and individual ZIP. [Full task catalogue →](docs/CATALOG.md)
 
 ![Marketing Skills — research, analytics, SEO/GEO and content](assets/social-preview.png)
 
-The library contains **27 original methodology workflows** and **14 licensed third-party engineering skills**. It follows the [Agent Skills format](https://agentskills.io/specification). The public packages contain no client profiles, account credentials or personal workstation paths. Brand, author, business and data profiles are supplied by the user at run time.
+## Get help and share what worked
 
-Published release: [**1.0.2**](https://github.com/LuCheremisina/marketing-skills/releases/tag/v1.0.2). Individual skill versions are tracked independently in the catalogue. See the [verification record dated 2026-10-06](docs/VERIFICATION-2026-10-06.md).
+[Installation questions](https://github.com/LuCheremisina/marketing-skills/discussions/categories/q-a) · [Request a skill](https://github.com/LuCheremisina/marketing-skills/discussions/categories/ideas) · [Share a result](https://github.com/LuCheremisina/marketing-skills/discussions/categories/show-and-tell)
+
+Include your client, chosen skill and a synthetic example. Keep account credentials and client records private. If a workflow helped, **star the repository** to find it again; [watch releases](https://github.com/LuCheremisina/marketing-skills/releases) for published updates.
+
+## What's in the library
+
+The packages follow the [Agent Skills format](https://agentskills.io/specification). Marketing workflows are MIT licensed; engineering packages retain their original licences. Brand, business and author profiles are supplied at run time, so the public packages contain no client profiles or credentials.
+
+Current published release: [**v1.0.2**](https://github.com/LuCheremisina/marketing-skills/releases/tag/v1.0.2). Individual versions and sources are tracked in the [catalogue](catalog/skills.json). [Checksums, evaluations and the dated verification record](docs/VERIFICATION-2026-10-06.md) are available for review.
 
 ## Choose a workflow
 
@@ -39,7 +73,7 @@ See the [complete catalogue](docs/CATALOG.md) for inputs, outputs and required c
 
 Release-baseline compatibility is recorded **per skill** in [catalog/skills.json](catalog/skills.json); later installation and sampled execution evidence is in the [dated verification record](docs/VERIFICATION-2026-10-06.md). `verified`, `requires_connection`, `not_verified` and `not_supported` describe practical execution, not marketing promises. File format compliance does not establish that every system can run scripts, access MCP tools, generate media or publish results.
 
-Start with [installation instructions](docs/INSTALL.md). Select only the skills you need, inspect the manifest and run the installer in dry-run mode. Never place credentials or client data inside an installed skill. Detailed platform guidance and official sources are in [PLATFORMS.md](docs/PLATFORMS.md).
+Use [quick or verified installation](docs/INSTALL.md) for the route that fits your environment. Never place credentials or client data inside an installed skill. Detailed platform guidance and official sources are in [PLATFORMS.md](docs/PLATFORMS.md).
 
 ## Evidence and quality
 

@@ -1,0 +1,27 @@
+title: '[Request a marketing skill] '
+body:
+- type: markdown
+  attributes:
+    value: Describe the task and the result you need. Keep credentials and private
+      client data out of the discussion.
+- type: textarea
+  id: task
+  attributes:
+    label: Business task
+    description: What decision or repeated task should this workflow help with?
+  validations:
+    required: true
+- type: textarea
+  id: inputs
+  attributes:
+    label: Available inputs and tools
+    description: Describe types of data, not credentials or client records.
+  validations:
+    required: true
+- type: textarea
+  id: output
+  attributes:
+    label: Useful result
+    description: What output would help you act, and how would you check it?
+  validations:
+    required: true

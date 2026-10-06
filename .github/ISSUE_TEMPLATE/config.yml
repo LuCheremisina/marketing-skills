@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+- name: Installation help
+  url: https://github.com/LuCheremisina/marketing-skills/discussions/categories/q-a
+  about: Ask how to install or invoke a workflow.
+- name: Request a skill
+  url: https://github.com/LuCheremisina/marketing-skills/discussions/categories/ideas
+  about: Describe a marketing task and desired result.

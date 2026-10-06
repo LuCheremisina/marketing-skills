@@ -1,0 +1,27 @@
+title: '[Share a workflow example] '
+body:
+- type: markdown
+  attributes:
+    value: Share a public or synthetic example and what you checked. Keep credentials
+      and private client data out of the discussion.
+- type: textarea
+  id: skill
+  attributes:
+    label: Skill and client
+    description: Which workflow did you use, and in which client?
+  validations:
+    required: true
+- type: textarea
+  id: example
+  attributes:
+    label: Example and outcome
+    description: Use synthetic data or material you are authorised to publish.
+  validations:
+    required: true
+- type: textarea
+  id: evidence
+  attributes:
+    label: What was checked
+    description: Separate generated output, verified facts and measured results.
+  validations:
+    required: true
