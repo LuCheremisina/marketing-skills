@@ -16,3 +16,7 @@ Official references checked 2026-10-06: [OpenAI skills](https://learn.chatgpt.co
 For other Agent Skills clients, including Gemini CLI and GitHub Copilot, use current official documentation and run a separate smoke test before adding a verified badge. A README assertion or YAML pass is not that test.
 
 If a skill needs unavailable search, analytics, image generation, rendering or external delivery: accept authorized normalized exports where supported, identify the exact missing capability, and keep the dependent step unverified. Do not silently replace providers, fabricate results or add MCP servers.
+
+## Frontmatter interoperability
+
+A full YAML parser accepts plain descriptions continued across indented lines. In a native ChatGPT import of candidate 1.0.1, the UI displayed 26 of 27 authored workflows and omitted `research-loop`, whose description used this valid syntax. Candidate 1.0.2 serializes that same description as one quoted YAML line. This is a conservative discovery-compatibility adjustment, not a claim that the original YAML was invalid or that all clients reject continuation syntax. Prefer a quoted single-line description when a host fails to discover a valid skill, and verify the saved skill list after import. Static validation does not replace that native check.

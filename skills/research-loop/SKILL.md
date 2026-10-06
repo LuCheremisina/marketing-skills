@@ -1,13 +1,9 @@
 ---
 name: research-loop
-description: Исследовать существующего или бывшего клиента перед реактивацией строго
-  по RESEARCH-LOOP-001 v1.0. Использовать для Research Loop, проверки истории клиента,
-  CLIENT_STATE, REACTIVATION_ELIGIBILITY и безопасного routing. Адаптивно собирать
-  evidence из доступных CRM, почты, документов и финансов; не запускать продажи или
-  реактивацию.
+description: "Исследовать существующего или бывшего клиента перед реактивацией строго по RESEARCH-LOOP-001 v1.0. Использовать для Research Loop, проверки истории клиента, CLIENT_STATE, REACTIVATION_ELIGIBILITY и безопасного routing. Адаптивно собирать evidence из доступных CRM, почты, документов и финансов; не запускать продажи или реактивацию."
 license: MIT
 metadata:
-  version: 1.0.0
+  version: "1.0.1"
   methodologist: Любовь Черемисина
   website_primary: https://cheremisina.ru
   website_secondary: https://cheremisina.online
