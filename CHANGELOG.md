@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Added a dated post-publication verification record, public CI/source-check links and actual installation limitations.
+- Updated README platform status; documented unresolved ChatGPT research-loop discovery after the 1.0.2 retry.
+- Documentation only: immutable release 1.0.2 archives and skill versions are unchanged.
+
 ## 1.0.2 — native discovery candidate, 2026-10-06
 
 - Changed `research-loop` description to one quoted YAML line with the same parsed text after ChatGPT displayed 26 of the 27 skills and omitted this workflow.

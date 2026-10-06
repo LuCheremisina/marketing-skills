@@ -8,7 +8,7 @@ Reusable AI workflows for marketing research, campaign analytics, SEO/GEO, edito
 
 The library contains **27 original methodology workflows** and **14 licensed third-party engineering skills**. It follows the [Agent Skills format](https://agentskills.io/specification). The public packages contain no client profiles, account credentials or personal workstation paths. Brand, author, business and data profiles are supplied by the user at run time.
 
-Current package candidate: **1.0.2**. Individual skill versions are tracked independently in the catalogue.
+Published release: [**1.0.2**](https://github.com/LuCheremisina/marketing-skills/releases/tag/v1.0.2). Individual skill versions are tracked independently in the catalogue. See the [verification record dated 2026-10-06](docs/VERIFICATION-2026-10-06.md).
 
 ## Choose a workflow
 
@@ -30,14 +30,14 @@ See the [complete catalogue](docs/CATALOG.md) for inputs, outputs and required c
 
 | System | Distribution route | Practical status |
 |---|---|---|
-| Codex | Skill folders or skills plugin | Two workflows sampled in isolated Codex CLI; global installation and remaining workflows require acceptance |
-| Claude Code | Skill folders or plugin | Package checks completed; native run blocked by account authentication |
+| Codex | Skill folders or skills plugin | 41 skills installed and discovered; a representative global article workflow tested; remaining execution paths unverified |
+| Claude Code | Skill folders or plugin | 41 expected skills discovered; execution blocked by account OAuth401 |
 | Claude / Cowork | Supported account-side skill import | Import and execution not verified |
-| Cursor | Native Agent Skills | Client-side discovery and execution not verified |
-| ChatGPT | Skills-only plugin with portable `plugin.json` | Account import and execution not verified |
+| Cursor | Native Agent Skills | 41 skill folders installed; GUI discovery and execution remain unverified |
+| ChatGPT | Skills-only plugin with portable `plugin.json` | Both plugins installed: 26/27 authored and 14/14 vendor skills listed; one synthetic intake task tested; research-loop discovery unresolved |
 | Grok Bot | Saved skill library with complete instructions/resources | Transfer and execution not verified |
 
-Compatibility is recorded **per skill** in [catalog/skills.json](catalog/skills.json). `verified`, `requires_connection`, `not_verified` and `not_supported` describe practical execution, not marketing promises. File format compliance does not establish that every system can run scripts, access MCP tools, generate media or publish results.
+Release-baseline compatibility is recorded **per skill** in [catalog/skills.json](catalog/skills.json); later installation and sampled execution evidence is in the [dated verification record](docs/VERIFICATION-2026-10-06.md). `verified`, `requires_connection`, `not_verified` and `not_supported` describe practical execution, not marketing promises. File format compliance does not establish that every system can run scripts, access MCP tools, generate media or publish results.
 
 Start with [installation instructions](docs/INSTALL.md). Select only the skills you need, inspect the manifest and run the installer in dry-run mode. Never place credentials or client data inside an installed skill. Detailed platform guidance and official sources are in [PLATFORMS.md](docs/PLATFORMS.md).
 
@@ -53,7 +53,7 @@ Search and AI-search recommendations use current primary documentation. FAQPage 
 
 Immutable release packages carry individual skill versions, source commits and checksums. Third-party upstream versions remain distinct from local adaptation versions. A changed package must receive a new version; filesystem dates are not used to decide which copy is newer.
 
-Monthly source review is scheduled for **the 1st day at 00:00 Asia/Novosibirsk**. The workflow prepares a review PR and records source/license conflicts. It does not merge, install updates or publish a release. Runtime compatibility must be checked again after relevant changes. The library is current to its recorded verification date and may lag upstream between checks. See [governance](docs/GOVERNANCE.md) and [changelog](CHANGELOG.md).
+Monthly source review is scheduled for **the 1st day at 00:00 Asia/Novosibirsk**. The workflow is designed to prepare a review PR and record source/license conflicts. A live no-change source check passed; actual automatic PR creation remains a configuration and verification gate. It does not merge, install updates or publish a release. Runtime compatibility must be checked again after relevant changes. The library is current to its recorded verification date and may lag upstream between checks. See [governance](docs/GOVERNANCE.md) and [changelog](CHANGELOG.md).
 
 ## Methodology and attribution
 
