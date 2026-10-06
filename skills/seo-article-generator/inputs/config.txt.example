@@ -1,0 +1,9 @@
+# Конфиг проекта — заполните перед запуском пайплайна
+# Скопируйте этот файл в inputs/config.txt и подставьте значения
+
+SITE_URL=https://example.com
+AUTHOR_NAME=Имя Автора
+AUTHOR_ROLE=Роль / специализация автора
+AUTHOR_EXPERTISE=Краткое описание экспертизы (1–2 предложения)
+CTA_URL=https://example.com/contact
+BLOG_PREFIX=/blog/

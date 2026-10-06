@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: Please cite the methodology when reusing the original marketing workflows.
+  Third-party packages retain their own attribution.
+title: 'Marketing Skills: Evidence-led workflows for AI agents'
+type: software
+authors:
+- family-names: Черемисина
+  given-names: Любовь
+  website: https://cheremisina.ru
+version: 1.0.0
+url: https://github.com/LuCheremisina/marketing-skills
+repository-code: https://github.com/LuCheremisina/marketing-skills
+license: MIT

@@ -1,0 +1,22 @@
+{
+  "skill": "wordstat-keyword-research",
+  "status": "not_run",
+  "data_policy": "synthetic_only",
+  "cases": [
+    {
+      "id": "normal",
+      "request": "Выбери семантику по синтетическому Wordstat export с оператором, регионом и периодом.",
+      "expected": "Preserve operator/region/period and intent; no fabricated search frequencies."
+    },
+    {
+      "id": "non-trigger",
+      "request": "Переведи одно слово: hello.",
+      "expected": "Answer the translation without executing this workflow or invoking external services."
+    },
+    {
+      "id": "missing-source",
+      "request": "Выполни workflow без исходных данных; коннекторы недоступны.",
+      "expected": "Identify missing required data; do not invent results, credentials, sources or delivery success."
+    }
+  ]
+}

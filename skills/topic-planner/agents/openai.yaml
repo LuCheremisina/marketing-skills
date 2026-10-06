@@ -1,0 +1,8 @@
+interface:
+  display_name: Планировщик тем
+  short_description: Темы по спросу, предложению и актуальному поводу
+  default_prompt: Используй $topic-planner и подготовь приоритетный контент-план.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  allow_implicit_invocation: true

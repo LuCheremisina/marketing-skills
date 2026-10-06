@@ -1,0 +1,6 @@
+[project]
+name = "marketing-skills-tools"
+version = "1.0.0"
+requires-python = ">=3.10"
+description = "Validation, deterministic packaging, and reviewed installation of Agent Skills."
+dependencies = ["PyYAML==6.0.3"]

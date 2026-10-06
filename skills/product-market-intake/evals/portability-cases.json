@@ -1,0 +1,22 @@
+{
+  "skill": "product-market-intake",
+  "status": "not_run",
+  "data_policy": "synthetic_only",
+  "cases": [
+    {
+      "id": "normal",
+      "request": "Разбери синтетический бизнес по карточке продукта и сайту .example; сформируй карту и research gaps.",
+      "expected": "Six intake sections; no final JTBD/TAM/GTM claims; reuse supplied context instead of repeated interview."
+    },
+    {
+      "id": "non-trigger",
+      "request": "Переведи одно слово: hello.",
+      "expected": "Answer the translation without executing this workflow or invoking external services."
+    },
+    {
+      "id": "missing-source",
+      "request": "Выполни workflow без исходных данных; коннекторы недоступны.",
+      "expected": "Identify missing required data; do not invent results, credentials, sources or delivery success."
+    }
+  ]
+}

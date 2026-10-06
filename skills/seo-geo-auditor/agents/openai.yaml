@@ -1,0 +1,9 @@
+interface:
+  display_name: Полный SEO/GEO-аудит сайта
+  short_description: Автоматический crawl и приоритетный отчёт по сайту
+  default_prompt: Используй $seo-geo-auditor для полного автоматизированного аудита
+    сайта.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  allow_implicit_invocation: true

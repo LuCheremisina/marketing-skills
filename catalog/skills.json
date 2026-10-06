@@ -1,0 +1,2899 @@
+{
+  "schema_version": 1,
+  "release_candidate": "1.0.0",
+  "checked_at": "2026-10-06T05:03:13.643423+00:00",
+  "repository": "https://github.com/LuCheremisina/marketing-skills",
+  "status_vocabulary": [
+    "verified",
+    "requires_connection",
+    "not_verified",
+    "not_supported"
+  ],
+  "skills": [
+    {
+      "id": "audit-unisender-email",
+      "path": "skills/audit-unisender-email",
+      "origin": "authored",
+      "version": "2.0.0",
+      "license": "MIT",
+      "author": "Любовь Черемисина",
+      "methodologist": "Любовь Черемисина",
+      "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/audit-unisender-email",
+      "source_status": "reviewed-authorized-universal-candidate",
+      "category": "analytics",
+      "title": "Email delivery audit",
+      "inputs": "Delivery/click export; target site; campaign period",
+      "output": "Evidence ledger, mismatches and prioritized fixes",
+      "required_capabilities": "UniSender and site analytics read access or authorized exports",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "verification": {
+        "structure": "validated",
+        "offline_instruction_evaluation": "27 workflows, three synthetic scenarios each; single evaluator context",
+        "native_runtime": "not_verified"
+      },
+      "redistribution": "MIT-authored",
+      "description": "Проводит read-only аудит email-рассылок UniSender: delivery, открытия, уникальные клики, UTM-трафик, заявки и продажи. Использовать когда нужен отчёт, диагностика CTR/CTOR, resend или post-click качества без подготовки нового письма. Для письма по готовым ссылкам использовать универсальный workflow подготовки письма; для полного цикла от накопительного аудита до черновика UniSender — workflow подготовки и согласования email-кампании.",
+      "content_sha256": "28209b4aba67d2f067d310c0e2b2a12c9e79cafe2e72debf7ec54a2105f49024",
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "brand-profile-guide",
+      "path": "skills/brand-profile-guide",
+      "origin": "authored",
+      "version": "1.0.0",
+      "license": "MIT",
+      "author": "Любовь Черемисина",
+      "methodologist": "Любовь Черемисина",
+      "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/brand-profile-guide",
+      "source_status": "reviewed-authorized-universal-candidate",
+      "category": "content",
+      "title": "Brand profile and editorial voice",
+      "inputs": "Brand profile; audience; claims policy; draft",
+      "output": "Brand-aligned draft with unsupported claims removed",
+      "required_capabilities": "User-provided profile",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "verification": {
+        "structure": "validated",
+        "offline_instruction_evaluation": "27 workflows, three synthetic scenarios each; single evaluator context",
+        "native_runtime": "not_verified"
+      },
+      "redistribution": "MIT-authored",
+      "description": "Применяет предоставленный бренд-профиль к тексту, дизайну, UI и контенту, сохраняя существующие токены и позиционирование. Использовать при создании материалов в заданном бренде или проверке их согласованности; не выдумывает биографию и бизнес-факты.",
+      "content_sha256": "67089ebde0b11a1402d7d92d29604d5c3f632f1a380a1429c4fd01c7edf32004",
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "brief-acceptance",
+      "path": "skills/brief-acceptance",
+      "origin": "authored",
+      "version": "1.0.0",
+      "license": "MIT",
+      "author": "Любовь Черемисина",
+      "methodologist": "Любовь Черемисина",
+      "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/brief-acceptance",
+      "source_status": "reviewed-authorized-universal-candidate",
+      "category": "operations",
+      "title": "Requirement acceptance review",
+      "inputs": "Original brief; accepted changes; deliverables; evidence",
+      "output": "Requirement register with verified and pending states",
+      "required_capabilities": "Read access to deliverables",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "verification": {
+        "structure": "validated",
+        "offline_instruction_evaluation": "27 workflows, three synthetic scenarios each; single evaluator context",
+        "native_runtime": "not_verified"
+      },
+      "redistribution": "MIT-authored",
+      "description": "Проверяет полноту многоэтапной поставки по исходному брифу и последующим решениям пользователя. Применять при приёмке продукта, сайта, интеграции или сложного результата с риском потери требований; не заменяет технический аудит или обычный ответ на вопрос.",
+      "content_sha256": "8390b830a2368516e9f16e0473231017482b066e71707aec63fbec5959e0cf6c",
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "build-predictive-growth-dashboard",
+      "path": "skills/build-predictive-growth-dashboard",
+      "origin": "authored",
+      "version": "2.0.0",
+      "license": "MIT",
+      "author": "Любовь Черемисина",
+      "methodologist": "Любовь Черемисина",
+      "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/build-predictive-growth-dashboard",
+      "source_status": "reviewed-authorized-universal-candidate",
+      "category": "analytics",
+      "title": "Growth scenarios and dashboard",
+      "inputs": "Metric definitions; period; actuals; assumptions",
+      "output": "Dashboard, scenario limits and sensitivity",
+      "required_capabilities": "Authorized metric export; Python for rendering",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "verification": {
+        "structure": "validated",
+        "offline_instruction_evaluation": "27 workflows, three synthetic scenarios each; single evaluator context",
+        "native_runtime": "not_verified"
+      },
+      "redistribution": "MIT-authored",
+      "description": "Создавать и обновлять воспроизводимые интерактивные управленческие дашборды роста сайта с прогнозом на 7 и 30 дней, статистическим диапазоном, базовым, оптимистичным и пессимистичным сценариями, анализом Яндекс.Метрики, Яндекс.Вебмастера, Wordstat, CRM и бизнес-ценности трафика, блокерами и планом действий. Использовать когда нужен предиктивный SEO-дашборд, прогноз органического или общего трафика, поисковой воронки, лидов или выручки, сценарное планирование, панель спроса и видимости, ответ «сколько ожидать, почему и что сделать для роста», обновление опубликованной панели либо оценка качества предыдущего прогноза.",
+      "content_sha256": "1cbe848131b6b0e57437cad5d58572e5833f9e03dab3834d54a4a83c4768e7a9",
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "content-carousel",
+      "path": "skills/content-carousel",
+      "origin": "authored",
+      "version": "1.0.0",
+      "license": "MIT",
+      "author": "Любовь Черемисина",
+      "methodologist": "Любовь Черемисина",
+      "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/content-carousel",
+      "source_status": "reviewed-authorized-universal-candidate",
+      "category": "content",
+      "title": "Article to social carousel",
+      "inputs": "Complete source text; brand; audience; slide format",
+      "output": "Slide sequence and visual instructions",
+      "required_capabilities": "Image capability only when actual slide rendering requested",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "verification": {
+        "structure": "validated",
+        "offline_instruction_evaluation": "27 workflows, three synthetic scenarios each; single evaluator context",
+        "native_runtime": "not_verified"
+      },
+      "redistribution": "MIT-authored",
+      "description": "Превращает готовую статью или пост в карусель для соцсетей с последовательным сюжетом, единым оформлением и проверкой читаемости. Применять для запроса серии слайдов по материалу; не для одиночной обложки, презентации или публикации в соцсети.",
+      "content_sha256": "c422034a18110acfc12f59d26c559dc5459643c4b8f49f70ad6d14ef81896f55",
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "daily-ai-news-digest",
+      "path": "skills/daily-ai-news-digest",
+      "origin": "authored",
+      "version": "2.0.0",
+      "license": "MIT",
+      "author": "Любовь Черемисина",
+      "methodologist": "Любовь Черемисина",
+      "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/daily-ai-news-digest",
+      "source_status": "reviewed-authorized-universal-candidate",
+      "category": "research",
+      "title": "AI news digest",
+      "inputs": "Period; timezone; sources; delivery intent",
+      "output": "Sourced digest with freshness and duplicate checks",
+      "required_capabilities": "Search/RSS; Telegram only for explicit delivery",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "verification": {
+        "structure": "validated",
+        "offline_instruction_evaluation": "27 workflows, three synthetic scenarios each; single evaluator context",
+        "native_runtime": "not_verified"
+      },
+      "redistribution": "MIT-authored",
+      "description": "Собирает, дедуплицирует, проверяет и переводит AI-новости, формирует русский HTML-дайджест и при явном разрешении отправляет его подписчикам Telegram-бота. Использовать для запуска, проверки или настройки ежедневной AI-сводки. Не использовать для обычного ответа о новостях в чате или email-дайджеста.",
+      "content_sha256": "0e59c4245916dcc02c303c60f77ca5b7b7f2f43c6dc0709d08ac527cf8a1962d",
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "deep-research",
+      "path": "skills/deep-research",
+      "origin": "authored",
+      "version": "2.0.0",
+      "license": "MIT",
+      "author": "Любовь Черемисина",
+      "methodologist": "Любовь Черемисина",
+      "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/deep-research",
+      "source_status": "reviewed-authorized-universal-candidate",
+      "category": "research",
+      "title": "Evidence-led research",
+      "inputs": "Question; decision; scope; evidence requirements",
+      "output": "Verified findings, hypotheses and recommendations",
+      "required_capabilities": "Search/read access or supplied sources",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "verification": {
+        "structure": "validated",
+        "offline_instruction_evaluation": "27 workflows, three synthetic scenarios each; single evaluator context",
+        "native_runtime": "not_verified"
+      },
+      "redistribution": "MIT-authored",
+      "description": "Глубокое исследование с отслеживанием источников, верификацией утверждений и генерацией структурированного отчёта. Использовать когда нужны: комплексный анализ, сравнение технологий/продуктов, обзор состояния рынка, многоперспективное исследование, анализ трендов. Триггеры: 'глубокое исследование', 'comprehensive analysis', 'research report', 'сравни X и Y', 'state of the art', 'проанализируй тренды'. Не использовать для: простых поисков, отладки, вопросов, где хватит 1-2 запросов.",
+      "content_sha256": "55b636ded7d597383e22e09986a903e812fb8a66e8342e8270348c4100361a66",
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "direct-analyst",
+      "path": "skills/direct-analyst",
+      "origin": "authored",
+      "version": "2.0.0",
+      "license": "MIT",
+      "author": "Любовь Черемисина",
+      "methodologist": "Любовь Черемисина",
+      "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/direct-analyst",
+      "source_status": "reviewed-authorized-universal-candidate",
+      "category": "analytics",
+      "title": "Campaign management report",
+      "inputs": "Yandex Direct and Metrika exports; goals; attribution",
+      "output": "Source-separated performance report and decision options",
+      "required_capabilities": "Direct analytics engine or normalized exports",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "verification": {
+        "structure": "validated",
+        "offline_instruction_evaluation": "27 workflows, three synthetic scenarios each; single evaluator context",
+        "native_runtime": "not_verified"
+      },
+      "redistribution": "MIT-authored",
+      "description": "Управленческий отчёт по Яндекс.Директ и Метрике поверх direct-analytics-skill.\nСтроит Executive Scorecard, сравнения периодов, аномалии с финансовым\nимпактом, прогноз и приоритетный план действий. Используй для запросов\n«отчёт по Директу», «что с рекламой вчера», «аномалии», «что делать» и\n«глубокий разбор кампании».\n",
+      "content_sha256": "89b11a33e5925ef77f09ba8a02d24ab8887f77681960cb8e86c0d639704526c4",
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "direct-analytics-skill",
+      "path": "skills/direct-analytics-skill",
+      "origin": "authored",
+      "version": "2.0.0",
+      "license": "MIT",
+      "author": "Любовь Черемисина",
+      "methodologist": "Любовь Черемисина",
+      "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/direct-analytics-skill",
+      "source_status": "reviewed-authorized-universal-candidate",
+      "category": "analytics",
+      "title": "Read-only campaign analytics",
+      "inputs": "Project config; dates; requested metrics",
+      "output": "Read-only matched tables and unattributed revenue",
+      "required_capabilities": "Yandex Direct/Metrika credentials or SQLite/exports",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "verification": {
+        "structure": "validated",
+        "offline_instruction_evaluation": "27 workflows, three synthetic scenarios each; single evaluator context",
+        "native_runtime": "not_verified"
+      },
+      "redistribution": "MIT-authored",
+      "description": "Read-only диагностика Яндекс.Директ + Яндекс.Метрика. Собирает дневные\nфакты по независимым разрезам, показывает Direct и Метрику параллельно,\nпроверяет reconciliation и выпускает evidence-first diagnosis records.\nТриггеры: \"рекламная аналитика\", \"расход Директа\", \"эффективность кампаний\",\n\"матчинг Метрики\", \"ДРР\", \"РОАС\", \"ЦПА\", \"аномалии\", \"почему упала выручка\".\n",
+      "content_sha256": "3d9b28a304b5f4396c7951919459f7d2fc1dfbe6d196b74d0bba370da9116acb",
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "editorial-cover-prompts",
+      "path": "skills/editorial-cover-prompts",
+      "origin": "authored",
+      "version": "1.0.0",
+      "license": "MIT",
+      "author": "Любовь Черемисина",
+      "methodologist": "Любовь Черемисина",
+      "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/editorial-cover-prompts",
+      "source_status": "reviewed-authorized-universal-candidate",
+      "category": "content",
+      "title": "Article cover prompts",
+      "inputs": "Full article; visual brand profile; format",
+      "output": "Editable generation prompts and concept rationale",
+      "required_capabilities": "Source text; image generator only for later execution",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "verification": {
+        "structure": "validated",
+        "offline_instruction_evaluation": "27 workflows, three synthetic scenarios each; single evaluator context",
+        "native_runtime": "not_verified"
+      },
+      "redistribution": "MIT-authored",
+      "description": "Создаёт визуальную концепцию и промпты обложки по статье или тезисам с учётом заданного бренд-профиля. Применять для запроса промптов или брифа обложки; готовый файл изображения и его проверку обозначать отдельно.",
+      "content_sha256": "50dc711e1eeb0a506a88080970d0c73a89183440276ad7471054ebb3a6a9d8b3",
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "expert-article-workflow",
+      "path": "skills/expert-article-workflow",
+      "origin": "authored",
+      "version": "3.0.0",
+      "license": "MIT",
+      "author": "Любовь Черемисина",
+      "methodologist": "Любовь Черемисина",
+      "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/expert-article-workflow",
+      "source_status": "reviewed-authorized-universal-candidate",
+      "category": "content",
+      "title": "Expert article with evidence",
+      "inputs": "Brief; source ledger; author profile; optional site profile",
+      "output": "Draft/review; validated HTML integration when inputs complete",
+      "required_capabilities": "Search; file access; Python validators",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "verification": {
+        "structure": "validated",
+        "offline_instruction_evaluation": "27 workflows, three synthetic scenarios each; single evaluator context",
+        "native_runtime": "codex_isolated_cli_sample_verified; global installation and full production workflow not_verified",
+        "native_test_scope": "Explicit resource reads and synthetic response/refusal cases; no independent trigger test or external integrations."
+      },
+      "redistribution": "MIT-authored",
+      "description": "Создаёт доказательные экспертные статьи: исследование, бриф, структура, черновик, проверка, HTML-фрагмент и подготовка к публикации. Применять для статьи по источникам или транскрипту, обновления материала и интеграционного пакета; публикация выполняется только по явному поручению.",
+      "content_sha256": "e531d8ea3d2f5821d5f4aeef9314047915dbcde529258b2966239f3cd110cfc4",
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "industry-news-digest",
+      "path": "skills/industry-news-digest",
+      "origin": "authored",
+      "version": "2.0.0",
+      "license": "MIT",
+      "author": "Любовь Черемисина",
+      "methodologist": "Любовь Черемисина",
+      "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/industry-news-digest",
+      "source_status": "reviewed-authorized-universal-candidate",
+      "category": "research",
+      "title": "Industry news monitoring",
+      "inputs": "Industry; period; sources; timezone; destination",
+      "output": "Sourced niche digest with deduplication",
+      "required_capabilities": "RSS/search; delivery connector only with authorization",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "verification": {
+        "structure": "validated",
+        "offline_instruction_evaluation": "27 workflows, three synthetic scenarios each; single evaluator context",
+        "native_runtime": "not_verified"
+      },
+      "redistribution": "MIT-authored",
+      "description": "Периодический дайджест новостей для любой ниши и бизнеса: RSS-сбор за N дней, кластеризация похожих новостей из разных источников, ранжирование по приоритетным брендам/товарам клиента, LLM-фейкчек и перевод. При первом запуске в проекте проводит короткое интервью и сохраняет профиль бизнеса (ниша, бренды, источники, язык) в проектном файле digest-config.json — дальше работает без повторных вопросов.\nИспользовать когда нужно: дайджест новостей по нише/индустрии, \"что нового по [бренду/теме]\", еженедельная/ежедневная сводка для контента в блог, соцсети или рассылку, мониторинг конкретных брендов или товаров клиента.\nТриггеры: «дайджест новостей», «новости за неделю/месяц», «что нового по [тема]», «сводка по индустрии», «news digest», «настрой дайджест для [бизнес]».\n",
+      "content_sha256": "6a463cfccda3745cb69d24ee82d61a70802cd2a7b1d3cb879916888b47518d08",
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "news-cover-production",
+      "path": "skills/news-cover-production",
+      "origin": "authored",
+      "version": "1.0.0",
+      "license": "MIT",
+      "author": "Любовь Черемисина",
+      "methodologist": "Любовь Черемисина",
+      "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/news-cover-production",
+      "source_status": "reviewed-authorized-universal-candidate",
+      "category": "content",
+      "title": "News cover generation and export",
+      "inputs": "Verified news; brand; image source; dimensions",
+      "output": "Concept, rendered cover if capability exists, bounded WebP",
+      "required_capabilities": "Image generation; Pillow for export",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "verification": {
+        "structure": "validated",
+        "offline_instruction_evaluation": "27 workflows, three synthetic scenarios each; single evaluator context",
+        "native_runtime": "not_verified"
+      },
+      "redistribution": "MIT-authored",
+      "description": "Готовит обложку новости по тексту или URL: редакционная метафора, генерация доступным инструментом, визуальная проверка и экспорт файлов. Применять для готовой обложки новости; учитывает бренд-профиль и параметры целевого сайта.",
+      "content_sha256": "8f12b72329d56249a8c1a2337bb3764e68e31ea18ac9b38354d26423f6abf933",
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "news-editorial-workflow",
+      "path": "skills/news-editorial-workflow",
+      "origin": "authored",
+      "version": "1.0.0",
+      "license": "MIT",
+      "author": "Любовь Черемисина",
+      "methodologist": "Любовь Черемисина",
+      "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/news-editorial-workflow",
+      "source_status": "reviewed-authorized-universal-candidate",
+      "category": "content",
+      "title": "News editorial workflow",
+      "inputs": "News source; audience; project architecture; approval",
+      "output": "Fact-checked draft and integration handoff",
+      "required_capabilities": "Read/search; project build tools only for actual integration",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "verification": {
+        "structure": "validated",
+        "offline_instruction_evaluation": "27 workflows, three synthetic scenarios each; single evaluator context",
+        "native_runtime": "not_verified"
+      },
+      "redistribution": "MIT-authored",
+      "description": "Создаёт доказательную новость с управленческим разбором, метаданными, обложкой и интеграционным пакетом для существующего сайта. Применять для новости по первичным источникам, обновления материала или подготовки публикации; не меняет production без явного поручения.",
+      "content_sha256": "40ef134f794e4eb12602057348c2b4001a8e94a3aa3cbf71958050a5bfe67217",
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "news-voiceover-script",
+      "path": "skills/news-voiceover-script",
+      "origin": "authored",
+      "version": "1.0.0",
+      "license": "MIT",
+      "author": "Любовь Черемисина",
+      "methodologist": "Любовь Черемисина",
+      "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/news-voiceover-script",
+      "source_status": "reviewed-authorized-universal-candidate",
+      "category": "content",
+      "title": "News voiceover script",
+      "inputs": "Complete news; target duration; optional narrator profile",
+      "output": "Spoken script, fact check, timing estimate and disclaimer status",
+      "required_capabilities": "Source text; Node.js for optional mechanical validation",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "verification": {
+        "structure": "validated",
+        "offline_instruction_evaluation": "27 workflows, three synthetic scenarios each; single evaluator context",
+        "native_runtime": "codex_isolated_cli_sample_verified; global installation and full production workflow not_verified",
+        "native_test_scope": "Explicit resource reads and synthetic response/refusal cases; no independent trigger test or external integrations."
+      },
+      "redistribution": "MIT-authored",
+      "description": "Преобразует полный текст новости в фактологически точный разговорный сценарий озвучки с заданной длительностью и профилем голоса. Применять для подготовки, сокращения и проверки аудиосценария; не для синтеза голоса или монтажа аудио.",
+      "content_sha256": "45026d4082ea9ee12d19ce7dec0a4542784dd17a177982863ec1270b12d9bf40",
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "product-market-intake",
+      "path": "skills/product-market-intake",
+      "origin": "authored",
+      "version": "3.0.0",
+      "license": "MIT",
+      "author": "Любовь Черемисина",
+      "methodologist": "Любовь Черемисина",
+      "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/product-market-intake",
+      "source_status": "reviewed-authorized-universal-candidate",
+      "category": "strategy",
+      "title": "Product and market intake",
+      "inputs": "Business goals; product; audience; constraints; evidence",
+      "output": "Structured intake, gaps and next research decisions",
+      "required_capabilities": "User input or authorized business documents",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "verification": {
+        "structure": "validated",
+        "offline_instruction_evaluation": "27 workflows, three synthetic scenarios each; single evaluator context",
+        "native_runtime": "not_verified"
+      },
+      "redistribution": "MIT-authored",
+      "description": "Структурирует вводные о новом бизнесе, клиенте или нише в Business Map, Product Map, Market Context, Hypothesized Segments, Research Gaps и Research Brief. Использовать для разбора сайта, сбора вводных и подготовки handoff к исследованию. Сначала переиспользует доступный контекст, затем при необходимости задаёт один объединённый вопрос; не проводит повторное длинное интервью и не смешивает факты с гипотезами.",
+      "content_sha256": "734dce2b82b8305273cedb132c65b13382305c9a8c9caf4696fe0c4697f3c5fb",
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "research-loop",
+      "path": "skills/research-loop",
+      "origin": "authored",
+      "version": "1.0.0",
+      "license": "MIT",
+      "author": "Любовь Черемисина",
+      "methodologist": "Любовь Черемисина",
+      "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/research-loop",
+      "source_status": "reviewed-authorized-universal-candidate",
+      "category": "research",
+      "title": "Client history and reactivation eligibility",
+      "inputs": "Company identity; available internal evidence; checkpoint",
+      "output": "Client state, evidence gaps and safe next-process routing",
+      "required_capabilities": "Read-only CRM/mail/finance access; otherwise unknown/human review",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "verification": {
+        "structure": "validated",
+        "offline_instruction_evaluation": "27 workflows, three synthetic scenarios each; single evaluator context",
+        "native_runtime": "not_verified"
+      },
+      "redistribution": "MIT-authored",
+      "description": "Исследовать существующего или бывшего клиента перед реактивацией строго по RESEARCH-LOOP-001 v1.0. Использовать для Research Loop, проверки истории клиента, CLIENT_STATE, REACTIVATION_ELIGIBILITY и безопасного routing. Адаптивно собирать evidence из доступных CRM, почты, документов и финансов; не запускать продажи или реактивацию.",
+      "content_sha256": "a29c223944920d0b688b77833bb48945bbc1c86eec5dee1b7012b5d1333ac5f0",
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "seo-article-generator",
+      "path": "skills/seo-article-generator",
+      "origin": "authored",
+      "version": "2.0.0",
+      "license": "MIT",
+      "author": "Любовь Черемисина",
+      "methodologist": "Любовь Черемисина",
+      "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/seo-article-generator",
+      "source_status": "reviewed-authorized-universal-candidate",
+      "category": "seo",
+      "title": "SEO/GEO article workflow",
+      "inputs": "Topic; intent; target site; evidence; author inputs",
+      "output": "Sourced article, metadata and publication handoff",
+      "required_capabilities": "Search/keyword tools or authorized exports",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "verification": {
+        "structure": "validated",
+        "offline_instruction_evaluation": "27 workflows, three synthetic scenarios each; single evaluator context",
+        "native_runtime": "not_verified"
+      },
+      "redistribution": "MIT-authored",
+      "description": "Запускает полный 18-этапный конвейер SEO/GEO-статьи для сайтов и брендов: исследование, семантика, HTML 10–16 тыс. знаков, метаданные, Schema.org, обложка и GEO-отчёт. Использовать когда пользователь явно просит полный конвейер или весь публикационный пакет.",
+      "content_sha256": "36b5f46d0a42a9ee0c955a7e3ff8b5326d026fcf3b74f665c462147919230ca0",
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "seo-demand-analytics",
+      "path": "skills/seo-demand-analytics",
+      "origin": "authored",
+      "version": "2.0.0",
+      "license": "MIT",
+      "author": "Любовь Черемисина",
+      "methodologist": "Любовь Черемисина",
+      "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/seo-demand-analytics",
+      "source_status": "reviewed-authorized-universal-candidate",
+      "category": "seo",
+      "title": "Search demand and visibility analytics",
+      "inputs": "Site; query set; periods; region; exports",
+      "output": "Demand and visibility assessment with data limits",
+      "required_capabilities": "Search analytics and Wordstat connector or normalized exports",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "verification": {
+        "structure": "validated",
+        "offline_instruction_evaluation": "27 workflows, three synthetic scenarios each; single evaluator context",
+        "native_runtime": "not_verified"
+      },
+      "redistribution": "MIT-authored",
+      "description": "SEO-аналитика спроса и видимости для сайта в Яндексе через MCP. Использовать ВСЕГДА когда нужно: собрать топ запросов по нише и региону через Яндекс.Wordstat, получить позиции и клики из Яндекс.Вебмастера, проанализировать органический трафик из Яндекс.Метрики, найти точки роста (высокий спрос — нет видимости) и быстрые победы, сформировать HTML-дашборд и AI-инсайты. Триггеры: аналитика спроса, SEO по региону, видимость в поиске, органический трафик по нише, топ запросов региона, SEO-отчёт Яндекс, анализ видимости сайта, где теряем трафик, какие запросы не в топе, точки роста SEO, семантика ниши.\n",
+      "content_sha256": "73089e9335be9e0c0c3565fe51b7b2860dbe7331c75d18b5ac79ac815cb343c3",
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "seo-geo-auditor",
+      "path": "skills/seo-geo-auditor",
+      "origin": "authored",
+      "version": "2.0.0",
+      "license": "MIT",
+      "author": "Любовь Черемисина",
+      "methodologist": "Любовь Черемисина",
+      "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/seo-geo-auditor",
+      "source_status": "reviewed-authorized-universal-candidate",
+      "category": "seo",
+      "title": "Website SEO/GEO audit",
+      "inputs": "URLs/HTML; site intent; crawler export; target channels",
+      "output": "Contextual technical findings and preliminary score",
+      "required_capabilities": "HTTP/crawler/visual access; requests and BeautifulSoup for script",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "verification": {
+        "structure": "validated",
+        "offline_instruction_evaluation": "27 workflows, three synthetic scenarios each; single evaluator context",
+        "native_runtime": "not_verified"
+      },
+      "redistribution": "MIT-authored",
+      "description": "Проводит полный автоматизированный SEO/GEO-аудит сайта: запускает краулер, собирает мета-теги, заголовки, Schema.org, robots.txt, ссылки и изображения, затем формирует отчёт со скорингом и приоритетами. Использовать для аудита всего сайта или набора URL. Для одной страницы, одного метаописания, контент-брифа, Schema.org или независимой проверки отдельного вывода использовать seo-geo-auditor-pro.",
+      "content_sha256": "c04d3666a17bb345095fc421d93df292570631331e1ccd61c7d1500f00783aa1",
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "seo-geo-auditor-pro",
+      "path": "skills/seo-geo-auditor-pro",
+      "origin": "authored",
+      "version": "3.0.0",
+      "license": "MIT",
+      "author": "Любовь Черемисина",
+      "methodologist": "Любовь Черемисина",
+      "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/seo-geo-auditor-pro",
+      "source_status": "reviewed-authorized-universal-candidate",
+      "category": "seo",
+      "title": "Page and content SEO/GEO review",
+      "inputs": "Page/source; audit objective; market; channel",
+      "output": "Evidence-backed page/content/schema review",
+      "required_capabilities": "Page/search tools or supplied HTML",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "verification": {
+        "structure": "validated",
+        "offline_instruction_evaluation": "27 workflows, three synthetic scenarios each; single evaluator context",
+        "native_runtime": "not_verified"
+      },
+      "redistribution": "MIT-authored",
+      "description": "Выполняет точечный доказательный SEO, GEO и AEO-анализ: одной страницы, одного title или метаописания, контент-брифа, Schema.org, внутренней ссылки, индексируемости URL либо спорного пункта чужого аудита. Использовать для короткого запроса «проверь одно метаописание». Для полного автоматизированного crawl и отчёта по всему сайту использовать seo-geo-auditor.",
+      "content_sha256": "05dd189650ffce16ddaee91d8d82842446073024d1f77f5234ae8a498de0e182",
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "short-video-production",
+      "path": "skills/short-video-production",
+      "origin": "authored",
+      "version": "1.0.0",
+      "license": "MIT",
+      "author": "Любовь Черемисина",
+      "methodologist": "Любовь Черемисина",
+      "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/short-video-production",
+      "source_status": "reviewed-authorized-universal-candidate",
+      "category": "content",
+      "title": "Short video production",
+      "inputs": "Source text; audience; duration; brand; assets",
+      "output": "Storyboard; Remotion project/render if capability exists",
+      "required_capabilities": "Remotion/media runtime for real rendering; otherwise storyboard",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "verification": {
+        "structure": "validated",
+        "offline_instruction_evaluation": "27 workflows, three synthetic scenarios each; single evaluator context",
+        "native_runtime": "not_verified"
+      },
+      "redistribution": "MIT-authored",
+      "description": "Превращает текст или статью в короткий вертикальный ролик: сценарий, визуальный preview, монтаж присланного голоса и медиа, рендер и приёмка. Применять для полного или продолженного производства видео; не для одиночных статичных обложек.",
+      "content_sha256": "96107c4e608f6de27e37e341c3b0172f8109cc61187715dd63a4336f9248111b",
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "skill-regression-check",
+      "path": "skills/skill-regression-check",
+      "origin": "authored",
+      "version": "1.0.0",
+      "license": "MIT",
+      "author": "Любовь Черемисина",
+      "methodologist": "Любовь Черемисина",
+      "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/skill-regression-check",
+      "source_status": "reviewed-authorized-universal-candidate",
+      "category": "operations",
+      "title": "Skill regression review",
+      "inputs": "Skill; concrete failure; input; expected behavior",
+      "output": "Reproduction evidence and focused regression verdict",
+      "required_capabilities": "Skill resource reads and applicable test runtime",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "verification": {
+        "structure": "validated",
+        "offline_instruction_evaluation": "27 workflows, three synthetic scenarios each; single evaluator context",
+        "native_runtime": "not_verified"
+      },
+      "redistribution": "MIT-authored",
+      "description": "Воспроизводит конкретные ошибки существующего навыка и проверяет узкое исправление на одинаковых входах до и после. Использовать при запросе исправить нестабильный навык или проверить регрессию, не для обычного создания навыков и не для автоматического самообучения.",
+      "content_sha256": "f9e3233d6774eb0a506ef8e8dea6162ac042d5d360970b13e549791f43e6ed1f",
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "telegram-content-creator",
+      "path": "skills/telegram-content-creator",
+      "origin": "authored",
+      "version": "2.0.0",
+      "license": "MIT",
+      "author": "Любовь Черемисина",
+      "methodologist": "Любовь Черемисина",
+      "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/telegram-content-creator",
+      "source_status": "reviewed-authorized-universal-candidate",
+      "category": "content",
+      "title": "Telegram content planning",
+      "inputs": "Audience; positioning; source material; editorial goal",
+      "output": "Content plan and drafts with source checks",
+      "required_capabilities": "Authorized sources; explicit permission for sending",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "verification": {
+        "structure": "validated",
+        "offline_instruction_evaluation": "27 workflows, three synthetic scenarios each; single evaluator context",
+        "native_runtime": "not_verified"
+      },
+      "redistribution": "MIT-authored",
+      "description": "Создаёт посты и серии постов для Telegram по runtime-профилю бренда, аудитории, цели и исходной фактуре. Использовать когда нужно превратить новость, кейс, наблюдение или тезис в готовый текст для Telegram. Результат — черновик в согласованном голосе; Skill не публикует его автоматически.",
+      "content_sha256": "f02c2a99638be39b138d4d0b7f825db2d96b8566d1c374b70e7704183c6e92be",
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "topic-planner",
+      "path": "skills/topic-planner",
+      "origin": "authored",
+      "version": "3.0.0",
+      "license": "MIT",
+      "author": "Любовь Черемисина",
+      "methodologist": "Любовь Черемисина",
+      "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/topic-planner",
+      "source_status": "reviewed-authorized-universal-candidate",
+      "category": "strategy",
+      "title": "Topic and content planning",
+      "inputs": "Audience; business goals; demand data; existing content",
+      "output": "Prioritized topics, intent and evidence gaps",
+      "required_capabilities": "Keyword/search data or supplied exports",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "verification": {
+        "structure": "validated",
+        "offline_instruction_evaluation": "27 workflows, three synthetic scenarios each; single evaluator context",
+        "native_runtime": "not_verified"
+      },
+      "redistribution": "MIT-authored",
+      "description": "Подбирает темы и контент-планы для любого бизнеса по пересечению спроса, каталога и актуального инфоповода. Использовать для запросов «что писать в блог», «подбери темы», «контент-план», «проверь спрос на тему». Сначала переиспользует контекст проекта; недостающие критичные данные запрашивает одним сообщением. Клиентский профиль хранится отдельно от пакета skill.",
+      "content_sha256": "6419cbd184fca372120cf6a2751311907164371e91989ba6716f9f3795f46e76",
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "wordstat-keyword-research",
+      "path": "skills/wordstat-keyword-research",
+      "origin": "authored",
+      "version": "2.0.0",
+      "license": "MIT",
+      "author": "Любовь Черемисина",
+      "methodologist": "Любовь Черемисина",
+      "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/wordstat-keyword-research",
+      "source_status": "reviewed-authorized-universal-candidate",
+      "category": "seo",
+      "title": "Yandex keyword research",
+      "inputs": "Seed queries; geography; period; intent",
+      "output": "Keyword groups and query metrics with source dates",
+      "required_capabilities": "Wordstat access or authorized export",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "verification": {
+        "structure": "validated",
+        "offline_instruction_evaluation": "27 workflows, three synthetic scenarios each; single evaluator context",
+        "native_runtime": "not_verified"
+      },
+      "redistribution": "MIT-authored",
+      "description": "Подбор и анализ SEO-семантики через Яндекс.Wordstat MCP. Использовать ВСЕГДА когда нужно: подобрать ключевые слова для статьи или страницы, проверить частотность запросов, собрать семантическое ядро, найти похожие и связанные запросы, проанализировать тренды и сезонность, сравнить спрос по регионам. Триггеры: ключевые слова, семантика, Wordstat, частотность, SEO-запросы, семантическое ядро, подобрать ключи, проверить спрос, сезонность запроса, региональный спрос, семантика для статьи.\n",
+      "content_sha256": "af890db151556d8bba77857e0e037da91f402d1eb441082fa524b0b1f5aeab3d",
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "wordstat-trend-radar",
+      "path": "skills/wordstat-trend-radar",
+      "origin": "authored",
+      "version": "2.0.0",
+      "license": "MIT",
+      "author": "Любовь Черемисина",
+      "methodologist": "Любовь Черемисина",
+      "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/wordstat-trend-radar",
+      "source_status": "reviewed-authorized-universal-candidate",
+      "category": "seo",
+      "title": "Search trend radar",
+      "inputs": "Query series; region; time window; comparison",
+      "output": "Trend signals, seasonal limits and next checks",
+      "required_capabilities": "Wordstat/time-series exports; Python analysis",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "verification": {
+        "structure": "validated",
+        "offline_instruction_evaluation": "27 workflows, three synthetic scenarios each; single evaluator context",
+        "native_runtime": "not_verified"
+      },
+      "redistribution": "MIT-authored",
+      "description": "Анализировать исторический спрос Яндекс.Wordstat по конкретному проекту на основании обязательного реестра товаров, услуг, аудиторий, задач клиентов, URL, разрешённых и запрещённых тем; стабильно создавать семантические кластеры, находить растущие, прорывные, сезонные и устойчиво падающие направления и превращать сигналы в идеи SEO/GEO-контента, посадочных страниц, товаров и услуг. Использовать при мониторинге трендов Wordstat, прогнозе спроса, поиске растущих или падающих кластеров, контенте под растущий спрос, несезонном снижении категории и регулярном радаре спроса.",
+      "content_sha256": "7bb62acb062d2f7747dd15e7fb79a5da6fcdf46ffd7baf4231c6c43cd3e76753",
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "agents-sdk",
+      "path": "vendor/skills/agents-sdk",
+      "origin": "third_party",
+      "version": null,
+      "description": "Build, debug, or review Cloudflare Agents SDK applications using the agents package.",
+      "upstream_repository": "cloudflare/skills",
+      "upstream_commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
+      "source_url": "https://github.com/cloudflare/skills/tree/41e0d19858946d18af9ee2c2feebbe2e11d829ff/skills/agents-sdk",
+      "license": "Apache-2.0",
+      "upstream_path": "skills/agents-sdk",
+      "content_sha256": "45f930c1fd47eedc66342d5f72f51352b887950bd96f24db0e9f26c7d56ba37d",
+      "upstream_tree_sha256": "8f0361c8f361bd0c1276c988e111ee61046e8e8fe614dabd79b45e566abd4857",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "author": "cloudflare",
+      "adaptation": "portable metadata and resource navigation only; see ADAPTATION.md",
+      "adaptation_version": "1.0.0",
+      "upstream_files": [
+        "SKILL.md",
+        "references/browse-the-web.md",
+        "references/callable.md",
+        "references/client-sdk.md",
+        "references/codemode.md",
+        "references/configuration.md",
+        "references/durable-execution.md",
+        "references/email.md",
+        "references/human-in-the-loop.md",
+        "references/mcp.md",
+        "references/observability.md",
+        "references/queue-retries.md",
+        "references/routing.md",
+        "references/server-driven-messages.md",
+        "references/state-scheduling.md",
+        "references/streaming-chat.md",
+        "references/think.md",
+        "references/voice.md",
+        "references/webhooks-push.md",
+        "references/workflows.md"
+      ],
+      "original_name": "agents-sdk",
+      "normalization_notes": "portable metadata and resource navigation only; see ADAPTATION.md",
+      "upstream_file_hashes": {
+        "SKILL.md": {
+          "git_blob_sha1": "6268490ad6f936f1ba127fa36ab8c1aa9b0894bd"
+        },
+        "references/browse-the-web.md": {
+          "git_blob_sha1": "fec58907507536ac04882d507724cf023171db90"
+        },
+        "references/callable.md": {
+          "git_blob_sha1": "af21d1787f511d5cabb30f8a34700f96531a4610"
+        },
+        "references/client-sdk.md": {
+          "git_blob_sha1": "366dc2c3978b0fa7a7e0447cd54605f36bdb059a"
+        },
+        "references/codemode.md": {
+          "git_blob_sha1": "980b6b5f0ad72346781fc9aa97cb360de580afcb"
+        },
+        "references/configuration.md": {
+          "git_blob_sha1": "1f767971048f9dcac6e7b1ecf13c230ab3814d67"
+        },
+        "references/durable-execution.md": {
+          "git_blob_sha1": "1cc817e56ad03941f4e70a694eb112daab715a5d"
+        },
+        "references/email.md": {
+          "git_blob_sha1": "bd800cae86299569100d19f1c818ba5222407966"
+        },
+        "references/human-in-the-loop.md": {
+          "git_blob_sha1": "d92aa53ddca7836189db5c4cfbe60700281122f0"
+        },
+        "references/mcp.md": {
+          "git_blob_sha1": "dd2a4ad459ba9fd8b676c8b14768bb60579613fd"
+        },
+        "references/observability.md": {
+          "git_blob_sha1": "fc4814dbfe0ca4ad35bf4b3151580be3455cd7e8"
+        },
+        "references/queue-retries.md": {
+          "git_blob_sha1": "8d9ddfc37df5807657de0c5c08547cc35441106c"
+        },
+        "references/routing.md": {
+          "git_blob_sha1": "b1cf4ad2a050ddc0a9022b5e285db07c50fabadb"
+        },
+        "references/server-driven-messages.md": {
+          "git_blob_sha1": "b86315d5866acb43377230b782a57a82f20fb63d"
+        },
+        "references/state-scheduling.md": {
+          "git_blob_sha1": "d40e0da915420d6dd2ff7d3c0dabec18b1696488"
+        },
+        "references/streaming-chat.md": {
+          "git_blob_sha1": "5248b47c2dac0b49ca5950f97082c46c083b923d"
+        },
+        "references/think.md": {
+          "git_blob_sha1": "ce5d4307fa61a1d33d7ed7dab0c5dc7266d466bc"
+        },
+        "references/voice.md": {
+          "git_blob_sha1": "388079df56c08731c7ba1fa9a24ed05030f1726d"
+        },
+        "references/webhooks-push.md": {
+          "git_blob_sha1": "843052355fefbff9f2d935da3a6791ae820d30ae"
+        },
+        "references/workflows.md": {
+          "git_blob_sha1": "a434a8bdcbf369c6eccb73cbed25461cc6769003"
+        }
+      },
+      "category": "engineering",
+      "title": "Agents Sdk",
+      "inputs": "Project brief, relevant code/configuration and authorized account context",
+      "output": "Source-guided engineering workflow; executed changes require available toolchain and appropriate authorization",
+      "required_capabilities": "Cloudflare/Node/wrangler/project tools as declared in original skill",
+      "verification": {
+        "structure": "validated",
+        "native_runtime": "not_verified"
+      },
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "autopilot",
+      "path": "vendor/skills/autopilot",
+      "origin": "third_party",
+      "version": "2.0.1",
+      "description": "Builds an app, site, bot, or feature end-to-end from a dictated idea — requirements, briefing, spec, tickets, subagents, review, acceptance — with a live dashboard, for users who expect a finished result without reviewing specs or code. Starts only on /autopilot; a bare /autopilot resumes an interrupted run.",
+      "upstream_repository": "nick-vels/skills",
+      "upstream_commit": "d6427a85557c16f1f3204a50923618e645fc7756",
+      "source_url": "https://github.com/nick-vels/skills/tree/d6427a85557c16f1f3204a50923618e645fc7756/skills/autopilot",
+      "license": "MIT",
+      "upstream_path": "skills/autopilot",
+      "content_sha256": "27705f590751f9535faeeeb13d0f0eb460978e51ea97b8c6cc2450cb14d87aaf",
+      "upstream_tree_sha256": "05277792643f81068234ac6c85697d16690275bca90c88a362e44c8e59822dbd",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "author": "nick-vels",
+      "adaptation": "portable metadata and resource navigation only; see ADAPTATION.md",
+      "adaptation_version": "1.0.0",
+      "upstream_files": [
+        "SKILL.md",
+        "phases/0-instruments.md",
+        "phases/0-memory.md",
+        "phases/0-modes.md",
+        "phases/0-preflight.md",
+        "phases/0-resume.md",
+        "phases/1-manifest.md",
+        "phases/2-adversarial.md",
+        "phases/2-briefing.md",
+        "phases/3-spec.md",
+        "phases/4-plan.md",
+        "phases/5-repair.md",
+        "phases/5-subagents.md",
+        "phases/6-review.md",
+        "phases/8-final.md",
+        "phases/9-memory.md",
+        "phases/dashboard-template.html",
+        "phases/rationalizations.md",
+        "prompts/executor.md",
+        "prompts/review.md",
+        "tools/__pycache__/sync.cpython-314.pyc",
+        "tools/ap.py"
+      ],
+      "original_name": "autopilot",
+      "normalization_notes": "portable metadata and resource navigation only; see ADAPTATION.md",
+      "upstream_file_hashes": {
+        "SKILL.md": {
+          "git_blob_sha1": "f9a07f67fe6cdb98c95d5c48550b79b9758a31d4"
+        },
+        "phases/0-instruments.md": {
+          "git_blob_sha1": "22d3a8e6ba72fcb00f135d6826248eddd3af32c9"
+        },
+        "phases/0-memory.md": {
+          "git_blob_sha1": "45ab6111d347da4cc3973510424f4f5aba9b2b77"
+        },
+        "phases/0-modes.md": {
+          "git_blob_sha1": "e1bcb50e1beeb05467f6607e1660a0d036cd2dc6"
+        },
+        "phases/0-preflight.md": {
+          "git_blob_sha1": "342385dc57c5d09a912e006fad8db3b2718c6fb7"
+        },
+        "phases/0-resume.md": {
+          "git_blob_sha1": "e4c28c0d42d2df5faef78be9f33cad7c55d3ffc5"
+        },
+        "phases/1-manifest.md": {
+          "git_blob_sha1": "638b64e8bf9017df8e22722b34d368d05932bcd5"
+        },
+        "phases/2-adversarial.md": {
+          "git_blob_sha1": "6417493251286036fde7203f388d7fa2cd13babd"
+        },
+        "phases/2-briefing.md": {
+          "git_blob_sha1": "a20156f5233baf649af626fa57b92acd46c7e213"
+        },
+        "phases/3-spec.md": {
+          "git_blob_sha1": "07a70ff9c87654c298f078ca69630fcd92a265a3"
+        },
+        "phases/4-plan.md": {
+          "git_blob_sha1": "f570f1be13f0495442ef144b839e2ab735f84a06"
+        },
+        "phases/5-repair.md": {
+          "git_blob_sha1": "48e723f345b031fdb993f5178f03b96205d8e848"
+        },
+        "phases/5-subagents.md": {
+          "git_blob_sha1": "fc11e9f480d0274ddea97d63f091f31456cee6cd"
+        },
+        "phases/6-review.md": {
+          "git_blob_sha1": "38f6f847bfdee74f7e0701d96611a1e132201db5"
+        },
+        "phases/8-final.md": {
+          "git_blob_sha1": "8f71d91f11f1889dc88263e912d89daea8d9b487"
+        },
+        "phases/9-memory.md": {
+          "git_blob_sha1": "8a9a48b55f7dfd88fa367d2ef83f94624d33d601"
+        },
+        "phases/dashboard-template.html": {
+          "git_blob_sha1": "08c8190b3896759fb2dfac9e690db37d81423a34"
+        },
+        "phases/rationalizations.md": {
+          "git_blob_sha1": "fe3c0ceded005dab7405fc3e25197f20d9b5d685"
+        },
+        "prompts/executor.md": {
+          "git_blob_sha1": "ee7fce5765072dfdb20329931f1a8f67af658b64"
+        },
+        "prompts/review.md": {
+          "git_blob_sha1": "ee2528460b23ba98f0372b3b7fd1b64cac81672b"
+        },
+        "tools/__pycache__/sync.cpython-314.pyc": {
+          "git_blob_sha1": "08d292a10d16357ff6ba25ee625bfe641ba4e1cd"
+        },
+        "tools/ap.py": {
+          "git_blob_sha1": "75f0b5d1e9939714abe6c06f3df7543704cf85b7"
+        }
+      },
+      "category": "engineering",
+      "title": "Autopilot",
+      "inputs": "Project brief, relevant code/configuration and authorized account context",
+      "output": "Source-guided engineering workflow; executed changes require available toolchain and appropriate authorization",
+      "required_capabilities": "Project filesystem, test runtime and available deployment tools; approval according to original workflow",
+      "verification": {
+        "structure": "validated",
+        "native_runtime": "not_verified"
+      },
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "cloudflare",
+      "path": "vendor/skills/cloudflare",
+      "origin": "third_party",
+      "version": null,
+      "description": "Discover and choose Cloudflare products for apps, APIs, AI agents, storage, networking, and security. Use for architecture and product selection, including when the user describes a need without naming a Cloudflare product; then find the relevant skill or documentation.",
+      "upstream_repository": "cloudflare/skills",
+      "upstream_commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
+      "source_url": "https://github.com/cloudflare/skills/tree/41e0d19858946d18af9ee2c2feebbe2e11d829ff/skills/cloudflare",
+      "license": "Apache-2.0",
+      "upstream_path": "skills/cloudflare",
+      "content_sha256": "de111c273ff3f02da09222c6c7eb343bf5fe3761b149d02a2b7b433707809539",
+      "upstream_tree_sha256": "e08e47f9c8779eee4db16729dad4d2cda73b2a77600f32cc12e7b7e3745a57c0",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "author": "cloudflare",
+      "adaptation": "portable metadata and resource navigation only; see ADAPTATION.md",
+      "adaptation_version": "1.0.1",
+      "upstream_files": [
+        "SKILL.md",
+        "references/ai-gateway/README.md",
+        "references/ai-gateway/configuration.md",
+        "references/ai-gateway/dynamic-routing.md",
+        "references/ai-gateway/features.md",
+        "references/ai-gateway/sdk-integration.md",
+        "references/ai-gateway/troubleshooting.md",
+        "references/ai-search/README.md",
+        "references/ai-search/api.md",
+        "references/ai-search/configuration.md",
+        "references/ai-search/gotchas.md",
+        "references/ai-search/patterns.md",
+        "references/analytics-engine/README.md",
+        "references/analytics-engine/api.md",
+        "references/analytics-engine/configuration.md",
+        "references/analytics-engine/gotchas.md",
+        "references/analytics-engine/patterns.md",
+        "references/api-shield/README.md",
+        "references/api-shield/api.md",
+        "references/api-shield/configuration.md",
+        "references/api-shield/gotchas.md",
+        "references/api-shield/patterns.md",
+        "references/api/README.md",
+        "references/api/api.md",
+        "references/api/configuration.md",
+        "references/api/gotchas.md",
+        "references/api/patterns.md",
+        "references/argo-smart-routing/README.md",
+        "references/argo-smart-routing/api.md",
+        "references/argo-smart-routing/configuration.md",
+        "references/argo-smart-routing/gotchas.md",
+        "references/argo-smart-routing/patterns.md",
+        "references/artifacts/README.md",
+        "references/artifacts/api.md",
+        "references/artifacts/configuration.md",
+        "references/bindings/README.md",
+        "references/bindings/api.md",
+        "references/bindings/configuration.md",
+        "references/bindings/gotchas.md",
+        "references/bindings/patterns.md",
+        "references/bot-management/README.md",
+        "references/bot-management/api.md",
+        "references/bot-management/configuration.md",
+        "references/bot-management/gotchas.md",
+        "references/bot-management/patterns.md",
+        "references/browser-rendering/README.md",
+        "references/browser-rendering/api.md",
+        "references/browser-rendering/configuration.md",
+        "references/browser-rendering/gotchas.md",
+        "references/browser-rendering/patterns.md",
+        "references/c3/README.md",
+        "references/c3/api.md",
+        "references/c3/configuration.md",
+        "references/c3/gotchas.md",
+        "references/c3/patterns.md",
+        "references/cache-reserve/README.md",
+        "references/cache-reserve/api.md",
+        "references/cache-reserve/configuration.md",
+        "references/cache-reserve/gotchas.md",
+        "references/cache-reserve/patterns.md",
+        "references/containers/README.md",
+        "references/containers/api.md",
+        "references/containers/configuration.md",
+        "references/containers/gotchas.md",
+        "references/containers/patterns.md",
+        "references/cron-triggers/README.md",
+        "references/cron-triggers/api.md",
+        "references/cron-triggers/configuration.md",
+        "references/cron-triggers/gotchas.md",
+        "references/cron-triggers/patterns.md",
+        "references/d1/README.md",
+        "references/d1/api.md",
+        "references/d1/configuration.md",
+        "references/d1/gotchas.md",
+        "references/d1/patterns.md",
+        "references/ddos/README.md",
+        "references/ddos/api.md",
+        "references/ddos/configuration.md",
+        "references/ddos/gotchas.md",
+        "references/ddos/patterns.md",
+        "references/do-storage/README.md",
+        "references/do-storage/api.md",
+        "references/do-storage/configuration.md",
+        "references/do-storage/gotchas.md",
+        "references/do-storage/patterns.md",
+        "references/do-storage/testing.md",
+        "references/email-routing/README.md",
+        "references/email-routing/api.md",
+        "references/email-routing/configuration.md",
+        "references/email-routing/gotchas.md",
+        "references/email-routing/patterns.md",
+        "references/email-workers/README.md",
+        "references/email-workers/api.md",
+        "references/email-workers/configuration.md",
+        "references/email-workers/gotchas.md",
+        "references/email-workers/patterns.md",
+        "references/flagship/README.md",
+        "references/flagship/api.md",
+        "references/flagship/configuration.md",
+        "references/flagship/gotchas.md",
+        "references/flagship/patterns.md",
+        "references/graphql-api/README.md",
+        "references/graphql-api/api.md",
+        "references/graphql-api/configuration.md",
+        "references/graphql-api/gotchas.md",
+        "references/graphql-api/patterns.md",
+        "references/hyperdrive/README.md",
+        "references/hyperdrive/api.md",
+        "references/hyperdrive/configuration.md",
+        "references/hyperdrive/gotchas.md",
+        "references/hyperdrive/patterns.md",
+        "references/images/README.md",
+        "references/images/api.md",
+        "references/images/configuration.md",
+        "references/images/gotchas.md",
+        "references/images/patterns.md",
+        "references/kv/README.md",
+        "references/kv/api.md",
+        "references/kv/configuration.md",
+        "references/kv/gotchas.md",
+        "references/kv/patterns.md",
+        "references/miniflare/README.md",
+        "references/miniflare/api.md",
+        "references/miniflare/configuration.md",
+        "references/miniflare/gotchas.md",
+        "references/miniflare/patterns.md",
+        "references/network-interconnect/README.md",
+        "references/network-interconnect/api.md",
+        "references/network-interconnect/configuration.md",
+        "references/network-interconnect/gotchas.md",
+        "references/network-interconnect/patterns.md",
+        "references/observability/README.md",
+        "references/observability/api.md",
+        "references/observability/configuration.md",
+        "references/observability/gotchas.md",
+        "references/observability/patterns.md",
+        "references/pages-functions/README.md",
+        "references/pages-functions/api.md",
+        "references/pages-functions/configuration.md",
+        "references/pages-functions/gotchas.md",
+        "references/pages-functions/patterns.md",
+        "references/pages/README.md",
+        "references/pages/api.md",
+        "references/pages/configuration.md",
+        "references/pages/gotchas.md",
+        "references/pages/patterns.md",
+        "references/pulumi/README.md",
+        "references/pulumi/api.md",
+        "references/pulumi/configuration.md",
+        "references/pulumi/gotchas.md",
+        "references/pulumi/patterns.md",
+        "references/queues/README.md",
+        "references/queues/api.md",
+        "references/queues/configuration.md",
+        "references/queues/gotchas.md",
+        "references/queues/patterns.md",
+        "references/r2/README.md",
+        "references/r2/api.md",
+        "references/r2/configuration.md",
+        "references/r2/gotchas.md",
+        "references/r2/patterns.md",
+        "references/realtime-sfu/README.md",
+        "references/realtime-sfu/api.md",
+        "references/realtime-sfu/configuration.md",
+        "references/realtime-sfu/gotchas.md",
+        "references/realtime-sfu/patterns.md",
+        "references/realtimekit/README.md",
+        "references/realtimekit/api.md",
+        "references/realtimekit/configuration.md",
+        "references/realtimekit/gotchas.md",
+        "references/realtimekit/patterns.md",
+        "references/secrets-store/README.md",
+        "references/secrets-store/api.md",
+        "references/secrets-store/configuration.md",
+        "references/secrets-store/gotchas.md",
+        "references/secrets-store/patterns.md",
+        "references/smart-placement/README.md",
+        "references/smart-placement/api.md",
+        "references/smart-placement/configuration.md",
+        "references/smart-placement/gotchas.md",
+        "references/smart-placement/patterns.md",
+        "references/snippets/README.md",
+        "references/snippets/api.md",
+        "references/snippets/configuration.md",
+        "references/snippets/gotchas.md",
+        "references/snippets/patterns.md",
+        "references/spectrum/README.md",
+        "references/spectrum/api.md",
+        "references/spectrum/configuration.md",
+        "references/spectrum/gotchas.md",
+        "references/spectrum/patterns.md",
+        "references/static-assets/README.md",
+        "references/static-assets/api.md",
+        "references/static-assets/configuration.md",
+        "references/static-assets/gotchas.md",
+        "references/static-assets/patterns.md",
+        "references/stream/README.md",
+        "references/stream/api-live.md",
+        "references/stream/api.md",
+        "references/stream/configuration.md",
+        "references/stream/gotchas.md",
+        "references/stream/patterns.md",
+        "references/tail-workers/README.md",
+        "references/tail-workers/api.md",
+        "references/tail-workers/configuration.md",
+        "references/tail-workers/gotchas.md",
+        "references/tail-workers/patterns.md",
+        "references/terraform/README.md",
+        "references/terraform/api.md",
+        "references/terraform/configuration.md",
+        "references/terraform/gotchas.md",
+        "references/terraform/patterns.md",
+        "references/tunnel/README.md",
+        "references/tunnel/api.md",
+        "references/tunnel/configuration.md",
+        "references/tunnel/gotchas.md",
+        "references/tunnel/networking.md",
+        "references/tunnel/patterns.md",
+        "references/turn/README.md",
+        "references/turn/api.md",
+        "references/turn/configuration.md",
+        "references/turn/gotchas.md",
+        "references/turn/patterns.md",
+        "references/vectorize/README.md",
+        "references/vectorize/api.md",
+        "references/vectorize/configuration.md",
+        "references/vectorize/gotchas.md",
+        "references/vectorize/patterns.md",
+        "references/waf/README.md",
+        "references/waf/api.md",
+        "references/waf/configuration.md",
+        "references/waf/gotchas.md",
+        "references/waf/patterns.md",
+        "references/web-analytics/README.md",
+        "references/web-analytics/configuration.md",
+        "references/web-analytics/gotchas.md",
+        "references/web-analytics/integration.md",
+        "references/web-analytics/patterns.md",
+        "references/workerd/README.md",
+        "references/workerd/api.md",
+        "references/workerd/configuration.md",
+        "references/workerd/gotchas.md",
+        "references/workerd/patterns.md",
+        "references/workers-ai/README.md",
+        "references/workers-ai/api.md",
+        "references/workers-ai/configuration.md",
+        "references/workers-ai/gotchas.md",
+        "references/workers-ai/patterns.md",
+        "references/workers-for-platforms/README.md",
+        "references/workers-for-platforms/api.md",
+        "references/workers-for-platforms/configuration.md",
+        "references/workers-for-platforms/gotchas.md",
+        "references/workers-for-platforms/patterns.md",
+        "references/workers-playground/README.md",
+        "references/workers-playground/api.md",
+        "references/workers-playground/configuration.md",
+        "references/workers-playground/gotchas.md",
+        "references/workers-playground/patterns.md",
+        "references/workers-vpc/README.md",
+        "references/workers-vpc/api.md",
+        "references/workers-vpc/configuration.md",
+        "references/workers-vpc/gotchas.md",
+        "references/workers-vpc/patterns.md",
+        "references/workflows/README.md",
+        "references/workflows/api.md",
+        "references/workflows/configuration.md",
+        "references/workflows/gotchas.md",
+        "references/workflows/patterns.md",
+        "references/zaraz/IMPLEMENTATION_SUMMARY.md",
+        "references/zaraz/README.md",
+        "references/zaraz/api.md",
+        "references/zaraz/configuration.md",
+        "references/zaraz/gotchas.md",
+        "references/zaraz/patterns.md"
+      ],
+      "original_name": "cloudflare",
+      "normalization_notes": "portable metadata and resource navigation only; see ADAPTATION.md",
+      "upstream_file_hashes": {
+        "SKILL.md": {
+          "git_blob_sha1": "ddfb099bc42243d8c77f773c386e1b8bd1af38bc"
+        },
+        "references/ai-gateway/README.md": {
+          "git_blob_sha1": "a4bb1a15d154c63b7f41896aec5d212e426c7a09"
+        },
+        "references/ai-gateway/configuration.md": {
+          "git_blob_sha1": "648336625c74555ef6d9414326ac937403f01320"
+        },
+        "references/ai-gateway/dynamic-routing.md": {
+          "git_blob_sha1": "d12212fd2c70749e66156c33c9faed36e2635a6b"
+        },
+        "references/ai-gateway/features.md": {
+          "git_blob_sha1": "9dcbaf75e071cee9ff650626e6240dc31748b5c2"
+        },
+        "references/ai-gateway/sdk-integration.md": {
+          "git_blob_sha1": "a504ed13b2de5aff2c50622ba3d2544747cee708"
+        },
+        "references/ai-gateway/troubleshooting.md": {
+          "git_blob_sha1": "b1c9ef3de0ecb52af251758473b015ffaa74c98b"
+        },
+        "references/ai-search/README.md": {
+          "git_blob_sha1": "c776b403469cd0d71c60bf415316332b1643dace"
+        },
+        "references/ai-search/api.md": {
+          "git_blob_sha1": "a42a8a292450b10c94e748d28f4fcde63a2a89a2"
+        },
+        "references/ai-search/configuration.md": {
+          "git_blob_sha1": "307097a50db14a211520f362ffa409819626f5a3"
+        },
+        "references/ai-search/gotchas.md": {
+          "git_blob_sha1": "8273611e0e7a62890d1147ca3956f3feec2bd3d6"
+        },
+        "references/ai-search/patterns.md": {
+          "git_blob_sha1": "a81ee54f87f1a4ea9e82104ced7a89d824ca2a54"
+        },
+        "references/analytics-engine/README.md": {
+          "git_blob_sha1": "8d450a655fd33505b86ec00fee3f161ed72b3c99"
+        },
+        "references/analytics-engine/api.md": {
+          "git_blob_sha1": "8b517ff2d2a3772199ebea999d2ceb859743fd10"
+        },
+        "references/analytics-engine/configuration.md": {
+          "git_blob_sha1": "a71af96ff553398bfb270c85c1c1060c1edeb9df"
+        },
+        "references/analytics-engine/gotchas.md": {
+          "git_blob_sha1": "ed1767f2f049842192b15284a2d973636241fede"
+        },
+        "references/analytics-engine/patterns.md": {
+          "git_blob_sha1": "dc3fc5d4614eca930bd68826550546276e558d9e"
+        },
+        "references/api-shield/README.md": {
+          "git_blob_sha1": "8f82b1b3734b544ce35b3a136e7632ac2d2d11c3"
+        },
+        "references/api-shield/api.md": {
+          "git_blob_sha1": "c2d277b8fd83c5a45b6b7b2f8389e6fe55022d6c"
+        },
+        "references/api-shield/configuration.md": {
+          "git_blob_sha1": "f95744c5e30ba80255ef66d1eee6ca97bc94c513"
+        },
+        "references/api-shield/gotchas.md": {
+          "git_blob_sha1": "a611d3f1987ca8f19584a3f706bf379c39ecb331"
+        },
+        "references/api-shield/patterns.md": {
+          "git_blob_sha1": "5721dba456183c1520e034c4332b8028dc409110"
+        },
+        "references/api/README.md": {
+          "git_blob_sha1": "ee97e3997298db5d9e7704b83ba856a3e9f7e0f5"
+        },
+        "references/api/api.md": {
+          "git_blob_sha1": "33710149c916b6c3bada3a7e3debc229554fc68a"
+        },
+        "references/api/configuration.md": {
+          "git_blob_sha1": "17f8de3eff4ee3ee12fcfa36a4b06421142890f1"
+        },
+        "references/api/gotchas.md": {
+          "git_blob_sha1": "e6666dc5906b969f945ecc825357eba3e4eb2422"
+        },
+        "references/api/patterns.md": {
+          "git_blob_sha1": "3c7c693b1ae5097b96a7968a813652c52194c8be"
+        },
+        "references/argo-smart-routing/README.md": {
+          "git_blob_sha1": "c64705759035eaa10d1f17d853fcead9f882732f"
+        },
+        "references/argo-smart-routing/api.md": {
+          "git_blob_sha1": "5cd8f5e3795acaae4090ee9b4c488f6b2eb6043f"
+        },
+        "references/argo-smart-routing/configuration.md": {
+          "git_blob_sha1": "ba94d382e238fa01975d1ff834b6d49cde7e9957"
+        },
+        "references/argo-smart-routing/gotchas.md": {
+          "git_blob_sha1": "1a61ed4c958f50ed7e5c37f4319a24614950576e"
+        },
+        "references/argo-smart-routing/patterns.md": {
+          "git_blob_sha1": "1173b2d6041912c83cadc7ba44919eb7da8e4795"
+        },
+        "references/artifacts/README.md": {
+          "git_blob_sha1": "65dc030320c111f945c8a4d2558303f621b19163"
+        },
+        "references/artifacts/api.md": {
+          "git_blob_sha1": "6490a8196d439dec8b5e26ac6af60f58390063d3"
+        },
+        "references/artifacts/configuration.md": {
+          "git_blob_sha1": "23b78b22bc8a896c6b66c5b41e21a35d96e67c22"
+        },
+        "references/bindings/README.md": {
+          "git_blob_sha1": "cf7a92c3fe840386fd4d191c323e67d3afd03fe4"
+        },
+        "references/bindings/api.md": {
+          "git_blob_sha1": "4032849d09e4cbdee254b3b541d3048278c4a929"
+        },
+        "references/bindings/configuration.md": {
+          "git_blob_sha1": "e60a29f56ba5f3e49b1437359392f1a3ce757910"
+        },
+        "references/bindings/gotchas.md": {
+          "git_blob_sha1": "bca53dc4780eeb3c535c76d21fccad823d8942f8"
+        },
+        "references/bindings/patterns.md": {
+          "git_blob_sha1": "b6a0ebda2bf4fb575f852439bbd83aa9458b338a"
+        },
+        "references/bot-management/README.md": {
+          "git_blob_sha1": "53ead953c000cef367b7b075f07cf2e32b007232"
+        },
+        "references/bot-management/api.md": {
+          "git_blob_sha1": "eda958adeb96a286336ccca567f2e298259f31ca"
+        },
+        "references/bot-management/configuration.md": {
+          "git_blob_sha1": "4166bcc2b051b02f22a2a2615b25908337a6af8e"
+        },
+        "references/bot-management/gotchas.md": {
+          "git_blob_sha1": "685bcbdfcbbcb2ab411005f9e2f408afb6460597"
+        },
+        "references/bot-management/patterns.md": {
+          "git_blob_sha1": "4ca70855b6bfa382ee878b2b495d234c6b509999"
+        },
+        "references/browser-rendering/README.md": {
+          "git_blob_sha1": "bb17a1ab030dedebf92fd00447feb4bd8197dd1d"
+        },
+        "references/browser-rendering/api.md": {
+          "git_blob_sha1": "7c78d3344e36d23b35f02ce7f9d48875617fd546"
+        },
+        "references/browser-rendering/configuration.md": {
+          "git_blob_sha1": "71559a474620a247ada670ee67503dc70a26ff44"
+        },
+        "references/browser-rendering/gotchas.md": {
+          "git_blob_sha1": "d1d37d7920be16fe393bc39f9a25bcee3289e341"
+        },
+        "references/browser-rendering/patterns.md": {
+          "git_blob_sha1": "561e5468a14c2f2a93de5caf27092a0c2be1650a"
+        },
+        "references/c3/README.md": {
+          "git_blob_sha1": "5c002f036ee43c8f586b601eb175252888a615ef"
+        },
+        "references/c3/api.md": {
+          "git_blob_sha1": "d28d3c464cd5b916e9c933a082c910b21dd9c1be"
+        },
+        "references/c3/configuration.md": {
+          "git_blob_sha1": "37f9f828240898e23aa2f6ca8b28ef0383a28c96"
+        },
+        "references/c3/gotchas.md": {
+          "git_blob_sha1": "ecd664d88b99ced47b3cf6b6f6877ce46a4d3562"
+        },
+        "references/c3/patterns.md": {
+          "git_blob_sha1": "c9e9f68f9d053dcad6e0e69cb4b558caa1c95b1d"
+        },
+        "references/cache-reserve/README.md": {
+          "git_blob_sha1": "c95f60a9b0f73ab3e0c7cf9a99cd806a5351a814"
+        },
+        "references/cache-reserve/api.md": {
+          "git_blob_sha1": "18c49d8e000e7eea4c90a303af6c0993dfdbf609"
+        },
+        "references/cache-reserve/configuration.md": {
+          "git_blob_sha1": "84a66161dd8f4f425ec3aeaca9ee501a8ede03d3"
+        },
+        "references/cache-reserve/gotchas.md": {
+          "git_blob_sha1": "66b189adbe6068bf3b2a511fafea23265f4cf093"
+        },
+        "references/cache-reserve/patterns.md": {
+          "git_blob_sha1": "65f9488656ec57641cb7bb66fc24d30ebd30b461"
+        },
+        "references/containers/README.md": {
+          "git_blob_sha1": "f6982edaa0d81829c945126ae2e51ff6461457b3"
+        },
+        "references/containers/api.md": {
+          "git_blob_sha1": "af316e9e90534242d6de98d52806d48a88407d35"
+        },
+        "references/containers/configuration.md": {
+          "git_blob_sha1": "eafdd9501cff937f84ba401c6cb511fe4d3e5107"
+        },
+        "references/containers/gotchas.md": {
+          "git_blob_sha1": "54f37149e0bf55bfb3ce88c9a4036ecb5fc07400"
+        },
+        "references/containers/patterns.md": {
+          "git_blob_sha1": "2d7ffc93c9425dd4449bea79b45bbae8d3a0001e"
+        },
+        "references/cron-triggers/README.md": {
+          "git_blob_sha1": "b7104e43c76913216188693387e697e235113637"
+        },
+        "references/cron-triggers/api.md": {
+          "git_blob_sha1": "c363c674328ecb3c9809f25a6411afb29d36d089"
+        },
+        "references/cron-triggers/configuration.md": {
+          "git_blob_sha1": "a6901832148747fda3380848b2e76fc99566613f"
+        },
+        "references/cron-triggers/gotchas.md": {
+          "git_blob_sha1": "fc2a054ae8fc5b037b5ff49dbc79ac130537d52a"
+        },
+        "references/cron-triggers/patterns.md": {
+          "git_blob_sha1": "8312ebcdac1646f8e64954a182bff8995da8ef21"
+        },
+        "references/d1/README.md": {
+          "git_blob_sha1": "734d93fd65ffa5047ada908fb94998fa9a476bc0"
+        },
+        "references/d1/api.md": {
+          "git_blob_sha1": "c16c50e87645dbd2e9618d828c5478ed14cc5dd3"
+        },
+        "references/d1/configuration.md": {
+          "git_blob_sha1": "c53f40943db537389ae9d6b32d2dc6aaa759b10d"
+        },
+        "references/d1/gotchas.md": {
+          "git_blob_sha1": "0be9c2de0a3615f9c2241e8d734f7b4c61f1b01c"
+        },
+        "references/d1/patterns.md": {
+          "git_blob_sha1": "2ad5c77f528d5f6594007f2d209b864760bd7d5f"
+        },
+        "references/ddos/README.md": {
+          "git_blob_sha1": "117dd21433f509893f155e3b4039af0d9098d928"
+        },
+        "references/ddos/api.md": {
+          "git_blob_sha1": "b96284aa3f2d98dc1083693def220ac29a24b324"
+        },
+        "references/ddos/configuration.md": {
+          "git_blob_sha1": "14c6e32e03bea0f420d66d2fd16a6478abda726a"
+        },
+        "references/ddos/gotchas.md": {
+          "git_blob_sha1": "f2a97d1cc2bfb08ca135ebef0b1989cfd6505d52"
+        },
+        "references/ddos/patterns.md": {
+          "git_blob_sha1": "a46ef2f0a104ff4eac1a3ac7141abcd47ee77fa5"
+        },
+        "references/do-storage/README.md": {
+          "git_blob_sha1": "4581ef8a6df1f50285850f7160f1a45ed31a9600"
+        },
+        "references/do-storage/api.md": {
+          "git_blob_sha1": "72efdcd7a93c4e9d30057e3473fc450cba6a335f"
+        },
+        "references/do-storage/configuration.md": {
+          "git_blob_sha1": "8533c22155fae2437b450b57c91af4da99c8ea19"
+        },
+        "references/do-storage/gotchas.md": {
+          "git_blob_sha1": "df9b7b352c95775b44e869cb3e34e8af7b25651e"
+        },
+        "references/do-storage/patterns.md": {
+          "git_blob_sha1": "32bb7bf76143049466d78fa98d0c0cb7c9c50ea5"
+        },
+        "references/do-storage/testing.md": {
+          "git_blob_sha1": "ead9023de198bb974c52c8eb6e30eb6d9377920a"
+        },
+        "references/email-routing/README.md": {
+          "git_blob_sha1": "0e448b851b9750cad36d7ce91ced0a330f01d2fb"
+        },
+        "references/email-routing/api.md": {
+          "git_blob_sha1": "f0a7c3d98ce2fabeb25fafcfe9ef614f9b95489d"
+        },
+        "references/email-routing/configuration.md": {
+          "git_blob_sha1": "5feff146b6cb3f8f9cb6d2c3a2c04a0d768b93f4"
+        },
+        "references/email-routing/gotchas.md": {
+          "git_blob_sha1": "f1bceaedc9968bd2077abe03a8bb2741f5ae3b49"
+        },
+        "references/email-routing/patterns.md": {
+          "git_blob_sha1": "0c093df1ec98ecb3a05c1e3284b1fdbe884faf77"
+        },
+        "references/email-workers/README.md": {
+          "git_blob_sha1": "6d65785e11e2b8274dc8adc2e04a093dd9ab04f3"
+        },
+        "references/email-workers/api.md": {
+          "git_blob_sha1": "d12b10cc55f6a736a6475e5f9dfaa49e418204ef"
+        },
+        "references/email-workers/configuration.md": {
+          "git_blob_sha1": "70a0c8670fbfc04f2c1df266dfa5db626cfbd559"
+        },
+        "references/email-workers/gotchas.md": {
+          "git_blob_sha1": "abd304bc83a4deda8deb64e2526f50366d805de2"
+        },
+        "references/email-workers/patterns.md": {
+          "git_blob_sha1": "2736279c2a7cf3ab1b534402c1234e39dbdf35db"
+        },
+        "references/flagship/README.md": {
+          "git_blob_sha1": "946504ce67de56d2bdeaa0b4f1f3a7d60ca3765e"
+        },
+        "references/flagship/api.md": {
+          "git_blob_sha1": "252dcc06f9ed5b894dec30b2c0bcd1740d0cc7a9"
+        },
+        "references/flagship/configuration.md": {
+          "git_blob_sha1": "8da90d562c618568fd2013b3027829a776c5d176"
+        },
+        "references/flagship/gotchas.md": {
+          "git_blob_sha1": "52429a689ca3b2481a92024b2738207d761898f8"
+        },
+        "references/flagship/patterns.md": {
+          "git_blob_sha1": "06fdbbd4c3f23e4c3339ec7dd853dcd48dd286a4"
+        },
+        "references/graphql-api/README.md": {
+          "git_blob_sha1": "feffd5e5b541b14b6c183f291a927420b19942fd"
+        },
+        "references/graphql-api/api.md": {
+          "git_blob_sha1": "15d1a3306a41964dcc19b7a79a82300c18eba901"
+        },
+        "references/graphql-api/configuration.md": {
+          "git_blob_sha1": "d85d1a6e9e47e963cbf95900b090ff82e0fa49b2"
+        },
+        "references/graphql-api/gotchas.md": {
+          "git_blob_sha1": "18df7c65f1320fa1e817ac31eaad50dd1aec7de6"
+        },
+        "references/graphql-api/patterns.md": {
+          "git_blob_sha1": "f02c36b14ed7e92bc787b7157f8412b0bba1ba78"
+        },
+        "references/hyperdrive/README.md": {
+          "git_blob_sha1": "24da871b4db1db3f2b58644e1d18156b92914d77"
+        },
+        "references/hyperdrive/api.md": {
+          "git_blob_sha1": "6464e0934e96644b5055f80329d531c229f27128"
+        },
+        "references/hyperdrive/configuration.md": {
+          "git_blob_sha1": "94e81d81879d04b86e5897b316de5e6009b041c7"
+        },
+        "references/hyperdrive/gotchas.md": {
+          "git_blob_sha1": "97949782cb4f58c52e3dbfa431808a1366b098da"
+        },
+        "references/hyperdrive/patterns.md": {
+          "git_blob_sha1": "7061f1f6e85824fe696fe56affcd9484c4250c6b"
+        },
+        "references/images/README.md": {
+          "git_blob_sha1": "9ae9192e8e583d5b63e81570a3a6007c65644aa9"
+        },
+        "references/images/api.md": {
+          "git_blob_sha1": "3ae1c3f06064832962b456391e145d9fd740846b"
+        },
+        "references/images/configuration.md": {
+          "git_blob_sha1": "8892f11af05f45a62899be7ecc6ae888e7792763"
+        },
+        "references/images/gotchas.md": {
+          "git_blob_sha1": "7701607840067e1e37c6f7094870f2628996e9a7"
+        },
+        "references/images/patterns.md": {
+          "git_blob_sha1": "8192b6f8e643f3a3bbd11064d6b83e459e68a86e"
+        },
+        "references/kv/README.md": {
+          "git_blob_sha1": "5cbe81896938f29046c955f2ec7fba83e107a16b"
+        },
+        "references/kv/api.md": {
+          "git_blob_sha1": "bc62d6498204f518052cbd03831cad13002d660d"
+        },
+        "references/kv/configuration.md": {
+          "git_blob_sha1": "a2da705a039ae54c42599c98c568540e92c3be94"
+        },
+        "references/kv/gotchas.md": {
+          "git_blob_sha1": "e202dcfc8ff51bf1b517d1e1a59d587d7c8fdab1"
+        },
+        "references/kv/patterns.md": {
+          "git_blob_sha1": "9a11ade6a7c9d1580a0a6e05468f446b53fdc561"
+        },
+        "references/miniflare/README.md": {
+          "git_blob_sha1": "dd074eda89f1fd4c0a32a243efd49b1a30f72781"
+        },
+        "references/miniflare/api.md": {
+          "git_blob_sha1": "81ad724184b8457f5b45a23525a9d209473b0e3d"
+        },
+        "references/miniflare/configuration.md": {
+          "git_blob_sha1": "f989a4cda12104cdc6eed1b9611840051db98618"
+        },
+        "references/miniflare/gotchas.md": {
+          "git_blob_sha1": "8503397a181e066f5561b22d2216bbf1e982499d"
+        },
+        "references/miniflare/patterns.md": {
+          "git_blob_sha1": "9e9396d6db6076555c7ab6fbc0e81c84b63d23bb"
+        },
+        "references/network-interconnect/README.md": {
+          "git_blob_sha1": "38c9bf43d7c55dc2bb5a60474fe2e5e4b277fda7"
+        },
+        "references/network-interconnect/api.md": {
+          "git_blob_sha1": "a6f67726795d9bc9b85c31ef0f73c5025b37046b"
+        },
+        "references/network-interconnect/configuration.md": {
+          "git_blob_sha1": "65c1647240e0fb142c41994d2803b89447fa2049"
+        },
+        "references/network-interconnect/gotchas.md": {
+          "git_blob_sha1": "d0c86a2daa8ab303859f222bca09d291d2a63430"
+        },
+        "references/network-interconnect/patterns.md": {
+          "git_blob_sha1": "9efc5f729e3798572ab3dcc6860c3f78a5502722"
+        },
+        "references/observability/README.md": {
+          "git_blob_sha1": "0e68f18888f9998a58ae7d7d7e6e8affb19aab0f"
+        },
+        "references/observability/api.md": {
+          "git_blob_sha1": "fcf4600ad763720e9b50fa00139d754ca5863d17"
+        },
+        "references/observability/configuration.md": {
+          "git_blob_sha1": "1f28836b2d6552fca902e4ef69c95870a64f65c6"
+        },
+        "references/observability/gotchas.md": {
+          "git_blob_sha1": "dac84cdb9a652f353bbf488c185d3493bc92bf55"
+        },
+        "references/observability/patterns.md": {
+          "git_blob_sha1": "20b77f04b5117b508f1421037de90f8d045d1542"
+        },
+        "references/pages-functions/README.md": {
+          "git_blob_sha1": "50bc92853d17306bf6521a3522025ce2798d0db8"
+        },
+        "references/pages-functions/api.md": {
+          "git_blob_sha1": "2e05e994c799c6d5955093f20629de36abe52caf"
+        },
+        "references/pages-functions/configuration.md": {
+          "git_blob_sha1": "ec23c4994088566f0e6a58c6204f1b0798e47e14"
+        },
+        "references/pages-functions/gotchas.md": {
+          "git_blob_sha1": "e0ba806e8b2ea5c01c54ef99527b4e887452a976"
+        },
+        "references/pages-functions/patterns.md": {
+          "git_blob_sha1": "8dc4d8f6c0a5e8c10036648d891bc9138a280e07"
+        },
+        "references/pages/README.md": {
+          "git_blob_sha1": "4bea4c71e187e226f5bc4892edd757d5d7f8b5db"
+        },
+        "references/pages/api.md": {
+          "git_blob_sha1": "3081deda921b3a3fbf5ad9c4192da3092b8a396b"
+        },
+        "references/pages/configuration.md": {
+          "git_blob_sha1": "4092c2989f93de8861314c90fc5589d35752229e"
+        },
+        "references/pages/gotchas.md": {
+          "git_blob_sha1": "bbac0964f9ff75fdbd73c38b90b9943e53d8bb17"
+        },
+        "references/pages/patterns.md": {
+          "git_blob_sha1": "810fe88a1da89d1f17fc98d97127cf2d987fd919"
+        },
+        "references/pulumi/README.md": {
+          "git_blob_sha1": "08e762016db744045bf88fa57b95b1e21d661eb4"
+        },
+        "references/pulumi/api.md": {
+          "git_blob_sha1": "332cfef3fb678168ee6b97949679618c74e7951a"
+        },
+        "references/pulumi/configuration.md": {
+          "git_blob_sha1": "449419d56b5021213307b94dc4ee12d8aa5fb8ed"
+        },
+        "references/pulumi/gotchas.md": {
+          "git_blob_sha1": "fa003f391913330addbaebdce7aa3e451fdadc53"
+        },
+        "references/pulumi/patterns.md": {
+          "git_blob_sha1": "c843d54a520934fffa29f7b1a0f3fcc4bb890eda"
+        },
+        "references/queues/README.md": {
+          "git_blob_sha1": "fefa7bccb2b06a29c7405c056059456bd3d89415"
+        },
+        "references/queues/api.md": {
+          "git_blob_sha1": "9e6faa4eaa56bb4e737f094a164b7837c5c89cbc"
+        },
+        "references/queues/configuration.md": {
+          "git_blob_sha1": "c08779b692aad10e93489ce751d5af6897f7fcf1"
+        },
+        "references/queues/gotchas.md": {
+          "git_blob_sha1": "16187d0280de3f0ad0d8c3eefa0a20a183df16c6"
+        },
+        "references/queues/patterns.md": {
+          "git_blob_sha1": "d199582b89591f568a7b8f88929e0ffbc9857349"
+        },
+        "references/r2/README.md": {
+          "git_blob_sha1": "8556511e9b6ecb63d32e67a0241d6352992d63a8"
+        },
+        "references/r2/api.md": {
+          "git_blob_sha1": "63e4a5d1577cd6dc1282d58fe32723166a6afb0e"
+        },
+        "references/r2/configuration.md": {
+          "git_blob_sha1": "d64079fda9bb2cd48c1f0e8cf5e17e71fc2c596e"
+        },
+        "references/r2/gotchas.md": {
+          "git_blob_sha1": "4a9a5814deb46fd5ab7e789555349a9e07945252"
+        },
+        "references/r2/patterns.md": {
+          "git_blob_sha1": "ebbded6b94a5b75269993b4ac6fed333ff6bf5ad"
+        },
+        "references/realtime-sfu/README.md": {
+          "git_blob_sha1": "a7f526b3a6414fdf44bfe2b131ca608579e1381b"
+        },
+        "references/realtime-sfu/api.md": {
+          "git_blob_sha1": "6e6dae6dbd51ea04991d38278413f1aff9244354"
+        },
+        "references/realtime-sfu/configuration.md": {
+          "git_blob_sha1": "6736b45ebba0c79af87f135ac489928a59efe77e"
+        },
+        "references/realtime-sfu/gotchas.md": {
+          "git_blob_sha1": "efe5ee7759c7f3cfd5256755c49f924bc38b15d5"
+        },
+        "references/realtime-sfu/patterns.md": {
+          "git_blob_sha1": "95ddc42fc4e17dc1ef78aabbb6e239f4feeffc3c"
+        },
+        "references/realtimekit/README.md": {
+          "git_blob_sha1": "068073afa750168849d1994972ec9bd182648cfd"
+        },
+        "references/realtimekit/api.md": {
+          "git_blob_sha1": "18e9a3f3a65e6da3ddb0e666ac52347f96b3df40"
+        },
+        "references/realtimekit/configuration.md": {
+          "git_blob_sha1": "efbca8053d02b28c634efe146637c4f8ba3e854a"
+        },
+        "references/realtimekit/gotchas.md": {
+          "git_blob_sha1": "c6e7dfd9c042a03eeacff12d71be29d94bf9bdfd"
+        },
+        "references/realtimekit/patterns.md": {
+          "git_blob_sha1": "ac662ef1684788a0ef5015258c5b93dc737df2f0"
+        },
+        "references/secrets-store/README.md": {
+          "git_blob_sha1": "9d463c1c2c0c526da34315187ffe0f39034df703"
+        },
+        "references/secrets-store/api.md": {
+          "git_blob_sha1": "3905bfa8332fe72e5e780ab774451812448ef04f"
+        },
+        "references/secrets-store/configuration.md": {
+          "git_blob_sha1": "dd4405e264d09693d518ea64cb7c71ceea20e15d"
+        },
+        "references/secrets-store/gotchas.md": {
+          "git_blob_sha1": "e6fbdeb38f6422d779ff8247648d102a81980ff8"
+        },
+        "references/secrets-store/patterns.md": {
+          "git_blob_sha1": "538f4e96408a7ba939fc064fdf8d35facdf1130c"
+        },
+        "references/smart-placement/README.md": {
+          "git_blob_sha1": "d213a875548265429b65963747ec3372f4d8c332"
+        },
+        "references/smart-placement/api.md": {
+          "git_blob_sha1": "6608985961464dff1132b3c75f7b1ad65e21907b"
+        },
+        "references/smart-placement/configuration.md": {
+          "git_blob_sha1": "4f506ac51ee6d4ec868487df27b6c10e3c2c20c1"
+        },
+        "references/smart-placement/gotchas.md": {
+          "git_blob_sha1": "dc94e9b3b7d613744465e43aee3f31037eabf2b6"
+        },
+        "references/smart-placement/patterns.md": {
+          "git_blob_sha1": "40dc4ddc96c861d1ef86071ef7ed7265d4647f0c"
+        },
+        "references/snippets/README.md": {
+          "git_blob_sha1": "3da01cee76b5d85fbb66e49490862438f4a4f4ca"
+        },
+        "references/snippets/api.md": {
+          "git_blob_sha1": "76a5a4bef573b5755ec6477a3f8f77905f9eb6cf"
+        },
+        "references/snippets/configuration.md": {
+          "git_blob_sha1": "b5bea0fb1199e90e314e84c0e01735a0b35c0e94"
+        },
+        "references/snippets/gotchas.md": {
+          "git_blob_sha1": "832077e39f711cbe15e70f215be3538f30fa7db9"
+        },
+        "references/snippets/patterns.md": {
+          "git_blob_sha1": "a60c42057be75f5868473204039aa8df92185f1f"
+        },
+        "references/spectrum/README.md": {
+          "git_blob_sha1": "259a9cb4c2b89bd98da041cc01e8d9a646705b96"
+        },
+        "references/spectrum/api.md": {
+          "git_blob_sha1": "645fe2e78229c1ae68a11d0e8691d77b362cb7d1"
+        },
+        "references/spectrum/configuration.md": {
+          "git_blob_sha1": "81aa72f382795672f4e9903fd746ee07daf18c9d"
+        },
+        "references/spectrum/gotchas.md": {
+          "git_blob_sha1": "ef31a368e9bc57c01bf5d4d681945c3c418239b9"
+        },
+        "references/spectrum/patterns.md": {
+          "git_blob_sha1": "403248698f5e97d9a55684b4b9ddfac7ef53e7b8"
+        },
+        "references/static-assets/README.md": {
+          "git_blob_sha1": "caa22370fdc71f8b64f270e7f9c5975178e317be"
+        },
+        "references/static-assets/api.md": {
+          "git_blob_sha1": "f542630509350db5574aea0855074119867acc3d"
+        },
+        "references/static-assets/configuration.md": {
+          "git_blob_sha1": "e540448e903395461085ba80724678f23b08760d"
+        },
+        "references/static-assets/gotchas.md": {
+          "git_blob_sha1": "841f68d08260770e0332860c4cf0c6c2d05de65f"
+        },
+        "references/static-assets/patterns.md": {
+          "git_blob_sha1": "b83ffd6483e854c41881d14dd88733dd3850ddf4"
+        },
+        "references/stream/README.md": {
+          "git_blob_sha1": "e3e9d4bff40205897e87342b5b894c88b607536f"
+        },
+        "references/stream/api-live.md": {
+          "git_blob_sha1": "7af2e96a0d51c004114030611be9a33da775754f"
+        },
+        "references/stream/api.md": {
+          "git_blob_sha1": "9a87fd4dce6b2d7abbdd6bb6368c30eadda28b9d"
+        },
+        "references/stream/configuration.md": {
+          "git_blob_sha1": "363d5acff636dabb903a076f53367c8f73534e37"
+        },
+        "references/stream/gotchas.md": {
+          "git_blob_sha1": "0c02ec8e32f19dbea22bd82f7eebe6974416aeae"
+        },
+        "references/stream/patterns.md": {
+          "git_blob_sha1": "91de4ecc0616bcb51bf32192b5248eea4bd1b8ca"
+        },
+        "references/tail-workers/README.md": {
+          "git_blob_sha1": "7122b5b3638bd0b8b323c85413a7212f8020ce08"
+        },
+        "references/tail-workers/api.md": {
+          "git_blob_sha1": "44df5e90bd9acad001e50bf4ad3a66f24d1e9778"
+        },
+        "references/tail-workers/configuration.md": {
+          "git_blob_sha1": "a7c13a91f2b7d8098e29491880768a779954a6eb"
+        },
+        "references/tail-workers/gotchas.md": {
+          "git_blob_sha1": "d30754b5898ddbad2f7a166e5c38da96f9a7c479"
+        },
+        "references/tail-workers/patterns.md": {
+          "git_blob_sha1": "2e6432337a2f7bb0b6205c06450b0c851065df30"
+        },
+        "references/terraform/README.md": {
+          "git_blob_sha1": "4088a002ba123cdb945257f07b0f2938dd9a9ef9"
+        },
+        "references/terraform/api.md": {
+          "git_blob_sha1": "8a06c1c2582074b9be5c514bd74e496244839270"
+        },
+        "references/terraform/configuration.md": {
+          "git_blob_sha1": "4b5eeb583b3fdbf08b4487b79990b593f4def537"
+        },
+        "references/terraform/gotchas.md": {
+          "git_blob_sha1": "eb4731d7ef92f09ee658392094d66a621ef40484"
+        },
+        "references/terraform/patterns.md": {
+          "git_blob_sha1": "aea3a96411c8b031e95f8e6e95e417cf272db255"
+        },
+        "references/tunnel/README.md": {
+          "git_blob_sha1": "20427d300b58c893f7152d874694b875e261cc32"
+        },
+        "references/tunnel/api.md": {
+          "git_blob_sha1": "6a1e48a7cf40981ccb0614b854de2ef161e66dac"
+        },
+        "references/tunnel/configuration.md": {
+          "git_blob_sha1": "5caf7eeec8d3db0a9c3aa8f33b230b693c82a7cf"
+        },
+        "references/tunnel/gotchas.md": {
+          "git_blob_sha1": "d3319329eb40d327a3d21b52ad515300511badc5"
+        },
+        "references/tunnel/networking.md": {
+          "git_blob_sha1": "8dcaa465485a1ffc9970a37fdbe8dd62c7697ecb"
+        },
+        "references/tunnel/patterns.md": {
+          "git_blob_sha1": "7344c75aea2cbc5906efb0e62ea6a50a743ddea8"
+        },
+        "references/turn/README.md": {
+          "git_blob_sha1": "6bdfa52cdc589c9809fd1e70dd25fe7539716bba"
+        },
+        "references/turn/api.md": {
+          "git_blob_sha1": "498f5e4b0dc0356e0b9def94c8a161ec938a68bb"
+        },
+        "references/turn/configuration.md": {
+          "git_blob_sha1": "2d49736e8980511962fa3a4a5b1f2cc0c6b65045"
+        },
+        "references/turn/gotchas.md": {
+          "git_blob_sha1": "e2d5bd18e935484c494a32227635330ac621f871"
+        },
+        "references/turn/patterns.md": {
+          "git_blob_sha1": "39333bee42526f9586684035791ee9660433e62c"
+        },
+        "references/vectorize/README.md": {
+          "git_blob_sha1": "9ad241b59cd20ad566614b9040a35453fb797270"
+        },
+        "references/vectorize/api.md": {
+          "git_blob_sha1": "358a45dcb684a01ace6873646f4553cd0a9f3dea"
+        },
+        "references/vectorize/configuration.md": {
+          "git_blob_sha1": "6e083ace9b82cfe498719024de6b1bb4ed08fdca"
+        },
+        "references/vectorize/gotchas.md": {
+          "git_blob_sha1": "ff48b1750ce05061ccf841c3f0e101ba4f793ba3"
+        },
+        "references/vectorize/patterns.md": {
+          "git_blob_sha1": "531268ec42adca4efcc4eea4cddad66f7524fd0f"
+        },
+        "references/waf/README.md": {
+          "git_blob_sha1": "5cfb2e81733bcf4c3daac9d7da17bd32c5f9a69a"
+        },
+        "references/waf/api.md": {
+          "git_blob_sha1": "397c42cd25d3d4868d7b5009b494cfdde62717cd"
+        },
+        "references/waf/configuration.md": {
+          "git_blob_sha1": "3b4b46df1567ef8b03569c4da0b752f4347765f7"
+        },
+        "references/waf/gotchas.md": {
+          "git_blob_sha1": "aaa0d664a20afa85c08c1055d233ef165a162bc2"
+        },
+        "references/waf/patterns.md": {
+          "git_blob_sha1": "a035832a22256807fa97eb86a9900d11aea973c5"
+        },
+        "references/web-analytics/README.md": {
+          "git_blob_sha1": "5e08dc233b9cea151691132967c800bf9ed7b068"
+        },
+        "references/web-analytics/configuration.md": {
+          "git_blob_sha1": "ff8f18d3c6ab4a286f36b4dac650280334354884"
+        },
+        "references/web-analytics/gotchas.md": {
+          "git_blob_sha1": "cad1424c7c40cc7efb09787d3ce30e40898516be"
+        },
+        "references/web-analytics/integration.md": {
+          "git_blob_sha1": "ec89140dea0347224b13175da1216288f45383cb"
+        },
+        "references/web-analytics/patterns.md": {
+          "git_blob_sha1": "8e83575ee6fe18dc75e5026569c7875721a73458"
+        },
+        "references/workerd/README.md": {
+          "git_blob_sha1": "846f662452e96abea5ac59902091ffb5208b7c6d"
+        },
+        "references/workerd/api.md": {
+          "git_blob_sha1": "085f5077dca2faa3e2d21d2c6811f8fbe7870975"
+        },
+        "references/workerd/configuration.md": {
+          "git_blob_sha1": "bad5f43bc90f4289d4bc2b85d272c779e880b4d7"
+        },
+        "references/workerd/gotchas.md": {
+          "git_blob_sha1": "1d4db199beaaf66159928f6164093677a607d3ef"
+        },
+        "references/workerd/patterns.md": {
+          "git_blob_sha1": "5aaf0924c32765a56b87cc1df9cd6f94d80a83a4"
+        },
+        "references/workers-ai/README.md": {
+          "git_blob_sha1": "9e069e61cbe187183166ed4df524a103fc88e12f"
+        },
+        "references/workers-ai/api.md": {
+          "git_blob_sha1": "64c8f2443f16326d82a90c0f05ca30dfe3ab3fd3"
+        },
+        "references/workers-ai/configuration.md": {
+          "git_blob_sha1": "c561de482952cc5c25cb5d4c8e29f36b5811fe28"
+        },
+        "references/workers-ai/gotchas.md": {
+          "git_blob_sha1": "1b6b919f95e5703f28cc5e0955a57736190f13a8"
+        },
+        "references/workers-ai/patterns.md": {
+          "git_blob_sha1": "bd946ea38125cde19d18f5f1b57c1472b793441e"
+        },
+        "references/workers-for-platforms/README.md": {
+          "git_blob_sha1": "0465e8b5720f5a057324de2fcf147666ab7e7f2a"
+        },
+        "references/workers-for-platforms/api.md": {
+          "git_blob_sha1": "663c608fa4e21bb8918b329d827744d6b3894c08"
+        },
+        "references/workers-for-platforms/configuration.md": {
+          "git_blob_sha1": "b434999df8f774a5c643563e7dca7ab445a4772e"
+        },
+        "references/workers-for-platforms/gotchas.md": {
+          "git_blob_sha1": "c706e8ea1e1f9f917753e4ee2c3504c4e633372c"
+        },
+        "references/workers-for-platforms/patterns.md": {
+          "git_blob_sha1": "9d358e3f5648e79d6a90f424cd6137c030645e03"
+        },
+        "references/workers-playground/README.md": {
+          "git_blob_sha1": "e9c42fe66e8ef7314507d6c8dad393565368cdd6"
+        },
+        "references/workers-playground/api.md": {
+          "git_blob_sha1": "0d7dd1439140e5db2224e44454b7ef8dc62d4508"
+        },
+        "references/workers-playground/configuration.md": {
+          "git_blob_sha1": "427d53e74cd6888251254a43cbbefa9b0d5c8a1e"
+        },
+        "references/workers-playground/gotchas.md": {
+          "git_blob_sha1": "9f5cb9342a5b38c7374b9674361b49e8bcb47c56"
+        },
+        "references/workers-playground/patterns.md": {
+          "git_blob_sha1": "4af891c532aef30a3453d2fb499b729f098525bc"
+        },
+        "references/workers-vpc/README.md": {
+          "git_blob_sha1": "86adc7227332cb5c375d0bb39af4eadda665e8b3"
+        },
+        "references/workers-vpc/api.md": {
+          "git_blob_sha1": "987fb2ed3b432cc993d3c104e270f7fb9cd02257"
+        },
+        "references/workers-vpc/configuration.md": {
+          "git_blob_sha1": "efd2d3535e213374cf8c086e8c92c2d430bf824c"
+        },
+        "references/workers-vpc/gotchas.md": {
+          "git_blob_sha1": "d14faaeca82147b21feeb690c368fec58a4509de"
+        },
+        "references/workers-vpc/patterns.md": {
+          "git_blob_sha1": "392627e2708a3c9d9c63856b7a7b75a49b47fcb2"
+        },
+        "references/workflows/README.md": {
+          "git_blob_sha1": "adf61c2414da098a225b510fd57a09b853e68aa7"
+        },
+        "references/workflows/api.md": {
+          "git_blob_sha1": "fb583aa6e4c074471a9f42428b8e86c667095c9e"
+        },
+        "references/workflows/configuration.md": {
+          "git_blob_sha1": "95786d24f6203b2e4cc1c66dce559ee392d6b822"
+        },
+        "references/workflows/gotchas.md": {
+          "git_blob_sha1": "f71124b0692523055a20a83b93ca3050e02e739a"
+        },
+        "references/workflows/patterns.md": {
+          "git_blob_sha1": "6b6851ffdefe50b65d342eb3b4020698b954b593"
+        },
+        "references/zaraz/IMPLEMENTATION_SUMMARY.md": {
+          "git_blob_sha1": "dd8da196be21fd7855fbe93502223f195c3a3842"
+        },
+        "references/zaraz/README.md": {
+          "git_blob_sha1": "cb3635105c4cc2496312f9a3c22421e1e2bf2157"
+        },
+        "references/zaraz/api.md": {
+          "git_blob_sha1": "5d8e1cc8c1f11e550c261a501033e57bc7c7b1b5"
+        },
+        "references/zaraz/configuration.md": {
+          "git_blob_sha1": "e2e534ce66ec646f62edd15b5abd59100a87e240"
+        },
+        "references/zaraz/gotchas.md": {
+          "git_blob_sha1": "eaa6b4917ab5c77bcfd0494598e887030390537e"
+        },
+        "references/zaraz/patterns.md": {
+          "git_blob_sha1": "c5ef967eddb2e6685b543830244e3eea55f58397"
+        }
+      },
+      "category": "engineering",
+      "title": "Cloudflare",
+      "inputs": "Project brief, relevant code/configuration and authorized account context",
+      "output": "Source-guided engineering workflow; executed changes require available toolchain and appropriate authorization",
+      "required_capabilities": "Cloudflare/Node/wrangler/project tools as declared in original skill",
+      "verification": {
+        "structure": "validated",
+        "native_runtime": "not_verified"
+      },
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "cloudflare-email-service",
+      "path": "vendor/skills/cloudflare-email-service",
+      "origin": "third_party",
+      "version": null,
+      "description": "Implement or troubleshoot Cloudflare Email Sending and Email Routing integrations and their delivery configuration.",
+      "upstream_repository": "cloudflare/skills",
+      "upstream_commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
+      "source_url": "https://github.com/cloudflare/skills/tree/41e0d19858946d18af9ee2c2feebbe2e11d829ff/skills/cloudflare-email-service",
+      "license": "Apache-2.0",
+      "upstream_path": "skills/cloudflare-email-service",
+      "content_sha256": "d25274bcb63e9bc418259a3d0a1f208457b05de69b371e7ab9c630a03da42d0f",
+      "upstream_tree_sha256": "6e5e42e9daddc562dd16b341d61c66ed3f9989c4ba04dbe0312df9a79c9497b3",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "author": "cloudflare",
+      "adaptation": "portable metadata and resource navigation only; see ADAPTATION.md",
+      "adaptation_version": "1.0.0",
+      "upstream_files": [
+        "SKILL.md",
+        "references/cli-and-mcp.md",
+        "references/deliverability.md",
+        "references/rest-api.md",
+        "references/routing.md",
+        "references/sending.md"
+      ],
+      "original_name": "cloudflare-email-service",
+      "normalization_notes": "portable metadata and resource navigation only; see ADAPTATION.md",
+      "upstream_file_hashes": {
+        "SKILL.md": {
+          "git_blob_sha1": "5db5219305ebd27646adccc08dc192c66a5b6ada"
+        },
+        "references/cli-and-mcp.md": {
+          "git_blob_sha1": "d7d0ec9eacce283b4aa80d90e076e24594502eae"
+        },
+        "references/deliverability.md": {
+          "git_blob_sha1": "8f4c93fb80f07c22c2bfe832622d3f5029b2292b"
+        },
+        "references/rest-api.md": {
+          "git_blob_sha1": "ea40053675f287119e1fc40d56609dc3e3b9ec72"
+        },
+        "references/routing.md": {
+          "git_blob_sha1": "274e51de49e092a452ff250ceae1ad0cbea0d20f"
+        },
+        "references/sending.md": {
+          "git_blob_sha1": "c21ad7edfd642f18de70bf9465e8e2d3211d6b70"
+        }
+      },
+      "category": "engineering",
+      "title": "Cloudflare Email Service",
+      "inputs": "Project brief, relevant code/configuration and authorized account context",
+      "output": "Source-guided engineering workflow; executed changes require available toolchain and appropriate authorization",
+      "required_capabilities": "Cloudflare/Node/wrangler/project tools as declared in original skill",
+      "verification": {
+        "structure": "validated",
+        "native_runtime": "not_verified"
+      },
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "cloudflare-one",
+      "path": "vendor/skills/cloudflare-one",
+      "origin": "third_party",
+      "version": null,
+      "description": "Design, configure, troubleshoot, or review Cloudflare One Zero Trust and SASE deployments. Use cloudflare-one-migrations for migration planning from other vendors.",
+      "upstream_repository": "cloudflare/skills",
+      "upstream_commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
+      "source_url": "https://github.com/cloudflare/skills/tree/41e0d19858946d18af9ee2c2feebbe2e11d829ff/skills/cloudflare-one",
+      "license": "Apache-2.0",
+      "upstream_path": "skills/cloudflare-one",
+      "content_sha256": "6a89f8819d7bfc23fc12c25567b509a2d34879af573e770e6058d28c6e8dd5d9",
+      "upstream_tree_sha256": "44d94ec5cabbc24b31bf0b9118aa06cbecf0a67af24fe286a12f87fe64cd41f2",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "author": "cloudflare",
+      "upstream_files": [
+        "SKILL.md"
+      ],
+      "original_name": "cloudflare-one",
+      "upstream_file_hashes": {
+        "SKILL.md": {
+          "git_blob_sha1": "9a8a5413ac064e43569b5def21e54cc51383ab55"
+        }
+      },
+      "category": "engineering",
+      "title": "Cloudflare One",
+      "inputs": "Project brief, relevant code/configuration and authorized account context",
+      "output": "Source-guided engineering workflow; executed changes require available toolchain and appropriate authorization",
+      "required_capabilities": "Cloudflare/Node/wrangler/project tools as declared in original skill",
+      "verification": {
+        "structure": "validated",
+        "native_runtime": "not_verified"
+      },
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "cloudflare-one-migrations",
+      "path": "vendor/skills/cloudflare-one-migrations",
+      "origin": "third_party",
+      "version": null,
+      "description": "Assess and plan migrations from existing VPN, SWG, or SASE platforms to Cloudflare One, including policy mapping, parity gaps, and rollout.",
+      "upstream_repository": "cloudflare/skills",
+      "upstream_commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
+      "source_url": "https://github.com/cloudflare/skills/tree/41e0d19858946d18af9ee2c2feebbe2e11d829ff/skills/cloudflare-one-migrations",
+      "license": "Apache-2.0",
+      "upstream_path": "skills/cloudflare-one-migrations",
+      "content_sha256": "e238392e37705e5bdd383d727ff6d5d9d0c3453a94643fc6348fecc8ed7ffa8a",
+      "upstream_tree_sha256": "3e935f9ad5eb210b046fffd74d9aa7e3795f7fe366762c8e6cd6763f690f810a",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "author": "cloudflare",
+      "upstream_files": [
+        "SKILL.md"
+      ],
+      "original_name": "cloudflare-one-migrations",
+      "upstream_file_hashes": {
+        "SKILL.md": {
+          "git_blob_sha1": "38766f2e48e3fd12d413003980e2022298d93329"
+        }
+      },
+      "category": "engineering",
+      "title": "Cloudflare One Migrations",
+      "inputs": "Project brief, relevant code/configuration and authorized account context",
+      "output": "Source-guided engineering workflow; executed changes require available toolchain and appropriate authorization",
+      "required_capabilities": "Cloudflare/Node/wrangler/project tools as declared in original skill",
+      "verification": {
+        "structure": "validated",
+        "native_runtime": "not_verified"
+      },
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "durable-objects",
+      "path": "vendor/skills/durable-objects",
+      "origin": "third_party",
+      "version": null,
+      "description": "Build, debug, or review Cloudflare Durable Objects code for persistent state and coordination.",
+      "upstream_repository": "cloudflare/skills",
+      "upstream_commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
+      "source_url": "https://github.com/cloudflare/skills/tree/41e0d19858946d18af9ee2c2feebbe2e11d829ff/skills/durable-objects",
+      "license": "Apache-2.0",
+      "upstream_path": "skills/durable-objects",
+      "content_sha256": "1270decacd2edbfa6ed261018256435a1b6b24693e12513e33887ee757db76c9",
+      "upstream_tree_sha256": "d503440a9907ceaf19a63c7f49052a16eb2d877eb7a1358b4f44e5090087d2ff",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "author": "cloudflare",
+      "adaptation": "portable metadata and resource navigation only; see ADAPTATION.md",
+      "adaptation_version": "1.0.0",
+      "upstream_files": [
+        "SKILL.md",
+        "references/rules.md",
+        "references/testing.md",
+        "references/workers.md"
+      ],
+      "original_name": "durable-objects",
+      "normalization_notes": "portable metadata and resource navigation only; see ADAPTATION.md",
+      "upstream_file_hashes": {
+        "SKILL.md": {
+          "git_blob_sha1": "c50bc300cb71ec554c4440c79fd58ed0e6e1d868"
+        },
+        "references/rules.md": {
+          "git_blob_sha1": "cf1f035d7fee8eb0fa7828d8479e38b3c71a282b"
+        },
+        "references/testing.md": {
+          "git_blob_sha1": "4e9038c44925c8d4bb1caaf66cc6c2fb189f988b"
+        },
+        "references/workers.md": {
+          "git_blob_sha1": "bd115a5954e402c75de17058e8ab2bc0ae4d4a4f"
+        }
+      },
+      "category": "engineering",
+      "title": "Durable Objects",
+      "inputs": "Project brief, relevant code/configuration and authorized account context",
+      "output": "Source-guided engineering workflow; executed changes require available toolchain and appropriate authorization",
+      "required_capabilities": "Cloudflare/Node/wrangler/project tools as declared in original skill",
+      "verification": {
+        "structure": "validated",
+        "native_runtime": "not_verified"
+      },
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "sandbox-migrate-to-next",
+      "path": "vendor/skills/sandbox-migrate-to-next",
+      "origin": "third_party",
+      "version": null,
+      "description": "Migrate Cloudflare Sandbox apps from stable @cloudflare/sandbox to @cloudflare/sandbox@next (SDK 1.0 preview). Use sandbox-next for apps already on the preview.",
+      "upstream_repository": "cloudflare/skills",
+      "upstream_commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
+      "source_url": "https://github.com/cloudflare/skills/tree/41e0d19858946d18af9ee2c2feebbe2e11d829ff/skills/sandbox-migrate-to-next",
+      "license": "Apache-2.0",
+      "upstream_path": "skills/sandbox-migrate-to-next",
+      "content_sha256": "427fbf3f65ec804e671d478f23a232b3e2881f4359b6568556d32d114c69d3f5",
+      "upstream_tree_sha256": "b901b0677bb96b0fa1186e80c50ac159860304e2034303e82332630e8efef064",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "author": "cloudflare",
+      "upstream_files": [
+        "SKILL.md"
+      ],
+      "original_name": "sandbox-migrate-to-next",
+      "upstream_file_hashes": {
+        "SKILL.md": {
+          "git_blob_sha1": "cb08594ac2c7235809f6954058941c82d465c691"
+        }
+      },
+      "category": "engineering",
+      "title": "Sandbox Migrate To Next",
+      "inputs": "Project brief, relevant code/configuration and authorized account context",
+      "output": "Source-guided engineering workflow; executed changes require available toolchain and appropriate authorization",
+      "required_capabilities": "Cloudflare/Node/wrangler/project tools as declared in original skill",
+      "verification": {
+        "structure": "validated",
+        "native_runtime": "not_verified"
+      },
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "sandbox-next",
+      "path": "vendor/skills/sandbox-next",
+      "origin": "third_party",
+      "version": null,
+      "description": "Build or maintain Cloudflare Sandbox apps on @cloudflare/sandbox@next (SDK 1.0 preview). Use sandbox-migrate-to-next when porting a stable app.",
+      "upstream_repository": "cloudflare/skills",
+      "upstream_commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
+      "source_url": "https://github.com/cloudflare/skills/tree/41e0d19858946d18af9ee2c2feebbe2e11d829ff/skills/sandbox-next",
+      "license": "Apache-2.0",
+      "upstream_path": "skills/sandbox-next",
+      "content_sha256": "e556cbfe5966299fcf891c087fa73d0e8686f419efa14f162030dcd2749848b5",
+      "upstream_tree_sha256": "652ac67fc73fc4414b5d20e6968660838ecd28a61a70caa43e1ce7d722cf53be",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "author": "cloudflare",
+      "upstream_files": [
+        "SKILL.md",
+        "references/api-quick-ref.md",
+        "references/examples.md"
+      ],
+      "original_name": "sandbox-next",
+      "upstream_file_hashes": {
+        "SKILL.md": {
+          "git_blob_sha1": "e24fd2f7eaf2e5f16a0e31c121e86fa28a6bb916"
+        },
+        "references/api-quick-ref.md": {
+          "git_blob_sha1": "31cc3a8402a76db1fb7927caf2b9d74cefc47aff"
+        },
+        "references/examples.md": {
+          "git_blob_sha1": "49c75aa3d209635c46043061a3696d6bd995e159"
+        }
+      },
+      "category": "engineering",
+      "title": "Sandbox Next",
+      "inputs": "Project brief, relevant code/configuration and authorized account context",
+      "output": "Source-guided engineering workflow; executed changes require available toolchain and appropriate authorization",
+      "required_capabilities": "Cloudflare/Node/wrangler/project tools as declared in original skill",
+      "verification": {
+        "structure": "validated",
+        "native_runtime": "not_verified"
+      },
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "sandbox-stable",
+      "path": "vendor/skills/sandbox-stable",
+      "origin": "third_party",
+      "version": null,
+      "description": "Build or maintain Cloudflare Sandbox apps on the stable @cloudflare/sandbox package. Use sandbox-next for preview apps and sandbox-migrate-to-next for stable-to-preview migrations.",
+      "upstream_repository": "cloudflare/skills",
+      "upstream_commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
+      "source_url": "https://github.com/cloudflare/skills/tree/41e0d19858946d18af9ee2c2feebbe2e11d829ff/skills/sandbox-stable",
+      "license": "Apache-2.0",
+      "upstream_path": "skills/sandbox-stable",
+      "content_sha256": "5f43cdcfa9775b92119658fbb9d620778f8866e279102f11747beb913fd217c2",
+      "upstream_tree_sha256": "95ce0056ce3e115d7101b98b150dff192c5d0f586b6763f6bff6cd0ec33418d9",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "author": "cloudflare",
+      "upstream_files": [
+        "SKILL.md"
+      ],
+      "original_name": "sandbox-stable",
+      "upstream_file_hashes": {
+        "SKILL.md": {
+          "git_blob_sha1": "c37d1a2b73f717ac952fd9ebcdb16a4a564b561e"
+        }
+      },
+      "category": "engineering",
+      "title": "Sandbox Stable",
+      "inputs": "Project brief, relevant code/configuration and authorized account context",
+      "output": "Source-guided engineering workflow; executed changes require available toolchain and appropriate authorization",
+      "required_capabilities": "Cloudflare/Node/wrangler/project tools as declared in original skill",
+      "verification": {
+        "structure": "validated",
+        "native_runtime": "not_verified"
+      },
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "turnstile-spin",
+      "path": "vendor/skills/turnstile-spin",
+      "origin": "third_party",
+      "version": null,
+      "description": "Set up, repair, or migrate to Cloudflare Turnstile bot verification in an existing frontend and backend, including server-side Siteverify.",
+      "upstream_repository": "cloudflare/skills",
+      "upstream_commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
+      "source_url": "https://github.com/cloudflare/skills/tree/41e0d19858946d18af9ee2c2feebbe2e11d829ff/skills/turnstile-spin",
+      "license": "Apache-2.0",
+      "upstream_path": "skills/turnstile-spin",
+      "content_sha256": "49ddad6a0f65ec7f2188abcf202ac4507202a5fab120b0598d9fa54c370b1508",
+      "upstream_tree_sha256": "1bf58659264a5196cc0c518f479bd9af6859e4737c0203140710325a8a65a94c",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "author": "cloudflare",
+      "adaptation": "portable metadata and resource navigation only; see ADAPTATION.md",
+      "adaptation_version": "1.0.1",
+      "upstream_files": [
+        "README.md",
+        "SKILL.md",
+        "references/astro.md",
+        "references/hugo.md",
+        "references/nextjs-app.md",
+        "references/nextjs-pages.md",
+        "references/sveltekit.md",
+        "references/vanilla-html.md",
+        "scripts/auth-probe.sh",
+        "scripts/persist-skill.sh",
+        "scripts/validate.sh",
+        "scripts/widget-create.sh",
+        "tests/validation.md"
+      ],
+      "original_name": "turnstile-spin",
+      "normalization_notes": "portable metadata and resource navigation only; see ADAPTATION.md",
+      "upstream_file_hashes": {
+        "README.md": {
+          "git_blob_sha1": "e69238595d2b3d9c30983404cc042c3ea1f2f10b"
+        },
+        "SKILL.md": {
+          "git_blob_sha1": "841aeb02610f4f37b0ab36799763e2f8dbaca2ab"
+        },
+        "references/astro.md": {
+          "git_blob_sha1": "435c02644876ef46519bab725c321fb042b0dd54"
+        },
+        "references/hugo.md": {
+          "git_blob_sha1": "c73419410734267379d274f749660a90ff0a1470"
+        },
+        "references/nextjs-app.md": {
+          "git_blob_sha1": "ac3104621b26f82b6d6edd236c0c44bfeca8a5b3"
+        },
+        "references/nextjs-pages.md": {
+          "git_blob_sha1": "2e7019ef60891bb59465e8b8cfacff69d8a2ed66"
+        },
+        "references/sveltekit.md": {
+          "git_blob_sha1": "b04e7aac4d514d180962903348367ea9a10aedbf"
+        },
+        "references/vanilla-html.md": {
+          "git_blob_sha1": "d6657514efc15c46179e663769c3d4258b1526f5"
+        },
+        "scripts/auth-probe.sh": {
+          "git_blob_sha1": "44265cfaa6aaaf509fb91d876acd0baac00181ef"
+        },
+        "scripts/persist-skill.sh": {
+          "git_blob_sha1": "73e2c66092d4bc286ef367e41ce5a5167cfd824f"
+        },
+        "scripts/validate.sh": {
+          "git_blob_sha1": "5443faf71eed68bbcdc8fcec04f110d402139e6c"
+        },
+        "scripts/widget-create.sh": {
+          "git_blob_sha1": "bde8ad6b48128fa488f3143c24e326757ddeb747"
+        },
+        "tests/validation.md": {
+          "git_blob_sha1": "276215157cef4d27f0bb1f54548ebca2f3f93744"
+        }
+      },
+      "category": "engineering",
+      "title": "Turnstile Spin",
+      "inputs": "Project brief, relevant code/configuration and authorized account context",
+      "output": "Source-guided engineering workflow; executed changes require available toolchain and appropriate authorization",
+      "required_capabilities": "Cloudflare/Node/wrangler/project tools as declared in original skill",
+      "verification": {
+        "structure": "validated",
+        "native_runtime": "not_verified"
+      },
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "web-perf",
+      "path": "vendor/skills/web-perf",
+      "origin": "third_party",
+      "version": null,
+      "description": "Audit, diagnose, or optimize website loading and interaction performance, Core Web Vitals, and Lighthouse performance scores.",
+      "upstream_repository": "cloudflare/skills",
+      "upstream_commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
+      "source_url": "https://github.com/cloudflare/skills/tree/41e0d19858946d18af9ee2c2feebbe2e11d829ff/skills/web-perf",
+      "license": "Apache-2.0",
+      "upstream_path": "skills/web-perf",
+      "content_sha256": "08ae7585d9dcd00518c1db6c87cd436471b40f21c1749e0f59b3398aed7f1ee3",
+      "upstream_tree_sha256": "3321e3f78436d4facb13ab690a5ccc8a74fde89c0326913042fe4046aae3f977",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "author": "cloudflare",
+      "upstream_files": [
+        "SKILL.md"
+      ],
+      "original_name": "web-perf",
+      "upstream_file_hashes": {
+        "SKILL.md": {
+          "git_blob_sha1": "b028d9cae41d3af2f59d6a90fcac3c241d6ff437"
+        }
+      },
+      "category": "engineering",
+      "title": "Web Perf",
+      "inputs": "Project brief, relevant code/configuration and authorized account context",
+      "output": "Source-guided engineering workflow; executed changes require available toolchain and appropriate authorization",
+      "required_capabilities": "Cloudflare/Node/wrangler/project tools as declared in original skill",
+      "verification": {
+        "structure": "validated",
+        "native_runtime": "not_verified"
+      },
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "workers-best-practices",
+      "path": "vendor/skills/workers-best-practices",
+      "origin": "third_party",
+      "version": null,
+      "description": "Cloudflare Workers best practices for production applications. Use when writing, reviewing, or configuring Workers.",
+      "upstream_repository": "cloudflare/skills",
+      "upstream_commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
+      "source_url": "https://github.com/cloudflare/skills/tree/41e0d19858946d18af9ee2c2feebbe2e11d829ff/skills/workers-best-practices",
+      "license": "Apache-2.0",
+      "upstream_path": "skills/workers-best-practices",
+      "content_sha256": "3e58476bb4ad6eb5a7c040b78fc2c1982548c99a70180964fbec25e6ee41ff61",
+      "upstream_tree_sha256": "131ab0c3d228c1c827bfc1ece886dd512ce92d3933e57e539b3a4a2c0147ed56",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "author": "cloudflare",
+      "upstream_files": [
+        "SKILL.md",
+        "references/configuration.md",
+        "references/platform-apis.md",
+        "references/runtime-patterns.md"
+      ],
+      "original_name": "workers-best-practices",
+      "upstream_file_hashes": {
+        "SKILL.md": {
+          "git_blob_sha1": "ac2f180fa01fc00761870142c8fbeb441b1d3a25"
+        },
+        "references/configuration.md": {
+          "git_blob_sha1": "96590b1d1fcad31a9c62d33174ed68ca3adf1c07"
+        },
+        "references/platform-apis.md": {
+          "git_blob_sha1": "68af36add31e223ea9ac41d8895de7370e80201e"
+        },
+        "references/runtime-patterns.md": {
+          "git_blob_sha1": "bdb8c03882b6ecd658d91b3cd44a1b5203ddd3fc"
+        }
+      },
+      "category": "engineering",
+      "title": "Workers Best Practices",
+      "inputs": "Project brief, relevant code/configuration and authorized account context",
+      "output": "Source-guided engineering workflow; executed changes require available toolchain and appropriate authorization",
+      "required_capabilities": "Cloudflare/Node/wrangler/project tools as declared in original skill",
+      "verification": {
+        "structure": "validated",
+        "native_runtime": "not_verified"
+      },
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    },
+    {
+      "id": "wrangler",
+      "path": "vendor/skills/wrangler",
+      "origin": "third_party",
+      "version": null,
+      "description": "Run or troubleshoot Wrangler CLI commands and configure Worker projects for local development, Previews, deployment, and Cloudflare resource management.",
+      "upstream_repository": "cloudflare/skills",
+      "upstream_commit": "41e0d19858946d18af9ee2c2feebbe2e11d829ff",
+      "source_url": "https://github.com/cloudflare/skills/tree/41e0d19858946d18af9ee2c2feebbe2e11d829ff/skills/wrangler",
+      "license": "Apache-2.0",
+      "upstream_path": "skills/wrangler",
+      "content_sha256": "2b563f024d369c42bba6bf7f1d2aa6b0717da8723870eba1dddec0eda71e464a",
+      "upstream_tree_sha256": "40e6f75362b34bcc90123146192e95a762c76d04134075becd8c6ccafce38d3b",
+      "compatibility": {
+        "codex": "not_verified",
+        "claude": "not_verified",
+        "cursor": "not_verified",
+        "chatgpt": "not_verified",
+        "grok-bot": "not_verified"
+      },
+      "author": "cloudflare",
+      "upstream_files": [
+        "SKILL.md"
+      ],
+      "original_name": "wrangler",
+      "upstream_file_hashes": {
+        "SKILL.md": {
+          "git_blob_sha1": "d40515fdfc52c02cc06cabff07a5619a734a386b"
+        }
+      },
+      "category": "engineering",
+      "title": "Wrangler",
+      "inputs": "Project brief, relevant code/configuration and authorized account context",
+      "output": "Source-guided engineering workflow; executed changes require available toolchain and appropriate authorization",
+      "required_capabilities": "Cloudflare/Node/wrangler/project tools as declared in original skill",
+      "verification": {
+        "structure": "validated",
+        "native_runtime": "not_verified"
+      },
+      "checked_at": "2026-10-06T05:03:13.643423+00:00",
+      "redistribution_allowed": true
+    }
+  ],
+  "external_sources": [
+    {
+      "repository": "AgriciDaniel/codex-seo",
+      "source_url": "https://github.com/AgriciDaniel/codex-seo",
+      "pinned_commit": "9a4a0b9e3c44eec2ceedcc21d10659427ee3bc1c",
+      "license": "LicenseRef-Proprietary",
+      "decision": "external-only",
+      "reason": "License expressly prohibits redistribution and derivative distribution; current use requires active publisher membership."
+    },
+    {
+      "repository": "openai/skills",
+      "source_url": "https://github.com/openai/skills",
+      "pinned_commit": "49f948faa9258a0c61caceaf225e179651397431",
+      "license": null,
+      "decision": "external-only",
+      "reason": "Provider-managed installed channel; no package redistribution license established for this distribution."
+    },
+    {
+      "repository": "openai/plugins",
+      "source_url": "https://github.com/openai/plugins",
+      "pinned_commit": "5fd93af4cd0c623e020d0cc7e9ce178b4ac1f70f",
+      "license": null,
+      "decision": "external-only",
+      "reason": "Provider-managed installed channel; no package redistribution license established for this distribution."
+    },
+    {
+      "repository": "remotion-dev/remotion",
+      "source_url": "https://github.com/remotion-dev/remotion",
+      "pinned_commit": "4f5677ad3527d6758ad2fc218249d07a4a583fb9",
+      "license": "LicenseRef-Remotion",
+      "decision": "external-only",
+      "reason": "Root Remotion License grants eligible video/image-production use and modification for own use/contributions, prohibits specified derivative relicensing, and provides no general standalone skill-library redistribution grant. No permissive package-specific skill license found; obtain publisher terms or install upstream."
+    }
+  ]
+}

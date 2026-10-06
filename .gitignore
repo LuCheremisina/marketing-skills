@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+node_modules/
+.DS_Store
+dist/
+evidence/
+private-tools/
+*.db
+*.sqlite*
+.env
+.env.*
+author-profile.json
+site-profile.json
+run-history.jsonl

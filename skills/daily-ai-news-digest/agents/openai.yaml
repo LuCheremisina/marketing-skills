@@ -1,0 +1,8 @@
+interface:
+  display_name: Ежедневный AI-дайджест
+  short_description: Сбор, проверка и отправка AI-новостей в Telegram
+  default_prompt: Используй $daily-ai-news-digest и подготовь проверенный AI-дайджест.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  allow_implicit_invocation: true

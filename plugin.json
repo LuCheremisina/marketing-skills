@@ -1,0 +1,38 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "marketing-skills",
+  "version": "1.0.0",
+  "description": "Evidence-led marketing, research, analytics, SEO/GEO and content workflows.",
+  "author": {
+    "name": "Любовь Черемисина",
+    "url": "https://cheremisina.ru"
+  },
+  "homepage": "https://github.com/LuCheremisina/marketing-skills",
+  "repository": "https://github.com/LuCheremisina/marketing-skills",
+  "license": "MIT",
+  "keywords": [
+    "marketing",
+    "agent-skills",
+    "seo",
+    "geo",
+    "analytics",
+    "research",
+    "content"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Marketing Skills",
+        "shortDescription": "Evidence-led marketing and research workflows",
+        "longDescription": "Reusable workflows for marketing research, analytics, search visibility and content. Methodologist: Любовь Черемисина. https://cheremisina.ru and https://cheremisina.online. Platform execution requires available tools and separate verification.",
+        "developerName": "Любовь Черемисина",
+        "category": "Productivity",
+        "websiteURL": "https://cheremisina.ru",
+        "defaultPrompt": [
+          "Prepare an evidence-led marketing research brief.",
+          "Review campaign results and distinguish measured outcomes from assumptions."
+        ]
+      }
+    }
+  }
+}

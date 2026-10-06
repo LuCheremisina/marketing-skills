@@ -1,0 +1,17 @@
+{
+  "business_name": "North Star Electronics",
+  "niche": "электроника и смартфоны",
+  "language": "ru",
+  "icon": "📱",
+  "days_back": 7,
+  "top_n": 10,
+  "cluster_threshold": 0.35,
+  "sources": [
+    {"url": "https://www.gsmarena.com/rss-news-reviews.php3", "name": "GSMArena", "lang": "en"},
+    {"url": "https://www.androidauthority.com/feed/", "name": "Android Authority", "lang": "en"},
+    {"url": "https://3dnews.ru/news/rss/", "name": "3DNews", "lang": "ru"},
+    {"url": "https://rozetked.me/rss", "name": "Rozetked", "lang": "ru"}
+  ],
+  "priority_brands": ["example-brand-a", "example-brand-b"],
+  "priority_keywords": ["flagship-phone", "wireless-earbuds"]
+}

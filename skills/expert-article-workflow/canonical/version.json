@@ -1,0 +1,11 @@
+{
+  "skill_version": "3.0.0",
+  "canonical_version": "2026-10-06",
+  "contracts": {
+    "author": "1.0.0",
+    "content_types": "1.0.0",
+    "business_routes": "1.0.0",
+    "component_manifest": "1.0.0",
+    "evidence_ledger": "1.0.0"
+  }
+}

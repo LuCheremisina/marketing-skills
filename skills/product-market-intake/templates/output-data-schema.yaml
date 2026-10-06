@@ -1,0 +1,88 @@
+# Машиночитаемая схема вывода Product & Market Intake
+# Заполняй строго по этой структуре. Названия полей не менять — следующий skill
+# в цепочке (JTBD Research → Competitor Intelligence → Demand Research →
+# Opportunity Matrix → GTM Strategy) парсит именно эти ключи.
+# Если данных нет — оставляй пустую строку/список, "unknown" или
+# "требует уточнения", но сам блок не удаляй.
+
+company_name: ""
+website: ""
+date_of_analysis: ""
+
+business_stage: "unknown"  # idea | early_stage | growth | mature | market_leader | unknown
+sales_model: "unknown"     # one_time | subscription | hybrid | project_based | marketplace | unknown
+
+strategic_context:
+  years_on_market: "unknown"
+  team_size: "unknown"
+  regions: "unknown"
+  approx_revenue: "unknown"
+  main_goal: "unknown"
+
+business_map:
+  offer: ""                  # что продаётся
+  customer: ""                # кому продаётся
+  channel: []                 # как клиент находит и покупает
+  business_model: ""          # логика монетизации
+  value_proposition: ""       # заявленная ценность для клиента
+  customer_engagement_level: ""
+  demand_type: ""             # сформированный | несформированный | смешанный
+  confidence_level: "high"    # high | medium | low
+  brand_check:                # заполняй только если хотя бы одно поле сверки дано пользователем
+    performed: false          # true, если сравнение реально проводилось
+    sources_checked: []       # конкретные источники, которые смотрели
+    comparison: []            # список из объектов ниже, только по заполненным полям
+      # - dimension: "positioning"  # positioning | usp | target_audience | geography_rationale | competitors
+      #   self_reported: ""
+      #   found_online: ""
+      #   match_level: ""     # совпадает | частично совпадает | не подтверждается | не проверялось
+      #   note: ""
+
+product_map:
+  what_is_sold: ""
+  who_for: ""
+  job_to_be_done: ""
+  claimed_advantages: []        # заявления компании, не проверенные факты
+  advantages_to_validate: []    # что из этого требует проверки
+  value_map:
+    functional_value: []
+    economic_value: []
+    emotional_value: []
+    social_value: []
+    risk_reduction_value: []
+
+market_context:
+  category: ""
+  geography: ""
+  market_maturity: ""
+  demand_type: ""
+  competition_level: ""
+  regulation_factors: []
+  seasonality: []
+  market_size_note: "Оценка размера рынка требует отдельной проверки через внешние источники."
+  competitor_hypotheses:        # предварительный список, без анализа
+    direct: []
+    indirect: []
+    substitutes: []
+
+hypothesized_segments:
+  - name: ""
+    description: ""
+    core_need: ""
+    buying_trigger: ""
+    expected_objections: []
+    expected_channels: []
+    confidence_level: "high"    # high | medium | low
+  # повторить блок для каждого сегмента, обычно 3-7 штук
+
+research_gaps:
+  must_have: []
+  nice_to_have: []
+  optional: []
+
+research_brief:
+  jtbd_research_task: ""
+  competitor_research_task: ""
+  demand_research_task: ""
+  opportunity_matrix_task: ""
+  gtm_strategy_task: ""

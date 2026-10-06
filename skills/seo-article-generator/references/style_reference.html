@@ -1,0 +1,90 @@
+<!--
+  STYLE REFERENCE — замените на CSS вашего сайта
+  Эталонный CSS для всех статей блога.
+  Источник: статья "Нейросеть для создания музыки: Suno 5.5" (приоритет по font-size 17px).
+  Обновлять ТОЛЬКО вручную при изменении дизайна сайта.
+  Последнее обновление: 2026-04-07
+-->
+<style>
+/* ===== ОСНОВНОЙ КОНТЕЙНЕР ===== */
+.article-body { font-family: Inter, "Segoe UI", Arial, sans-serif; font-size: 17px; line-height: 1.75; color: rgb(34, 34, 34); max-width: 780px; margin: 0px auto; padding: 0px 20px 60px; text-align: left; }
+.article-body p { margin: 0px 0px 1.4em; text-align: left; }
+.article-body h2.section-heading { font-size: 1.45em; font-weight: 700; color: rgb(34, 34, 34); margin: 2.2em 0px 0.7em; border-left: 4px solid rgb(207, 57, 27); padding-left: 14px; line-height: 1.3; }
+.article-body h3.subsection-heading { font-size: 1.12em; font-weight: 600; color: rgb(51, 51, 51); margin: 1.8em 0px 0.5em; }
+.article-body a { color: rgb(207, 57, 27); text-decoration: underline; text-underline-offset: 3px; }
+.article-body a:hover { color: rgb(160, 42, 18); }
+
+/* ===== ВРЕМЯ ЧТЕНИЯ ===== */
+.read-time { font-size: 0.88em; color: rgb(136, 136, 136); margin: 0px 0px 1.5em; }
+
+/* ===== МЕДИА-БЛОК (ПОДКАСТ) ===== */
+.media-block { margin: 0px 0px 2em; }
+.media-block .media-label { font-size: 0.88em; color: rgb(136, 136, 136); margin: 0px 0px 8px; }
+.media-block iframe { border-radius: 8px; display: block; max-width: 100%; }
+
+/* ===== ОГЛАВЛЕНИЕ ===== */
+.table-of-contents { background: rgb(250, 250, 250); border: 1px solid rgb(232, 232, 232); border-radius: 8px; padding: 16px 22px; margin: 0px 0px 2.2em; font-size: 0.95em; }
+.table-of-contents > p:first-child { font-weight: 700; color: rgb(34, 34, 34); margin: 0px 0px 0.6em; }
+.table-of-contents ul { margin: 0px; padding-left: 1.2em; }
+.table-of-contents ul li { margin-bottom: 0.4em; }
+.table-of-contents ul li a { color: rgb(207, 57, 27); text-decoration: underline; text-underline-offset: 2px; }
+
+/* ===== ПРЯМОЙ ОТВЕТ (DIRECT ANSWER) ===== */
+.direct-answer { background: rgb(255, 248, 246); border-left: 4px solid rgb(207, 57, 27); border-radius: 0px 8px 8px 0px; padding: 18px 22px; margin: 0px 0px 2em; font-size: 1.05em; }
+.direct-answer strong { color: rgb(207, 57, 27); }
+
+/* ===== ЦИТАТА ===== */
+.article-quote { border-left: 3px solid rgb(207, 57, 27); padding: 10px 20px; margin: 1.5em 0px; color: rgb(68, 68, 68); font-style: italic; background: rgb(255, 248, 246); border-radius: 0px 6px 6px 0px; }
+
+/* ===== БЛОК ЗНАНИЙ (KNOWLEDGE BOX) ===== */
+.knowledge-box { background: rgb(240, 244, 255); border-radius: 10px; padding: 20px 24px; margin: 2em 0px; font-size: 0.97em; }
+.knowledge-box strong { color: rgb(42, 74, 158); }
+
+/* ===== ВИДЕО-БЛОК ===== */
+.video-block { margin: 2.5em 0px; }
+.video-block .media-label { font-size: 0.88em; color: rgb(136, 136, 136); margin: 0px 0px 8px; }
+.video-block iframe { border-radius: 8px; display: block; max-width: 100%; }
+
+/* ===== CTA-БЛОК ===== */
+.cta-block { padding: 20px 18px; }
+.cta-block p { color: rgb(255, 255, 255); font-size: 1.08em; font-weight: 500; margin: 0px 0px 1em; }
+
+/* ===== AI SUMMARY (KEY TAKEAWAYS) ===== */
+.ai-summary { background: rgb(34, 34, 34); color: rgb(255, 255, 255); border-radius: 10px; padding: 22px 26px; margin: 2.5em 0px; font-size: 0.97em; }
+
+/* ===== FAQ-БЛОК ===== */
+.faq-block { margin: 2em 0px; }
+.faq-block details { border: 1px solid rgb(232, 232, 232); border-radius: 8px; padding: 12px 18px; margin-bottom: 10px; background: rgb(250, 250, 250); }
+.faq-block details[open] { background: rgb(255, 255, 255); }
+.faq-block summary { font-weight: 600; cursor: pointer; list-style: none; color: rgb(34, 34, 34); font-size: 1em; padding: 2px 0px; }
+.faq-block summary::-webkit-details-marker { display: none; }
+.faq-block summary::before { content: "+ "; color: rgb(207, 57, 27); font-weight: 700; }
+.faq-block details[open] summary::before { content: "− "; }
+.faq-block details p { margin: 0.8em 0px 0px; color: rgb(68, 68, 68); font-size: 0.97em; }
+
+/* ===== БЛОК АВТОРА ===== */
+.author-block { display: flex; align-items: flex-start; gap: 16px; background: rgb(250, 250, 250); border-radius: 10px; padding: 18px 22px; margin: 2em 0px; }
+.author-block .author-info { flex: 1; }
+.author-block .author-name { font-weight: 700; font-size: 1.05em; color: rgb(34, 34, 34); }
+.author-block .author-title { font-size: 0.9em; color: rgb(102, 102, 102); margin-top: 4px; }
+.author-block .author-bio { font-size: 0.95em; color: rgb(68, 68, 68); margin-top: 8px; line-height: 1.6; }
+
+/* ===== ЧИТАТЬ ТАКЖЕ ===== */
+.read-also-block { background: rgb(250, 250, 250); border-radius: 10px; padding: 18px 22px; margin: 2em 0px; font-size: 0.95em; }
+.read-also-block > p:first-child { font-weight: 700; color: rgb(34, 34, 34); margin-bottom: 0.6em; }
+.read-also-block ul { margin: 0px; padding-left: 1.2em; }
+.read-also-block ul li { margin-bottom: 0.4em; }
+</style>
+
+<!--
+  ПРИМЕЧАНИЯ ПО ИСПОЛЬЗОВАНИЮ:
+  1. Вставлять этот <style> блок в начало каждого final_article.html
+  2. НЕ добавлять inline-стили к элементам
+  3. НЕ создавать новые CSS-классы без обновления этого файла
+  4. НЕ изменять цвета вне палитры бренда:
+     - Терракотовый: #cf391b / rgb(207, 57, 27)
+     - Тёмно-серый: #666666 / rgb(102, 102, 102)
+     - Почти чёрный: #222222 / rgb(34, 34, 34)
+     - Белый: #ffffff
+  5. Размер шрифта: 17px (норматив по статье Suno 5.5)
+-->

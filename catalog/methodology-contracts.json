@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "skills": {
+    "audit-unisender-email": {
+      "external_action": "read_only",
+      "invariants": [
+        "Primary campaigns, resend campaigns, and observation windows remain separate before baseline calculation.",
+        "Missing link-level or exact attribution data forces partial live status; supplied normalized data may support a complete audit and missing values are never replaced with zero."
+      ]
+    },
+    "build-predictive-growth-dashboard": {
+      "external_action": "approval_required",
+      "invariants": [
+        "Numeric forecasts require dated source series, rolling-origin backtests, and reproducible input fingerprints.",
+        "Local HTML generation does not depend on a publishing method; any separately available external publication requires explicit approval."
+      ]
+    },
+    "daily-ai-news-digest": {
+      "external_action": "scheduled_approved",
+      "invariants": [
+        "The four-level deduplication and two-stage topic filter remain in force.",
+        "Automatic delivery is allowed only for an owner-approved schedule and configured recipients."
+      ]
+    },
+    "deep-research": {
+      "external_action": "none",
+      "invariants": [
+        "The four depth modes and evidence-first research loop remain distinct.",
+        "Claims remain traceable to sources and unsupported citations are excluded."
+      ]
+    },
+    "direct-analyst": {
+      "external_action": "read_only",
+      "invariants": [
+        "Deterministic collection and KPI calculations remain separate from LLM interpretation.",
+        "The skill stays a thin management-report adapter over direct-analytics-skill."
+      ]
+    },
+    "direct-analytics-skill": {
+      "external_action": "read_only",
+      "invariants": [
+        "Direct and Metrika data remain cached locally and calculated deterministically.",
+        "Period comparability, reconciliation, and anomaly logic remain explicit.",
+        "Direct and Metrika remain parallel source facts; cross-source ratios use only explicitly reconciled rows.",
+        "Unattributed revenue is never allocated by advertising cost; anomalies require project-specific materiality and comparable complete periods."
+      ]
+    },
+    "industry-news-digest": {
+      "external_action": "read_only",
+      "invariants": [
+        "The client profile drives source, brand, and language prioritization.",
+        "Raw fallback output stays visibly distinct from LLM-checked output."
+      ]
+    },
+    "product-market-intake": {
+      "external_action": "none",
+      "invariants": [
+        "The skill remains intake only, not JTBD segmentation, TAM/SAM, SWOT, GTM, or final positioning.",
+        "Facts, hypotheses, unknowns, and research gaps stay separate."
+      ]
+    },
+    "seo-article-generator": {
+      "external_action": "none",
+      "invariants": [
+        "The 18-stage SEO/GEO production sequence remains intact.",
+        "The output stays a prepared publication package rather than an implicit live publication."
+      ]
+    },
+    "seo-demand-analytics": {
+      "external_action": "read_only",
+      "invariants": [
+        "The pipeline remains Demand, Visibility, Traffic, Correlation, Report.",
+        "Fuzzy matching and growth hypotheses are not represented as causal proof."
+      ]
+    },
+    "seo-geo-auditor": {
+      "external_action": "read_only",
+      "invariants": [
+        "The 80-plus-point audit and contextual 0-100 score remain diagnostic tools.",
+        "Technical claims require direct evidence or an explicit limitation."
+      ]
+    },
+    "seo-geo-auditor-pro": {
+      "external_action": "read_only",
+      "invariants": [
+        "The ten-section audit and P1/P2/P3 prioritization remain intact.",
+        "GEO/AEO recommendations remain evidence-bound and specific to the reviewed page."
+      ]
+    },
+    "topic-planner": {
+      "external_action": "read_only",
+      "invariants": [
+        "Topics must pass the demand, catalog, and fresh-event filter.",
+        "Client editorial policy and audience angle remain part of prioritization."
+      ]
+    },
+    "telegram-content-creator": {
+      "external_action": "none",
+      "invariants": [
+        "Voice and positioning come from a runtime brand profile or explicit user input rather than a hard-coded person or channel.",
+        "The skill produces text only and never publishes to Telegram automatically."
+      ]
+    },
+    "wordstat-keyword-research": {
+      "external_action": "read_only",
+      "invariants": [
+        "Wordstat values retain their operator, region, and period context.",
+        "Semantic relevance and search intent are checked before recommendations."
+      ]
+    },
+    "wordstat-trend-radar": {
+      "external_action": "read_only",
+      "invariants": [
+        "Confirmed project registries and stable cluster IDs constrain every recurring analysis.",
+        "Wordstat demand remains distinct from site visibility, and the skill never schedules itself or publishes content automatically."
+      ]
+    }
+  }
+}

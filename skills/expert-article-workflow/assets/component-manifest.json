@@ -1,0 +1,56 @@
+{
+  "contract_version": "1.0.0",
+  "output_type": "tilda_cms_fragment",
+  "root_class": "article-body",
+  "h1_owner": "fragment",
+  "cover_in_fragment": false,
+  "component_order": [
+    "article-header",
+    "article-direct-answer",
+    "article-content",
+    "article-sources",
+    "article-faq",
+    "article-author",
+    "article-cta"
+  ],
+  "required_components": [
+    "article-header",
+    "article-content",
+    "article-author"
+  ],
+  "conditional_components": {
+    "article-direct-answer": "search or definition intent",
+    "article-sources": "external material claims exist",
+    "article-faq": "distinct visible questions exist",
+    "article-cta": "verified route and target URL exist"
+  },
+  "allowed_classes": [
+    "article-body",
+    "article-header",
+    "article-kicker",
+    "article-title",
+    "article-lede",
+    "article-direct-answer",
+    "article-content",
+    "article-section",
+    "article-section-title",
+    "article-table-wrap",
+    "article-quote",
+    "article-checklist",
+    "article-sources",
+    "article-source-list",
+    "article-source-item",
+    "article-faq",
+    "article-faq-item",
+    "article-faq-question",
+    "article-faq-answer",
+    "article-author",
+    "article-author-name",
+    "article-author-role",
+    "article-author-proof",
+    "article-cta",
+    "article-cta-title",
+    "article-cta-link",
+    "article-related-links"
+  ]
+}

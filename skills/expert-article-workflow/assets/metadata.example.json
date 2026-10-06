@@ -1,0 +1,18 @@
+{
+  "article_id": "example-article",
+  "title": "SEO title",
+  "description": "SEO description",
+  "h1": "Visible H1",
+  "production_url": null,
+  "canonical_url": null,
+  "datePublished": null,
+  "dateModified": null,
+  "og_image_url": null,
+  "twitter_card": "summary_large_image",
+  "semantic_mode": "optional",
+  "semantic_status": "unavailable",
+  "claims_complete": false,
+  "content_type": "author_framework",
+  "funnel_stage": "awareness",
+  "offer_key": "none"
+}

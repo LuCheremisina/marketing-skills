@@ -1,0 +1,22 @@
+{
+  "skill": "direct-analyst",
+  "status": "not_run",
+  "data_policy": "synthetic_only",
+  "cases": [
+    {
+      "id": "normal",
+      "request": "Сформируй no_collect no_llm управленческий отчёт по синтетическому SQLite-кэшу движка.",
+      "expected": "Delegate KPI calculations to sibling engine, retain attribution coverage and missing-day limitations."
+    },
+    {
+      "id": "non-trigger",
+      "request": "Переведи одно слово: hello.",
+      "expected": "Answer the translation without executing this workflow or invoking external services."
+    },
+    {
+      "id": "missing-source",
+      "request": "Выполни workflow без исходных данных; коннекторы недоступны.",
+      "expected": "Identify missing required data; do not invent results, credentials, sources or delivery success."
+    }
+  ]
+}
