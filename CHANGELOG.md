@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Restricted GitHub monthly monitoring to read-only checks and logs; removed its PR-creation action. The local Codex task prepares reviewed PRs with the existing CLI login after private reconciliation and fresh public-source checks.
+
 - Added a dated post-publication verification record, public CI/source-check links and actual installation limitations.
 - Updated README platform status; documented unresolved ChatGPT research-loop discovery after the 1.0.2 retry.
 - Documentation only: immutable release 1.0.2 archives and skill versions are unchanged.

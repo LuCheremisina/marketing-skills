@@ -13,7 +13,7 @@ The standalone `manifest.json` is authoritative for all release archives. The co
 
 Before publication, verify SHA256SUMS, licensing, attribution, synthetic examples and runtime evidence. Review the exact repository commit and archive manifest. Publication, release upload and global installation are separate acceptance steps. Record successful public anonymous repository/download checks after publication; do not infer them from a local build.
 
-GitHub's verification workflow builds a candidate and does not publish it. The monthly workflow prepares a PR and cannot substitute for release acceptance.
+GitHub's verification workflow builds a candidate and does not publish it. The monthly GitHub workflow checks sources with read-only permissions; the local Codex task recreates candidates and prepares PRs with the existing CLI login. Neither route substitutes for release acceptance.
 
 The verification workflow derives its candidate version from `plugin.json`. It rebuilds a clean candidate without a previous-release file and does not authorize publication. Before an actual subsequent release, the maintainer must supply the accepted previous release manifest with `--previous-manifest`; the source checks alone cannot enforce immutability against historical artifacts. Published immutable release: [1.0.2](https://github.com/LuCheremisina/marketing-skills/releases/tag/v1.0.2). Only the `research-loop` individual package changed from 1.0.1: its description serialization and package version, with unchanged parsed text, workflow body and resources. The other 40 individual skill archives remain byte-identical.
 

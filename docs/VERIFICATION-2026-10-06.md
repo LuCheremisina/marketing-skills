@@ -22,7 +22,7 @@ Previous installed copies and private runtime profiles were retained in verified
 
 ## Monthly maintenance
 
-The schedule is the first day of each month at 00:00 Asia/Novosibirsk. A manual [monthly-source workflow run](https://github.com/LuCheremisina/marketing-skills/actions/runs/37438905717) completed successfully and found no updates across six monitored sources. The no-change run did not exercise PR creation. Automatic PR creation remains a repository-permissions/configuration and live-verification gate. The local monthly follow-up is configured separately. Neither monitor automatically merges, publishes a release or installs updates.
+The schedule is the first day of each month at 00:00 Asia/Novosibirsk. A manual [monthly-source workflow run](https://github.com/LuCheremisina/marketing-skills/actions/runs/37438905717) completed successfully and found no updates across six monitored sources. The no-change run did not exercise changed-source PR creation. The current GitHub workflow now has read-only repository permissions and no PR-creation action: it logs full monitor results and validates ephemeral candidate files. The separately configured local Codex task reconciles private copies first, then reruns public monitoring from a fresh clone, checks license/privacy and prepares a PR with the existing GitHub CLI login. Manual PR creation through that existing login is demonstrated by [PR1](https://github.com/LuCheremisina/marketing-skills/pull/1) and [PR2](https://github.com/LuCheremisina/marketing-skills/pull/2); a future scheduled changed-source run remains unverified. Neither route merges, publishes a release or installs updates.
 
 ## Limits and reproducibility
 

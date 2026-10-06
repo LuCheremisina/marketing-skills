@@ -77,6 +77,19 @@ class ToolingTest(unittest.TestCase):
         self.assertIn("It labels unavailable", data["description"])
         self.assertTrue(validate(self.root)["ok"])
 
+    def test_monthly_github_monitor_cannot_write_or_create_pull_requests(self):
+        import yaml
+        path = Path(__file__).resolve().parents[1] / ".github/workflows/monthly-upstream.yml"
+        workflow = yaml.safe_load(path.read_text())
+        self.assertEqual(workflow["permissions"], {"contents": "read"})
+        for job in workflow["jobs"].values():
+            self.assertTrue(all(value in ("read", "none") for value in job.get("permissions", {}).values()))
+            for step in job["steps"]:
+                self.assertNotIn("create-pull-request", step.get("uses", ""))
+                self.assertIsNone(re.search(r"\b(?:git\s+push|gh\s+(?:pr|release)\s+(?:create|merge|publish))\b", step.get("run", "")))
+                if step.get("uses", "").startswith("actions/checkout@"):
+                    self.assertIs(step.get("with", {}).get("persist-credentials"), False)
+
     def test_research_loop_description_single_line_for_native_discovery(self):
         path = Path(__file__).resolve().parents[1] / "skills/research-loop/SKILL.md"
         metadata, _, raw = frontmatter(path)
