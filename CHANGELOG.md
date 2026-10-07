@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.1 — cloud adapter compatibility
+
+Remove the undocumented policy.products field from CHE_research-loop; keep its methodology unchanged. Cloud upload of 2.0.0 exposed 33/34 authored skills. This patch must be verified by cloud read-back; registration is distinct from full execution.
+
 ## 2.0.0 — candidate, 2026-10-07
 
 - Consolidate 70 exported packages into 48 canonical packages: 34 authored workflows and 14 licensed engineering workflows.

@@ -3,7 +3,7 @@ name: che-research-loop
 description: "Исследует существующего или бывшего клиента по RESEARCH-LOOP-001: история, CLIENT_STATE, REACTIVATION_ELIGIBILITY и routing. Применяется для Research Loop перед реактивацией; не выполняет контакт и не подменяет отсутствие доказательств."
 license: MIT
 metadata:
-  version: 2.0.0
+  version: 2.0.1
   methodologist: Любовь Черемисина
   website_primary: https://cheremisina.ru
   website_secondary: https://cheremisina.online
