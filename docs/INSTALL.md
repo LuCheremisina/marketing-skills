@@ -25,6 +25,8 @@ The CLI has its own install telemetry. To opt out, set `DISABLE_TELEMETRY=1` (Po
 
 ## ZIP and plugin installation
 
+For all 34 marketing skills in one ZIP, follow the native plugin guide: [English](INSTALL-PLUGIN.md) · [Русский](INSTALL-PLUGIN.ru.md).
+
 Download an [individual skill ZIP or plugin bundle](https://github.com/LuCheremisina/marketing-skills/releases/latest). For coding clients, extract the complete skill folder into the client's documented skill directory, retaining `SKILL.md` and its resources. The ZIP is an alternative to the Node-based CLI. For an existing copy, compare it and keep a backup before replacing it. For account-side imports, use the supported ZIP/plugin flow described below; do not drop required references.
 
 ## Verified installation
@@ -51,7 +53,7 @@ For renamed authored skills, use the [public migration map](MIGRATION-2.0.md). P
 
 ## Claude / Cowork
 
-Use the single-skill ZIP accepted by the specific application. Import one first, invoke it, open a required reference, and test the missing-input path. Do not assume Claude Code environment substitutions work in Cowork.
+Use the complete marketing plugin ZIP through Customize → Plugins → Add → Upload a plugin; see the [full guide](INSTALL-PLUGIN.md#claude). A single-skill ZIP is also available through the separate Skills import flow. Import one first, invoke it, open a required reference, and test the missing-input path. Do not assume Claude Code environment substitutions work in Cowork.
 
 ## ChatGPT
 
