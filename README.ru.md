@@ -1,6 +1,8 @@
 # AI Marketing Skills — исследования, SEO/GEO, аналитика и контент
 
-> **Опубликован v2.0.2:** 34 авторских CHE_ и 14 сторонних пакетов. [Выпуск](https://github.com/LuCheremisina/marketing-skills/releases/tag/v2.0.2) · [Миграция](docs/MIGRATION-2.0.md) · [Подключение MCP Panel](docs/MCP-CONNECTIONS.md).
+> **Опубликован v2.0.4:** 34 авторских CHE_ и 14 сторонних пакетов. [Выпуск](https://github.com/LuCheremisina/marketing-skills/releases/tag/v2.0.4) · [Миграция](docs/MIGRATION-2.0.md) · [Подключение MCP Panel](docs/MCP-CONNECTIONS.md).
+
+**Все 34 маркетинговых навыка одним ZIP:** [Marketing Skill Черемисина — установка в Claude и ChatGPT](docs/INSTALL-PLUGIN.ru.md).
 
 [Руководство по платформам](docs/PLATFORMS.md): способы установки и ограничения совместимости.
 Исследуйте рынок, проверьте сайт, найдите поисковый спрос, разберите рекламу в Яндексе или подготовьте экспертную статью по источникам с помощью готовых AI-процессов.
@@ -17,7 +19,7 @@
 npx skills add LuCheremisina/marketing-skills --skill che-deep-research
 ```
 
-Если появится выбор клиента, укажите свою систему. Затем попросите AI применить `che-deep-research` к вашему вопросу. [Пример запроса](docs/use-cases/deep-research.md#русский-пример). Можно начать с ZIP: [Deep Research 2.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v2.0.2/che-deep-research-3.0.0.zip) и [инструкция импорта](docs/INSTALL.md#zip-and-plugin-installation).
+Если появится выбор клиента, укажите свою систему. Затем попросите AI применить `che-deep-research` к вашему вопросу. [Пример запроса](docs/use-cases/deep-research.md#русский-пример). Можно начать с ZIP: [Deep Research 2.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v2.0.4/che-deep-research-3.0.0.zip) и [инструкция импорта](docs/INSTALL.md#zip-and-plugin-installation).
 
 По умолчанию CLI устанавливает навык в текущий проект. Для существующих установок и фиксированного выпуска с контрольными суммами используйте [проверяемую установку](docs/INSTALL.md#verified-installation). Быстрый путь проверен с CLI `skills` 1.7.0; он не подключает аккаунты и не подтверждает выполнение всех сценариев.
 
@@ -45,7 +47,7 @@ npx skills add LuCheremisina/marketing-skills --skill che-deep-research
 
 Основа — [Agent Skills](https://agentskills.io/specification). Авторская методология распространяется под MIT; инженерные пакеты сохраняют исходные лицензии. Профиль бренда, автора и бизнеса передаётся при запуске и не входит в публичные пакеты.
 
-Опубликован выпуск [**v2.0.2**](https://github.com/LuCheremisina/marketing-skills/releases/tag/v2.0.2). Версии навыков и источники указаны в [каталоге](catalog/skills.json). Проверяйте скачанные архивы по manifest и SHA-256 выпуска.
+Опубликован выпуск [**v2.0.4**](https://github.com/LuCheremisina/marketing-skills/releases/tag/v2.0.4). Версии навыков и источники указаны в [каталоге](catalog/skills.json). Проверяйте скачанные архивы по manifest и SHA-256 выпуска.
 
 ## Что можно делать
 

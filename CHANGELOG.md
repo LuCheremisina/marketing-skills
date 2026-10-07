@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.4
+
+- Brand the marketing plugin as Marketing Skill Черемисина and expand its bilingual overview.
+- Add English and Russian instructions for installing 34 marketing skills with one plugin ZIP in Claude and ChatGPT.
+- Skill instructions and individual skill archives are unchanged.
+
 ## 2.0.2 — public documentation cleanup, 2026-10-07
 
 - Keep installation instructions, platform requirements, attribution, licenses and reusable quality guidance in public documentation.
