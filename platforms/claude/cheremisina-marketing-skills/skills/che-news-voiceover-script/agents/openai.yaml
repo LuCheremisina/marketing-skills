@@ -1,0 +1,5 @@
+interface:
+  display_name: CHE_news-voiceover-script
+  short_description: Преобразует полный текст новости в фактологически точный разгово
+  default_prompt: Используй $che-news-voiceover-script для этой задачи с предоставленными
+    входными данными.

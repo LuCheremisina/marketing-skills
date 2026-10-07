@@ -1,0 +1,7 @@
+interface:
+  display_name: CHE_email-digest-topic-planner
+  short_description: Самостоятельно выбирает свежие материалы из заданных источ
+  default_prompt: Используй $che-email-digest-topic-planner для этой задачи с моим
+    профилем проекта.
+policy:
+  allow_implicit_invocation: true

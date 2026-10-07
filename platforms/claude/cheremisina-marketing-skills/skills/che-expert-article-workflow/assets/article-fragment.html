@@ -1,0 +1,52 @@
+<article class="article-body" data-article-id="{{ARTICLE_ID}}">
+  <header class="article-header">
+    <p class="article-kicker">{{RUBRIC}}</p>
+    <h1 class="article-title">{{H1}}</h1>
+    <p class="article-lede">{{LEDE}}</p>
+  </header>
+
+  <!-- Keep only when the intent needs a concise answer. -->
+  <section class="article-direct-answer" aria-labelledby="direct-answer-title">
+    <h2 class="article-section-title" id="direct-answer-title">{{DIRECT_ANSWER_TITLE}}</h2>
+    <p>{{DIRECT_ANSWER}}</p>
+  </section>
+
+  <div class="article-content">
+    <section class="article-section">
+      <h2 class="article-section-title">{{SECTION_TITLE}}</h2>
+      <p>{{SECTION_BODY}}</p>
+    </section>
+  </div>
+
+  <!-- Required when claims.jsonl contains external material facts. -->
+  <section class="article-sources" aria-labelledby="sources-title">
+    <h2 class="article-section-title" id="sources-title">Источники</h2>
+    <ol class="article-source-list">
+      <li class="article-source-item">
+        <a href="{{SOURCE_URL}}" target="_blank" rel="nofollow noopener noreferrer">{{SOURCE_TITLE}}</a>
+      </li>
+    </ol>
+  </section>
+
+  <!-- Remove the whole section when FAQ is not justified. -->
+  <section class="article-faq" aria-labelledby="faq-title">
+    <h2 class="article-section-title" id="faq-title">Частые вопросы</h2>
+    <div class="article-faq-item">
+      <h3 class="article-faq-question">{{FAQ_QUESTION}}</h3>
+      <div class="article-faq-answer"><p>{{FAQ_ANSWER}}</p></div>
+    </div>
+  </section>
+
+  <aside class="article-author" data-author-id="example-author">
+    <p class="article-author-name">Алексей Пример</p>
+    <p class="article-author-role">Стратегический маркетолог, консультант, fractional CMO</p>
+    <p class="article-author-proof">{{OPTIONAL_RELEVANT_CANONICAL_PROOF}}</p>
+  </aside>
+
+  <!-- Keep only with a verified route and URL. -->
+  <section class="article-cta">
+    <h2 class="article-cta-title">{{CTA_TITLE}}</h2>
+    <p>{{CTA_BODY}}</p>
+    <a class="article-cta-link" href="{{VERIFIED_CTA_URL}}">{{CTA_LABEL}}</a>
+  </section>
+</article>

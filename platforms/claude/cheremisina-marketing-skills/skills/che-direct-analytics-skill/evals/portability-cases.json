@@ -1,0 +1,22 @@
+{
+  "skill": "che-direct-analytics-skill",
+  "status": "not_run",
+  "data_policy": "synthetic_only",
+  "cases": [
+    {
+      "id": "normal",
+      "request": "Сравни две кампании: одна имеет точную связь с выручкой, другая нет; используй синтетические факты.",
+      "expected": "Cross-source ratio uses only reconciled cost; unmatched revenue separate; no campaign changes."
+    },
+    {
+      "id": "non-trigger",
+      "request": "Переведи одно слово: hello.",
+      "expected": "Answer the translation without executing this workflow or invoking external services."
+    },
+    {
+      "id": "missing-source",
+      "request": "Выполни workflow без исходных данных; коннекторы недоступны.",
+      "expected": "Identify missing required data; do not invent results, credentials, sources or delivery success."
+    }
+  ]
+}

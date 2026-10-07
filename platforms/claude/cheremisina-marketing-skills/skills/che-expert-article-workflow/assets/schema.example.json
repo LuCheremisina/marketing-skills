@@ -1,0 +1,47 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://example.com/example#article",
+      "headline": "Visible H1",
+      "description": "SEO description",
+      "datePublished": "2026-07-30T10:00:00+07:00",
+      "dateModified": "2026-07-30T10:00:00+07:00",
+      "mainEntityOfPage": "https://example.com/example",
+      "author": {
+        "@id": "https://example.com/author/example-author/#person"
+      },
+      "image": "https://example.com/assets/example-cover.webp",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Проекты Example Brand",
+        "url": "https://example.com/"
+      },
+      "inLanguage": "ru-RU"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://example.com/author/example-author/#person",
+      "name": "Алексей Пример",
+      "url": "https://example.com/author/example-author/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Блог",
+          "item": "https://example.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Visible H1",
+          "item": "https://example.com/example"
+        }
+      ]
+    }
+  ]
+}

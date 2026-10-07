@@ -1,0 +1,7 @@
+.env
+inputs/config.txt
+inputs/brand_voice.txt
+inputs/site_links.txt
+inputs/transcript.txt
+inputs/source_links.txt
+inputs/seo_requirements.txt

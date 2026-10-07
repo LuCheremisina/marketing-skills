@@ -1,0 +1,6 @@
+interface:
+  display_name: CHE_email-marketing
+  short_description: Создаёт доказательное email-письмо и полный HTML по уже пр
+  default_prompt: Используй $che-email-marketing для этой задачи с моим профилем проекта.
+policy:
+  allow_implicit_invocation: true

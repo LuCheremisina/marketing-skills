@@ -1,0 +1,112 @@
+{
+  "schema_version": "2.0",
+  "project": {
+    "id": "example-project",
+    "name": "Название проекта",
+    "domain": "example.ru",
+    "registry_status": "draft",
+    "regions": [
+      {"name": "Россия", "region_id": 225}
+    ],
+    "devices": ["all"],
+    "monitoring_frequency": "monthly"
+  },
+  "products_services": [
+    {
+      "id": "product:main",
+      "name": "Основной продукт",
+      "type": "product",
+      "status": "active",
+      "priority": "high",
+      "urls": ["https://example.ru/"],
+      "seed_phrases": ["название продукта"],
+      "excluded_meanings": []
+    }
+  ],
+  "product_categories": [
+    {
+      "id": "category:main",
+      "name": "Основная категория",
+      "parent_id": null,
+      "product_ids": ["product:main"],
+      "status": "active",
+      "priority": "high",
+      "seed_phrases": ["название категории"]
+    }
+  ],
+  "audiences": [
+    {
+      "id": "audience:main",
+      "name": "Основная аудитория",
+      "status": "active",
+      "problems": ["Проблема аудитории"],
+      "customer_job_ids": ["job:main"]
+    }
+  ],
+  "customer_jobs": [
+    {
+      "id": "job:main",
+      "statement": "Когда возникает ситуация, хочу решить задачу, чтобы получить результат",
+      "stage": "solution_search",
+      "status": "active",
+      "priority": "high",
+      "audience_ids": ["audience:main"],
+      "product_ids": ["product:main"],
+      "seed_phrases": ["решить задачу"]
+    }
+  ],
+  "existing_urls": [
+    {
+      "url": "https://example.ru/",
+      "type": "landing",
+      "status": "active",
+      "topic": "Основной продукт",
+      "intent": "transactional",
+      "product_ids": ["product:main"]
+    }
+  ],
+  "themes": {
+    "required": [
+      {
+        "id": "theme:main",
+        "name": "Основная обязательная тема",
+        "status": "active",
+        "reason": "Стратегическое направление",
+        "seed_phrases": ["обязательная тема"],
+        "force_monitor": true
+      }
+    ],
+    "forbidden": [
+      {
+        "id": "forbidden:homonym",
+        "pattern": "нерелевантное значение",
+        "match_type": "contains",
+        "reason": "Омоним вне продукта"
+      }
+    ]
+  },
+  "relevance_policy": {
+    "levels": {
+      "direct": 1.0,
+      "adjacent": 0.7,
+      "exploratory": 0.4,
+      "irrelevant": 0.0
+    },
+    "minimum_auto_include": 0.6,
+    "exploratory_requires_review": true
+  },
+  "thresholds": {
+    "min_volume_default": 30,
+    "top_requests_limit": 200,
+    "max_representative_queries": 5,
+    "max_unreviewed_candidates": 10
+  },
+  "clustering_rules": {
+    "merge_required_fields": ["core_entity", "intent", "primary_customer_job", "solution_scope"],
+    "split_on": ["different_intent", "different_customer_job", "different_solution_scope", "different_region_offer", "education_vs_product", "build_vs_buy"],
+    "intent_taxonomy": ["informational_definition", "informational_howto", "commercial_research", "transactional", "navigational", "support", "education", "job", "news"],
+    "stable_id_format": "{core_entity}__{intent}__{primary_job}",
+    "canonical_selection_order": ["product_fit", "volume", "clarity", "history", "not_nested"]
+  },
+  "change_log": []
+}

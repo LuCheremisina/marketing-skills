@@ -1,0 +1,9 @@
+interface:
+  display_name: CHE_skill-optimizer
+  short_description: Проверка навыков и оптимизация инструкций
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+  default_prompt: Используй $che-skill-optimizer для проверки моей библиотеки навыков
+    и предложи приоритетные улучшения.
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,32 @@
+{
+  "contract_version": "1.0.0",
+  "article_id": "example-article",
+  "status": "needs_production_context",
+  "fragment_file": "article.html",
+  "css_file": "article.css",
+  "metadata_file": "metadata.json",
+  "schema_file": "schema.json",
+  "claims_file": "claims.jsonl",
+  "h1_owner": "fragment",
+  "cover_in_fragment": false,
+  "component_order": [
+    "article-header",
+    "article-direct-answer",
+    "article-content",
+    "article-sources",
+    "article-faq",
+    "article-author",
+    "article-cta"
+  ],
+  "cover": {
+    "status": "unavailable",
+    "png_url": null,
+    "webp_url": null,
+    "unique_confirmed": false
+  },
+  "validation": {
+    "draft": "not_run",
+    "integrate": "not_run",
+    "production_smoke": "not_run"
+  }
+}
