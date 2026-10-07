@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.5
+
+- Rename the plugin display name to Marketing Skill Cheremisina in manifests and installation guides. Skill contents are unchanged.
+
 ## 2.0.4
 
 - Brand the marketing plugin as Marketing Skill Черемисина and expand its bilingual overview.

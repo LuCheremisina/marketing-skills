@@ -1,6 +1,6 @@
 {
   "name": "marketing-skills",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "34 авторских навыка Любови Черемисиной: исследование рынка и конкурентов, SEO/GEO-аудит, Wordstat, анализ рекламы, экспертные статьи, email-маркетинг, дайджесты и соцсети. Проверяемые источники, разделение фактов и гипотез, практические результаты. Для любого бизнеса с вашими вводными. Некоторые задачи требуют API/MCP. MCP Panel: cheremisina.ru. Автор: cheremisina.ru и cheremisina.online. 34 original workflows for research, SEO/GEO, analytics and content.",
   "author": {
     "name": "Любовь Черемисина",
@@ -11,7 +11,7 @@
   "license": "MIT",
   "skills": "./skills/",
   "interface": {
-    "displayName": "Marketing Skill Черемисина",
+    "displayName": "Marketing Skill Cheremisina",
     "shortDescription": "34 marketing workflows",
     "longDescription": "34 авторских навыка Любови Черемисиной для исследования рынка и конкурентов, SEO/GEO-аудита, Wordstat, рекламной аналитики, экспертных статей, email-маркетинга, дайджестов и контента для соцсетей. Помогают собрать проверяемые источники, отделить факты от гипотез и подготовить практический результат. Подходят для разных бизнесов: профиль и данные проекта задаются пользователем. Некоторые задачи требуют отдельных API или MCP-подключений; для MCP Panel посетите https://cheremisina.ru. Методолог: Любовь Черемисина — https://cheremisina.ru и https://cheremisina.online.\n\n34 original marketing workflows by Lyubov Cheremisina: market and competitor research, SEO/GEO, Wordstat, campaign analytics, expert articles, email marketing, digests and social content. Workflows use verifiable sources and distinguish facts from assumptions. Supply your own business context and data. Some tasks require separate API or MCP connections; explore MCP Panel at https://cheremisina.ru. Library: https://github.com/LuCheremisina/marketing-skills.",
     "developerName": "Любовь Черемисина",
