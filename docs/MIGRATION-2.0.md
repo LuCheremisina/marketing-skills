@@ -12,7 +12,7 @@
 4. Disable or move an old authored folder only after confirming its identity, backup and replacement. Preserve project profiles and state outside packages. Managed plugin copies must be upgraded through their vendor mechanism; do not edit plugin caches.
 5. Test discovery, invocation and resource loading in each chosen client; check for active duplicate IDs. Restore the backed-up installation if acceptance fails.
 
-The accepted release is now published; the performed installation and remaining checks are in [dated installation evidence](INSTALLATION-2026-10-07.md). The immutable v1.0.2 release remains available for rollback.
+The accepted release is now published. The immutable v1.0.2 release remains available for rollback.
 
 ## Русская версия
 
@@ -22,4 +22,4 @@ The accepted release is now published; the performed installation and remaining 
 
 Перед установкой сохранить резервную копию вне каталогов обнаружения, проверить локальные доработки, провести dry-run и тест отдельного пакета. Старые копии отключать только после проверки владельца, резервной копии и новой версии. Профили, токены и рабочую историю не переносить в распространяемый пакет. Управляемые плагины обновлять штатно.
 
-Выпуск опубликован. Выполненная установка и ограничения отражены в [датированном отчёте](INSTALLATION-2026-10-07.md). Исходный v1.0.2 сохранён для восстановления.
+Выпуск опубликован. Исходный v1.0.2 сохранён для восстановления.
