@@ -2,7 +2,7 @@
 
 Compare markets, technologies or product options with a source-backed report. Use it for a decision that needs several perspectives and evidence, rather than a single factual lookup.
 
-[Install](#install) · [Download ZIP 2.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v1.0.2/deep-research-2.0.0.zip) · [Read the workflow](../../skills/che-deep-research/SKILL.md) · [Русский пример](#русский-пример)
+[Install](#install) · [Download ZIP 2.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v2.0.1/che-deep-research-3.0.0.zip) · [Read the workflow](../../skills/che-deep-research/SKILL.md) · [Русский пример](#русский-пример)
 
 ## Who it helps
 

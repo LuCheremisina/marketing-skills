@@ -19,7 +19,7 @@
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-audit-unisender-email",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "category": "analytics",
       "title": "Email delivery audit",
       "inputs": "Delivery/click export; target site; campaign period",
@@ -35,7 +35,9 @@
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       },
       "redistribution": "MIT-authored",
       "description": "Проверяет доставку, unique-клики, UTM и post-click результат существующих UniSender-кампаний. Применяется для диагностики CTR/CTOR, resend и атрибуции; не пишет новое письмо и не отправляет рассылку.",
@@ -72,11 +74,13 @@
       "content_sha256": "935c795d13cbcc572f4ae9ebb0a9a2d181a00eaafa466caaee61c3f8d0d4da22",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-brand-presence",
       "checked_at": "2026-10-07",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       }
     },
     {
@@ -88,7 +92,7 @@
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-brand-profile-guide",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "category": "content",
       "title": "Brand profile and editorial voice",
       "inputs": "Brand profile; audience; claims policy; draft",
@@ -104,7 +108,9 @@
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       },
       "redistribution": "MIT-authored",
       "description": "Применяет предоставленный бренд-профиль к тексту, дизайну, UI и контенту, сохраняя существующие токены и позиционирование. Использовать при создании материалов в заданном бренде или проверке их согласованности; не выдумывает биографию и бизнес-факты.",
@@ -122,7 +128,7 @@
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-brief-acceptance",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "category": "operations",
       "title": "Requirement acceptance review",
       "inputs": "Original brief; accepted changes; deliverables; evidence",
@@ -138,7 +144,9 @@
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       },
       "redistribution": "MIT-authored",
       "description": "Проверяет полноту многоэтапной поставки по исходному брифу и последующим решениям пользователя. Применять при приёмке продукта, сайта, интеграции или сложного результата с риском потери требований; не заменяет технический аудит или обычный ответ на вопрос.",
@@ -156,7 +164,7 @@
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-build-predictive-growth-dashboard",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "category": "analytics",
       "title": "Growth scenarios and dashboard",
       "inputs": "Metric definitions; period; actuals; assumptions",
@@ -172,7 +180,9 @@
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       },
       "redistribution": "MIT-authored",
       "description": "Строит воспроизводимый дашборд роста с прогнозом 7/30 дней, backtest, диапазоном неопределённости и планом действий. Применяется для сценарного прогноза трафика, лидов или выручки по датированным данным; не выдаёт сценарий за факт.",
@@ -209,11 +219,13 @@
       "content_sha256": "d1317bace8c14384e2097c801b39b73e2de09c43dc03e3019eedc9260cef04d3",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-competitive-monitor",
       "checked_at": "2026-10-07",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       }
     },
     {
@@ -225,7 +237,7 @@
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-content-carousel",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "category": "content",
       "title": "Article to social carousel",
       "inputs": "Complete source text; brand; audience; slide format",
@@ -241,7 +253,9 @@
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       },
       "redistribution": "MIT-authored",
       "description": "Превращает готовую статью или пост в карусель для соцсетей с последовательным сюжетом, единым оформлением и проверкой читаемости. Применять для запроса серии слайдов по материалу; не для одиночной обложки, презентации или публикации в соцсети.",
@@ -259,7 +273,7 @@
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-cover-production",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "category": "content",
       "title": "Article and news cover production",
       "inputs": "Article/news text; brand; image tool; export dimensions",
@@ -275,7 +289,9 @@
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       },
       "redistribution": "MIT-authored",
       "description": "Создаёт готовые обложки статей и новостей по тексту или URL: визуальная метафора, генерация, проверка текста и экспорт PNG/WebP. Применять для запроса готового изображения; для одного промпта использовать che-editorial-cover-prompts.",
@@ -293,7 +309,7 @@
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-daily-ai-news-digest",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "category": "research",
       "title": "AI news digest",
       "inputs": "Period; timezone; sources; delivery intent",
@@ -309,7 +325,9 @@
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       },
       "redistribution": "MIT-authored",
       "description": "Собирает и проверяет AI-новости за заданный период, устраняет дубли и готовит дайджест. Применяется для сводки AI-новостей; доставка — только проверенным получателям по прямому поручению либо ранее разрешённому расписанию.",
@@ -327,7 +345,7 @@
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-deep-research",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "category": "research",
       "title": "Evidence-led research",
       "inputs": "Question; decision; scope; evidence requirements",
@@ -343,7 +361,9 @@
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       },
       "redistribution": "MIT-authored",
       "description": "Проводит глубокое исследование рынка, технологии или продукта с проверкой источников и утверждений. Применяется для комплексного сравнения, трендов и многостороннего отчёта; не применяется к вопросу, решаемому одним поиском.",
@@ -361,7 +381,7 @@
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-direct-analyst",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "category": "analytics",
       "title": "Campaign management report",
       "inputs": "Yandex Direct and Metrika exports; goals; attribution",
@@ -377,7 +397,9 @@
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       },
       "redistribution": "MIT-authored",
       "description": "Готовит управленческий отчёт по Директу и Метрике поверх che-direct-analytics-skill: scorecard, сравнение периодов, аномалии и действия. Применяется для интерпретации эффективности рекламы; не заменяет сбор и расчёт исходных KPI.",
@@ -395,7 +417,7 @@
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-direct-analytics-skill",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "category": "analytics",
       "title": "Read-only campaign analytics",
       "inputs": "Project config; dates; requested metrics",
@@ -411,7 +433,9 @@
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       },
       "redistribution": "MIT-authored",
       "description": "Собирает и рассчитывает данные Директа и Метрики раздельно, сверяет периоды, KPI и аномалии. Применяется для диагностики кампаний, ключей, CPA/ROAS/CTR и атрибуции; не распределяет неизвестную выручку по расходам.",
@@ -429,7 +453,7 @@
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-editorial-cover-prompts",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "category": "content",
       "title": "Article cover prompts",
       "inputs": "Full article; visual brand profile; format",
@@ -445,7 +469,9 @@
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       },
       "redistribution": "MIT-authored",
       "description": "Создаёт концепцию и промпты обложки статьи по тексту и бренд-профилю. Применяется для результата только в виде промпта или брифа; готовую генерацию и экспорт выполнять через che-cover-production.",
@@ -482,11 +508,13 @@
       "content_sha256": "e775a7847cc73d8e14d5a3d5b4508a3c464c3ddd1f34f69404c428bd0a06a0c9",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-email-digest-topic-planner",
       "checked_at": "2026-10-07",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       }
     },
     {
@@ -517,11 +545,13 @@
       "content_sha256": "42c84014e487972817be204e5f0879762088c211ad72e523e4d75b25993a0304",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-email-marketing",
       "checked_at": "2026-10-07",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       }
     },
     {
@@ -533,7 +563,7 @@
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-expert-article-workflow",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "category": "content",
       "title": "Expert article with evidence",
       "inputs": "Brief; source ledger; author profile; optional site profile",
@@ -549,7 +579,9 @@
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       },
       "redistribution": "MIT-authored",
       "description": "Создаёт и редактирует экспертную статью: источники, бриф, текст, QA, HTML и метаданные. Применяется для доказательного экспертного материала в заданном бренде; не публикует без поручения.",
@@ -567,7 +599,7 @@
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-industry-news-digest",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "category": "research",
       "title": "Industry news monitoring",
       "inputs": "Industry; period; sources; timezone; destination",
@@ -583,7 +615,9 @@
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       },
       "redistribution": "MIT-authored",
       "description": "Готовит отраслевой дайджест по заданному профилю бизнеса: RSS, кластеризация, ранжирование, проверка и перевод. Применяется для новостей ниши/брендов за период; профиль хранится в проектном digest-config.json.",
@@ -620,11 +654,13 @@
       "content_sha256": "ce056cca95c816989ecb1b4d3fefed14cec8eea6576e2fb0b2bf812eaf1bf245",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-internet-skill-finder",
       "checked_at": "2026-10-07",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       }
     },
     {
@@ -636,7 +672,7 @@
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-news-editorial-workflow",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "category": "content",
       "title": "News editorial workflow",
       "inputs": "News source; audience; project architecture; approval",
@@ -652,7 +688,9 @@
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       },
       "redistribution": "MIT-authored",
       "description": "Создаёт доказательную новость с управленческим разбором, метаданными, обложкой и интеграционным пакетом для существующего сайта. Применять для новости по первичным источникам, обновления материала или подготовки публикации; не меняет production без явного поручения.",
@@ -670,7 +708,7 @@
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-news-voiceover-script",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "category": "content",
       "title": "News voiceover script",
       "inputs": "Complete news; target duration; optional narrator profile",
@@ -686,7 +724,9 @@
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       },
       "redistribution": "MIT-authored",
       "description": "Преобразует полный текст проверенной новости в разговорный сценарий озвучки с заданным голосом и длительностью. Применяется для адаптации или сокращения новости под аудио; не генерирует звук и не добавляет факты.",
@@ -704,7 +744,7 @@
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-product-market-intake",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "category": "strategy",
       "title": "Product and market intake",
       "inputs": "Business goals; product; audience; constraints; evidence",
@@ -720,7 +760,10 @@
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified",
+        "codex_native_sample": "installed resources read; synthetic inputs and missing-input boundaries checked; live integrations not_verified"
       },
       "redistribution": "MIT-authored",
       "description": "Структурирует вводные о бизнесе в Business Map, Product Map, Market Context, гипотезы сегментов, пробелы и Research Brief. Применяется перед исследованием клиента/ниши; не заменяет финальную сегментацию, GTM или позиционирование.",
@@ -738,7 +781,7 @@
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-research-loop",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "category": "research",
       "title": "Client history and reactivation eligibility",
       "inputs": "Company identity; available internal evidence; checkpoint",
@@ -754,7 +797,9 @@
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       },
       "redistribution": "MIT-authored",
       "description": "Исследует существующего или бывшего клиента по RESEARCH-LOOP-001: история, CLIENT_STATE, REACTIVATION_ELIGIBILITY и routing. Применяется для Research Loop перед реактивацией; не выполняет контакт и не подменяет отсутствие доказательств.",
@@ -772,7 +817,7 @@
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-seo-article-generator",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "category": "seo",
       "title": "SEO/GEO article workflow",
       "inputs": "Topic; intent; target site; evidence; author inputs",
@@ -788,7 +833,9 @@
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       },
       "redistribution": "MIT-authored",
       "description": "Выполняет 18-этапный SEO/GEO-конвейер статьи: исследование, семантика, текст, фактчек, HTML, метаданные и QA. Применяется для полной SEO-статьи; для экспертного редакционного материала использовать che-expert-article-workflow.",
@@ -806,7 +853,7 @@
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-seo-demand-analytics",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "category": "seo",
       "title": "Search demand and visibility analytics",
       "inputs": "Site; query set; periods; region; exports",
@@ -822,7 +869,9 @@
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       },
       "redistribution": "MIT-authored",
       "description": "Связывает рыночный спрос Wordstat, видимость Вебмастера и органический трафик Метрики, сохраняя границы источников. Применяется для SEO-воронки, сопоставления спроса и видимости и выбора действий; не выдаёт спрос за трафик сайта.",
@@ -840,7 +889,7 @@
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-seo-geo-auditor",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "category": "seo",
       "title": "Website SEO/GEO audit",
       "inputs": "URLs/HTML; site intent; crawler export; target channels",
@@ -856,7 +905,9 @@
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       },
       "redistribution": "MIT-authored",
       "description": "Проводит полный SEO/GEO-аудит сайта: crawl, технические сигналы, контент, scoring и приоритеты. Применяется для аудита всего сайта; отдельную страницу, метатег или спорный пункт проверяет che-seo-geo-auditor-pro.",
@@ -874,7 +925,7 @@
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-seo-geo-auditor-pro",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "category": "seo",
       "title": "Page and content SEO/GEO review",
       "inputs": "Page/source; audit objective; market; channel",
@@ -890,7 +941,9 @@
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       },
       "redistribution": "MIT-authored",
       "description": "Проверяет отдельную страницу, title, описание, Schema.org, ссылку, индексацию или спорный пункт SEO/GEO/AEO-аудита. Применяется для точечного доказательного разбора; не запускает полный аудит сайта без соответствующей задачи.",
@@ -908,7 +961,7 @@
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-short-video-production",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "category": "content",
       "title": "Short video production",
       "inputs": "Source text; audience; duration; brand; assets",
@@ -924,7 +977,9 @@
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       },
       "redistribution": "MIT-authored",
       "description": "Создаёт сценарий, раскадровку и при доступных инструментах рендер короткого видео из текста или статьи. Применяется для видеопроизводства и монтажа предоставленных медиа; различает preview, проект и готовый файл.",
@@ -961,11 +1016,14 @@
       "content_sha256": "b025570d3fca2bfba705eb3a54198945417287be158e2a1e4180ebfc4f496dee",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-skill-optimizer",
       "checked_at": "2026-10-07",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified",
+        "codex_native_sample": "installed resources read; synthetic inputs and missing-input boundaries checked; live integrations not_verified"
       }
     },
     {
@@ -977,7 +1035,7 @@
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-skill-regression-check",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "category": "operations",
       "title": "Skill regression review",
       "inputs": "Skill; concrete failure; input; expected behavior",
@@ -993,7 +1051,9 @@
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       },
       "redistribution": "MIT-authored",
       "description": "Воспроизводит конкретную наблюдаемую ошибку навыка на изолированном примере и проверяет исправление. Применяется для регрессии поведения; обзор всей библиотеки и оптимизацию инструкций выполняет che-skill-optimizer.",
@@ -1011,7 +1071,7 @@
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-telegram-content-creator",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "category": "content",
       "title": "Telegram content planning",
       "inputs": "Audience; positioning; source material; editorial goal",
@@ -1027,7 +1087,9 @@
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       },
       "redistribution": "MIT-authored",
       "description": "Готовит посты и серии для Telegram по заданному бренду, аудитории и источникам. Применяется для нового текста или редакторской адаптации; не выдумывает биографию автора и не публикует автоматически.",
@@ -1045,7 +1107,7 @@
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-topic-planner",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "category": "strategy",
       "title": "Topic and content planning",
       "inputs": "Audience; business goals; demand data; existing content",
@@ -1061,7 +1123,9 @@
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       },
       "redistribution": "MIT-authored",
       "description": "Подбирает темы и контент-план по пересечению спроса, каталога бизнеса и инфоповода. Применяется для выбора тем блога или контента; не подменяет тему выдуманным спросом и не создаёт статью без задания.",
@@ -1098,11 +1162,14 @@
       "content_sha256": "7b8ab9e482d33d28a2e909d2a05a811eb3d858e717925fe53b5b80cdd86d6e70",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-unisender-email-pipeline",
       "checked_at": "2026-10-07",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified",
+        "codex_native_sample": "installed resources read; synthetic inputs and missing-input boundaries checked; live integrations not_verified"
       }
     },
     {
@@ -1114,7 +1181,7 @@
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-wordstat-keyword-research",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "category": "seo",
       "title": "Yandex keyword research",
       "inputs": "Seed queries; geography; period; intent",
@@ -1130,7 +1197,9 @@
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       },
       "redistribution": "MIT-authored",
       "description": "Подбирает и проверяет семантику Wordstat: частотность, связанные запросы, регион и кластеризацию. Применяется для ключевых слов статьи/страницы и семантического ядра; исторические тренды анализирует che-wordstat-trend-radar.",
@@ -1148,7 +1217,7 @@
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-wordstat-trend-radar",
-      "source_status": "prepared-unified-candidate",
+      "source_status": "published-2.0.1",
       "category": "seo",
       "title": "Search trend radar",
       "inputs": "Query series; region; time window; comparison",
@@ -1164,7 +1233,9 @@
       "verification": {
         "structure": "validated",
         "offline_instruction_evaluation": "scoped synthetic review; see verification document",
-        "native_runtime": "not_verified"
+        "native_runtime": "not_verified",
+        "installed_payloads": "codex, claude-code, cursor: SHA256 match",
+        "chatgpt_registration": "34/34 authored listed after adapter patch; full execution not_verified"
       },
       "redistribution": "MIT-authored",
       "description": "Анализирует исторический спрос Wordstat по подтверждённому реестру бизнеса, стабильным seed и кластерам. Применяется для сезонности и сигналов роста/спада; не выдаёт сигнал за точный прогноз и не включает неподтверждённые темы.",
@@ -3165,5 +3236,6 @@
       "decision": "external-only",
       "reason": "Root Remotion License grants eligible video/image-production use and modification for own use/contributions, prohibits specified derivative relicensing, and provides no general standalone skill-library redistribution grant. No permissive package-specific skill license found; obtain publisher terms or install upstream."
     }
-  ]
+  ],
+  "published_release": "2.0.1"
 }

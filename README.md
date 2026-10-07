@@ -1,8 +1,8 @@
 # AI Marketing Skills — research, SEO/GEO, analytics & content
 
-> **2.0.0 candidate:** 34 authored CHE_ workflows + 14 licensed engineering skills. New technical IDs use `che-`; the immutable published release remains v1.0.2 until review. [Migration](docs/MIGRATION-2.0.md) · [MCP Panel connections](docs/MCP-CONNECTIONS.md).
+> **Published v2.0.1:** 34 authored CHE_ workflows + 14 licensed engineering skills. [Release](https://github.com/LuCheremisina/marketing-skills/releases/tag/v2.0.1) · [Migration](docs/MIGRATION-2.0.md) · [MCP Panel connections](docs/MCP-CONNECTIONS.md).
 
-[Candidate verification / Проверка кандидата](docs/VERIFICATION-2026-10-07.md): static and synthetic checks; native CHE_ installations are not verified.
+[Installation evidence](docs/INSTALLATION-2026-10-07.md): verified package installation and scoped execution; remaining runtime limits are explicit.
 Research a market, audit a website, analyse Yandex campaigns, find search demand, or turn evidence into an expert article with reusable AI workflows.
 
 **34 original marketing workflows + 14 optional engineering skills.** Open Agent Skills packages for Codex, Claude Code and Cursor; ChatGPT plugin packages are also available. Each workflow lists the inputs and connections it needs. [Platform status](docs/PLATFORMS.md).
@@ -17,7 +17,7 @@ With **Node.js 22.20+ and Git**, run this inside your project:
 npx skills add LuCheremisina/marketing-skills --skill che-deep-research
 ```
 
-Select your AI client if prompted, then ask it to use `che-deep-research` for your question. [Try the example](docs/use-cases/deep-research.md#try-it). Prefer a ZIP? [Download Deep Research 2.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v1.0.2/deep-research-2.0.0.zip) and follow the [client installation guide](docs/INSTALL.md#zip-and-plugin-installation).
+Select your AI client if prompted, then ask it to use `che-deep-research` for your question. [Try the example](docs/use-cases/deep-research.md#try-it). Prefer a ZIP? [Download Deep Research 2.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v2.0.1/che-deep-research-3.0.0.zip) and follow the [client installation guide](docs/INSTALL.md#zip-and-plugin-installation).
 
 The CLI installs into the current project by default. For an existing installation, or a release pinned to checksums, use [verified installation](docs/INSTALL.md#verified-installation). Quick install was checked with `skills` CLI 1.7.0; installation does not connect accounts or establish runtime compatibility.
 
@@ -65,18 +65,16 @@ See the [complete catalogue](docs/CATALOG.md) for inputs, outputs and required c
 
 ## Use with your AI system
 
-**Candidate 2.0.0:** native execution of the new CHE_ packages is not verified. The table below is the historical v1.0.2 installation snapshot, not acceptance of this candidate.
+| System | Current evidence and limit |
+|---|---|
+| Codex | 34 authored + 14 vendor payloads match the release; 34 new names discovered without parse errors; three authored skills sampled natively |
+| Claude Code | 34 authored + 14 vendor payloads match; native execution blocked by OAuth 401 |
+| Cursor | 34 authored + 14 vendor folders match; GUI discovery and execution not verified |
+| ChatGPT | Existing authored cloud plugin updated to 2.0.1; all 34 CHE_ skills listed. Vendor plugin updated to 2.0.1 with 14 skills listed; execution remains separately unverified |
+| Claude / Cowork | Separate account import and execution not verified |
+| Grok Bot | Transfer and execution not verified |
 
-| System | Distribution route | Practical status |
-|---|---|---|
-| Codex | Skill folders or skills plugin | 41 skills installed and discovered; a representative global article workflow tested; remaining execution paths unverified |
-| Claude Code | Skill folders or plugin | 41 expected skills discovered; execution blocked by account OAuth401 |
-| Claude / Cowork | Supported account-side skill import | Import and execution not verified |
-| Cursor | Native Agent Skills | 41 skill folders installed; GUI discovery and execution remain unverified |
-| ChatGPT | Skills-only plugin with portable `plugin.json` | Both plugins installed: 26/27 authored and 14/14 vendor skills listed; one synthetic intake task tested; research-loop discovery unresolved |
-| Grok Bot | Saved skill library with complete instructions/resources | Transfer and execution not verified |
-
-Candidate compatibility is recorded **per skill** in [catalog/skills.json](catalog/skills.json); later installation and sampled execution evidence is in the [dated verification record](docs/VERIFICATION-2026-10-06.md). `verified`, `requires_connection`, `not_verified` and `not_supported` describe practical execution, not marketing promises. File format compliance does not establish that every system can run scripts, access MCP tools, generate media or publish results.
+[Current dated evidence](docs/INSTALLATION-2026-10-07.md) distinguishes files, discovery, sampled execution and live integrations. The catalog does not claim full native execution from package presence. Earlier v1.0.2 evidence remains historical.
 
 Use [quick or verified installation](docs/INSTALL.md) for the route that fits your environment. Never place credentials or client data inside an installed skill. Detailed platform guidance and official sources are in [PLATFORMS.md](docs/PLATFORMS.md).
 

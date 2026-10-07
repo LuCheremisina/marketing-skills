@@ -2,7 +2,7 @@
 
 Create or review an expert article from a brief, sources or transcript. Choose research, outline, draft, review or integration mode and keep claims traceable to evidence.
 
-[Install](#install) · [Download ZIP 3.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v1.0.2/expert-article-workflow-3.0.0.zip) · [Read the workflow](../../skills/che-expert-article-workflow/SKILL.md) · [Русский пример](#русский-пример)
+[Install](#install) · [Download ZIP 3.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v2.0.1/che-expert-article-workflow-4.0.0.zip) · [Read the workflow](../../skills/che-expert-article-workflow/SKILL.md) · [Русский пример](#русский-пример)
 
 ## Who it helps
 

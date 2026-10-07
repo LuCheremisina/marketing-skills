@@ -2,7 +2,7 @@
 
 Audit a whole website or a set of URLs for technical SEO, on-page structure and AI-search visibility. Prioritise fixes using observable page evidence. For one page or a content brief, see the separate che-seo-geo-auditor-pro workflow.
 
-[Install](#install) · [Download ZIP 2.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v1.0.2/seo-geo-auditor-2.0.0.zip) · [Read the workflow](../../skills/che-seo-geo-auditor/SKILL.md) · [Русский пример](#русский-пример)
+[Install](#install) · [Download ZIP 2.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v2.0.1/che-seo-geo-auditor-3.0.0.zip) · [Read the workflow](../../skills/che-seo-geo-auditor/SKILL.md) · [Русский пример](#русский-пример)
 
 ## Who it helps
 
