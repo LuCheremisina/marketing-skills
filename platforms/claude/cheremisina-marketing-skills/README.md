@@ -25,6 +25,8 @@ For security review: the Telegram token is used only to construct Telegram Bot A
 
 Other workflows can use tools the user already connected, including advertising, Wordstat, analytics and email connectors. Installation grants no API access and does not automatically install or connect MCP Panel. For optional MCP Panel setup, visit [cheremisina.ru](https://cheremisina.ru). Review the destination, data and permission before any send, publish or account write.
 
+[Privacy and data handling](https://github.com/LuCheremisina/marketing-skills/blob/main/docs/PLUGIN-PRIVACY.md) · [MIT license terms](https://github.com/LuCheremisina/marketing-skills/blob/main/LICENSE).
+
 ## Author and support
 
 Methodologist: **Любовь Черемисина / Lyubov Cheremisina**. [cheremisina.ru](https://cheremisina.ru) · [cheremisina.online](https://cheremisina.online).

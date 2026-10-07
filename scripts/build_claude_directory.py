@@ -20,6 +20,8 @@ def build():
     manifest['author']['name'] = 'Lyubov Cheremisina'
     manifest['icon'] = './.claude-plugin/icon.png'
     manifest['documentationUrl'] = 'https://github.com/LuCheremisina/marketing-skills/blob/main/docs/INSTALL-PLUGIN.md'
+    manifest['privacyPolicyUrl'] = 'https://github.com/LuCheremisina/marketing-skills/blob/main/docs/PLUGIN-PRIVACY.md'
+    manifest['termsOfServiceUrl'] = 'https://github.com/LuCheremisina/marketing-skills/blob/main/LICENSE'
     manifest['supportUrl'] = 'https://github.com/LuCheremisina/marketing-skills/issues'
     (DEST / '.claude-plugin').mkdir()
     (DEST / '.claude-plugin/plugin.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')

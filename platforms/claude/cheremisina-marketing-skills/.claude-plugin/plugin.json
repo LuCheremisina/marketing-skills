@@ -12,5 +12,7 @@
   "displayName": "Marketing Skill Cheremisina",
   "icon": "./.claude-plugin/icon.png",
   "documentationUrl": "https://github.com/LuCheremisina/marketing-skills/blob/main/docs/INSTALL-PLUGIN.md",
+  "privacyPolicyUrl": "https://github.com/LuCheremisina/marketing-skills/blob/main/docs/PLUGIN-PRIVACY.md",
+  "termsOfServiceUrl": "https://github.com/LuCheremisina/marketing-skills/blob/main/LICENSE",
   "supportUrl": "https://github.com/LuCheremisina/marketing-skills/issues"
 }
