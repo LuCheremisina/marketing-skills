@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "rules": [
+    {
+      "funnel_stage": "awareness",
+      "reader_problem": "Ранний информационный интент",
+      "offer_key": "related_content",
+      "cta_policy": "Use one verified related article or omit CTA.",
+      "requires_verified_target_url": true
+    },
+    {
+      "funnel_stage": "consideration",
+      "reader_problem": "Есть точечная стратегическая проблема",
+      "offer_key": "strategic_consultation",
+      "cta_policy": "Invite to diagnose the specific decision, without a generic sales promise.",
+      "requires_verified_target_url": true
+    },
+    {
+      "funnel_stage": "consideration",
+      "reader_problem": "Непонятно, что именно не работает",
+      "offer_key": "marketing_audit",
+      "cta_policy": "Offer an audit only when the article reveals a system-level diagnostic need.",
+      "requires_verified_target_url": true
+    },
+    {
+      "funnel_stage": "decision",
+      "reader_problem": "Нужно системно управлять маркетингом",
+      "offer_key": "fractional_cmo",
+      "cta_policy": "Route to long-term management only when ownership and operating cadence are the real job.",
+      "requires_verified_target_url": true
+    },
+    {
+      "funnel_stage": "decision",
+      "reader_problem": "Нужно масштабировать процессы и экспертизу через AI",
+      "offer_key": "ai_marketing_system",
+      "cta_policy": "Route to AI infrastructure or implementation only when the article proves that need.",
+      "requires_verified_target_url": true
+    }
+  ],
+  "fallback": {
+    "offer_key": "none",
+    "cta_policy": "Do not invent a URL and do not use a generic services page automatically."
+  },
+  "constraints": {
+    "max_primary_cta": 1,
+    "price_requires_live_verification": true,
+    "cta_decided_in_brief": true,
+    "do_not_copy_cta_from_golden_example": true
+  }
+}

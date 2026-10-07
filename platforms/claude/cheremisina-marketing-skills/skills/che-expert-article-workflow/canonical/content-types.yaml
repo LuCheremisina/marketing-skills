@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "selection_rule": "Choose by reader intent and decision job, never by keyword volume alone.",
+  "types": [
+    {
+      "id": "research_implementation",
+      "use_for": "Исследование с переводом в план пилота или внедрения",
+      "semantic_default": "optional",
+      "target_characters": [7000, 12000],
+      "required_sections": ["direct_answer", "evidence", "implementation_framework", "limits", "next_step"],
+      "optional_sections": ["comparison_table", "checklist", "faq"],
+      "faq_policy": "only_distinct_search_questions"
+    },
+    {
+      "id": "diagnostic_article",
+      "use_for": "Диагностика симптомов, причин и управленческих разрывов",
+      "semantic_default": "required",
+      "target_characters": [6000, 10000],
+      "required_sections": ["direct_answer", "symptoms", "root_causes", "diagnostic_method", "decision_route"],
+      "optional_sections": ["self_assessment", "example", "faq"],
+      "faq_policy": "only_distinct_search_questions"
+    },
+    {
+      "id": "architecture_explainer",
+      "use_for": "Объяснение системы, технологии или операционной архитектуры",
+      "semantic_default": "optional",
+      "target_characters": [7000, 12000],
+      "required_sections": ["plain_definition", "system_map", "components", "data_flow", "limits", "business_effect"],
+      "optional_sections": ["comparison_table", "implementation_steps", "faq"],
+      "faq_policy": "only_if_definition_intent_remains"
+    },
+    {
+      "id": "operating_model",
+      "use_for": "Роли, процессы, правила контроля и новая модель работы команды",
+      "semantic_default": "optional",
+      "target_characters": [7000, 12000],
+      "required_sections": ["direct_answer", "roles", "workflow", "decision_rights", "guardrails", "metrics"],
+      "optional_sections": ["role_table", "rollout_plan", "faq"],
+      "faq_policy": "optional"
+    },
+    {
+      "id": "cross_industry_research",
+      "use_for": "Перенос практики или исследования из другой отрасли",
+      "semantic_default": "not_needed",
+      "target_characters": [6500, 11000],
+      "required_sections": ["source_context", "what_is_proven", "transfer_logic", "limits_of_transfer", "management_takeaway"],
+      "optional_sections": ["comparison_table", "test_plan"],
+      "faq_policy": "normally_omit"
+    },
+    {
+      "id": "author_framework",
+      "use_for": "Авторская колонка, модель или причинно-следственная метафора",
+      "semantic_default": "not_needed",
+      "target_characters": [5000, 9000],
+      "required_sections": ["thesis", "causal_model", "evidence_or_observation", "counterargument", "management_takeaway"],
+      "optional_sections": ["diagram", "short_checklist"],
+      "faq_policy": "omit_unless_user_asks"
+    },
+    {
+      "id": "commercial_research",
+      "use_for": "TCO, выбор подхода, сравнение вариантов или решение с высоким purchase intent",
+      "semantic_default": "required",
+      "target_characters": [8000, 14000],
+      "required_sections": ["direct_answer", "decision_criteria", "cost_or_value_model", "risks", "fit_nonfit", "next_step"],
+      "optional_sections": ["comparison_table", "calculator_inputs", "faq"],
+      "faq_policy": "only_decision_questions"
+    }
+  ],
+  "global_rules": {
+    "length_is_guidance_not_gate": true,
+    "table_is_conditional": true,
+    "checklist_is_conditional": true,
+    "quotes_are_conditional": true,
+    "ai_summary_is_not_required": true,
+    "single_h1": true
+  }
+}

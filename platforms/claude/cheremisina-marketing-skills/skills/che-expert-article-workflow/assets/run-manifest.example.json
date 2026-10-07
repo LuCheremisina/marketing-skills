@@ -1,0 +1,20 @@
+{
+  "article_id": "example-article",
+  "skill_version": "2.0.0",
+  "canonical_version": "2026-07-30",
+  "mode": "draft",
+  "content_type": "author_framework",
+  "created_at": "2026-07-30T10:00:00+07:00",
+  "updated_at": "2026-07-30T10:00:00+07:00",
+  "source_count": 0,
+  "material_claims": 0,
+  "manual_edits_recorded": false,
+  "external_write_authorized": false,
+  "published": false,
+  "measurement_plan": {
+    "baseline_captured": false,
+    "review_30d": ["indexation", "impressions", "clicks", "cta_clicks"],
+    "review_60d": ["queries", "ai_mentions", "engaged_sessions", "qualified_leads"],
+    "review_90d": ["content_update", "conversion_assist", "owner_edits", "next_experiment"]
+  }
+}

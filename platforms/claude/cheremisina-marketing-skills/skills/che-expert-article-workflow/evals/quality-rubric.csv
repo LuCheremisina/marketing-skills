@@ -1,0 +1,16 @@
+ID,Bucket,Criterion,Pass requirement,Conditional
+ART-E1,Evidence,Material claims,"Every material fact has a verified ledger entry with source, date, checked_at and locator.",always
+ART-E2,Evidence,Primary-source policy,"Numbers, quotes, dates and product capabilities use a primary or original authoritative source.",when_external_material_claims
+ART-E3,Evidence,Meaning labels,"Facts, inferences, hypotheses and recommendations are not presented as the same epistemic type.",always
+ART-A1,Author,Canonical author facts,"Every numeric author claim matches a verified runtime author-profile.json; synthetic canonical samples never establish real authorship.",when_author_metrics_used
+ART-A2,Author,Runtime authorship,"HTML author blocks and Schema Person use a verified runtime author-profile.json; missing profile blocks fragment/integrate and never selects a synthetic example.",when_author_or_schema_created
+ART-I1,Intent,Reader job,"The article resolves one primary intent and a concrete decision job.",always
+ART-I2,Structure,Conditional components,"FAQ, table, checklist, quotes and Direct Answer appear only when useful.",always
+ART-V1,Voice,Strategic voice,"The text leads with a conclusion, shows causality and avoids forbidden clichés and filler.",always
+ART-S1,SEO,Semantic integrity,"Keyword choice balances intent and business relevance; low frequency is not an automatic rejection.",when_semantic_used
+ART-G1,GEO,Extractability,"Key passages are understandable out of context without repeating generic summaries.",always
+ART-B1,Business,CTA routing,"At most one CTA matches funnel stage and uses a verified target URL.",when_cta_used
+ART-T1,Technical,Fragment contract,"One H1, allowed classes, canonical component order and no cover/head metadata inside fragment.",when_fragment_created
+ART-T2,Technical,Schema parity,"Visible author, FAQ, headline and image agree with Schema and metadata.",when_schema_created
+ART-P1,Permission,Publish gate,"No CMS, Git or production change occurs without explicit permission and production context.",always
+ART-O1,Output,Truthful handoff,"The handoff distinguishes draft, structurally validated, integrated and production-verified states.",always

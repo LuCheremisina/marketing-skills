@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0.0",
+  "example_only": true,
+  "examples": [
+    {
+      "id": "research",
+      "url": null,
+      "scenario": "Separate primary evidence from inference.",
+      "reuse": "Use structure and decision criteria, never copy facts or CTA."
+    },
+    {
+      "id": "diagnosis",
+      "url": null,
+      "scenario": "Explain cause before proposing automation.",
+      "reuse": "Use structure and decision criteria, never copy facts or CTA."
+    },
+    {
+      "id": "comparison",
+      "url": null,
+      "scenario": "Compare alternatives under the same criteria.",
+      "reuse": "Use structure and decision criteria, never copy facts or CTA."
+    },
+    {
+      "id": "how-to",
+      "url": null,
+      "scenario": "Give reproducible steps and validation.",
+      "reuse": "Use structure and decision criteria, never copy facts or CTA."
+    },
+    {
+      "id": "case-study",
+      "url": null,
+      "scenario": "Preserve source, period, measured result and limitations.",
+      "reuse": "Use structure and decision criteria, never copy facts or CTA."
+    },
+    {
+      "id": "opinion",
+      "url": null,
+      "scenario": "Mark the author position as an interpretation.",
+      "reuse": "Use structure and decision criteria, never copy facts or CTA."
+    }
+  ]
+}

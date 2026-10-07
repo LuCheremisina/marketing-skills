@@ -1,0 +1,6 @@
+# Пример вводных — SaaS, только минимальный Вариант А (критерий из ТЗ, п.11:
+# skill обязан работать с одним только company_name + website).
+# Компания вымышленная.
+
+company_name: "Plannity"
+website: "https://plannity.example"

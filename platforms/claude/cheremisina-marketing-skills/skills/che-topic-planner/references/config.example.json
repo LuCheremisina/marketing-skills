@@ -1,0 +1,51 @@
+{
+  "_comment": "Illustrative e-commerce electronics profile. Copy the structure during onboarding, not the values.",
+
+  "business_name": "North Star Electronics",
+  "niche": "интернет-магазин смартфонов и электроники",
+  "website": "https://north-star.example",
+  "language": "ru",
+
+  "demand_tool": "yandex_wordstat",
+  "regions": [
+    { "name": "РФ", "threshold": 500 },
+    { "name": "НСО", "threshold": 100 }
+  ],
+
+  "freshness_window_days": 20,
+  "seasonal_window_days": 60,
+  "topics_count": 10,
+
+  "catalog": [
+    "Flagship Phone Ultra",
+    "Compact Phone Pro",
+    "Wireless Earbuds 3",
+    "Smartwatch 5"
+  ],
+
+  "content_types": ["Обзор", "Сравнение", "Гайд", "Тренд"],
+
+  "audience_segments": [
+    { "segment": "Семьи", "angle": "Надёжность, простота, поддержка" },
+    { "segment": "Прагматики", "angle": "Цена, функциональность, долговечность" },
+    { "segment": "Энтузиасты", "angle": "Детальное сравнение, честные компромиссы" },
+    { "segment": "Бизнес", "angle": "Надёжность, скорость выбора, сервис" }
+  ],
+
+  "competitors": ["example-competitor-1.com", "example-competitor-2.com"],
+
+  "redpolicy": {
+    "forbidden_topics": [
+      "Сравнение серого импорта и официальной версии товара под любым углом"
+    ],
+    "forbidden_phrases": [
+      "опасный вариант",
+      "лотерея",
+      "хуже официальной версии"
+    ],
+    "cta_target": "https://north-star.example",
+    "notes": "Не упоминать цены и ссылки на витрины конкурентов."
+  },
+
+  "linked_content_skill": null
+}

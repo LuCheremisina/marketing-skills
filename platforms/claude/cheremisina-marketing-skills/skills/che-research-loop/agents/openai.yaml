@@ -1,0 +1,9 @@
+interface:
+  display_name: CHE_research-loop
+  short_description: Исследование клиента, evidence и безопасная маршрутизация
+  default_prompt: Используй $che-research-loop для исследования клиента по RESEARCH-LOOP-001
+    v1.0 без действий по реактивации.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  allow_implicit_invocation: true

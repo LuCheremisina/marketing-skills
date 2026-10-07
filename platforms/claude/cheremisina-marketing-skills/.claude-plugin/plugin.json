@@ -1,0 +1,18 @@
+{
+  "name": "cheremisina-marketing-skills",
+  "version": "2.0.5",
+  "description": "34 авторских навыка Любови Черемисиной: исследование рынка и конкурентов, SEO/GEO-аудит, Wordstat, анализ рекламы, экспертные статьи, email-маркетинг, дайджесты и соцсети. Проверяемые источники, разделение фактов и гипотез, практические результаты. Для любого бизнеса с вашими вводными. Некоторые задачи требуют API/MCP. MCP Panel: cheremisina.ru. Автор: cheremisina.ru и cheremisina.online. 34 original workflows for research, SEO/GEO, analytics and content.",
+  "author": {
+    "name": "Lyubov Cheremisina",
+    "url": "https://cheremisina.ru"
+  },
+  "homepage": "https://github.com/LuCheremisina/marketing-skills",
+  "repository": "https://github.com/LuCheremisina/marketing-skills",
+  "license": "MIT",
+  "displayName": "Marketing Skill Cheremisina",
+  "icon": "./.claude-plugin/icon.png",
+  "documentationUrl": "https://github.com/LuCheremisina/marketing-skills/blob/main/docs/INSTALL-PLUGIN.md",
+  "privacyPolicyUrl": "https://github.com/LuCheremisina/marketing-skills/blob/main/docs/PLUGIN-PRIVACY.md",
+  "termsOfServiceUrl": "https://github.com/LuCheremisina/marketing-skills/blob/main/LICENSE",
+  "supportUrl": "https://github.com/LuCheremisina/marketing-skills/issues"
+}

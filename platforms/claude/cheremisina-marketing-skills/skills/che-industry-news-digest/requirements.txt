@@ -1,0 +1,2 @@
+feedparser>=6,<7
+openai>=1,<3

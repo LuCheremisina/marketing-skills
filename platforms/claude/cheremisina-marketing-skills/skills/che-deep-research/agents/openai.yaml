@@ -1,0 +1,7 @@
+interface:
+  display_name: CHE_deep-research
+  short_description: Глубокое исследование с источниками и проверкой выводов
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  allow_implicit_invocation: true

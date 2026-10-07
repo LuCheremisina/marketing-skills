@@ -1,0 +1,53 @@
+{
+  "version": "1.0",
+  "description": "Approved editorial template manifest for SEO article generator",
+
+  "allowed_html_blocks": [
+    "article", "section", "header",
+    "div.article-cover", "div.article-content",
+    "div.table-of-contents", "div.direct-answer",
+    "div.definition-block", "div.knowledge-box",
+    "div.ai-summary", "div.author-block",
+    "div.checklist-block", "div.faq-block",
+    "div.cta-block", "div.sources-block",
+    "h2", "h3", "p", "ul", "ol", "li",
+    "table", "thead", "tbody", "tr", "th", "td",
+    "blockquote", "strong", "em", "a", "img",
+    "details", "summary",
+    "script[type='application/ld+json']"
+  ],
+
+  "allowed_css_classes": [
+    "article-cover", "article-content",
+    "table-of-contents", "direct-answer",
+    "definition-block", "knowledge-box",
+    "ai-summary", "author-block",
+    "checklist-block", "faq-block",
+    "cta-block", "cta-button", "sources-block",
+    "section-heading", "subsection-heading"
+  ],
+
+  "allowed_colors": {
+    "terracotta_red": "#cf391b",
+    "graphite_gray": "#666666",
+    "near_black": "#222222",
+    "white": "#ffffff"
+  },
+
+  "allowed_fonts": ["inherit"],
+
+  "spacing": {
+    "section_margin": "2rem",
+    "paragraph_margin": "1rem",
+    "list_indent": "1.5rem"
+  },
+
+  "rules": {
+    "no_new_css_classes": true,
+    "no_inline_styles": true,
+    "no_new_decorative_elements": true,
+    "no_new_fonts": true,
+    "no_new_icons": true,
+    "strict_html_hierarchy": true
+  }
+}

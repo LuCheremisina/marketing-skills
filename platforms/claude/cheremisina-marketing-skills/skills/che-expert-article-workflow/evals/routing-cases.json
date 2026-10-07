@@ -1,0 +1,110 @@
+[
+  {
+    "id": "ROUTE-01",
+    "prompt": "Напиши исследовательскую статью по пяти ссылкам",
+    "expected_mode": "draft",
+    "expected_content_type": "research_implementation",
+    "expected_semantic_mode": "optional",
+    "publish_allowed": false,
+    "critical_gate": "primary_sources"
+  },
+  {
+    "id": "ROUTE-02",
+    "prompt": "Преврати транскрипт в авторскую колонку",
+    "expected_mode": "draft",
+    "expected_content_type": "author_framework",
+    "expected_semantic_mode": "not_needed",
+    "publish_allowed": false,
+    "critical_gate": "no_mandatory_faq"
+  },
+  {
+    "id": "ROUTE-03",
+    "prompt": "Сделай SEO-статью под B2B-запрос с частотностью 40",
+    "expected_mode": "draft",
+    "expected_content_type": "diagnostic_article",
+    "expected_semantic_mode": "required",
+    "publish_allowed": false,
+    "critical_gate": "low_frequency_not_rejected"
+  },
+  {
+    "id": "ROUTE-04",
+    "prompt": "Проверь и улучши существующую статью",
+    "expected_mode": "review",
+    "expected_content_type": "preserve_existing",
+    "expected_semantic_mode": "optional",
+    "publish_allowed": false,
+    "critical_gate": "no_full_regeneration_without_request"
+  },
+  {
+    "id": "ROUTE-05",
+    "prompt": "Сделай HTML для Tilda",
+    "expected_mode": "integrate",
+    "expected_content_type": "preserve_existing",
+    "expected_semantic_mode": "not_needed",
+    "publish_allowed": false,
+    "critical_gate": "fragment_not_deploy"
+  },
+  {
+    "id": "ROUTE-06",
+    "prompt": "Опубликуй статью",
+    "expected_mode": "publish",
+    "expected_content_type": "preserve_existing",
+    "expected_semantic_mode": "not_needed",
+    "publish_allowed": "only_after_explicit_confirmation_and_context",
+    "critical_gate": "external_write_permission"
+  },
+  {
+    "id": "ROUTE-07",
+    "prompt": "Wordstat недоступен, но подготовь исследовательскую статью",
+    "expected_mode": "draft",
+    "expected_content_type": "research_implementation",
+    "expected_semantic_mode": "optional",
+    "publish_allowed": false,
+    "critical_gate": "no_invented_frequency"
+  },
+  {
+    "id": "ROUTE-08",
+    "prompt": "Напиши материал, хотя важное число пока не подтверждено",
+    "expected_mode": "draft",
+    "expected_content_type": "preserve_best_fit",
+    "expected_semantic_mode": "optional",
+    "publish_allowed": false,
+    "critical_gate": "remove_mark_or_block_unverified_claim"
+  },
+  {
+    "id": "ROUTE-09",
+    "prompt": "Добавь в автора 16 лет опыта",
+    "expected_mode": "review",
+    "expected_content_type": "preserve_existing",
+    "expected_semantic_mode": "not_needed",
+    "publish_allowed": false,
+    "critical_gate": "author_canonical_fail"
+  },
+  {
+    "id": "ROUTE-10",
+    "prompt": "FAQ для этой колонки не нужен",
+    "expected_mode": "draft",
+    "expected_content_type": "author_framework",
+    "expected_semantic_mode": "not_needed",
+    "publish_allowed": false,
+    "critical_gate": "faqpage_absent"
+  },
+  {
+    "id": "ROUTE-11",
+    "prompt": "Подготовь полный пакет статьи с обложкой",
+    "expected_mode": "integrate",
+    "expected_content_type": "preserve_best_fit",
+    "expected_semantic_mode": "optional",
+    "publish_allowed": false,
+    "critical_gate": "unique_png_webp_og_schema"
+  },
+  {
+    "id": "ROUTE-12",
+    "prompt": "Добавь новый CSS-класс в шаблон",
+    "expected_mode": "integrate",
+    "expected_content_type": "preserve_existing",
+    "expected_semantic_mode": "not_needed",
+    "publish_allowed": false,
+    "critical_gate": "component_manifest_fail_until_registered"
+  }
+]

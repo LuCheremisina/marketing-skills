@@ -1,0 +1,6 @@
+interface:
+  display_name: CHE_expert-article-workflow
+  short_description: 'Создаёт доказательные экспертные статьи: исследование, бриф,
+    стр'
+  default_prompt: Используй $che-expert-article-workflow для этой задачи с предоставленными
+    входными данными.
