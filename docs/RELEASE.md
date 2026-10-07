@@ -21,4 +21,4 @@ Post-publication verification documentation may advance on `main` while the immu
 
 ## Current accepted release
 
-[2.0.1](https://github.com/LuCheremisina/marketing-skills/releases/tag/v2.0.1) is published. 2.0.0 was accepted against the downloaded 1.0.2 manifest; 2.0.1 was checked against 2.0.0 and changes only the Research Loop individual payload plus versioned bundles. See [installation evidence](INSTALLATION-2026-10-07.md). Documentation on main can advance after release; never rebuild or replace a published artifact under the same version.
+[2.0.1](https://github.com/LuCheremisina/marketing-skills/releases/tag/v2.0.1) is published. 2.0.0 was accepted against the downloaded 1.0.2 manifest; 2.0.1 was checked against 2.0.0 and changes only the Research Loop individual payload plus versioned bundles. Documentation on main can advance after release; never rebuild or replace a published artifact under the same version.

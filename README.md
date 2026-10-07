@@ -2,7 +2,7 @@
 
 > **Published v2.0.1:** 34 authored CHE_ workflows + 14 licensed engineering skills. [Release](https://github.com/LuCheremisina/marketing-skills/releases/tag/v2.0.1) · [Migration](docs/MIGRATION-2.0.md) · [MCP Panel connections](docs/MCP-CONNECTIONS.md).
 
-[Installation evidence](docs/INSTALLATION-2026-10-07.md): verified package installation and scoped execution; remaining runtime limits are explicit.
+[Platform guide](docs/PLATFORMS.md): installation options and compatibility limitations.
 Research a market, audit a website, analyse Yandex campaigns, find search demand, or turn evidence into an expert article with reusable AI workflows.
 
 **34 original marketing workflows + 14 optional engineering skills.** Open Agent Skills packages for Codex, Claude Code and Cursor; ChatGPT plugin packages are also available. Each workflow lists the inputs and connections it needs. [Platform status](docs/PLATFORMS.md).
@@ -74,7 +74,7 @@ See the [complete catalogue](docs/CATALOG.md) for inputs, outputs and required c
 | Claude / Cowork | Separate account import and execution not verified |
 | Grok Bot | Transfer and execution not verified |
 
-[Current dated evidence](docs/INSTALLATION-2026-10-07.md) distinguishes files, discovery, sampled execution and live integrations. The catalog does not claim full native execution from package presence. Earlier v1.0.2 evidence remains historical.
+The [platform guide](docs/PLATFORMS.md) describes compatibility limitations. Package presence does not establish full native execution. Earlier v1.0.2 evidence remains historical.
 
 Use [quick or verified installation](docs/INSTALL.md) for the route that fits your environment. Never place credentials or client data inside an installed skill. Detailed platform guidance and official sources are in [PLATFORMS.md](docs/PLATFORMS.md).
 
