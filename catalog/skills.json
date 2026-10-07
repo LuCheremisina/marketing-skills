@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "release_candidate": "2.0.0",
+  "release_candidate": "2.0.1",
   "checked_at": "2026-10-07",
   "repository": "https://github.com/LuCheremisina/marketing-skills",
   "status_vocabulary": [
@@ -733,7 +733,7 @@
       "id": "che-research-loop",
       "path": "skills/che-research-loop",
       "origin": "authored",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "license": "MIT",
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
@@ -761,7 +761,7 @@
       "checked_at": "2026-10-07",
       "redistribution_allowed": true,
       "display_name": "CHE_research-loop",
-      "content_sha256": "bbde45fe79cc4078fdd8bf2438a6177812c59f5787bb1bec2a77b616078682f7"
+      "content_sha256": "3fb120184889f89b8e39c740a2fa94f2db902cd169ced9ac91d454b6fb1be95a"
     },
     {
       "id": "che-seo-article-generator",
