@@ -1,24 +1,22 @@
-# Reviewed releases
+# Release integrity
 
-Run the public checks and affected workflow tests. Build into a new directory with a new release version. For every release after the first, provide the accepted previous manifest explicitly:
+Published packages have immutable versions and SHA-256 checksums. Download a release from the [release page](https://github.com/LuCheremisina/marketing-skills/releases) and verify it against its `SHA256SUMS` and `manifest.json`. Each skill retains its own package version, source and license.
+
+The standalone manifest is authoritative for the release archives. The complete bundle embeds a manifest without its own outer ZIP checksum to avoid self-reference. Check the complete ZIP against the standalone manifest.
+
+For maintainers, run the repository checks and affected workflow tests, then build under a new library version with the accepted previous release manifest:
 
 ```bash
-python scripts/build_release.py --output dist --version 1.1.0 --previous-manifest /path/to/accepted-previous/manifest.json
+python scripts/build_release.py --output dist --version 2.0.2 --previous-manifest /path/to/accepted-previous/manifest.json
 python scripts/audit_public.py --archives-dir dist
 ```
 
-The baseline prevents changed skill bytes under the same skill/adaptation version, even across separate output directories. The previous manifest must come from an accepted immutable release, not a regenerated local copy. Keep it with the release checksums. A new library release version alone does not authorize replacing an unchanged individual package version with new contents.
+The baseline rejects changed skill contents under an unchanged package version. Changed documentation requires a new bundle version, even when individual skill packages remain unchanged. Never overwrite a published archive with different bytes under the same version.
 
-The standalone `manifest.json` is authoritative for all release archives. The complete bundle embeds a package manifest without its own outer ZIP checksum to avoid a self-reference; verify the complete ZIP against the standalone manifest and `SHA256SUMS`.
+The verification workflow builds a candidate and does not publish it. Review licenses, attribution, privacy, resource links and required connections before publication. Keep internal audit logs, account details and local installation evidence outside public files and archives.
 
-Before publication, verify SHA256SUMS, licensing, attribution, synthetic examples and runtime evidence. Review the exact repository commit and archive manifest. Publication, release upload and global installation are separate acceptance steps. Record successful public anonymous repository/download checks after publication; do not infer them from a local build.
+Historical complete bundles containing internal maintenance reports have been withdrawn from release downloads. Individual skill packages are unchanged. Use the current clean complete bundle for installation.
 
-GitHub's verification workflow builds a candidate and does not publish it. The monthly GitHub workflow checks sources with read-only permissions; the local Codex task recreates candidates and prepares PRs with the existing CLI login. Neither route substitutes for release acceptance.
+## Русская версия
 
-The verification workflow derives its candidate version from `plugin.json`. It rebuilds a clean candidate without a previous-release file and does not authorize publication. Before an actual subsequent release, the maintainer must supply the accepted previous release manifest with `--previous-manifest`; the source checks alone cannot enforce immutability against historical artifacts. Published immutable release: [1.0.2](https://github.com/LuCheremisina/marketing-skills/releases/tag/v1.0.2). Only the `research-loop` individual package changed from 1.0.1: its description serialization and package version, with unchanged parsed text, workflow body and resources. The other 40 individual skill archives remain byte-identical.
-
-Post-publication verification documentation may advance on `main` while the immutable release tag and artifacts remain unchanged. Do not rebuild or re-upload 1.0.2 from a later documentation commit: passing the accepted 1.0.2 manifest with `--previous-manifest` rejects changed bundle contents under that release version. A future distributed package must use a new library version and the accepted previous manifest, even when its individual skill payloads are unchanged.
-
-## Current accepted release
-
-[2.0.1](https://github.com/LuCheremisina/marketing-skills/releases/tag/v2.0.1) is published. 2.0.0 was accepted against the downloaded 1.0.2 manifest; 2.0.1 was checked against 2.0.0 and changes only the Research Loop individual payload plus versioned bundles. Documentation on main can advance after release; never rebuild or replace a published artifact under the same version.
+Проверяйте скачанный архив по `SHA256SUMS` и `manifest.json` соответствующего выпуска. Изменённый архив получает новую версию; опубликованные файлы не заменяются другим содержимым под прежним номером. Для полной библиотеки используйте текущий очищенный выпуск. Версии и содержимое отдельных навыков сохранены.

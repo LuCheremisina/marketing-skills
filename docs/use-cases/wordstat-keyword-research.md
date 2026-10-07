@@ -54,7 +54,7 @@ This is a Wordstat workflow, not a substitute for Google keyword metrics. Instal
 
 ## Version and platform status
 
-Skill **2.0.0**, published in [library release v1.0.2](https://github.com/LuCheremisina/marketing-skills/releases/tag/v1.0.2). Quick installation was tested on an isolated project with skills CLI 1.7.0. This is separate from execution of the workflow. See [platform requirements](../PLATFORMS.md) and [actual verification](../VERIFICATION-2026-10-06.md).
+Skill **2.0.0**, published in [library release v2.0.2](https://github.com/LuCheremisina/marketing-skills/releases/tag/v2.0.2). See [platform requirements](../PLATFORMS.md) and verify the selected workflow in your environment.
 
 Methodologist: **Любовь Черемисина (Lyubov Cheremisina)** — [cheremisina.ru](https://cheremisina.ru) · [cheremisina.online](https://cheremisina.online). Methodology licence: [MIT](../../LICENSE).
 

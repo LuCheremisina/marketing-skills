@@ -1,7 +1,13 @@
-# Evaluation and evidence
+# Workflow quality checks
 
-Each original skill has three case classes: typical request, request outside scope, and missing mandatory input/connection. Actual synthetic inputs and responses are in [cases-and-responses.json](../evals/cases-and-responses.json); scope and limitations are in [summary.json](../evals/summary.json). These 81 text responses were interpreted by one independent evaluator in a shared context, followed by five targeted retests. They are not separate fresh-model invocations or 81 native runtime tests. Private native logs remain outside the public package. Planned skill-local portability cases retain their own execution status.
+Before relying on a workflow, test three scenarios with synthetic inputs: a normal request, a request outside its scope, and missing mandatory data or connections. Skill-local evaluation fixtures and offline script tests are reusable resources; they do not establish full cross-platform execution.
 
-A static YAML pass checks structure. Existing offline tests check scripts and business invariants. Isolated native CLI runs check instruction loading and behavior on synthetic fixtures. User-global installation, ChatGPT account import, Cursor discovery, Claude/Cowork upload and Grok Bot saved-skill execution require separate live checks.
+Validate YAML, resource links, dependencies, licensing and attribution. Run relevant scripts from another working directory. Check native discovery, invocation and resource loading separately in your chosen client. Verify required connections before any live action.
 
-Critical checks include: unmatched revenue is not paid-search-attributed revenue; ROAS uses matched campaign cost and revenue; transport email metrics are not business outcomes; demand frequency is not invented without source; claims retain period, source and limitations; publication requires an actual external result; generated media requires file and visual QA.
+Quality criteria include: attributable revenue stays separate from unmatched revenue; rates have defined denominators; email transport metrics are separate from business outcomes; search demand requires a source; claims retain period, source and limitations; publishing requires an actual external result; generated media requires file and visual checks.
+
+Static validation, synthetic behavior checks, live execution and measured business impact are separate evidence levels. Do not treat one as proof of another.
+
+## Русская версия
+
+Проверьте обычный запрос, запрос за пределами задачи и отсутствие обязательных данных. Используйте синтетические примеры. Затем отдельно проверьте обнаружение навыка, его вызов, ресурсы и подключения в своей системе. Статическая проверка и наличие пакета не доказывают рабочий результат или бизнес-эффект.

@@ -2,7 +2,7 @@
 
 ## Quick install
 
-For a new project, use the open-source [skills CLI](https://github.com/vercel-labs/skills). Requirements for the tested CLI 1.7.0: **Node.js 22.20+ and Git**.
+For a new project, use the open-source [skills CLI](https://github.com/vercel-labs/skills). Requirements for CLI 1.7.0: **Node.js 22.20+ and Git**.
 
 ```sh
 npx skills add LuCheremisina/marketing-skills --skill che-deep-research
@@ -13,15 +13,15 @@ Run inside your project folder. Select a client if prompted, or add `--agent cod
 To browse before installing:
 
 ```sh
-# 27 original marketing workflows
+# 34 original marketing workflows
 npx skills add LuCheremisina/marketing-skills --list
-# All 41, including nested third-party engineering packages
+# All 48, including nested third-party engineering packages
 npx skills add LuCheremisina/marketing-skills --list --full-depth
 ```
 
 Choose only the skills you need. The five [starter pages](START-HERE.md) have individual commands and ZIP links. Global installation is an explicit CLI option, `--global`; for existing or modified copies use the verified route below. Quick install follows the current repository source; it does not verify a frozen release manifest, supply API access or prove workflow execution.
 
-The CLI has its own install telemetry. To opt out, set `DISABLE_TELEMETRY=1` (PowerShell: `$env:DISABLE_TELEMETRY='1'`) before running it. Our isolated installation check used this setting. See the [CLI documentation](https://github.com/vercel-labs/skills#telemetry).
+The CLI has its own install telemetry. To opt out, set `DISABLE_TELEMETRY=1` (PowerShell: `$env:DISABLE_TELEMETRY='1'`) before running it. See the [CLI documentation](https://github.com/vercel-labs/skills#telemetry).
 
 ## ZIP and plugin installation
 
@@ -31,7 +31,7 @@ Download an [individual skill ZIP or plugin bundle](https://github.com/LuCheremi
 
 For a frozen release, checksum verification, reviewed replacement of existing skills and rollback, use the repository installer.
 
-The release provides two plugin ZIPs: the original-methodology bundle (`marketing-skills-plugin-<version>.zip`, 27 skills) and the optional third-party bundle (`marketing-skills-vendor-<version>.zip`, 14 skills). Each has its own portable plugin manifest. Install both only when the relevant workflows and dependencies are needed. Third-party packages retain original licenses and source attribution. The complete repository ZIP is for source review and tooling; do not assume its nested vendor folders are automatically discovered by every plugin host.
+The release provides two plugin ZIPs: the original-methodology bundle (`marketing-skills-plugin-<version>.zip`, 34 skills) and the optional third-party bundle (`marketing-skills-vendor-<version>.zip`, 14 skills). Each has its own portable plugin manifest. Install both only when the relevant workflows and dependencies are needed. Third-party packages retain original licenses and source attribution. The complete repository ZIP is for source review and tooling; do not assume its nested vendor folders are automatically discovered by every plugin host.
 
 Select the frozen release tag you intend to install. Verify its manifest and SHA256SUMS and inspect the changes before replacing user-global skills. The quick CLI route above is a separate way to try the current repository source.
 
@@ -47,7 +47,7 @@ The default is a dry run. `--target-dir` and explicit `--ids` are mandatory. Cho
 
 Save the transaction journal and use the installer's `--rollback JOURNAL` mode for restore. A changed installed tree after the transaction must not be destroyed by rollback. Restart/refresh the client and check skill discovery and one safe task; file presence is not runtime acceptance.
 
-Renamed private skills are mapped in the private migration report. Preserve their profile outside discovery before disabling an old route. Never upload that report to this public repository.
+For renamed authored skills, use the [public migration map](MIGRATION-2.0.md). Preserve your project profiles outside discovery before disabling an old route.
 
 ## Claude / Cowork
 
