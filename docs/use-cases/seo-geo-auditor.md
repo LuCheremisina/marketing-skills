@@ -1,8 +1,8 @@
 # SEO/GEO Auditor — an AI skill for website audits
 
-Audit a whole website or a set of URLs for technical SEO, on-page structure and AI-search visibility. Prioritise fixes using observable page evidence. For one page or a content brief, see the separate seo-geo-auditor-pro workflow.
+Audit a whole website or a set of URLs for technical SEO, on-page structure and AI-search visibility. Prioritise fixes using observable page evidence. For one page or a content brief, see the separate che-seo-geo-auditor-pro workflow.
 
-[Install](#install) · [Download ZIP 2.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v1.0.2/seo-geo-auditor-2.0.0.zip) · [Read the workflow](../../skills/seo-geo-auditor/SKILL.md) · [Русский пример](#русский-пример)
+[Install](#install) · [Download ZIP 2.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v1.0.2/seo-geo-auditor-2.0.0.zip) · [Read the workflow](../../skills/che-seo-geo-auditor/SKILL.md) · [Русский пример](#русский-пример)
 
 ## Who it helps
 
@@ -17,7 +17,7 @@ An authorised public URL or crawl export, website type, business objective and c
 In your project folder, with Node.js 22.20+ and Git:
 
 ```sh
-npx skills add LuCheremisina/marketing-skills --skill seo-geo-auditor
+npx skills add LuCheremisina/marketing-skills --skill che-seo-geo-auditor
 ```
 
 Choose your AI client if prompted. For existing copies, use [verified installation](../INSTALL.md#verified-installation). For ChatGPT, use the [plugin route](../INSTALL.md#chatgpt), rather than the coding-agent CLI.
@@ -27,7 +27,7 @@ Choose your AI client if prompted. For existing copies, use [verified installati
 Sample request — synthetic business context:
 
 ```text
-Use seo-geo-auditor for a synthetic course website. First ask me for its authorised URL, business objective and crawl scope. Then inspect crawlability, titles, headings, internal links and structured data using the available tools. For each finding, give the affected URL, observation, priority and proposed fix. Mark crawl or field-data checks that could not run.
+Use che-seo-geo-auditor for a synthetic course website. First ask me for its authorised URL, business objective and crawl scope. Then inspect crawlability, titles, headings, internal links and structured data using the available tools. For each finding, give the affected URL, observation, priority and proposed fix. Mark crawl or field-data checks that could not run.
 ```
 
 ## Expected result
@@ -51,7 +51,7 @@ A public crawl does not require a search-console account. Search performance and
 ## Русский пример
 
 ```text
-Используй seo-geo-auditor для учебного сайта курсов. Сначала запроси разрешённый URL, цель бизнеса и границы обхода. Проверь доступность для краулера, title, заголовки, внутренние ссылки и структурированные данные. Для каждой проблемы укажи URL, наблюдение, приоритет и исправление. Недоступные проверки обозначь отдельно.
+Используй che-seo-geo-auditor для учебного сайта курсов. Сначала запроси разрешённый URL, цель бизнеса и границы обхода. Проверь доступность для краулера, title, заголовки, внутренние ссылки и структурированные данные. Для каждой проблемы укажи URL, наблюдение, приоритет и исправление. Недоступные проверки обозначь отдельно.
 ```
 
 ## Version and platform status

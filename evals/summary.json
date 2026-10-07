@@ -20,35 +20,35 @@
   "findings": [
     {
       "id": "BEH-1",
-      "file": "skills/news-voiceover-script/SKILL.md",
+      "file": "skills/che-news-voiceover-script/SKILL.md",
       "before_rule": "Female narrator default conflicts with supplied male profile",
       "state": "resolved in reread and same-input text retest",
       "retest": "news-voiceover-script-typical-after-fix"
     },
     {
       "id": "BEH-2",
-      "file": "skills/direct-analytics-skill/SKILL.md",
+      "file": "skills/che-direct-analytics-skill/SKILL.md",
       "before_rule": "CrossSourceROAS label reversed numerator/denominator",
       "state": "resolved in reread and same-input text retest",
       "retest": "direct-analytics-skill-typical-after-fix"
     },
     {
       "id": "BEH-3",
-      "file": "skills/seo-geo-auditor/SKILL.md",
+      "file": "skills/che-seo-geo-auditor/SKILL.md",
       "before_rule": "Unconditional FAQPage missing / restricted AI crawler penalty causes false positives",
       "state": "resolved in reread and contextual same-input retest",
       "retest": "seo-geo-auditor-typical-after-fix"
     },
     {
       "id": "BEH-4",
-      "file": "skills/editorial-cover-prompts/SKILL.md",
+      "file": "skills/che-editorial-cover-prompts/SKILL.md",
       "before_rule": "Hardcoded web_fetch name despite generic tool resolution",
       "state": "resolved by declared web capability rule",
       "retest": "editorial-cover-prompts-typical-after-fix"
     },
     {
       "id": "BEH-5",
-      "file": "skills/expert-article-workflow/references/evidence-policy.md",
+      "file": "skills/che-expert-article-workflow/references/evidence-policy.md",
       "before_rule": "Canonical synthetic author allowed as real biography source",
       "state": "resolved in main and reference rules; missingprofile retest excludes synthetic author",
       "retest": "expert-article-workflow-missing-after-profile-fix"
@@ -56,7 +56,7 @@
   ],
   "coverage": [
     {
-      "skill": "audit-unisender-email",
+      "skill": "che-audit-unisender-email",
       "scenario_count": 3,
       "scenarios": [
         "typical",
@@ -68,7 +68,7 @@
       "native_client_runtime": "not verified by this evaluator"
     },
     {
-      "skill": "brand-profile-guide",
+      "skill": "che-brand-profile-guide",
       "scenario_count": 3,
       "scenarios": [
         "typical",
@@ -80,7 +80,7 @@
       "native_client_runtime": "not verified by this evaluator"
     },
     {
-      "skill": "brief-acceptance",
+      "skill": "che-brief-acceptance",
       "scenario_count": 3,
       "scenarios": [
         "typical",
@@ -92,7 +92,7 @@
       "native_client_runtime": "not verified by this evaluator"
     },
     {
-      "skill": "build-predictive-growth-dashboard",
+      "skill": "che-build-predictive-growth-dashboard",
       "scenario_count": 3,
       "scenarios": [
         "typical",
@@ -104,7 +104,7 @@
       "native_client_runtime": "not verified by this evaluator"
     },
     {
-      "skill": "content-carousel",
+      "skill": "che-content-carousel",
       "scenario_count": 3,
       "scenarios": [
         "typical",
@@ -116,7 +116,7 @@
       "native_client_runtime": "not verified by this evaluator"
     },
     {
-      "skill": "daily-ai-news-digest",
+      "skill": "che-daily-ai-news-digest",
       "scenario_count": 3,
       "scenarios": [
         "typical",
@@ -128,7 +128,7 @@
       "native_client_runtime": "not verified by this evaluator"
     },
     {
-      "skill": "deep-research",
+      "skill": "che-deep-research",
       "scenario_count": 3,
       "scenarios": [
         "typical",
@@ -140,7 +140,7 @@
       "native_client_runtime": "not verified by this evaluator"
     },
     {
-      "skill": "direct-analyst",
+      "skill": "che-direct-analyst",
       "scenario_count": 3,
       "scenarios": [
         "typical",
@@ -152,7 +152,7 @@
       "native_client_runtime": "not verified by this evaluator"
     },
     {
-      "skill": "direct-analytics-skill",
+      "skill": "che-direct-analytics-skill",
       "scenario_count": 3,
       "scenarios": [
         "typical",
@@ -164,7 +164,7 @@
       "native_client_runtime": "not verified by this evaluator"
     },
     {
-      "skill": "editorial-cover-prompts",
+      "skill": "che-editorial-cover-prompts",
       "scenario_count": 3,
       "scenarios": [
         "typical",
@@ -176,7 +176,7 @@
       "native_client_runtime": "not verified by this evaluator"
     },
     {
-      "skill": "expert-article-workflow",
+      "skill": "che-expert-article-workflow",
       "scenario_count": 3,
       "scenarios": [
         "typical",
@@ -188,7 +188,7 @@
       "native_client_runtime": "not verified by this evaluator"
     },
     {
-      "skill": "industry-news-digest",
+      "skill": "che-industry-news-digest",
       "scenario_count": 3,
       "scenarios": [
         "typical",
@@ -200,7 +200,7 @@
       "native_client_runtime": "not verified by this evaluator"
     },
     {
-      "skill": "news-cover-production",
+      "skill": "che-cover-production",
       "scenario_count": 3,
       "scenarios": [
         "typical",
@@ -212,7 +212,7 @@
       "native_client_runtime": "not verified by this evaluator"
     },
     {
-      "skill": "news-editorial-workflow",
+      "skill": "che-news-editorial-workflow",
       "scenario_count": 3,
       "scenarios": [
         "typical",
@@ -224,7 +224,7 @@
       "native_client_runtime": "not verified by this evaluator"
     },
     {
-      "skill": "news-voiceover-script",
+      "skill": "che-news-voiceover-script",
       "scenario_count": 3,
       "scenarios": [
         "typical",
@@ -236,7 +236,7 @@
       "native_client_runtime": "not verified by this evaluator"
     },
     {
-      "skill": "product-market-intake",
+      "skill": "che-product-market-intake",
       "scenario_count": 3,
       "scenarios": [
         "typical",
@@ -248,7 +248,7 @@
       "native_client_runtime": "not verified by this evaluator"
     },
     {
-      "skill": "research-loop",
+      "skill": "che-research-loop",
       "scenario_count": 3,
       "scenarios": [
         "typical",
@@ -260,7 +260,7 @@
       "native_client_runtime": "not verified by this evaluator"
     },
     {
-      "skill": "seo-article-generator",
+      "skill": "che-seo-article-generator",
       "scenario_count": 3,
       "scenarios": [
         "typical",
@@ -272,7 +272,7 @@
       "native_client_runtime": "not verified by this evaluator"
     },
     {
-      "skill": "seo-demand-analytics",
+      "skill": "che-seo-demand-analytics",
       "scenario_count": 3,
       "scenarios": [
         "typical",
@@ -284,7 +284,7 @@
       "native_client_runtime": "not verified by this evaluator"
     },
     {
-      "skill": "seo-geo-auditor",
+      "skill": "che-seo-geo-auditor",
       "scenario_count": 3,
       "scenarios": [
         "typical",
@@ -296,7 +296,7 @@
       "native_client_runtime": "not verified by this evaluator"
     },
     {
-      "skill": "seo-geo-auditor-pro",
+      "skill": "che-seo-geo-auditor-pro",
       "scenario_count": 3,
       "scenarios": [
         "typical",
@@ -308,7 +308,7 @@
       "native_client_runtime": "not verified by this evaluator"
     },
     {
-      "skill": "short-video-production",
+      "skill": "che-short-video-production",
       "scenario_count": 3,
       "scenarios": [
         "typical",
@@ -320,7 +320,7 @@
       "native_client_runtime": "not verified by this evaluator"
     },
     {
-      "skill": "skill-regression-check",
+      "skill": "che-skill-regression-check",
       "scenario_count": 3,
       "scenarios": [
         "typical",
@@ -332,7 +332,7 @@
       "native_client_runtime": "not verified by this evaluator"
     },
     {
-      "skill": "telegram-content-creator",
+      "skill": "che-telegram-content-creator",
       "scenario_count": 3,
       "scenarios": [
         "typical",
@@ -344,7 +344,7 @@
       "native_client_runtime": "not verified by this evaluator"
     },
     {
-      "skill": "topic-planner",
+      "skill": "che-topic-planner",
       "scenario_count": 3,
       "scenarios": [
         "typical",
@@ -356,7 +356,7 @@
       "native_client_runtime": "not verified by this evaluator"
     },
     {
-      "skill": "wordstat-keyword-research",
+      "skill": "che-wordstat-keyword-research",
       "scenario_count": 3,
       "scenarios": [
         "typical",
@@ -368,7 +368,7 @@
       "native_client_runtime": "not verified by this evaluator"
     },
     {
-      "skill": "wordstat-trend-radar",
+      "skill": "che-wordstat-trend-radar",
       "scenario_count": 3,
       "scenarios": [
         "typical",

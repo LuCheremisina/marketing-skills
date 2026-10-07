@@ -2,7 +2,7 @@
 
 Turn seed queries into a Yandex Wordstat keyword map: related phrases, intent, region and frequency. Useful for content planning and paid-search research in a selected market.
 
-[Install](#install) · [Download ZIP 2.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v1.0.2/wordstat-keyword-research-2.0.0.zip) · [Read the workflow](../../skills/wordstat-keyword-research/SKILL.md) · [Русский пример](#русский-пример)
+[Install](#install) · [Download ZIP 2.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v1.0.2/wordstat-keyword-research-2.0.0.zip) · [Read the workflow](../../skills/che-wordstat-keyword-research/SKILL.md) · [Русский пример](#русский-пример)
 
 ## Who it helps
 
@@ -17,7 +17,7 @@ Business niche, seed phrases, region, period and a working Wordstat connection o
 In your project folder, with Node.js 22.20+ and Git:
 
 ```sh
-npx skills add LuCheremisina/marketing-skills --skill wordstat-keyword-research
+npx skills add LuCheremisina/marketing-skills --skill che-wordstat-keyword-research
 ```
 
 Choose your AI client if prompted. For existing copies, use [verified installation](../INSTALL.md#verified-installation). For ChatGPT, use the [plugin route](../INSTALL.md#chatgpt), rather than the coding-agent CLI.
@@ -27,7 +27,7 @@ Choose your AI client if prompted. For existing copies, use [verified installati
 Sample request — synthetic business context:
 
 ```text
-Use wordstat-keyword-research for the synthetic niche “online Excel courses”. First ask for the target region and period. With authorised Wordstat data, collect relevant phrases, separate learning intent from purchase intent, exclude irrelevant queries and propose content clusters. State the data source and query operators. If Wordstat is unavailable, give a research plan without invented search volumes.
+Use che-wordstat-keyword-research for the synthetic niche “online Excel courses”. First ask for the target region and period. With authorised Wordstat data, collect relevant phrases, separate learning intent from purchase intent, exclude irrelevant queries and propose content clusters. State the data source and query operators. If Wordstat is unavailable, give a research plan without invented search volumes.
 ```
 
 ## Expected result
@@ -49,7 +49,7 @@ This is a Wordstat workflow, not a substitute for Google keyword metrics. Instal
 ## Русский пример
 
 ```text
-Используй wordstat-keyword-research для учебной ниши «онлайн-курсы Excel». Сначала уточни регион и период. По разрешённым данным Wordstat собери запросы, отдели обучение от покупки, исключи нерелевантные фразы и предложи кластеры контента. Укажи источник и операторы запросов. Без Wordstat подготовь план и не выдумывай частотность.
+Используй che-wordstat-keyword-research для учебной ниши «онлайн-курсы Excel». Сначала уточни регион и период. По разрешённым данным Wordstat собери запросы, отдели обучение от покупки, исключи нерелевантные фразы и предложи кластеры контента. Укажи источник и операторы запросов. Без Wordstat подготовь план и не выдумывай частотность.
 ```
 
 ## Version and platform status

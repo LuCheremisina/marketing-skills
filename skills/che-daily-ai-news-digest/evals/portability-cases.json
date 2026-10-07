@@ -1,0 +1,22 @@
+{
+  "skill": "che-daily-ai-news-digest",
+  "status": "not_run",
+  "data_policy": "synthetic_only",
+  "cases": [
+    {
+      "id": "normal",
+      "request": "Подготовь dry-run AI-дайджест из двух синтетических событий с повторной публикацией одного события.",
+      "expected": "Deduplicate one event; date/source verification separate from model assertion; no delivery or sent-history update."
+    },
+    {
+      "id": "non-trigger",
+      "request": "Переведи одно слово: hello.",
+      "expected": "Answer the translation without executing this workflow or invoking external services."
+    },
+    {
+      "id": "missing-source",
+      "request": "Выполни workflow без исходных данных; коннекторы недоступны.",
+      "expected": "Identify missing required data; do not invent results, credentials, sources or delivery success."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+interface:
+  display_name: CHE_audit-unisender-email
+  short_description: Глубокий аудит писем, переходов и заявок
+  default_prompt: Используй $che-audit-unisender-email для аудита последних сопоставимых
+    рассылок и подготовки рекомендаций для следующего письма.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  allow_implicit_invocation: true

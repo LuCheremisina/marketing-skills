@@ -1,7 +1,0 @@
-interface:
-  display_name: Предиктивный дашборд роста
-  short_description: Прогноз трафика, сценарии и план роста
-  default_prompt: Используй $build-predictive-growth-dashboard, чтобы создать управленческий
-    дашборд с прогнозом, сценариями, блокерами и планом действий.
-policy:
-  allow_implicit_invocation: true

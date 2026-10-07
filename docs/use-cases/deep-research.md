@@ -2,7 +2,7 @@
 
 Compare markets, technologies or product options with a source-backed report. Use it for a decision that needs several perspectives and evidence, rather than a single factual lookup.
 
-[Install](#install) · [Download ZIP 2.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v1.0.2/deep-research-2.0.0.zip) · [Read the workflow](../../skills/deep-research/SKILL.md) · [Русский пример](#русский-пример)
+[Install](#install) · [Download ZIP 2.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v1.0.2/deep-research-2.0.0.zip) · [Read the workflow](../../skills/che-deep-research/SKILL.md) · [Русский пример](#русский-пример)
 
 ## Who it helps
 
@@ -17,7 +17,7 @@ Your question, decision, geography, time window and available sources. Search/re
 In your project folder, with Node.js 22.20+ and Git:
 
 ```sh
-npx skills add LuCheremisina/marketing-skills --skill deep-research
+npx skills add LuCheremisina/marketing-skills --skill che-deep-research
 ```
 
 Choose your AI client if prompted. For existing copies, use [verified installation](../INSTALL.md#verified-installation). For ChatGPT, use the [plugin route](../INSTALL.md#chatgpt), rather than the coding-agent CLI.
@@ -27,7 +27,7 @@ Choose your AI client if prompted. For existing copies, use [verified installati
 Sample request — synthetic business context:
 
 ```text
-Use deep-research to compare two possible audiences for a synthetic business, Example Academy: small business owners and in-house marketing teams. The product is a beginner analytics course. The decision is which audience to research first. Ask for the region, period and source access before collecting evidence. Separate sourced facts, assumptions and recommendations.
+Use che-deep-research to compare two possible audiences for a synthetic business, Example Academy: small business owners and in-house marketing teams. The product is a beginner analytics course. The decision is which audience to research first. Ask for the region, period and source access before collecting evidence. Separate sourced facts, assumptions and recommendations.
 ```
 
 ## Expected result
@@ -50,7 +50,7 @@ No advertising or CRM account is needed for a public-source study. A source bein
 ## Русский пример
 
 ```text
-Используй deep-research: сравни две аудитории для учебного бизнеса «Пример Академии» — владельцы малого бизнеса и маркетологи компаний. Продукт — начальный курс аналитики. Решение — какую аудиторию исследовать первой. До исследования уточни регион, период и доступные источники. Раздели факты, допущения и рекомендации.
+Используй che-deep-research: сравни две аудитории для учебного бизнеса «Пример Академии» — владельцы малого бизнеса и маркетологи компаний. Продукт — начальный курс аналитики. Решение — какую аудиторию исследовать первой. До исследования уточни регион, период и доступные источники. Раздели факты, допущения и рекомендации.
 ```
 
 ## Version and platform status

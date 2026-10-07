@@ -1,20 +1,23 @@
 # AI Marketing Skills — research, SEO/GEO, analytics & content
 
+> **2.0.0 candidate:** 34 authored CHE_ workflows + 14 licensed engineering skills. New technical IDs use `che-`; the immutable published release remains v1.0.2 until review. [Migration](docs/MIGRATION-2.0.md) · [MCP Panel connections](docs/MCP-CONNECTIONS.md).
+
+[Candidate verification / Проверка кандидата](docs/VERIFICATION-2026-10-07.md): static and synthetic checks; native CHE_ installations are not verified.
 Research a market, audit a website, analyse Yandex campaigns, find search demand, or turn evidence into an expert article with reusable AI workflows.
 
-**27 original marketing workflows + 14 optional engineering skills.** Open Agent Skills packages for Codex, Claude Code and Cursor; ChatGPT plugin packages are also available. Each workflow lists the inputs and connections it needs. [Platform status](docs/PLATFORMS.md).
+**34 original marketing workflows + 14 optional engineering skills.** Open Agent Skills packages for Codex, Claude Code and Cursor; ChatGPT plugin packages are also available. Each workflow lists the inputs and connections it needs. [Platform status](docs/PLATFORMS.md).
 
-[**Install your first skill**](#quick-install) · [**Start with 5 marketing skills**](docs/START-HERE.md) · [**Browse all 41**](docs/CATALOG.md) · [**Download the latest release**](https://github.com/LuCheremisina/marketing-skills/releases/latest) · [Русская версия](README.ru.md)
+[**Install your first skill**](#quick-install) · [**Start with 5 marketing skills**](docs/START-HERE.md) · [**Browse all 48**](docs/CATALOG.md) · [**Download the latest release**](https://github.com/LuCheremisina/marketing-skills/releases/latest) · [Русская версия](README.ru.md)
 
 ## Quick install
 
 With **Node.js 22.20+ and Git**, run this inside your project:
 
 ```sh
-npx skills add LuCheremisina/marketing-skills --skill deep-research
+npx skills add LuCheremisina/marketing-skills --skill che-deep-research
 ```
 
-Select your AI client if prompted, then ask it to use `deep-research` for your question. [Try the example](docs/use-cases/deep-research.md#try-it). Prefer a ZIP? [Download Deep Research 2.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v1.0.2/deep-research-2.0.0.zip) and follow the [client installation guide](docs/INSTALL.md#zip-and-plugin-installation).
+Select your AI client if prompted, then ask it to use `che-deep-research` for your question. [Try the example](docs/use-cases/deep-research.md#try-it). Prefer a ZIP? [Download Deep Research 2.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v1.0.2/deep-research-2.0.0.zip) and follow the [client installation guide](docs/INSTALL.md#zip-and-plugin-installation).
 
 The CLI installs into the current project by default. For an existing installation, or a release pinned to checksums, use [verified installation](docs/INSTALL.md#verified-installation). Quick install was checked with `skills` CLI 1.7.0; installation does not connect accounts or establish runtime compatibility.
 
@@ -48,19 +51,21 @@ Current published release: [**v1.0.2**](https://github.com/LuCheremisina/marketi
 
 | Business task | Start with | Reviewable result |
 |---|---|---|
-| Understand a market or customer decision | `product-market-intake`, `deep-research`, `research-loop` | Research scope, evidence, uncertainty and next-process decision |
-| Assess campaign performance | `direct-analytics-skill`, `direct-analyst`, `audit-unisender-email` | Source-separated metrics, attribution limits and prioritized actions |
-| Plan growth and monitor demand | `build-predictive-growth-dashboard`, `wordstat-trend-radar`, `seo-demand-analytics` | Scenarios, trend signals and their assumptions |
-| Improve search and AI-search visibility | `seo-geo-auditor`, `seo-geo-auditor-pro`, `wordstat-keyword-research`, `topic-planner` | Contextual findings, intent and a practical content plan |
-| Create sourced expert content | `expert-article-workflow`, `seo-article-generator`, `news-editorial-workflow` | Draft, evidence ledger and conditional integration handoff |
-| Produce social and audio content | `content-carousel`, `telegram-content-creator`, `news-voiceover-script`, `short-video-production` | Storyboard or script; actual media only when the runtime is available |
-| Prepare covers and apply brand guidance | `brand-profile-guide`, `editorial-cover-prompts`, `news-cover-production` | Brand-aligned concepts, prompts and validated image export |
-| Monitor industry and AI news | `industry-news-digest`, `daily-ai-news-digest` | Sourced digest with time window, deduplication and delivery status |
-| Accept a delivery or prevent a regression | `brief-acceptance`, `skill-regression-check` | Requirement evidence, unresolved gaps and regression verdict |
+| Understand a market or customer decision | `che-product-market-intake`, `che-deep-research`, `che-research-loop` | Research scope, evidence, uncertainty and next-process decision |
+| Assess campaign performance | `che-direct-analytics-skill`, `che-direct-analyst`, `che-audit-unisender-email` | Source-separated metrics, attribution limits and prioritized actions |
+| Plan growth and monitor demand | `che-build-predictive-growth-dashboard`, `che-wordstat-trend-radar`, `che-seo-demand-analytics` | Scenarios, trend signals and their assumptions |
+| Improve search and AI-search visibility | `che-seo-geo-auditor`, `che-seo-geo-auditor-pro`, `che-wordstat-keyword-research`, `che-topic-planner` | Contextual findings, intent and a practical content plan |
+| Create sourced expert content | `che-expert-article-workflow`, `che-seo-article-generator`, `che-news-editorial-workflow` | Draft, evidence ledger and conditional integration handoff |
+| Produce social and audio content | `che-content-carousel`, `che-telegram-content-creator`, `che-news-voiceover-script`, `che-short-video-production` | Storyboard or script; actual media only when the runtime is available |
+| Prepare covers and apply brand guidance | `che-brand-profile-guide`, `che-editorial-cover-prompts`, `che-cover-production` | Brand-aligned concepts, prompts and validated image export |
+| Monitor industry and AI news | `che-industry-news-digest`, `che-daily-ai-news-digest` | Sourced digest with time window, deduplication and delivery status |
+| Accept a delivery or prevent a regression | `che-brief-acceptance`, `che-skill-regression-check` | Requirement evidence, unresolved gaps and regression verdict |
 
 See the [complete catalogue](docs/CATALOG.md) for inputs, outputs and required connections. Cloudflare skills and `autopilot` are optional engineering support packages; original authorship and licenses are documented in [third-party sources](docs/third-party-sources.md).
 
 ## Use with your AI system
+
+**Candidate 2.0.0:** native execution of the new CHE_ packages is not verified. The table below is the historical v1.0.2 installation snapshot, not acceptance of this candidate.
 
 | System | Distribution route | Practical status |
 |---|---|---|
@@ -71,7 +76,7 @@ See the [complete catalogue](docs/CATALOG.md) for inputs, outputs and required c
 | ChatGPT | Skills-only plugin with portable `plugin.json` | Both plugins installed: 26/27 authored and 14/14 vendor skills listed; one synthetic intake task tested; research-loop discovery unresolved |
 | Grok Bot | Saved skill library with complete instructions/resources | Transfer and execution not verified |
 
-Release-baseline compatibility is recorded **per skill** in [catalog/skills.json](catalog/skills.json); later installation and sampled execution evidence is in the [dated verification record](docs/VERIFICATION-2026-10-06.md). `verified`, `requires_connection`, `not_verified` and `not_supported` describe practical execution, not marketing promises. File format compliance does not establish that every system can run scripts, access MCP tools, generate media or publish results.
+Candidate compatibility is recorded **per skill** in [catalog/skills.json](catalog/skills.json); later installation and sampled execution evidence is in the [dated verification record](docs/VERIFICATION-2026-10-06.md). `verified`, `requires_connection`, `not_verified` and `not_supported` describe practical execution, not marketing promises. File format compliance does not establish that every system can run scripts, access MCP tools, generate media or publish results.
 
 Use [quick or verified installation](docs/INSTALL.md) for the route that fits your environment. Never place credentials or client data inside an installed skill. Detailed platform guidance and official sources are in [PLATFORMS.md](docs/PLATFORMS.md).
 

@@ -1,9 +1,0 @@
-interface:
-  display_name: Product & Market Intake
-  short_description: Карта бизнеса и бриф без повторного интервью
-  default_prompt: Используй $product-market-intake и собери карту бизнеса из доступного
-    контекста.
-  icon_small: assets/icon.svg
-  icon_large: assets/icon.svg
-policy:
-  allow_implicit_invocation: true

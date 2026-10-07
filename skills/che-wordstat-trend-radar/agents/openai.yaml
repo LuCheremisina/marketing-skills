@@ -1,0 +1,7 @@
+interface:
+  display_name: CHE_wordstat-trend-radar
+  short_description: Стабильный радар кластеров спроса Wordstat
+  default_prompt: 'Используй $che-wordstat-trend-radar: проверь реестр проекта, собери
+    устойчивые кластеры и найди растущие и падающие сигналы спроса.'
+policy:
+  allow_implicit_invocation: true

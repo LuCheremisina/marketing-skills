@@ -1,7 +1,0 @@
-interface:
-  display_name: Wordstat Trend Radar
-  short_description: Стабильный радар кластеров спроса Wordstat
-  default_prompt: 'Используй $wordstat-trend-radar: проверь реестр проекта, собери
-    устойчивые кластеры и найди растущие и падающие сигналы спроса.'
-policy:
-  allow_implicit_invocation: true

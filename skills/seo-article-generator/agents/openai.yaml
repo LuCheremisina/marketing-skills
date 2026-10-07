@@ -1,8 +1,0 @@
-interface:
-  display_name: Полный SEO/GEO-конвейер статьи
-  short_description: Полный публикационный пакет для стороннего сайта
-  default_prompt: Используй $seo-article-generator для полного SEO/GEO-конвейера статьи.
-  icon_small: assets/icon.svg
-  icon_large: assets/icon.svg
-policy:
-  allow_implicit_invocation: true

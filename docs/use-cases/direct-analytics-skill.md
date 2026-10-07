@@ -2,7 +2,7 @@
 
 Read Yandex Direct and Metrika data, compare independent source tables and explain advertising performance without changing campaigns or budgets. Keep unmatched revenue visible rather than allocating it by spend.
 
-[Install](#install) · [Download ZIP 2.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v1.0.2/direct-analytics-skill-2.0.0.zip) · [Read the workflow](../../skills/direct-analytics-skill/SKILL.md) · [Русский пример](#русский-пример)
+[Install](#install) · [Download ZIP 2.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v1.0.2/direct-analytics-skill-2.0.0.zip) · [Read the workflow](../../skills/che-direct-analytics-skill/SKILL.md) · [Русский пример](#русский-пример)
 
 ## Who it helps
 
@@ -17,7 +17,7 @@ Project configuration, period, timezone and attribution rules; authorised read a
 In your project folder, with Node.js 22.20+ and Git:
 
 ```sh
-npx skills add LuCheremisina/marketing-skills --skill direct-analytics-skill
+npx skills add LuCheremisina/marketing-skills --skill che-direct-analytics-skill
 ```
 
 Choose your AI client if prompted. For existing copies, use [verified installation](../INSTALL.md#verified-installation). For ChatGPT, use the [plugin route](../INSTALL.md#chatgpt), rather than the coding-agent CLI.
@@ -27,7 +27,7 @@ Choose your AI client if prompted. For existing copies, use [verified installati
 Sample request — synthetic business context:
 
 ```text
-Use direct-analytics-skill in read-only mode. For a synthetic seven-day example, Direct reports 10,000 currency units of spend for campaign A; Metrika reports 30,000 of revenue explicitly matched to A and 2,000 unmatched. Explain the source-separated numbers, label any cross-source ratio and retain unmatched revenue separately. Before reading real accounts, ask for the project, dates, timezone and mapping rules.
+Use che-direct-analytics-skill in read-only mode. For a synthetic seven-day example, Direct reports 10,000 currency units of spend for campaign A; Metrika reports 30,000 of revenue explicitly matched to A and 2,000 unmatched. Explain the source-separated numbers, label any cross-source ratio and retain unmatched revenue separately. Before reading real accounts, ask for the project, dates, timezone and mapping rules.
 ```
 
 ## Expected result
@@ -51,7 +51,7 @@ The table demonstrates arithmetic on supplied synthetic numbers, not a native ac
 ## Русский пример
 
 ```text
-Используй direct-analytics-skill только на чтение. Учебный пример за семь дней: расход кампании A в Директе — 10 000; явно сопоставленная выручка A в Метрике — 30 000; ещё 2 000 не сопоставлены. Покажи источники раздельно, подпиши межисточниковое отношение и оставь 2 000 отдельной строкой. Для реальных аккаунтов сначала уточни проект, даты, часовой пояс и правила сопоставления.
+Используй che-direct-analytics-skill только на чтение. Учебный пример за семь дней: расход кампании A в Директе — 10 000; явно сопоставленная выручка A в Метрике — 30 000; ещё 2 000 не сопоставлены. Покажи источники раздельно, подпиши межисточниковое отношение и оставь 2 000 отдельной строкой. Для реальных аккаунтов сначала уточни проект, даты, часовой пояс и правила сопоставления.
 ```
 
 ## Version and platform status

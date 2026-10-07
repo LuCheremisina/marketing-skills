@@ -2,7 +2,7 @@
 
 Create or review an expert article from a brief, sources or transcript. Choose research, outline, draft, review or integration mode and keep claims traceable to evidence.
 
-[Install](#install) · [Download ZIP 3.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v1.0.2/expert-article-workflow-3.0.0.zip) · [Read the workflow](../../skills/expert-article-workflow/SKILL.md) · [Русский пример](#русский-пример)
+[Install](#install) · [Download ZIP 3.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v1.0.2/expert-article-workflow-3.0.0.zip) · [Read the workflow](../../skills/che-expert-article-workflow/SKILL.md) · [Русский пример](#русский-пример)
 
 ## Who it helps
 
@@ -17,7 +17,7 @@ Topic, audience, intended decision, source material, author profile and brand gu
 In your project folder, with Node.js 22.20+ and Git:
 
 ```sh
-npx skills add LuCheremisina/marketing-skills --skill expert-article-workflow
+npx skills add LuCheremisina/marketing-skills --skill che-expert-article-workflow
 ```
 
 Choose your AI client if prompted. For existing copies, use [verified installation](../INSTALL.md#verified-installation). For ChatGPT, use the [plugin route](../INSTALL.md#chatgpt), rather than the coding-agent CLI.
@@ -27,7 +27,7 @@ Choose your AI client if prompted. For existing copies, use [verified installati
 Sample request — synthetic business context:
 
 ```text
-Use expert-article-workflow in outline mode for a synthetic article: “How a small business should evaluate an AI marketing report”. Audience: business owners. Intended decision: which claims require evidence before action. Ask for source material and author/brand guidance; create an outline and a list of claims that need sources. Do not invent credentials or customer results.
+Use che-expert-article-workflow in outline mode for a synthetic article: “How a small business should evaluate an AI marketing report”. Audience: business owners. Intended decision: which claims require evidence before action. Ask for source material and author/brand guidance; create an outline and a list of claims that need sources. Do not invent credentials or customer results.
 ```
 
 ## Expected result
@@ -51,7 +51,7 @@ Publication is a separate authorised action. The skill does not assign its metho
 ## Русский пример
 
 ```text
-Используй expert-article-workflow в режиме структуры для учебной статьи «Как малому бизнесу проверять AI-отчёт по маркетингу». Аудитория — владельцы бизнеса. Решение — какие утверждения требуют доказательств до действий. Уточни источники, автора и бренд; подготовь структуру и список утверждений, которым нужны подтверждения. Не выдумывай регалии и клиентские результаты.
+Используй che-expert-article-workflow в режиме структуры для учебной статьи «Как малому бизнесу проверять AI-отчёт по маркетингу». Аудитория — владельцы бизнеса. Решение — какие утверждения требуют доказательств до действий. Уточни источники, автора и бренд; подготовь структуру и список утверждений, которым нужны подтверждения. Не выдумывай регалии и клиентские результаты.
 ```
 
 ## Version and platform status

@@ -1,9 +1,0 @@
-interface:
-  display_name: Telegram Content Creator
-  short_description: Посты для Telegram по runtime-профилю бренда
-  default_prompt: Используй $telegram-content-creator и подготовь пост по переданному
-    профилю бренда и фактуре.
-  icon_small: assets/icon.svg
-  icon_large: assets/icon.svg
-policy:
-  allow_implicit_invocation: true

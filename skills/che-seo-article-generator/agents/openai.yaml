@@ -1,0 +1,9 @@
+interface:
+  display_name: CHE_seo-article-generator
+  short_description: Полный публикационный пакет для стороннего сайта
+  default_prompt: Используй $che-seo-article-generator для полного SEO/GEO-конвейера
+    статьи.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  allow_implicit_invocation: true
