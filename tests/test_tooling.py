@@ -91,7 +91,7 @@ class ToolingTest(unittest.TestCase):
                     self.assertIs(step.get("with", {}).get("persist-credentials"), False)
 
     def test_research_loop_description_single_line_for_native_discovery(self):
-        path = Path(__file__).resolve().parents[1] / "skills/research-loop/SKILL.md"
+        path = Path(__file__).resolve().parents[1] / "skills/che-research-loop/SKILL.md"
         metadata, _, raw = frontmatter(path)
         description_lines = [line for line in raw.splitlines() if line.startswith("description:")]
         self.assertEqual(len(description_lines), 1)

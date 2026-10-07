@@ -5,7 +5,7 @@
 For a new project, use the open-source [skills CLI](https://github.com/vercel-labs/skills). Requirements for the tested CLI 1.7.0: **Node.js 22.20+ and Git**.
 
 ```sh
-npx skills add LuCheremisina/marketing-skills --skill deep-research
+npx skills add LuCheremisina/marketing-skills --skill che-deep-research
 ```
 
 Run inside your project folder. Select a client if prompted, or add `--agent codex`, `--agent claude-code` or `--agent cursor`. The default is a project installation. Start a fresh client session and request the skill by name using its [sample task](use-cases/deep-research.md#try-it).
@@ -40,7 +40,7 @@ Select the frozen release tag you intend to install. Verify its manifest and SHA
 From a downloaded release and this repository's tools:
 
 ```sh
-python3 scripts/install.py --manifest /absolute/release/manifest.json --target-dir /absolute/skill-root --ids daily-ai-news-digest,expert-article-workflow
+python3 scripts/install.py --manifest /absolute/release/manifest.json --target-dir /absolute/skill-root --ids che-daily-ai-news-digest,che-expert-article-workflow
 ```
 
 The default is a dry run. `--target-dir` and explicit `--ids` are mandatory. Choose the directory already used by the client: Codex personal skills, Claude Code `~/.claude/skills`, or Cursor `~/.cursor/skills`. Do not repurpose managed plugin caches. Add `--apply` only after accepting the plan and backup location. Keep backups outside all scanned skill roots. Existing edited copies require a verified baseline or an explicit per-skill review; they are not silently overwritten.

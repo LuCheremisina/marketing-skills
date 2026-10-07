@@ -1,6 +1,0 @@
-interface:
-  display_name: Short Video Production
-  short_description: 'Превращает текст или статью в короткий вертикальный ролик: сцена'
-  brand_color: '#E8472B'
-  default_prompt: Используй $short-video-production для этой задачи с предоставленными
-    входными данными.

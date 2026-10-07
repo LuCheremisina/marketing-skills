@@ -1,0 +1,3 @@
+interface:
+  display_name: CHE_direct-analytics-skill
+  short_description: Read-only campaign analytics

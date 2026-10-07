@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "marketing-skills",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "Evidence-led marketing, research, analytics, SEO/GEO and content workflows.",
   "author": {
     "name": "Любовь Черемисина",

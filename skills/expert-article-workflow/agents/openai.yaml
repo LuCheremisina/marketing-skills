@@ -1,6 +1,0 @@
-interface:
-  display_name: Expert Article Workflow
-  short_description: 'Создаёт доказательные экспертные статьи: исследование, бриф,
-    стр'
-  default_prompt: Используй $expert-article-workflow для этой задачи с предоставленными
-    входными данными.

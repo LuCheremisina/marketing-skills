@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 class ContextualSEOTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        source = ROOT / 'skills/seo-geo-auditor/scripts/audit_website.py'
+        source = ROOT / 'skills/che-seo-geo-auditor/scripts/audit_website.py'
         tree = ast.parse(source.read_text())
         nodes = [n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == 'calculate_score']
         scope = dict(SCORE_CRITICAL=15, SCORE_HIGH=10, SCORE_MEDIUM=5, SCORE_LOW=2)

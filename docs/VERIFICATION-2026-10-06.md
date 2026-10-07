@@ -12,10 +12,10 @@ This record distinguishes publication, installation, discovery and sampled behav
 
 | Client | Confirmed evidence | Remaining limitation |
 |---|---|---|
-| Codex | 27 authored skills and 14 shared vendor skills installed; all 41 enabled routes discovered with no parse errors. A global expert-article-workflow invocation loaded its requested resources and correctly refused production integration without verified author/site profiles. | Other workflows, connectors and full end-to-end outcomes have not all been executed. |
+| Codex | 27 authored skills and 14 shared vendor skills installed; all 41 enabled routes discovered with no parse errors. A global che-expert-article-workflow invocation loaded its requested resources and correctly refused production integration without verified author/site profiles. | Other workflows, connectors and full end-to-end outcomes have not all been executed. |
 | Claude Code | 41 expected skills discovered after local installation. | Execution failed with account OAuth401; successful discovery is not successful task execution. Claude/Cowork account import is separate and unverified. |
 | Cursor | 41 skill folders installed and payloads checked. | GUI discovery and task execution remain unverified. |
-| ChatGPT | Both skills plugins saved and installed. The UI listed 26/27 authored skills and 14/14 vendor skills. One synthetic product-market-intake invocation produced a useful result. | Research-loop was missing from the UI before and after the quoted description retry in 1.0.2. Cause: UNKNOWN. Other plugin workflows and external connectors are not fully tested. |
+| ChatGPT | Both skills plugins saved and installed. The UI listed 26/27 authored skills and 14/14 vendor skills. One synthetic che-product-market-intake invocation produced a useful result. | Research-loop was missing from the UI before and after the quoted description retry in 1.0.2. Cause: UNKNOWN. Other plugin workflows and external connectors are not fully tested. |
 | Grok Bot |Distribution guidance prepared. | Saved-library transfer, resource loading and execution remain unverified. |
 
 Previous installed copies and private runtime profiles were retained in verified backups outside skill discovery roots. Installation journals, exact hashes and rollback evidence stay private; they are not part of this public repository. Sandbox installation, repeat unchanged detection and actual rollback were tested separately. Public packages require user-supplied brand, author, business and data profiles.

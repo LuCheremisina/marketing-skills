@@ -1,5 +1,0 @@
-interface:
-  display_name: News Voiceover Script
-  short_description: Преобразует полный текст новости в фактологически точный разгово
-  default_prompt: Используй $news-voiceover-script для этой задачи с предоставленными
-    входными данными.
