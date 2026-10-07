@@ -1,6 +1,6 @@
 # Platforms and practical compatibility
 
-> **2.0.0 candidate:** all new CHE_ native runtime statuses are not verified. Earlier installation evidence below covers v1.0.2 only. [Current verification](VERIFICATION-2026-10-07.md).
+> **Published v2.0.1:** see [2026-10-07 installation evidence](INSTALLATION-2026-10-07.md). The table below is the historical v1.0.2 snapshot, not current CHE_ execution acceptance.
 The canonical format follows [Agent Skills](https://agentskills.io/specification). Common instructions do not imply equal tool availability. The machine-readable catalogue reports actual verification per skill; the release catalogue is a baseline, and subsequent installation and sampled execution are recorded in the [2026-10-06 verification report](VERIFICATION-2026-10-06.md).
 
 | Platform | Supported distribution path | Evidence as of 2026-10-06 / limitation |
