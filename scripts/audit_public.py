@@ -36,6 +36,13 @@ IDENTIFIER = re.compile(r"(?im)[\"']?\b(?:account|client|customer|counter|campai
 def private_component(part):
     return part in PRIVATE_DIRS or part == ".env" or (part.startswith(".env.") and part not in {".env.example", ".env.template"})
 
+def internal_report_path(path):
+    """Exclude maintainer journals while allowing reusable skill-local test fixtures."""
+    value = path.as_posix()
+    return bool(re.fullmatch(r"docs/(?:VERIFICATION|INSTALLATION)-\d{4}-\d{2}-\d{2}\.md", value)) or value in {
+        "docs/REPOSITORY-SETUP.md", "evals/cases-and-responses.json", "evals/summary.json",
+    }
+
 def text_findings(text, original_notice=False):
     findings = []
     def add(label, start):
@@ -67,6 +74,14 @@ def inspect_bytes(label, data, issues, counters):
         return
     counters["text_files"] += 1
     pathpart = label.split("!", 1)[-1]
+    if pathpart == "catalog/skills.json":
+        try:
+            catalog = json.loads(text)
+            for row in catalog.get("skills", []):
+                if {"installed_payloads", "chatgpt_registration", "codex_native_sample"} & row.get("verification", {}).keys():
+                    issues.append({"path": label, "reason": "account-specific installation metadata"})
+        except (ValueError, AttributeError, TypeError):
+            issues.append({"path": label, "reason": "invalid public catalogue JSON"})
     original_notice = pathpart.startswith("vendor/skills/") and Path(pathpart).name.upper().startswith(("LICENSE", "COPYING", "NOTICE", "UPSTREAM"))
     for finding in text_findings(text, original_notice):
         issues.append({"path": label, **finding})
@@ -86,6 +101,8 @@ def inspect_archive(path, issues, counters):
                     raise SkillError("archive symlink")
                 if any(private_component(part) for part in rel.parts):
                     raise SkillError("private evidence/profile path in archive")
+                if internal_report_path(rel):
+                    raise SkillError("internal maintenance report in archive")
                 if member.is_dir():
                     continue
                 total += member.file_size
@@ -112,6 +129,8 @@ def audit(root, archives_dir=None):
                 issues.append({"path": rel.as_posix(), "reason": "private evidence/profile file in public tree"})
             continue
         if path.is_file():
+            if internal_report_path(rel):
+                issues.append({"path": rel.as_posix(), "reason": "internal maintenance report in public tree"})
             if zipfile.is_zipfile(path):
                 try:
                     inspect_archive(path, issues, counters)

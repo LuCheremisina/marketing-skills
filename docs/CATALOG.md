@@ -2,7 +2,7 @@
 
 **34 original marketing workflows + 14 optional engineering skills.** [Start with five tasks](START-HERE.md) or [install one skill](INSTALL.md#quick-install). The individual workflow pages below explain inputs, outputs and required capabilities.
 
-Examples use synthetic inputs or data supplied at run time. Package installation and native execution are different checks; current evidence is in the [dated verification record](VERIFICATION-2026-10-06.md).
+Examples use synthetic inputs or data supplied at run time. Package installation and native execution are different checks; requirements and limitations are in the [platform guide](PLATFORMS.md).
 
 | Task / skill | Input | Output | Required capability |
 |---|---|---|---|
@@ -66,7 +66,7 @@ Commercial/proprietary sources and provider-managed plugins are linked in [sourc
 
 **34 авторских маркетинговых навыков + 14 дополнительных инженерных.** [Начните с пяти задач](START-HERE.ru.md) или [установите один навык](INSTALL.md#quick-install). В таблице ниже для каждого навыка указаны входные данные, результат и необходимые инструменты или подключения.
 
-В примерах используются синтетические входные данные либо данные, предоставленные при запуске. Установка пакета и выполнение навыка в выбранной системе проверяются отдельно; актуальные доказательства приведены в [отчёте о проверке с указанием даты](VERIFICATION-2026-10-06.md).
+В примерах используются синтетические входные данные либо данные, предоставленные при запуске. Установка пакета и выполнение навыка в выбранной системе проверяются отдельно; требования и ограничения приведены в [руководстве по платформам](PLATFORMS.md).
 
 | Задача / навык | Входные данные | Результат | Необходимые инструменты и доступы |
 |---|---|---|---|

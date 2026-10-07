@@ -72,6 +72,36 @@ class ToolingTest(unittest.TestCase):
     def release(self):
         return build(self.root, self.output, "1.0.0")
 
+    def test_public_audit_rejects_internal_reports_in_tree_and_archives(self):
+        internal = self.root / "docs/VERIFICATION-2026-10-07.md"
+        internal.parent.mkdir()
+        internal.write_text("Internal account installation journal\n")
+        report = audit(self.root)
+        self.assertTrue(any("internal maintenance report" in issue["reason"] for issue in report["issues"]))
+        internal.unlink()
+        self.output.mkdir()
+        (self.output / "bundle.zip").write_bytes(archive_bytes({
+            "docs/REPOSITORY-SETUP.md": b"Internal promotion plan",
+            "skills/example-analysis/evals/synthetic.csv": b"channel,value\nexample,3\n",
+        }))
+        report = audit(self.root, self.output)
+        self.assertEqual(len(report["issues"]), 1)
+        self.assertIn("internal maintenance report", report["issues"][0]["reason"])
+
+    def test_public_audit_rejects_account_metadata_but_allows_public_catalog(self):
+        catalog = self.root / "catalog/skills.json"
+        catalog.parent.mkdir()
+        json_write(catalog, {"skills": [{"verification": {"structure": "validated", "native_runtime": "not_verified"}}]})
+        self.assertTrue(audit(self.root)["ok"])
+        json_write(catalog, {"skills": [{"verification": {"installed_payloads": "private installation"}}]})
+        self.assertFalse(audit(self.root)["ok"])
+        catalog.unlink()
+        self.output.mkdir()
+        (self.output / "bundle.zip").write_bytes(archive_bytes({
+            "catalog/skills.json": json.dumps({"skills": [{"verification": {"chatgpt_registration": "private account"}}]}).encode(),
+        }))
+        self.assertFalse(audit(self.root, self.output)["ok"])
+
     def test_multiline_yaml_blank_line_is_preserved(self):
         data, _, _ = frontmatter(self.root / "skills/example-analysis/SKILL.md")
         self.assertIn("It labels unavailable", data["description"])
