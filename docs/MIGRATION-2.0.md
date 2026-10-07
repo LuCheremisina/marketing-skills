@@ -6,13 +6,13 @@
 
 ## Safe upgrade
 
-1. Keep the immutable v1.0.2 archives and a backup outside skill-discovery directories. Record installed file checksums and local modifications.
-2. Review the 2.0.0 candidate manifest, per-package hashes and platform status. New package presence does not prove native execution.
+1. Back up your existing installation outside skill-discovery directories. Keep any previous release archives you already downloaded, and record installed file checksums and local modifications.
+2. Review the current release manifest, per-package hashes and platform requirements. New package presence does not prove native execution.
 3. Test one new package in an isolated directory. Use the verified installer dry run before applying a reviewed batch. Never overwrite modified local copies without merging their changes.
 4. Disable or move an old authored folder only after confirming its identity, backup and replacement. Preserve project profiles and state outside packages. Managed plugin copies must be upgraded through their vendor mechanism; do not edit plugin caches.
 5. Test discovery, invocation and resource loading in each chosen client; check for active duplicate IDs. Restore the backed-up installation if acceptance fails.
 
-The accepted release is now published. The immutable v1.0.2 release remains available for rollback.
+Use [the current clean release](https://github.com/LuCheremisina/marketing-skills/releases/latest). Historical public releases v1.0.2, v2.0.0 and v2.0.1 have been withdrawn. Rollback uses your own pre-upgrade backup or previously downloaded archives; old release download links are unavailable.
 
 ## Русская версия
 
@@ -22,4 +22,4 @@ The accepted release is now published. The immutable v1.0.2 release remains avai
 
 Перед установкой сохранить резервную копию вне каталогов обнаружения, проверить локальные доработки, провести dry-run и тест отдельного пакета. Старые копии отключать только после проверки владельца, резервной копии и новой версии. Профили, токены и рабочую историю не переносить в распространяемый пакет. Управляемые плагины обновлять штатно.
 
-Выпуск опубликован. Исходный v1.0.2 сохранён для восстановления.
+Используйте [текущий очищенный выпуск](https://github.com/LuCheremisina/marketing-skills/releases/latest). Старые публичные выпуски v1.0.2, v2.0.0 и v2.0.1 отозваны. Для отката нужна ваша резервная копия до обновления или ранее скачанные архивы; старые ссылки загрузки недоступны.
