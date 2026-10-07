@@ -1,8 +1,8 @@
 # AI Marketing Skills — research, SEO/GEO, analytics & content
 
-> **Published v2.0.4:** 34 authored CHE_ workflows + 14 licensed engineering skills. [Release](https://github.com/LuCheremisina/marketing-skills/releases/tag/v2.0.4) · [Migration](docs/MIGRATION-2.0.md) · [MCP Panel connections](docs/MCP-CONNECTIONS.md).
+> **Published v2.0.5:** 34 authored CHE_ workflows + 14 licensed engineering skills. [Release](https://github.com/LuCheremisina/marketing-skills/releases/tag/v2.0.5) · [Migration](docs/MIGRATION-2.0.md) · [MCP Panel connections](docs/MCP-CONNECTIONS.md).
 
-**Install all 34 marketing skills with one ZIP:** [Marketing Skill Черемисина — Claude and ChatGPT installation](docs/INSTALL-PLUGIN.md).
+**Install all 34 marketing skills with one ZIP:** [Marketing Skill Cheremisina — Claude and ChatGPT installation](docs/INSTALL-PLUGIN.md).
 
 [Platform guide](docs/PLATFORMS.md): installation options and compatibility limitations.
 Research a market, audit a website, analyse Yandex campaigns, find search demand, or turn evidence into an expert article with reusable AI workflows.
@@ -19,7 +19,7 @@ With **Node.js 22.20+ and Git**, run this inside your project:
 npx skills add LuCheremisina/marketing-skills --skill che-deep-research
 ```
 
-Select your AI client if prompted, then ask it to use `che-deep-research` for your question. [Try the example](docs/use-cases/deep-research.md#try-it). Prefer a ZIP? [Download Deep Research 2.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v2.0.4/che-deep-research-3.0.0.zip) and follow the [client installation guide](docs/INSTALL.md#zip-and-plugin-installation).
+Select your AI client if prompted, then ask it to use `che-deep-research` for your question. [Try the example](docs/use-cases/deep-research.md#try-it). Prefer a ZIP? [Download Deep Research 2.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v2.0.5/che-deep-research-3.0.0.zip) and follow the [client installation guide](docs/INSTALL.md#zip-and-plugin-installation).
 
 The CLI installs into the current project by default. For an existing installation, or a release pinned to checksums, use [verified installation](docs/INSTALL.md#verified-installation). Quick install was checked with `skills` CLI 1.7.0; installation does not connect accounts or establish runtime compatibility.
 
@@ -47,7 +47,7 @@ Include your client, chosen skill and a synthetic example. Keep account credenti
 
 The packages follow the [Agent Skills format](https://agentskills.io/specification). Marketing workflows are MIT licensed; engineering packages retain their original licences. Brand, business and author profiles are supplied at run time, so the public packages contain no client profiles or credentials.
 
-Current published release: [**v2.0.4**](https://github.com/LuCheremisina/marketing-skills/releases/tag/v2.0.4). Individual versions and sources are tracked in the [catalogue](catalog/skills.json). Verify downloads using the release manifest and SHA-256 checksums.
+Current published release: [**v2.0.5**](https://github.com/LuCheremisina/marketing-skills/releases/tag/v2.0.5). Individual versions and sources are tracked in the [catalogue](catalog/skills.json). Verify downloads using the release manifest and SHA-256 checksums.
 
 ## Choose a workflow
 
