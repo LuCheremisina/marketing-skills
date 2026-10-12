@@ -34,3 +34,6 @@ Methodologist: **Любовь Черемисина / Lyubov Cheremisina**. [cher
 [Complete catalogue](https://github.com/LuCheremisina/marketing-skills/blob/main/docs/CATALOG.md) · [Installation in English and Russian](https://github.com/LuCheremisina/marketing-skills/blob/main/docs/INSTALL-PLUGIN.md) · [Support and bug reports](https://github.com/LuCheremisina/marketing-skills/issues).
 
 MIT licensed. This Claude directory package contains authored skills only; the optional third-party engineering plugin is distributed separately. Its technical identity is `cheremisina-marketing-skills`, distinct from earlier manual ZIP installations named `marketing-skills`; preserve local changes before replacing an older installation and avoid enabling both copies at once.
+
+
+Digest safety update (2.0.7): preparation does not deliver or start a listener. OpenAI processing requires explicit authorization; Telegram delivery requires a separate command and approved recipients. Subscription listeners are run separately by the owner.

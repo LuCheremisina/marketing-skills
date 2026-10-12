@@ -29,3 +29,6 @@ For questions or issues, use the [repository issue tracker](https://github.com/L
 Исследования запрашивают публичные страницы и ленты. Необязательная отправка дайджеста и обработка подписок обращаются к Telegram; комментарии OpenAI в `che-direct-analyst` передают рассчитанные данные рекламной кампании, если этот этап разрешён и настроен. Для локального отчёта используйте `--no-llm`. Другие навыки могут использовать подключённые пользователем API и MCP. До отправки подтвердите сервис, данные и получателей. Рабочий запуск дайджеста может запустить фонового Telegram-подписчика; установка и dry-run его не запускают.
 
 Ключей в пакете нет. Отдельные скрипты принимают ключи поставщиков из настроенного окружения или локального `.env`. Не вставляйте секреты в чат и публичные файлы. Плагин не содержит сервера сбора данных автора. Хранение и обработка у Claude, других AI-систем и внешних сервисов регулируются их собственными настройками и правилами. Файлами в рабочей среде управляет её пользователь.
+
+
+Digest safety update (2.0.7): preparation does not deliver or start a listener. OpenAI processing requires explicit authorization; Telegram delivery requires a separate command and approved recipients. Subscription listeners are run separately by the owner.

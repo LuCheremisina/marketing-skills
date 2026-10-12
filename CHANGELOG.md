@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.0.7 — 2026-10-12
+
+- AI digest preparation no longer sends Telegram messages or starts background subscription processes. Delivery uses a separate command with explicit recipients, confirmation, quality checks and per-recipient receipts.
+- External OpenAI processing is opt-in; the industry digest keeps business profiles outside skill packages and preserves an unverified fallback without LLM.
+- Digest skill versions: 3.0.1. Other skills and vendor packages are unchanged.
+
+
 ## 2.0.5
 
 - Rename the plugin display name to Marketing Skill Cheremisina in manifests and installation guides. Skill contents are unchanged.
