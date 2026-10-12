@@ -38,7 +38,7 @@ MIT licensed. This Claude directory package contains authored skills only; the o
 
 ## Platform eligibility and review boundaries
 
-Use the package only in accounts and environments permitted by the host's current terms. The library's intended audience also includes users under 18; this is disclosed for review, not permission to create or use a Claude account below its minimum age. Anthropic currently requires Claude account users to be 18 or older. The applicable route for younger audiences must be confirmed before this listing is submitted.
+This Claude plugin is intended for users aged 18 and older. Use it only in accounts and environments permitted by the host's current terms. Anthropic requires Claude account users to be at least 18 years old.
 
 Skills can prepare image concepts, prompts, video scripts and storyboards; actual generation or rendering requires separately available, user-authorized tools. This package does not operate a publisher-hosted image, video or audio generation service. Whether its media workflows are eligible under the directory policy remains for Anthropic to confirm; no written exception is asserted.
 
