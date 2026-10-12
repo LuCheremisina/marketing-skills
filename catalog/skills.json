@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "release_candidate": "2.0.5",
+  "release_candidate": "2.0.7",
   "checked_at": "2026-10-07",
   "repository": "https://github.com/LuCheremisina/marketing-skills",
   "status_vocabulary": [
@@ -288,12 +288,12 @@
       "id": "che-daily-ai-news-digest",
       "path": "skills/che-daily-ai-news-digest",
       "origin": "authored",
-      "version": "3.0.0",
+      "version": "3.0.1",
       "license": "MIT",
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-daily-ai-news-digest",
-      "source_status": "published-2.0.5",
+      "source_status": "published-2.0.7",
       "category": "research",
       "title": "AI news digest",
       "inputs": "Period; timezone; sources; delivery intent",
@@ -313,10 +313,10 @@
       },
       "redistribution": "MIT-authored",
       "description": "Собирает и проверяет AI-новости за заданный период, устраняет дубли и готовит дайджест. Применяется для сводки AI-новостей; доставка — только проверенным получателям по прямому поручению либо ранее разрешённому расписанию.",
-      "checked_at": "2026-10-07",
+      "checked_at": "2026-10-12",
       "redistribution_allowed": true,
       "display_name": "CHE_daily-ai-news-digest",
-      "content_sha256": "b92138d0607875c6e435496737172a68208737b80eea31abf022774ee8742203"
+      "content_sha256": "19f50cbb314d59698b76e81ba123d38b158fbe83d8bd54408d689c33edb1902e"
     },
     {
       "id": "che-deep-research",
@@ -562,12 +562,12 @@
       "id": "che-industry-news-digest",
       "path": "skills/che-industry-news-digest",
       "origin": "authored",
-      "version": "3.0.0",
+      "version": "3.0.1",
       "license": "MIT",
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-industry-news-digest",
-      "source_status": "published-2.0.5",
+      "source_status": "published-2.0.7",
       "category": "research",
       "title": "Industry news monitoring",
       "inputs": "Industry; period; sources; timezone; destination",
@@ -587,10 +587,10 @@
       },
       "redistribution": "MIT-authored",
       "description": "Готовит отраслевой дайджест по заданному профилю бизнеса: RSS, кластеризация, ранжирование, проверка и перевод. Применяется для новостей ниши/брендов за период; профиль хранится в проектном digest-config.json.",
-      "checked_at": "2026-10-07",
+      "checked_at": "2026-10-12",
       "redistribution_allowed": true,
       "display_name": "CHE_industry-news-digest",
-      "content_sha256": "c339fe089a959239a7d30969645d345925afea274a6d54f57a9c9958a2ec5280"
+      "content_sha256": "03a440d9f3ae756ceb2b435ac254eb3d65032aa10bf2da6e0151aff5197fee61"
     },
     {
       "id": "che-internet-skill-finder",
@@ -3166,5 +3166,5 @@
       "reason": "Root Remotion License grants eligible video/image-production use and modification for own use/contributions, prohibits specified derivative relicensing, and provides no general standalone skill-library redistribution grant. No permissive package-specific skill license found; obtain publisher terms or install upstream."
     }
   ],
-  "published_release": "2.0.5"
+  "published_release": "2.0.7"
 }

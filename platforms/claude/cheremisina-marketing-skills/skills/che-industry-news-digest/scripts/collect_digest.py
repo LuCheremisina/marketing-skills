@@ -10,6 +10,8 @@ Industry News Digest — сбор и дайджест новостей за N д
 6. Печатает готовый дайджест в stdout
 """
 
+from __future__ import annotations
+
 import os
 import sys
 import re
@@ -34,6 +36,9 @@ def load_config(path: str) -> dict:
             file=sys.stderr,
         )
         sys.exit(1)
+    from pathlib import Path
+    if Path(path).resolve().is_relative_to(Path(SCRIPT_DIR).parent.resolve()):
+        raise ValueError("Бизнес-профиль должен храниться вне пакета навыка")
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
@@ -156,6 +161,9 @@ def process_with_llm(clusters: list[dict], config: dict, max_news: int, days_bac
     if not clusters:
         return None
 
+    if not os.environ.get("OPENAI_API_KEY"):
+        print("[WARN] Нет OpenAI-доступа; непроверенный черновик без LLM.", file=sys.stderr)
+        return None
     client = OpenAI()
     top_clusters = clusters[:25]
     business = config.get("business_name", "клиент")
@@ -217,7 +225,7 @@ def process_with_llm(clusters: list[dict], config: dict, max_news: int, days_bac
         )
         return response.choices[0].message.content.strip()
     except Exception as e:
-        print(f"[ERROR] Ошибка LLM: {e}", file=sys.stderr)
+        print(f"[ERROR] Ошибка LLM: {type(e).__name__}", file=sys.stderr)
         return None
 
 # ─── Fallback: дайджест без LLM ─────────────────────────────────────────────
@@ -253,6 +261,7 @@ def main():
     parser.add_argument("--top", type=int, default=None, help="Кол-во новостей (override config)")
     parser.add_argument("--filter", type=str, default="", help="Фильтр по бренду/модели")
     parser.add_argument("--no-llm", action="store_true", help="Отключить LLM, вывести сырой топ")
+    parser.add_argument("--allow-openai", action="store_true", help="Разрешённая внешняя обработка материалов и бизнес-контекста")
     args = parser.parse_args()
 
     config = load_config(args.config)
@@ -281,7 +290,7 @@ def main():
         print("⚠️ Не удалось сформировать кластеры.")
         return
 
-    if args.no_llm:
+    if args.no_llm or not args.allow_openai:
         digest = format_digest_raw(clusters, config, top_n, days_back)
     else:
         print("[INFO] Обработка через LLM...", file=sys.stderr)

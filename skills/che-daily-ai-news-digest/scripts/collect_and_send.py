@@ -11,7 +11,7 @@ Daily AI News Digest v5 — сбор новостей из мира ИИ, вер
      При дубле сохраняется более авторитетный источник
   2. Послабляющий критерий: если уникальных новостей < 10, отправляется столько, сколько есть
   3. Пост-фильтр военно-политических тем (до LLM) — ключевые слова + LLM-проверка
-  4. Автозапуск bot_subscribe.py при старте (если не запущен)
+  4. Обработчик подписок запускается отдельно владельцем
   5. Генерация красивого HTML-дайджеста и отправка как документа в Telegram
 
 Многоуровневая дедупликация:
@@ -29,9 +29,9 @@ Enrichment Layer (v3):
 
 Система подписок (v4):
   - Рассылка всем активным подписчикам из data/subscribers.json
-  - Управление подписками через bot_subscribe.py (автозапуск при старте)
+  - Управление подписками через bot_subscribe.py (отдельный запуск)
 
-Запуск выполняется платформой после предоставления Telegram-доступа.
+Подготовка не требует Telegram-доступа. Доставка выполняется отдельным скриптом.
 """
 
 from __future__ import annotations
@@ -42,30 +42,19 @@ import json
 import hashlib
 import re
 import time
-import subprocess
-import tempfile
 from datetime import datetime, timedelta, timezone
 from difflib import SequenceMatcher
 from pathlib import Path
 
 import feedparser
-import requests
 from openai import OpenAI
 
 from skill_timezone import resolve_skill_timezone, timezone_label
 
 # ─── Конфигурация ───────────────────────────────────────────────────────────
 
-# Токен бота — ТОЛЬКО из переменной окружения. Хардкод запрещён.
-DRY_RUN = os.environ.get("DRY_RUN", "").strip().lower() in {"1", "true", "yes"}
-TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
-if not TELEGRAM_BOT_TOKEN and not DRY_RUN:
-    print("[ERROR] Платформа не предоставила Telegram-доступ для доставки.")
-    sys.exit(1)
-
-# Опциональный резервный получатель. Идентификатор не хранится в пакете.
-TELEGRAM_FALLBACK_CHAT_ID = os.environ.get("TELEGRAM_FALLBACK_CHAT_ID", "").strip()
-DRY_RUN = os.environ.get("DRY_RUN", "").strip().lower() in {"1", "true", "yes"}
+# Подготовка никогда не выполняет доставку.
+DRY_RUN = True
 DIGEST_FOOTER_URL = os.environ.get("DIGEST_FOOTER_URL", "").strip()
 DIGEST_FOOTER_LABEL = os.environ.get("DIGEST_FOOTER_LABEL", "configured site").strip()
 
@@ -76,9 +65,6 @@ HISTORY_FILE = os.environ.get(
 
 # Файл подписчиков (управляется bot_subscribe.py)
 SUBSCRIBERS_FILE = Path(os.environ.get("DIGEST_DATA_DIR", str(Path.home() / ".local" / "share" / "che-daily-ai-news-digest"))) / "subscribers.json"
-
-# Путь к bot_subscribe.py для автозапуска
-BOT_SCRIPT = Path(__file__).parent / "bot_subscribe.py"
 
 # Файл истории запусков (JSONL — одна запись на строку)
 RUN_HISTORY_FILE = Path(os.environ.get("DIGEST_DATA_DIR", str(Path.home() / ".local" / "share" / "che-daily-ai-news-digest"))) / "run_history.jsonl"
@@ -204,38 +190,6 @@ BANNED_KEYWORDS = [
 
 
 # ─── Доработка 2: Автозапуск bot_subscribe.py ──────────────────────────────
-
-
-def ensure_bot_running():
-    """
-    Убедиться, что bot_subscribe.py запущен.
-    Если процесс не найден — запустить в фоне.
-    """
-    try:
-        # Проверяем, запущен ли процесс
-        result = subprocess.run(
-            ["pgrep", "-f", "bot_subscribe.py"],
-            capture_output=True, text=True
-        )
-        if result.returncode == 0:
-            pid = result.stdout.strip()
-            print(f"[INFO] bot_subscribe.py уже запущен (PID: {pid})")
-            return
-
-        # Запускаем бота в фоне
-        log_path = Path(__file__).parent.parent / "data" / "bot_subscribe.log"
-        with open(log_path, "a") as log_file:
-            proc = subprocess.Popen(
-                [sys.executable, str(BOT_SCRIPT)],
-                stdout=log_file,
-                stderr=log_file,
-                env=os.environ.copy(),
-                start_new_session=True,
-            )
-        print(f"[INFO] bot_subscribe.py запущен в фоне (PID: {proc.pid})")
-        time.sleep(2)  # Даём боту время на инициализацию
-    except Exception as e:
-        print(f"[WARN] Не удалось проверить/запустить bot_subscribe.py: {e}")
 
 
 # ─── Утилиты ────────────────────────────────────────────────────────────────
@@ -1597,144 +1551,6 @@ def generate_html_digest(digest_text: str, trends: list = None) -> str:
     return html
 
 
-def send_html_digest_to_chat(chat_id: int, html_content: str, today: str) -> bool:
-    """Отправить HTML-файл дайджеста одному получателю через sendDocument."""
-    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendDocument"
-
-    # Сохраняем HTML во временный файл
-    with tempfile.NamedTemporaryFile(
-        mode="w", suffix=".html", prefix=f"ai_digest_{today}_",
-        delete=False, encoding="utf-8"
-    ) as f:
-        f.write(html_content)
-        tmp_path = f.name
-
-    try:
-        with open(tmp_path, "rb") as f:
-            caption = f"🤖 AI-дайджест {today} — удобная HTML-версия для чтения"
-            resp = requests.post(
-                url,
-                data={"chat_id": chat_id, "caption": caption},
-                files={"document": (f"ai_digest_{today}.html", f, "text/html")},
-                timeout=30,
-            )
-        result = resp.json()
-        if not result.get("ok"):
-            err = result.get("description", "")
-            print(f"[WARN] Ошибка отправки HTML в {chat_id}: {err}")
-            return False
-        return True
-    except Exception as e:
-        print(f"[ERROR] Ошибка доставки HTML: {type(e).__name__}")
-        return False
-    finally:
-        try:
-            os.unlink(tmp_path)
-        except Exception:
-            pass
-
-
-# ─── Подписчики ─────────────────────────────────────────────────────────────
-
-
-def get_active_subscribers() -> list:
-    """Получить список активных chat_id из файла подписчиков."""
-    if not SUBSCRIBERS_FILE.exists():
-        return []
-    try:
-        with open(SUBSCRIBERS_FILE, "r", encoding="utf-8") as f:
-            data = json.load(f)
-        return [
-            int(key)
-            for key, info in data.items()
-            if info.get("active")
-        ]
-    except (json.JSONDecodeError, IOError, ValueError) as e:
-        print(f"[WARN] Ошибка чтения subscribers.json: {e}")
-        return []
-
-
-# ─── Telegram ───────────────────────────────────────────────────────────────
-
-
-def _split_into_chunks(text: str, max_len: int = 4000) -> list:
-    """Разбить длинный текст на части для Telegram."""
-    if len(text) <= max_len:
-        return [text]
-    chunks = []
-    lines = text.split("\n")
-    chunk = ""
-    for line in lines:
-        if len(chunk) + len(line) + 1 > max_len:
-            chunks.append(chunk)
-            chunk = line + "\n"
-        else:
-            chunk += line + "\n"
-    if chunk:
-        chunks.append(chunk)
-    return chunks
-
-
-def send_to_chat(chat_id: int, text: str) -> bool:
-    """Отправить текстовое сообщение одному получателю (с разбивкой на части)."""
-    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
-    success = True
-    for chunk in _split_into_chunks(text):
-        payload = {
-            "chat_id": chat_id,
-            "text": chunk,
-            "disable_web_page_preview": True,
-        }
-        try:
-            resp = requests.post(url, json=payload, timeout=30)
-            result = resp.json()
-            if not result.get("ok"):
-                err = result.get("description", "")
-                print(f"[WARN] Telegram error для {chat_id}: {err}")
-                # Бот заблокирован пользователем — не считаем критической ошибкой
-                if "bot was blocked" in err or "chat not found" in err:
-                    return False
-                success = False
-            time.sleep(0.05)  # Соблюдаем лимит Telegram: 30 msg/sec
-        except Exception as e:
-            print(f"[ERROR] Ошибка доставки: {type(e).__name__}")
-            success = False
-    return success
-
-
-def send_telegram_message(text: str, html_content: str = None) -> bool:
-    """
-    Разослать HTML-дайджест всем активным подписчикам.
-    Отправляет ТОЛЬКО HTML-файл (текстовая сводка не отправляется).
-    Если подписчиков нет — использовать только явно заданный резервный получатель.
-    """
-    today = datetime.now(SKILL_TZ).strftime("%d.%m.%Y")
-    subscribers = get_active_subscribers()
-
-    if not html_content:
-        print("[WARN] HTML-контент не передан, отправка невозможна.")
-        return False
-
-    if subscribers:
-        print(f"[INFO] Рассылка {len(subscribers)} подписчикам...")
-        ok_count = 0
-        fail_count = 0
-        for chat_id in subscribers:
-            html_ok = send_html_digest_to_chat(chat_id, html_content, today)
-            if html_ok:
-                ok_count += 1
-            else:
-                fail_count += 1
-            time.sleep(0.1)
-        print(f"[OK] Доставлено: {ok_count}, ошибок: {fail_count}")
-        return ok_count > 0
-    if not TELEGRAM_FALLBACK_CHAT_ID:
-        print("[WARN] Нет активных подписчиков и не задан TELEGRAM_FALLBACK_CHAT_ID. Отправка остановлена.")
-        return False
-    print("[INFO] Подписчиков нет. Отправка HTML резервному получателю из окружения...")
-    return send_html_digest_to_chat(int(TELEGRAM_FALLBACK_CHAT_ID), html_content, today)
-
-
 # ─── История запусков ────────────────────────────────────────────────────────
 
 
@@ -1784,12 +1600,6 @@ def main():
         "note": "",
     }
     print(f"[{datetime.now(SKILL_TZ).strftime('%Y-%m-%d %H:%M:%S')} {timezone_label(SKILL_TZ)}] Запуск сбора AI-новостей {AGENT_VERSION}...")
-
-    # 0. Убедиться, что bot_subscribe.py запущен. В dry-run не создавать фоновый процесс.
-    if DRY_RUN:
-        print("[INFO] DRY_RUN: автозапуск бота и Telegram-доставка отключены.")
-    else:
-        ensure_bot_running()
 
     # 1. Загрузка истории
     history = load_history()
@@ -1864,70 +1674,24 @@ def main():
     run_record["news_in_digest"] = len(digest_titles)
     run_record["trends"] = [t.get("trend", "") for t in (trends or [])]
 
-    if DRY_RUN:
-        run_record["status"] = "dry_run"
-        run_record["note"] = "Сводка сформирована; Telegram-доставка и обновление истории отключены"
-        append_run_history(run_record)
-        print("[OK] DRY_RUN: сводка сформирована, внешняя отправка не выполнялась.")
-        return
-
-    # 8. Отправка в Telegram (HTML-файл)
-    print("[INFO] Отправка в Telegram (HTML-файл)...")
-    success = send_telegram_message(digest, html_content=html_content)
-
-    if success:
-        # Считаем статистику доставки
-        subscribers = get_active_subscribers()
-        run_record["subscribers_ok"] = len(subscribers)  # упрощённо: все активные
-        run_record["status"] = "ok"
-
-        # 9. Обновление истории (расширенная)
-        used = extract_used_entries(digest, top_entries)
-        entries_to_save = used if used else top_entries[:MAX_NEWS]
-
-        # Сохраняем хэши
-        hashes_to_add = [e["hash"] for e in entries_to_save]
-        history.setdefault("sent_hashes", []).extend(hashes_to_add)
-
-        # Сохраняем нормализованные заголовки (для fuzzy/Jaccard)
-        titles_to_add = [normalize_title(e["title"]) for e in entries_to_save]
-        history.setdefault("sent_titles", []).extend(titles_to_add)
-
-        # Сохраняем полные записи
-        entries_data = [
-            {"title": e["title"], "link": e["link"], "hash": e["hash"],
-             "source": e["source"], "date": e.get("pub_date")}
-            for e in entries_to_save
-        ]
-        history.setdefault("sent_entries", []).extend(entries_data)
-
-        # Сохраняем заголовки сводки для LLM-контекста следующего запуска
-        digest_titles = extract_digest_titles(digest)
-        history["previous_digest_titles"] = digest_titles
-        print(f"[INFO] Извлечено {len(digest_titles)} заголовков из сводки для LLM-контекста")
-
-        # Также добавляем ВСЕ собранные записи в хэш-историю (чтобы не предлагать повторно)
-        all_hashes = [e["hash"] for e in all_entries]
-        all_titles = [normalize_title(e["title"]) for e in all_entries]
-        history["sent_hashes"] = list(set(history["sent_hashes"]) | set(all_hashes))
-        existing_titles = set(history.get("sent_titles", []))
-        for t in all_titles:
-            if t not in existing_titles:
-                history["sent_titles"].append(t)
-                existing_titles.add(t)
-
-        save_history(history)
-        print(f"[OK] Готово! Хэшей в истории: {len(history['sent_hashes'])}, "
-              f"заголовков: {len(history['sent_titles'])}")
-
-        # 10. Запись в историю запусков
-        append_run_history(run_record)
-    else:
-        run_record["status"] = "error"
-        run_record["note"] = "Ошибка отправки в Telegram"
-        append_run_history(run_record)
-        print("[ERROR] Отправка не удалась.")
+    # Сохранить подготовленный выпуск; история доставки не меняется.
+    output = Path(os.environ.get("DIGEST_DATA_DIR", str(RUN_HISTORY_FILE.parent)))
+    output.mkdir(parents=True, exist_ok=True)
+    bundle = {"digest": digest, "html": html_content, "entries": extract_used_entries(digest, top_entries),
+              "titles": digest_titles, "prepared_at": run_ts}
+    (output / "prepared-digest.json").write_text(json.dumps(bundle, ensure_ascii=False), encoding="utf-8")
+    (output / "prepared-digest.html").write_text(html_content, encoding="utf-8")
+    run_record["status"] = "dry_run"
+    run_record["note"] = "Выпуск сохранён; доставка и фоновый бот не запускались"
+    append_run_history(run_record)
+    print("[OK] Подготовлено. Доставка — только отдельной командой send_digest.py.")
 
 
 if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser(description="Prepare AI digest; never deliver or start a bot")
+    parser.add_argument("--allow-openai", action="store_true", help="User-authorized processing of RSS/news and prior digest by OpenAI API")
+    args = parser.parse_args()
+    if not args.allow_openai:
+        parser.error("Обработка через OpenAI API требует --allow-openai после разрешения пользователя; отправка не выполняется.")
     main()
