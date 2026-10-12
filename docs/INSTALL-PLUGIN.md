@@ -2,14 +2,14 @@
 
 [Русская инструкция](INSTALL-PLUGIN.ru.md)
 
-Download **[marketing-skills-plugin-2.0.5.zip](https://github.com/LuCheremisina/marketing-skills/releases/download/v2.0.5/marketing-skills-plugin-2.0.5.zip)**. Keep it zipped. This plugin includes all **34 original marketing skills** and their references, scripts and assets.
+Download **[marketing-skills-plugin-2.0.7.zip](https://github.com/LuCheremisina/marketing-skills/releases/download/v2.0.7/marketing-skills-plugin-2.0.7.zip)**. Keep it zipped. This plugin includes all **34 original marketing skills** and their references, scripts and assets.
 
-The optional **[marketing-skills-vendor-2.0.5.zip](https://github.com/LuCheremisina/marketing-skills/releases/download/v2.0.5/marketing-skills-vendor-2.0.5.zip)** adds 14 third-party engineering skills, with their original attribution and licenses. Install it separately if needed. Together the two plugins provide 48 skills. The complete repository/source ZIP is not the native plugin installer.
+The optional **[marketing-skills-vendor-2.0.7.zip](https://github.com/LuCheremisina/marketing-skills/releases/download/v2.0.7/marketing-skills-vendor-2.0.7.zip)** adds 14 third-party engineering skills, with their original attribution and licenses. Install it separately if needed. Together the two plugins provide 48 skills. The complete repository/source ZIP is not the native plugin installer.
 
 ## Claude
 
 1. Open **Customize → Plugins** (Russian UI: **Персонализация → Плагины**).
-2. Choose **Add → Upload a plugin**, then select `marketing-skills-plugin-2.0.5.zip`.
+2. Choose **Add → Upload a plugin**, then select `marketing-skills-plugin-2.0.7.zip`.
 3. Confirm the import and enable **Marketing Skill Cheremisina**. Its Skills tab should show **34**.
 4. Start a new chat or Cowork session. Ask: “Use che-deep-research to prepare a research brief for a fictional B2B service. Ask for missing inputs.”
 
@@ -22,7 +22,7 @@ See [Claude's official plugin guide](https://support.claude.com/en/articles/1383
 ChatGPT can create a plugin containing all 34 skills from this one ZIP **when the account has Plugins and Plugin Creator available**. An ordinary file attachment alone does not install skills.
 
 1. Open the account's **Plugins** area and use its **Build plugins / Plugin Creator** entry to start a plugin-building conversation.
-2. Attach `marketing-skills-plugin-2.0.5.zip` and request: “Create a private personal plugin from this archive, preserve its manifests and all 34 skills, and give me the plugin installation link. Do not publish it to an organization.”
+2. Attach `marketing-skills-plugin-2.0.7.zip` and request: “Create a private personal plugin from this archive, preserve its manifests and all 34 skills, and give me the plugin installation link. Do not publish it to an organization.”
 3. Open the returned plugin page and install or enable it if prompted. Verify **Marketing Skill Cheremisina** and **34 skills**.
 4. Start a new chat and request `che-deep-research` using the sample above.
 
@@ -35,3 +35,9 @@ See [OpenAI's plugin guide](https://learn.chatgpt.com/docs/plugins) and [plugin 
 Installation makes the bundled instructions and resources available. It does not connect external accounts or grant API access. Some workflows need separate tools, credentials or MCP connections; see [MCP connection guidance](MCP-CONNECTIONS.md) and [MCP Panel](https://cheremisina.ru). Test one task and resource access before using a workflow for business decisions.
 
 Methodologist: **Любовь Черемисина / Lyubov Cheremisina** — [cheremisina.ru](https://cheremisina.ru), [cheremisina.online](https://cheremisina.online).
+
+## Update an existing ChatGPT plugin
+
+Attach the latest authored-plugin ZIP and ask: “Update my existing Marketing Skill Cheremisina plugin from this archive. Preserve its identity, access and all 34 skills; do not create a duplicate or downgrade a newer installation. Verify the version and the changed digest scripts after updating. Do not run delivery or paid APIs.”
+
+Repository changes and release downloads do not automatically update existing installations. Account update support depends on the current host; if unavailable, use its supported editor/import flow and retain a backup.

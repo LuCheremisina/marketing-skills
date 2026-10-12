@@ -293,7 +293,7 @@
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-daily-ai-news-digest",
-      "source_status": "candidate-2.0.7",
+      "source_status": "published-2.0.7",
       "category": "research",
       "title": "AI news digest",
       "inputs": "Period; timezone; sources; delivery intent",
@@ -567,7 +567,7 @@
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-industry-news-digest",
-      "source_status": "candidate-2.0.7",
+      "source_status": "published-2.0.7",
       "category": "research",
       "title": "Industry news monitoring",
       "inputs": "Industry; period; sources; timezone; destination",
@@ -3166,5 +3166,5 @@
       "reason": "Root Remotion License grants eligible video/image-production use and modification for own use/contributions, prohibits specified derivative relicensing, and provides no general standalone skill-library redistribution grant. No permissive package-specific skill license found; obtain publisher terms or install upstream."
     }
   ],
-  "published_release": "2.0.5"
+  "published_release": "2.0.7"
 }
