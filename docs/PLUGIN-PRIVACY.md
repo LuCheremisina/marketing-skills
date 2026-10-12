@@ -33,6 +33,6 @@ For questions or issues, use the [repository issue tracker](https://github.com/L
 
 ## Audience and host restrictions / Аудитория и ограничения среды
 
-The library's intended audience includes users under 18, as declared by the publisher. This is not a claim that minors may use Claude accounts: current Anthropic account rules require age 18+. No dedicated age-assurance or child-data compliance system is implemented by this skills-only package. Any permitted deployment for younger audiences needs separate confirmation and appropriate host controls.
+This Claude plugin is intended for users aged 18 and older. Anthropic requires Claude account users to be at least 18 years old. This skills-only package does not implement a separate age-verification system; users and workspace operators must follow the host's account eligibility rules.
 
-Автор указала, что библиотека предназначена также для пользователей младше 18 лет. Это не разрешает им пользоваться аккаунтами Claude вопреки возрастному ограничению 18+. В пакете нет отдельной системы проверки возраста и специальных механизмов обработки детских данных. Допустимый способ использования этой аудиторией требует согласования и контроля со стороны соответствующей среды.
+Плагин для Claude предназначен для пользователей от 18 лет. Anthropic разрешает создавать и использовать аккаунты Claude только с 18 лет. Пакет навыков не содержит отдельной системы проверки возраста; пользователи и операторы рабочих пространств должны соблюдать возрастные требования среды.
