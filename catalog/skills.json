@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "release_candidate": "2.0.7",
+  "release_candidate": "2.0.9-rc.1",
   "checked_at": "2026-10-07",
   "repository": "https://github.com/LuCheremisina/marketing-skills",
   "status_vocabulary": [
@@ -288,7 +288,7 @@
       "id": "che-daily-ai-news-digest",
       "path": "skills/che-daily-ai-news-digest",
       "origin": "authored",
-      "version": "3.0.1",
+      "version": "3.0.2",
       "license": "MIT",
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
@@ -313,10 +313,10 @@
       },
       "redistribution": "MIT-authored",
       "description": "Собирает и проверяет AI-новости за заданный период, устраняет дубли и готовит дайджест. Применяется для сводки AI-новостей; доставка — только проверенным получателям по прямому поручению либо ранее разрешённому расписанию.",
-      "checked_at": "2026-10-12",
+      "checked_at": "2026-10-14",
       "redistribution_allowed": true,
       "display_name": "CHE_daily-ai-news-digest",
-      "content_sha256": "19f50cbb314d59698b76e81ba123d38b158fbe83d8bd54408d689c33edb1902e"
+      "content_sha256": "569c02c69bf85d44fbaf3efa141faf63f8dc39ea151068b3259ffed0e74c80f9"
     },
     {
       "id": "che-deep-research",

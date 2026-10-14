@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.9-rc.1 — Claude review candidate, 2026-10-14
+
+- Daily AI digest 3.0.2 requires publication dates, preserves separate events with similar titles and validates source/date evidence during both preparation and explicit delivery.
+- Stale, undated, test-source and mismatched HTML bundles are blocked. JSON export excludes internal datetime objects.
+- Offline regressions cover quality gates and preserve confirmation, explicit recipients, partial-retry receipts and non-delivering preparation. This candidate is not a marketplace approval.
+
 ## 2.0.7 — 2026-10-12
 
 - AI digest preparation no longer sends Telegram messages or starts background subscription processes. Delivery uses a separate command with explicit recipients, confirmation, quality checks and per-recipient receipts.
