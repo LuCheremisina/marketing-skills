@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.0.9-rc.1 — Claude review candidate, 2026-10-14
+## 2.0.9-rc.2 — Claude review candidate, 2026-10-14
 
 - Daily AI digest 3.0.2 requires publication dates, preserves separate events with similar titles and validates source/date evidence during both preparation and explicit delivery.
 - Stale, undated, test-source and mismatched HTML bundles are blocked. JSON export excludes internal datetime objects.

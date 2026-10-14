@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "release_candidate": "2.0.9-rc.1",
+  "release_candidate": "2.0.9-rc.2",
   "checked_at": "2026-10-07",
   "repository": "https://github.com/LuCheremisina/marketing-skills",
   "status_vocabulary": [
@@ -316,7 +316,7 @@
       "checked_at": "2026-10-14",
       "redistribution_allowed": true,
       "display_name": "CHE_daily-ai-news-digest",
-      "content_sha256": "569c02c69bf85d44fbaf3efa141faf63f8dc39ea151068b3259ffed0e74c80f9"
+      "content_sha256": "df8f984d3bba2e99aeaab75d4ffb251e6c01863c481733148e73b9f7bdff7bd2"
     },
     {
       "id": "che-deep-research",

@@ -166,7 +166,7 @@ BANNED_KEYWORDS = [
 ]
 
 
-# ─── Доработка 2: Автозапуск bot_subscribe.py ──────────────────────────────
+# ─── Доработка 2: Журнал подготовки; обработчик подписок здесь не запускается ──────────────────────────────
 
 
 # ─── Утилиты ────────────────────────────────────────────────────────────────
@@ -217,6 +217,20 @@ def same_event(a: dict, b: dict) -> bool:
                 and a.get('event_id') and a.get('event_id') == b.get('event_id'))
 
 
+def collection_window_hours(entries: list) -> int:
+    now = datetime.now(timezone.utc)
+    for entry in entries:
+        if entry.get('collection_window_hours') == 36:
+            return 36
+        try:
+            published = datetime.fromisoformat(entry['pub_date'].replace('Z', '+00:00'))
+            if published.tzinfo and now - published > timedelta(hours=24):
+                return 36
+        except (KeyError, TypeError, ValueError, AttributeError):
+            pass  # Missing or invalid evidence is rejected by the publication QA gate.
+    return 24
+
+
 def normalize_title(title: str) -> str:
     """Нормализовать заголовок для сравнения: lowercase, убрать пунктуацию."""
     t = title.strip().lower()
@@ -249,9 +263,9 @@ def jaccard_similarity(set_a: set, set_b: set) -> float:
 # ─── История (расширенная) ─────────────────────────────────────────────────
 
 
-def load_history() -> dict:
+def load_history(history_path=None) -> dict:
     """Загрузить историю отправленных новостей (расширенный формат)."""
-    path = Path(HISTORY_FILE)
+    path = Path(history_path or HISTORY_FILE)
     if path.exists():
         try:
             with open(path, "r", encoding="utf-8") as f:
@@ -273,9 +287,9 @@ def load_history() -> dict:
     }
 
 
-def save_history(history: dict):
+def save_history(history: dict, history_path=None):
     """Сохранить историю отправленных новостей."""
-    path = Path(HISTORY_FILE)
+    path = Path(history_path or HISTORY_FILE)
     path.parent.mkdir(parents=True, exist_ok=True)
     # Ограничение размера истории
     max_entries = 2000
@@ -357,9 +371,13 @@ def fetch_rss_entries() -> list:
 
     # Если за 24ч мало новостей, расширяем до 36ч
     if len(entries_24h) >= 15:
+        for entry in entries_24h:
+            entry['collection_window_hours'] = 24
         print(f"[INFO] Используем окно 24ч: {len(entries_24h)} записей")
         return entries_24h
     else:
+        for entry in entries_36h:
+            entry['collection_window_hours'] = 36
         print(f"[INFO] Мало записей за 24ч ({len(entries_24h)}), расширяем до 36ч: {len(entries_36h)} записей")
         return entries_36h
 
@@ -402,8 +420,6 @@ def llm_filter_banned(entries: list) -> list:
     if not entries:
         return entries
 
-    client = OpenAI()
-
     entries_text = ""
     for i, e in enumerate(entries, 1):
         entries_text += f"{i}. [{e['source']}] {e['title']}\n   {e['summary'][:200]}\n\n"
@@ -432,6 +448,7 @@ def llm_filter_banned(entries: list) -> list:
 {entries_text}"""
 
     try:
+        client = OpenAI()
         response = client.chat.completions.create(
             model="gpt-4.1-mini",
             messages=[{"role": "user", "content": prompt}],
@@ -442,6 +459,11 @@ def llm_filter_banned(entries: list) -> list:
         json_match = re.search(r"\[.*\]", raw, re.DOTALL)
         if json_match:
             decisions = json.loads(json_match.group(0))
+            if (not isinstance(decisions, list) or len(decisions) != len(entries)
+                    or any(not isinstance(d, dict) or type(d.get('idx')) is not int
+                           or type(d.get('exclude')) is not bool for d in decisions)
+                    or {d['idx'] for d in decisions} != set(range(1, len(entries) + 1))):
+                raise ValueError('Incomplete filter decisions')
             excluded_indices = set()
             excluded_reasons = []
             for d in decisions:
@@ -457,11 +479,10 @@ def llm_filter_banned(entries: list) -> list:
                     print(r)
             return result
         else:
-            print("[WARN] LLM-фильтр: не удалось извлечь JSON, пропускаем")
-            return entries
+            raise ValueError('Missing filter decisions')
     except Exception as e:
-        print(f"[WARN] Ошибка LLM-фильтра: {e}. Пропускаем.")
-        return entries
+        # Never expose provider exception text, which can include credentials.
+        raise ValueError('Тематический фильтр не завершён: ' + type(e).__name__) from None
 
 
 def apply_post_filter(entries: list) -> list:
@@ -812,7 +833,7 @@ def process_with_llm(entries: list, history: dict, trends: list = None) -> str |
 
     prompt = f"""Ты — профессиональный редактор новостной сводки по искусственному интеллекту.
 
-ЗАДАЧА: Из списка новостей ниже отбери {count_instruction} самых обсуждаемых новостей из мира AI за последние 24 часа. {split_instruction}.
+ЗАДАЧА: Из списка новостей ниже отбери {count_instruction} самых обсуждаемых новостей из мира AI за окно сбора {collection_window_hours(entries)}ч. При окне 36ч явно укажи расширение с 24ч; не называй весь выпуск сводкой за 24ч. {split_instruction}.
 {prev_context}ПРАВИЛА ОТБОРА:
 1. ТЕМАТИКА: новости про искусственный интеллект — новые модели, исследования, продукты, обновления, применение AI в бизнесе/медицине/образовании, открытые модели, бенчмарки, прорывы.
 2. СТРОГО ИСКЛЮЧИТЬ (НЕЛЬЗЯ включать ни при каких условиях):
@@ -1030,6 +1051,7 @@ def validate_generated_digest(digest_text: str, html_content: str,
         return ['выпуск должен содержать текст и HTML']
     if entries is not None and (not isinstance(entries, list) or any(not isinstance(e, dict) for e in entries)):
         return ['entries должен быть списком записей источников']
+    digest_text = '\n'.join(line.strip() for line in digest_text.splitlines())
     now = now or datetime.now(timezone.utc)
     titles = extract_digest_titles(digest_text)
     blocks = re.split(r'^\d+\.\s+', digest_text, flags=re.MULTILINE)[1:]
@@ -1083,14 +1105,14 @@ def validate_generated_digest(digest_text: str, html_content: str,
 def extract_used_entries(digest_text: str, entries: list) -> list:
     """Определить, какие новости вошли в сводку (по ссылкам)."""
     keys = {article_key(url) for url in re.findall(
-        r"^Источник:\s*.+?\s*\|\s*(https?://\S+)", digest_text, flags=re.MULTILINE)}
+        r"^\s*Источник:\s*.+?\s*\|\s*(https?://\S+)", digest_text, flags=re.MULTILINE)}
     return [e for e in entries if article_key(e['link']) in keys]
 
 
 # ─── Доработка 3: Генерация HTML-дайджеста ─────────────────────────────────
 
 
-def generate_html_digest(digest_text: str, trends: list = None) -> str:
+def generate_html_digest(digest_text: str, trends: list = None, window_hours: int = 24) -> str:
     """
     Генерирует красивый HTML-файл из текстовой сводки.
     Возвращает HTML-строку.
@@ -1491,7 +1513,7 @@ def generate_html_digest(digest_text: str, trends: list = None) -> str:
             <span class="header-emoji">🤖</span>
             <h1>УТРЕННЯЯ СВОДКА — МИР ИИ</h1>
             <div class="header-date">{today_full}</div>
-            <div class="header-subtitle">{len(news_items)} ключевых новостей · Только проверенные факты</div>
+            <div class="header-subtitle">{len(news_items)} ключевых новостей · Окно {window_hours}ч{' (расширено с 24ч)' if window_hours == 36 else ''}</div>
         </header>
 
         <main>
@@ -1576,6 +1598,8 @@ def main():
     # 2. Сбор RSS
     print("[INFO] Сбор новостей из RSS-лент...")
     all_entries = fetch_rss_entries()
+    run_record['rss_collected'] = len(all_entries)
+    run_record['collection_window_hours'] = collection_window_hours(all_entries)
     print(f"[INFO] Собрано {len(all_entries)} записей из RSS")
 
     # 3. Многоуровневая дедупликация
@@ -1590,7 +1614,14 @@ def main():
         return
 
     # 4. Пост-фильтр военно-политических тем (keyword + LLM)
-    new_entries = apply_post_filter(new_entries)
+    try:
+        new_entries = apply_post_filter(new_entries)
+    except ValueError as exc:
+        run_record['status'] = 'blocked'
+        run_record['note'] = str(exc)
+        append_run_history(run_record)
+        print('[BLOCKED] ' + str(exc))
+        return
     run_record["after_filter"] = len(new_entries)
 
     if len(new_entries) < MIN_NEWS:
@@ -1621,7 +1652,7 @@ def main():
 
     # 7. Генерация HTML-версии
     print("[INFO] Генерация HTML-дайджеста...")
-    html_content = generate_html_digest(digest, trends=trends)
+    html_content = generate_html_digest(digest, trends=trends, window_hours=run_record['collection_window_hours'])
     print(f"[INFO] HTML-дайджест сгенерирован ({len(html_content)} символов)")
 
     used_entries = extract_used_entries(digest, top_entries)
@@ -1642,7 +1673,8 @@ def main():
     output = Path(os.environ.get("DIGEST_DATA_DIR", str(RUN_HISTORY_FILE.parent)))
     output.mkdir(parents=True, exist_ok=True)
     bundle = {"digest": digest, "html": html_content, "entries": [{k: v for k, v in entry.items() if k != "pub_date_dt"} for entry in used_entries],
-              "titles": digest_titles, "prepared_at": run_ts}
+              "titles": digest_titles, "prepared_at": run_ts,
+              "collection_window_hours": run_record["collection_window_hours"]}
     (output / "prepared-digest.json").write_text(json.dumps(bundle, ensure_ascii=False), encoding="utf-8")
     (output / "prepared-digest.html").write_text(html_content, encoding="utf-8")
     run_record["status"] = "dry_run"

@@ -58,13 +58,15 @@ def deliver(bundle_path, target_ids, confirmed=False, transport=None, token=None
         done.append(str(target))
         receipts_path.write_text(json.dumps(receipts), encoding='utf-8')
     if failures == 0:
-        history = collector.load_history()
+        # Default history follows the bundle profile, even in a separate process.
+        history_path = Path(os.environ.get('NEWS_HISTORY_FILE', str(bundle_path.parent / 'sent_news_history.json')))
+        history = collector.load_history(history_path)
         history.setdefault('sent_hashes', []).extend(
             collector.news_hash(e['title'], e['link']) for e in bundle.get('entries', []))
         history.setdefault('sent_entries', []).extend(bundle.get('entries', []))
         history.setdefault('sent_titles', []).extend(collector.normalize_title(t) for t in bundle['titles'])
         history['previous_digest_titles'] = bundle['titles']
-        collector.save_history(history)
+        collector.save_history(history, history_path)
     return {'status': 'ok' if failures == 0 else 'partial', 'sent': sent, 'failed': failures}
 
 

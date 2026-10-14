@@ -1,5 +1,6 @@
 """Offline regressions: publication evidence, event identity, and delivery QA."""
 import copy
+import json
 import importlib.util
 import sys
 import types
@@ -22,6 +23,7 @@ class DigestQuality(unittest.TestCase):
         self.entries = [{'title': f'Synthetic research announcement {i}',
                          'link': f'https://www.anthropic.com/news/fixture-{i}',
                          'source': 'Offline fixture',
+                         'summary': 'Synthetic news for offline checks',
                          'pub_date': (self.now - timedelta(hours=1)).isoformat()}
                         for i in range(5)]
         self.text = '\n'.join(f"{i}. {e['title']}\nИсточник: Fixture | {e['link']}" for i, e in enumerate(self.entries, 1))
@@ -40,6 +42,35 @@ class DigestQuality(unittest.TestCase):
         with patch.object(c, 'RSS_FEEDS', [{'url':'https://feed.fixture.test','name':'Fixture','lang':'en'}]), \
              patch.object(c.feedparser, 'parse', return_value=types.SimpleNamespace(entries=records), create=True):
             self.assertEqual(len(c.fetch_rss_entries()), 2)
+
+    def test_content_filter_fails_closed_for_provider_or_incomplete_decisions(self):
+        responses = ['no JSON', '[]', '[{"idx":1,"exclude":"false"}]',
+                     '[{"idx":1,"exclude":false},{"idx":1,"exclude":false}]']
+        for raw in responses:
+            response = types.SimpleNamespace(choices=[types.SimpleNamespace(message=types.SimpleNamespace(content=raw))])
+            client = Mock(); client.chat.completions.create.return_value = response
+            with self.subTest(raw=raw), patch.object(c, 'OpenAI', return_value=client):
+                with self.assertRaises(ValueError): c.llm_filter_banned(self.entries[:2])
+        with patch.object(c, 'OpenAI', side_effect=RuntimeError('synthetic secret')):
+            with self.assertRaises(ValueError) as result: c.llm_filter_banned(self.entries[:2])
+        self.assertNotIn('synthetic secret',str(result.exception))
+
+    def test_complete_filter_decisions_preserve_only_allowed_entries(self):
+        raw = json.dumps([{'idx':1,'exclude':False},{'idx':2,'exclude':True}])
+        response = types.SimpleNamespace(choices=[types.SimpleNamespace(message=types.SimpleNamespace(content=raw))])
+        client = Mock(); client.chat.completions.create.return_value = response
+        with patch.object(c,'OpenAI',return_value=client):
+            self.assertEqual(c.llm_filter_banned(self.entries[:2]),self.entries[:1])
+
+    def test_fallback_label_and_indented_sources(self):
+        text = self.text.replace('Источник:', '  Источник:')
+        html = c.generate_html_digest(text,window_hours=36)
+        self.assertIn('Окно 36ч (расширено с 24ч)', html)
+        self.assertEqual(c.validate_generated_digest(text,html,self.entries,now=self.now), [])
+        self.assertEqual(c.extract_used_entries(text,self.entries),self.entries)
+        records = copy.deepcopy(self.entries)
+        records[0]['pub_date'] = (self.now - timedelta(hours=30)).isoformat()
+        self.assertEqual(c.collection_window_hours(records),36)
 
     def test_same_title_different_articles_are_not_deleted(self):
         records = copy.deepcopy(self.entries[:2]); records[1]['title'] = records[0]['title']
