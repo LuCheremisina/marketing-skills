@@ -1,6 +1,6 @@
 # Skill catalogue
 
-**34 original marketing workflows + 14 optional engineering skills.** [Start with five tasks](START-HERE.md) or [install one skill](INSTALL.md#quick-install). The individual workflow pages below explain inputs, outputs and required capabilities.
+**34 original marketing workflows + 14 optional engineering skills.** [Start with five tasks](START-HERE.md) or [install all Skills / one skill](INSTALL.md#quick-install). For the complete plugin see [English](INSTALL-PLUGIN.md) / [русскую инструкцию](INSTALL-PLUGIN.ru.md). The individual workflow pages below explain inputs, outputs and required capabilities.
 
 Examples use synthetic inputs or data supplied at run time. Package installation and native execution are different checks; requirements and limitations are in the [platform guide](PLATFORMS.md).
 

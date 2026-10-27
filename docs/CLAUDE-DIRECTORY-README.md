@@ -4,6 +4,12 @@
 
 Supply your own business profile, goals, period and data. The skills ask for missing inputs, check sources and distinguish measured facts from assumptions. They do not contain client profiles or bundled access to customer accounts.
 
+## Install the complete bundle or individual skills
+
+For all 34 workflows as a plugin in Codex, Claude Code, Claude / Cowork or ChatGPT, see the [English plugin guide](https://github.com/LuCheremisina/marketing-skills/blob/main/docs/INSTALL-PLUGIN.md) or [русскую инструкцию](https://github.com/LuCheremisina/marketing-skills/blob/main/docs/INSTALL-PLUGIN.ru.md). The guides include GitHub marketplace commands and ZIP import.
+
+For all Skills or one selected skill in Codex, Claude Code or Cursor, use the [Skills CLI guide](https://github.com/LuCheremisina/marketing-skills/blob/main/docs/INSTALL.md) / [установку на русском](https://github.com/LuCheremisina/marketing-skills/blob/main/docs/INSTALL.ru.md). Avoid enabling both this directory package and a second copy from the GitHub marketplace or CLI.
+
 ## Start with a useful task
 
 - Research: “Use che-deep-research to prepare a research brief for a fictional B2B service. Ask for missing inputs.”

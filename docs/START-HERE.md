@@ -2,7 +2,7 @@
 
 Choose one task first. Each link below has a concrete sample request, input requirements, expected output and individual ZIP.
 
-[Русская версия](START-HERE.ru.md) · [Quick installation](INSTALL.md#quick-install) · [All 41 skills](CATALOG.md)
+[Русская версия](START-HERE.ru.md) · [Complete plugin](INSTALL-PLUGIN.md) · [All Skills or one](INSTALL.md#quick-install) · [All 48 skills](CATALOG.md)
 
 | You want to… | Start with | Connection needed |
 |---|---|---|
