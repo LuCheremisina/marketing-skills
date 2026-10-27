@@ -1,8 +1,29 @@
-# Install an AI marketing skill
+# Install all marketing skills or one skill
+
+[Русская инструкция](INSTALL.ru.md) · [Complete plugin installation](INSTALL-PLUGIN.md)
 
 ## Quick install
 
 For a new project, use the open-source [skills CLI](https://github.com/vercel-labs/skills). Requirements for CLI 1.7.0: **Node.js 22.20+ and Git**.
+
+### All 34 marketing skills
+
+Choose the client you use:
+
+```sh
+# Codex
+npx skills add LuCheremisina/marketing-skills --skill '*' -a codex -g -y
+# Claude Code
+npx skills add LuCheremisina/marketing-skills --skill '*' -a claude-code -g -y
+# Cursor
+npx skills add LuCheremisina/marketing-skills --skill '*' -a cursor -g -y
+```
+
+Keep the quotes around `'*'`. `-a` selects an agent, `-g` installs globally for your user, and `-y` skips prompts. To install for one project, omit `-g` and run inside that project. `--all` also selects all agents, so it is not the equivalent of selecting one client. These commands install Skills folders, not a native plugin. For a complete plugin use the [plugin guide](INSTALL-PLUGIN.md).
+
+For interactive selection: `npx skills add LuCheremisina/marketing-skills`.
+
+### One skill
 
 ```sh
 npx skills add LuCheremisina/marketing-skills --skill che-deep-research
@@ -19,9 +40,27 @@ npx skills add LuCheremisina/marketing-skills --list
 npx skills add LuCheremisina/marketing-skills --list --full-depth
 ```
 
-Choose only the skills you need. The five [starter pages](START-HERE.md) have individual commands and ZIP links. Global installation is an explicit CLI option, `--global`; for existing or modified copies use the verified route below. Quick install follows the current repository source; it does not verify a frozen release manifest, supply API access or prove workflow execution.
+The default discovered set contains 34 authored marketing skills. Nested vendor packages require explicit discovery with `--full-depth`; review the list before selecting them. The native plugin contains the 34 authored skills; its optional vendor ZIP is separate. The five [starter pages](START-HERE.md) have individual commands and ZIP links. Global installation is an explicit CLI option, `--global`; for existing or modified copies use the verified route below. Quick install follows the current repository source; it does not verify a frozen release manifest, supply API access or prove workflow execution.
 
 The CLI has its own install telemetry. To opt out, set `DISABLE_TELEMETRY=1` (PowerShell: `$env:DISABLE_TELEMETRY='1'`) before running it. See the [CLI documentation](https://github.com/vercel-labs/skills#telemetry).
+
+## Usage and verification
+
+Start a new session and ask: “Use che-deep-research to prepare a research brief for a fictional B2B service; ask for missing inputs.” In Codex, CLI-installed skills can be selected as `$che-deep-research`. In Claude Code, a native plugin uses `/marketing-skills:che-deep-research`; do not assume that namespace for CLI-installed folders. In other clients select the skill or request it by name. [Full examples](../README.md#how-to-use).
+
+Check `npx skills list -g` (or `npx skills list` for a project). Confirm the expected names, ask the agent to read one bundled reference, then test a task. API/MCP access and script dependencies are separate. Local installation does not automatically provision a cloud environment.
+
+## Updates and removal
+
+For CLI-installed Skills:
+
+```sh
+npx skills check
+npx skills update che-deep-research -g
+npx skills remove che-deep-research -g
+```
+
+The second line updates one global skill; the third removes it. To update every globally installed CLI skill, including skills from other sources, use `npx skills update -g`. For a project, use `npx skills update -p` and remove without `-g` from that project. Preserve local edits before replacement. For native plugins use the [plugin manager instructions](INSTALL-PLUGIN.md#updates-and-removal), not `npx`.
 
 ## ZIP and plugin installation
 
@@ -53,7 +92,7 @@ For renamed authored skills, use the [public migration map](MIGRATION-2.0.md). P
 
 ## Claude / Cowork
 
-Use the complete marketing plugin ZIP through Customize → Plugins → Add → Upload a plugin; see the [full guide](INSTALL-PLUGIN.md#claude). A single-skill ZIP is also available through the separate Skills import flow. Import one first, invoke it, open a required reference, and test the missing-input path. Do not assume Claude Code environment substitutions work in Cowork.
+Use the complete marketing plugin ZIP through Customize → Plugins → Add → Upload a plugin; see the [full guide](INSTALL-PLUGIN.md#claude--cowork). A single-skill ZIP is also available through the separate Skills import flow. Import one first, invoke it, open a required reference, and test the missing-input path. Do not assume Claude Code environment substitutions work in Cowork.
 
 ## ChatGPT
 

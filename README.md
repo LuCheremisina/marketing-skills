@@ -2,26 +2,124 @@
 
 > **Published v2.0.7:** 34 authored CHE_ workflows + 14 licensed engineering skills. [Release](https://github.com/LuCheremisina/marketing-skills/releases/tag/v2.0.7) · [Migration](docs/MIGRATION-2.0.md) · [MCP Panel connections](docs/MCP-CONNECTIONS.md).
 
-**Install all 34 marketing skills with one ZIP:** [Marketing Skill Cheremisina — Claude and ChatGPT installation](docs/INSTALL-PLUGIN.md).
+**Install the complete plugin or one skill:** [Codex, Claude Code and Cursor commands](#quick-install) · [Claude / Cowork and ChatGPT](docs/INSTALL-PLUGIN.md).
 
 [Platform guide](docs/PLATFORMS.md): installation options and compatibility limitations.
 Research a market, audit a website, analyse Yandex campaigns, find search demand, or turn evidence into an expert article with reusable AI workflows.
 
 **34 original marketing workflows + 14 optional engineering skills.** Open Agent Skills packages for Codex, Claude Code and Cursor; ChatGPT plugin packages are also available. Each workflow lists the inputs and connections it needs. [Platform status](docs/PLATFORMS.md).
 
-[**Install your first skill**](#quick-install) · [**Start with 5 marketing skills**](docs/START-HERE.md) · [**Browse all 48**](docs/CATALOG.md) · [**Download the latest release**](https://github.com/LuCheremisina/marketing-skills/releases/latest) · [Русская версия](README.ru.md)
+[**Install the complete plugin**](#complete-plugin) · [**One skill**](#one-skill-separately) · [**How to use**](#how-to-use) · [**Start with 5 marketing skills**](docs/START-HERE.md) · [**Browse all 48**](docs/CATALOG.md) · [**Download the latest release**](https://github.com/LuCheremisina/marketing-skills/releases/latest) · [Русская версия](README.ru.md)
 
 ## Quick install
 
-With **Node.js 22.20+ and Git**, run this inside your project:
+Choose **one route** for your system. The complete plugin bundles all **34 original marketing skills**. The `npx skills` CLI installs the same workflows as individual skill folders, without registering a plugin. The 14 third-party engineering skills are an optional separate add-on.
+
+### Complete plugin
+
+**Claude Code** — enter these commands in the Claude Code chat, in order:
+
+```text
+/plugin marketplace add LuCheremisina/marketing-skills
+/plugin install marketing-skills@cheremisina-marketing
+```
+
+**Codex CLI** — run in your terminal:
+
+```sh
+codex plugin marketplace add LuCheremisina/marketing-skills
+codex plugin add marketing-skills@cheremisina-marketing
+```
+
+In Codex with a plugin browser, open **Plugins → Add plugin marketplace**, enter `LuCheremisina/marketing-skills`, then install **Marketing Skill Cheremisina**. If that control or command is unavailable in your version, use the Skills route below.
+
+**Claude / Cowork** — open **Customize → Plugins → Add → Add marketplace → Add from a repository**, enter `https://github.com/LuCheremisina/marketing-skills`, then select and install the plugin. Alternatively, [download the ZIP with all 34 skills](https://github.com/LuCheremisina/marketing-skills/releases/download/v2.0.7/marketing-skills-plugin-2.0.7.zip) and use **Upload a plugin**.
+
+**ChatGPT** — download the same ZIP and ask **Plugin Creator** to create a private personal plugin from it; open the returned plugin page and install it. Your account needs Plugins / Plugin Creator support. Attaching a ZIP to an ordinary chat does not install a plugin. [Full platform instructions](docs/INSTALL-PLUGIN.md).
+
+### All 34 skills through the CLI: Codex, Claude Code, Cursor
+
+Requires **Node.js 22.20+ and Git**. Run the command for your client:
+
+| System | All marketing skills across your projects |
+|---|---|
+| Codex | `npx skills add LuCheremisina/marketing-skills --skill '*' -a codex -g -y` |
+| Claude Code | `npx skills add LuCheremisina/marketing-skills --skill '*' -a claude-code -g -y` |
+| Cursor | `npx skills add LuCheremisina/marketing-skills --skill '*' -a cursor -g -y` |
+
+`--skill '*'` selects every discovered skill; keep the quotes to prevent shell filename expansion. `-a` selects the client, `-g` installs across projects for your user, and `-y` skips prompts. **For one project, omit `-g`** and run from its folder. Avoid `--all` when targeting one client: it also selects all agents.
+
+To choose skills and clients interactively:
+
+```sh
+npx skills add LuCheremisina/marketing-skills
+```
+
+### One skill separately
 
 ```sh
 npx skills add LuCheremisina/marketing-skills --skill che-deep-research
 ```
 
-Select your AI client if prompted, then ask it to use `che-deep-research` for your question. [Try the example](docs/use-cases/deep-research.md#try-it). Prefer a ZIP? [Download Deep Research 3.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v2.0.7/che-deep-research-3.0.0.zip) and follow the [client installation guide](docs/INSTALL.md#zip-and-plugin-installation).
+Select your client if prompted. This installs into the current project by default. For a global Codex installation, for example, add `-a codex -g`. You can also import the [individual Deep Research ZIP](https://github.com/LuCheremisina/marketing-skills/releases/download/v2.0.7/che-deep-research-3.0.0.zip) through a supported Skills interface.
 
-The CLI installs into the current project by default. For an existing installation, or a release pinned to checksums, use [verified installation](docs/INSTALL.md#verified-installation). Quick install was checked with `skills` CLI 1.7.0; installation does not connect accounts or establish runtime compatibility.
+### Ask your agent to install
+
+Paste this into Codex, Claude Code or Cursor with terminal access:
+
+```text
+Install all 34 marketing skills from LuCheremisina/marketing-skills
+for your own client, globally. Use:
+npx skills add LuCheremisina/marketing-skills --skill '*' -a <your ID: codex, claude-code or cursor> -g -y
+Replace <...> with your client ID first. If Node.js or Git is missing,
+explain what must be installed. If existing copies have local edits,
+show the differences and preserve them first. After installation, check
+the skill list and che-deep-research resources. Report what you verified.
+```
+
+Plugin and CLI installations are alternatives: avoid enabling duplicate copies. Local installation does not automatically carry into a cloud session; install in the environment running your agent. [Frozen-release verification and rollback](docs/INSTALL.md#verified-installation).
+
+## How to use
+
+After installing, open a new chat or session. Enable the plugin in your installed list if needed. Select a skill in the client interface, or request it by name:
+
+```text
+Use che-deep-research. Compare three marketing automation services for
+a B2B company. Geography: Russia. Decision horizon: 12 months.
+Include sources, a comparison table, limitations and a recommendation.
+Ask for missing inputs first.
+```
+
+In **Claude Code with the plugin installed**, use its namespaced command:
+
+```text
+/marketing-skills:che-deep-research Compare three marketing automation services for a B2B company
+```
+
+In **Codex with CLI-installed Skills**, you can explicitly select the skill:
+
+```text
+$che-deep-research Compare three marketing automation services for a B2B company
+```
+
+In Cursor, use the skill picker or request it by name; in ChatGPT, select the installed plugin and describe your task. The plain-language “Use che-deep-research…” request also works in other supported systems; slash-command syntax is client-specific.
+
+Supply your business context, goal, audience, geography, period, sources and desired output. You can attach a brief or point to a file. Advertising, Wordstat, Metrika and email workflows need separate connections or authorized exports; installing the skills does not create them. [Connect your sources](docs/MCP-CONNECTIONS.md).
+
+### Check, update or remove
+
+For CLI-installed Skills:
+
+```sh
+npx skills list -g
+npx skills check
+npx skills update che-deep-research -g
+npx skills remove che-deep-research -g
+```
+
+To update all global CLI skills, including those from other sources: `npx skills update -g`. For a project installation, use `npx skills list`, `npx skills update -p`, and removal without `-g` from its folder. Preserve local edits before updating.
+
+Manage native plugins through Plugins, rather than `npx skills update`. [Plugin updates and removal](docs/INSTALL-PLUGIN.md#updates-and-removal). Check discovery of 34 skills, read one reference and try a sample task; file presence alone does not prove every workflow executes successfully.
 
 ## Start here: 5 useful marketing skills
 
@@ -69,11 +167,11 @@ See the [complete catalogue](docs/CATALOG.md) for inputs, outputs and required c
 
 | System | Distribution path / requirement |
 |---|---|
-| Codex | Local skill folders or supported plugins |
-| Claude Code | Skill folders or supported plugins; script dependencies and connections required |
-| Cursor | Native Agent Skills; verify discovery and execution in your project |
+| Codex | GitHub marketplace plugin or all / selected Skills through the CLI |
+| Claude Code | GitHub marketplace plugin or CLI-installed Skills |
+| Cursor | All / selected Agent Skills through the CLI |
 | ChatGPT | Plugin ZIP where account import is supported; tools vary by account |
-| Claude / Cowork | Account-supported skill upload; verify required file/tool execution |
+| Claude / Cowork | GitHub marketplace plugin, plugin ZIP or individual skill ZIP; account-dependent |
 | Grok Bot | Saved skill library where supported; resources may need separate transfer |
 
 The [platform guide](docs/PLATFORMS.md) describes requirements and limitations. Full execution across all platforms is not verified; test your selected workflow in your environment.

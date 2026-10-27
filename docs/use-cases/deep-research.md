@@ -2,7 +2,7 @@
 
 Compare markets, technologies or product options with a source-backed report. Use it for a decision that needs several perspectives and evidence, rather than a single factual lookup.
 
-[Install](#install) · [Download ZIP 2.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v2.0.1/che-deep-research-3.0.0.zip) · [Read the workflow](../../skills/che-deep-research/SKILL.md) · [Русский пример](#русский-пример)
+[Install](#install) · [Download ZIP 3.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v2.0.7/che-deep-research-3.0.0.zip) · [Read the workflow](../../skills/che-deep-research/SKILL.md) · [Русский пример](#русский-пример)
 
 ## Who it helps
 
@@ -13,6 +13,8 @@ Marketers, consultants and business teams who need the result described above an
 Your question, decision, geography, time window and available sources. Search/read tools are needed for new research; supplied documents can support a bounded document review.
 
 ## Install
+
+Want the complete bundle? [All 34 as a plugin](../INSTALL-PLUGIN.md) · [All Skills through the CLI](../INSTALL.md#quick-install). Русские инструкции: [весь плагин](../INSTALL-PLUGIN.ru.md) · [все Skills или один](../INSTALL.ru.md).
 
 In your project folder, with Node.js 22.20+ and Git:
 
@@ -59,4 +61,4 @@ Skill **2.0.0**, published in [library release v2.0.2](https://github.com/LuCher
 
 Methodologist: **Любовь Черемисина (Lyubov Cheremisina)** — [cheremisina.ru](https://cheremisina.ru) · [cheremisina.online](https://cheremisina.online). Methodology licence: [MIT](../../LICENSE).
 
-[Choose another task](../START-HERE.md) · [All 41 skills](../CATALOG.md) · [Installation help](https://github.com/LuCheremisina/marketing-skills/discussions/categories/q-a)
+[Choose another task](../START-HERE.md) · [All 48 skills](../CATALOG.md) · [Installation help](https://github.com/LuCheremisina/marketing-skills/discussions/categories/q-a)
