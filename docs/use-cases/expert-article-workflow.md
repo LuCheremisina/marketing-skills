@@ -2,7 +2,7 @@
 
 Create or review an expert article from a brief, sources or transcript. Choose research, outline, draft, review or integration mode and keep claims traceable to evidence.
 
-[Install](#install) · [Download ZIP 3.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v2.0.1/che-expert-article-workflow-4.0.0.zip) · [Read the workflow](../../skills/che-expert-article-workflow/SKILL.md) · [Русский пример](#русский-пример)
+[Install](#install) · [Download ZIP 4.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v2.0.7/che-expert-article-workflow-4.0.0.zip) · [Read the workflow](../../skills/che-expert-article-workflow/SKILL.md) · [Русский пример](#русский-пример)
 
 ## Who it helps
 
@@ -13,6 +13,8 @@ Marketers, consultants and business teams who need the result described above an
 Topic, audience, intended decision, source material, author profile and brand guidance. Web access helps research; Python validators and site context are needed for an integration package.
 
 ## Install
+
+Want the complete bundle? [All 34 as a plugin](../INSTALL-PLUGIN.md) · [All Skills through the CLI](../INSTALL.md#quick-install). Русские инструкции: [весь плагин](../INSTALL-PLUGIN.ru.md) · [все Skills или один](../INSTALL.ru.md).
 
 In your project folder, with Node.js 22.20+ and Git:
 
@@ -60,4 +62,4 @@ Skill **3.0.0**, published in [library release v2.0.2](https://github.com/LuCher
 
 Methodologist: **Любовь Черемисина (Lyubov Cheremisina)** — [cheremisina.ru](https://cheremisina.ru) · [cheremisina.online](https://cheremisina.online). Methodology licence: [MIT](../../LICENSE).
 
-[Choose another task](../START-HERE.md) · [All 41 skills](../CATALOG.md) · [Installation help](https://github.com/LuCheremisina/marketing-skills/discussions/categories/q-a)
+[Choose another task](../START-HERE.md) · [All 48 skills](../CATALOG.md) · [Installation help](https://github.com/LuCheremisina/marketing-skills/discussions/categories/q-a)

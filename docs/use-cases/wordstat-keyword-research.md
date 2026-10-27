@@ -2,7 +2,7 @@
 
 Turn seed queries into a Yandex Wordstat keyword map: related phrases, intent, region and frequency. Useful for content planning and paid-search research in a selected market.
 
-[Install](#install) · [Download ZIP 2.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v2.0.1/che-wordstat-keyword-research-3.0.0.zip) · [Read the workflow](../../skills/che-wordstat-keyword-research/SKILL.md) · [Русский пример](#русский-пример)
+[Install](#install) · [Download ZIP 3.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v2.0.7/che-wordstat-keyword-research-3.0.0.zip) · [Read the workflow](../../skills/che-wordstat-keyword-research/SKILL.md) · [Русский пример](#русский-пример)
 
 ## Who it helps
 
@@ -13,6 +13,8 @@ Marketers, consultants and business teams who need the result described above an
 Business niche, seed phrases, region, period and a working Wordstat connection or authorised export. Tools use the capabilities available in your client.
 
 ## Install
+
+Want the complete bundle? [All 34 as a plugin](../INSTALL-PLUGIN.md) · [All Skills through the CLI](../INSTALL.md#quick-install). Русские инструкции: [весь плагин](../INSTALL-PLUGIN.ru.md) · [все Skills или один](../INSTALL.ru.md).
 
 In your project folder, with Node.js 22.20+ and Git:
 
@@ -58,4 +60,4 @@ Skill **2.0.0**, published in [library release v2.0.2](https://github.com/LuCher
 
 Methodologist: **Любовь Черемисина (Lyubov Cheremisina)** — [cheremisina.ru](https://cheremisina.ru) · [cheremisina.online](https://cheremisina.online). Methodology licence: [MIT](../../LICENSE).
 
-[Choose another task](../START-HERE.md) · [All 41 skills](../CATALOG.md) · [Installation help](https://github.com/LuCheremisina/marketing-skills/discussions/categories/q-a)
+[Choose another task](../START-HERE.md) · [All 48 skills](../CATALOG.md) · [Installation help](https://github.com/LuCheremisina/marketing-skills/discussions/categories/q-a)
