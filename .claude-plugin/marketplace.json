@@ -1,0 +1,17 @@
+{
+  "name": "cheremisina-marketing",
+  "owner": {
+    "name": "Lyubov Cheremisina",
+    "url": "https://cheremisina.ru"
+  },
+  "plugins": [
+    {
+      "name": "marketing-skills",
+      "source": "./",
+      "description": "34 original marketing skills: research, SEO/GEO, analytics and content."
+    }
+  ],
+  "metadata": {
+    "description": "34 original marketing workflows by Lyubov Cheremisina: research, SEO/GEO, analytics and content."
+  }
+}
