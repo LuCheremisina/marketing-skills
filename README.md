@@ -4,6 +4,8 @@
 
 **Install the complete plugin or one skill:** [Codex, Claude Code and Cursor commands](#quick-install) · [Claude / Cowork and ChatGPT](docs/INSTALL-PLUGIN.md).
 
+If a skill helped you, I'd be glad of [a star on GitHub](https://github.com/LuCheremisina/marketing-skills). Downloads don't depend on it.
+
 [Platform guide](docs/PLATFORMS.md): installation options and compatibility limitations.
 Research a market, audit a website, analyse Yandex campaigns, find search demand, or turn evidence into an expert article with reusable AI workflows.
 
