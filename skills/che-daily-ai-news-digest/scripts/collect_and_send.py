@@ -1,37 +1,10 @@
 #!/usr/bin/env python3
-"""
-Daily AI News Digest v5 — сбор новостей из мира ИИ, верификация и отправка в Telegram.
+"""Prepare a dated AI digest without delivery or background subscription processes.
 
-Пайплайн v5:
-  RSS → дедупликация → ПОСТ-ФИЛЬТР (военно-политические темы) → ENRICHMENT LAYER
-  → SCORING → LLM → POST-PROCESSING → HTML-дайджест → Telegram (HTML-файл)
-
-Доработки v5:
-  1. Усиленная дедупликация внутри пачки: 3 критерия (фуззи 0.55 + Jaccard 0.40 + сущностное совпадение)
-     При дубле сохраняется более авторитетный источник
-  2. Послабляющий критерий: если уникальных новостей < 10, отправляется столько, сколько есть
-  3. Пост-фильтр военно-политических тем (до LLM) — ключевые слова + LLM-проверка
-  4. Обработчик подписок запускается отдельно владельцем
-  5. Генерация красивого HTML-дайджеста и отправка как документа в Telegram
-
-Многоуровневая дедупликация:
-  Уровень 1: Точный хэш (SHA-256 от title+link) — отсекает полные дубли
-  Уровень 2: Fuzzy-matching заголовков (SequenceMatcher ≥ 0.65) — отсекает перефразировки
-  Уровень 3: Ключевые слова заголовков (Jaccard ≥ 0.5) — отсекает одну тему из разных СМИ
-  Уровень 4: LLM-контекст предыдущей сводки — LLM знает, что уже отправлялось
-
-Enrichment Layer (v3):
-  - Scoring: freshness × 0.3 + mention × 0.3 + authority × 0.2 + business_impact × 0.2
-  - Категоризация: Модели / Продукты / Исследования / Регулирование / Влияние на бизнес
-  - Целевая аудитория: предприниматель / маркетолог / разработчик
-  - Бизнес-инсайт: «Что это значит для бизнеса»
-  - Тренды: 2-3 сигнала из батча новостей
-
-Система подписок (v4):
-  - Рассылка всем активным подписчикам из data/subscribers.json
-  - Управление подписками через bot_subscribe.py (отдельный запуск)
-
-Подготовка не требует Telegram-доступа. Доставка выполняется отдельным скриптом.
+Only publication-dated feed entries within 24h (fallback 36h) are collected.
+Article identity or reviewer-confirmed event identity governs duplicate removal.
+Title/topic overlap is insufficient. Optional OpenAI processing needs authorization;
+prepared bundles are revalidated by the separate explicit Telegram sender.
 """
 
 from __future__ import annotations
@@ -42,6 +15,10 @@ import json
 import hashlib
 import re
 import time
+import ipaddress
+from html import escape
+from html.parser import HTMLParser
+from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode
 from datetime import datetime, timedelta, timezone
 from difflib import SequenceMatcher
 from pathlib import Path
@@ -189,7 +166,7 @@ BANNED_KEYWORDS = [
 ]
 
 
-# ─── Доработка 2: Автозапуск bot_subscribe.py ──────────────────────────────
+# ─── Доработка 2: Журнал подготовки; обработчик подписок здесь не запускается ──────────────────────────────
 
 
 # ─── Утилиты ────────────────────────────────────────────────────────────────
@@ -197,8 +174,61 @@ BANNED_KEYWORDS = [
 
 def news_hash(title: str, link: str) -> str:
     """Создать уникальный хэш новости по заголовку и ссылке."""
-    raw = f"{title.strip().lower()}|{link.strip().lower()}"
+    raw = f"{title.strip().lower()}|{article_key(link)}"
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()[:16]
+
+
+def article_key(link: str) -> str:
+    """Article identity: preserve path/query case, discard only tracking/fragment."""
+    try:
+        parts = urlsplit(link.strip())
+        if parts.scheme not in {'http', 'https'} or not parts.hostname or parts.username or parts.password:
+            return ''
+        # Accessing port rejects malformed authorities such as :not-a-port.
+        _ = parts.port
+        query = [(k, v) for k, v in parse_qsl(parts.query, keep_blank_values=True)
+                 if not k.lower().startswith('utm_') and k.lower() not in {'fbclid', 'gclid'}]
+        return urlunsplit((parts.scheme, parts.netloc.lower(), parts.path or '/', urlencode(query), ''))
+    except (ValueError, AttributeError):
+        return ''
+
+
+def is_public_source(link: str) -> bool:
+    """Syntactic guard only; this does not prove source content or DNS reachability."""
+    if not article_key(link) or any(ch.isspace() for ch in link) or '\\' in link:
+        return False
+    host = urlsplit(link).hostname.lower().rstrip('.')
+    reserved = ('localhost', 'test', 'example', 'invalid', 'local', 'internal',
+                'example.com', 'example.org', 'example.net')
+    if any(host == suffix or host.endswith('.' + suffix) for suffix in reserved):
+        return False
+    try:
+        return ipaddress.ip_address(host).is_global
+    except ValueError:
+        return '.' in host
+
+
+def same_event(a: dict, b: dict) -> bool:
+    """A common article, or a reviewer-confirmed event ID; titles alone are not evidence."""
+    key = article_key(a.get('link', ''))
+    if key and key == article_key(b.get('link', '')):
+        return True
+    return bool(a.get('event_verified') is True and b.get('event_verified') is True
+                and a.get('event_id') and a.get('event_id') == b.get('event_id'))
+
+
+def collection_window_hours(entries: list) -> int:
+    now = datetime.now(timezone.utc)
+    for entry in entries:
+        if entry.get('collection_window_hours') == 36:
+            return 36
+        try:
+            published = datetime.fromisoformat(entry['pub_date'].replace('Z', '+00:00'))
+            if published.tzinfo and now - published > timedelta(hours=24):
+                return 36
+        except (KeyError, TypeError, ValueError, AttributeError):
+            pass  # Missing or invalid evidence is rejected by the publication QA gate.
+    return 24
 
 
 def normalize_title(title: str) -> str:
@@ -233,9 +263,9 @@ def jaccard_similarity(set_a: set, set_b: set) -> float:
 # ─── История (расширенная) ─────────────────────────────────────────────────
 
 
-def load_history() -> dict:
+def load_history(history_path=None) -> dict:
     """Загрузить историю отправленных новостей (расширенный формат)."""
-    path = Path(HISTORY_FILE)
+    path = Path(history_path or HISTORY_FILE)
     if path.exists():
         try:
             with open(path, "r", encoding="utf-8") as f:
@@ -257,9 +287,9 @@ def load_history() -> dict:
     }
 
 
-def save_history(history: dict):
+def save_history(history: dict, history_path=None):
     """Сохранить историю отправленных новостей."""
-    path = Path(HISTORY_FILE)
+    path = Path(history_path or HISTORY_FILE)
     path.parent.mkdir(parents=True, exist_ok=True)
     # Ограничение размера истории
     max_entries = 2000
@@ -279,8 +309,9 @@ def save_history(history: dict):
 
 def fetch_rss_entries() -> list:
     """Собрать записи из всех RSS-лент за последние 24 часа (fallback 36ч)."""
-    cutoff_24h = datetime.now(timezone.utc) - timedelta(hours=24)
-    cutoff_36h = datetime.now(timezone.utc) - timedelta(hours=36)
+    now = datetime.now(timezone.utc)
+    cutoff_24h = now - timedelta(hours=24)
+    cutoff_36h = now - timedelta(hours=36)
     entries_24h = []
     entries_36h = []
 
@@ -289,18 +320,22 @@ def fetch_rss_entries() -> list:
             feed = feedparser.parse(feed_info["url"])
             for entry in feed.entries[:15]:
                 pub_date = None
-                for date_field in ("published_parsed", "updated_parsed"):
-                    parsed = getattr(entry, date_field, None)
-                    if parsed:
+                parsed = getattr(entry, 'published_parsed', None)
+                if parsed:
+                    try:
                         pub_date = datetime(*parsed[:6], tzinfo=timezone.utc)
-                        break
+                    except (ValueError, TypeError):
+                        pass
+                # Modification timestamps do not establish the publication date.
+                if pub_date is None or not cutoff_36h <= pub_date <= now:
+                    continue
 
                 title = getattr(entry, "title", "").strip()
                 link = getattr(entry, "link", "").strip()
                 summary = getattr(entry, "summary", "").strip()
                 summary = re.sub(r"<[^>]+>", "", summary)[:500]
 
-                if not (title and link):
+                if not (title and is_public_source(link)):
                     continue
 
                 entry_data = {
@@ -330,18 +365,19 @@ def fetch_rss_entries() -> list:
                         entries_36h.append(entry_data)
                     elif pub_date >= cutoff_36h:
                         entries_36h.append(entry_data)
-                else:
-                    entries_24h.append(entry_data)
-                    entries_36h.append(entry_data)
 
         except Exception as e:
             print(f"[WARN] Ошибка при парсинге {feed_info['name']}: {e}")
 
     # Если за 24ч мало новостей, расширяем до 36ч
     if len(entries_24h) >= 15:
+        for entry in entries_24h:
+            entry['collection_window_hours'] = 24
         print(f"[INFO] Используем окно 24ч: {len(entries_24h)} записей")
         return entries_24h
     else:
+        for entry in entries_36h:
+            entry['collection_window_hours'] = 36
         print(f"[INFO] Мало записей за 24ч ({len(entries_24h)}), расширяем до 36ч: {len(entries_36h)} записей")
         return entries_36h
 
@@ -384,8 +420,6 @@ def llm_filter_banned(entries: list) -> list:
     if not entries:
         return entries
 
-    client = OpenAI()
-
     entries_text = ""
     for i, e in enumerate(entries, 1):
         entries_text += f"{i}. [{e['source']}] {e['title']}\n   {e['summary'][:200]}\n\n"
@@ -414,6 +448,7 @@ def llm_filter_banned(entries: list) -> list:
 {entries_text}"""
 
     try:
+        client = OpenAI()
         response = client.chat.completions.create(
             model="gpt-4.1-mini",
             messages=[{"role": "user", "content": prompt}],
@@ -424,6 +459,11 @@ def llm_filter_banned(entries: list) -> list:
         json_match = re.search(r"\[.*\]", raw, re.DOTALL)
         if json_match:
             decisions = json.loads(json_match.group(0))
+            if (not isinstance(decisions, list) or len(decisions) != len(entries)
+                    or any(not isinstance(d, dict) or type(d.get('idx')) is not int
+                           or type(d.get('exclude')) is not bool for d in decisions)
+                    or {d['idx'] for d in decisions} != set(range(1, len(entries) + 1))):
+                raise ValueError('Incomplete filter decisions')
             excluded_indices = set()
             excluded_reasons = []
             for d in decisions:
@@ -439,11 +479,10 @@ def llm_filter_banned(entries: list) -> list:
                     print(r)
             return result
         else:
-            print("[WARN] LLM-фильтр: не удалось извлечь JSON, пропускаем")
-            return entries
+            raise ValueError('Missing filter decisions')
     except Exception as e:
-        print(f"[WARN] Ошибка LLM-фильтра: {e}. Пропускаем.")
-        return entries
+        # Never expose provider exception text, which can include credentials.
+        raise ValueError('Тематический фильтр не завершён: ' + type(e).__name__) from None
 
 
 def apply_post_filter(entries: list) -> list:
@@ -471,131 +510,27 @@ def dedup_level1_hash(entries: list, history: dict) -> list:
 
 
 def dedup_level2_fuzzy(entries: list, history: dict) -> list:
-    """Уровень 2: Fuzzy-matching заголовков — отсекает перефразировки."""
-    sent_titles = history.get("sent_titles", [])
-    if not sent_titles:
-        return entries
-
-    result = []
-    removed = 0
-    for entry in entries:
-        is_dup = False
-        norm_title = normalize_title(entry["title"])
-        for old_title in sent_titles[-500:]:  # Проверяем последние 500
-            if fuzzy_match(norm_title, old_title) >= FUZZY_THRESHOLD:
-                is_dup = True
-                break
-        if not is_dup:
-            result.append(entry)
-        else:
-            removed += 1
-
-    if removed:
-        print(f"  [Dedup L2] Fuzzy: отсеяно {removed} перефразировок")
-    return result
+    """Retain title-only similarities; remove only established event identities."""
+    previous = history.get('sent_entries', [])[-500:]
+    return [e for e in entries if not any(same_event(e, old) for old in previous)]
 
 
 def dedup_level3_jaccard(entries: list, history: dict) -> list:
-    """Уровень 3: Jaccard ключевых слов — отсекает одну тему из разных СМИ."""
-    sent_titles = history.get("sent_titles", [])
-    if not sent_titles:
-        return entries
-
-    # Предвычисляем keywords для истории
-    history_keywords = [title_keywords(t) for t in sent_titles[-500:]]
-
-    result = []
-    removed = 0
-    for entry in entries:
-        is_dup = False
-        entry_kw = title_keywords(entry["title"])
-        if len(entry_kw) < 2:
-            result.append(entry)
-            continue
-        for old_kw in history_keywords:
-            if jaccard_similarity(entry_kw, old_kw) >= JACCARD_THRESHOLD:
-                is_dup = True
-                break
-        if not is_dup:
-            result.append(entry)
-        else:
-            removed += 1
-
-    if removed:
-        print(f"  [Dedup L3] Jaccard: отсеяно {removed} тематических дубликатов")
-    return result
-
-
-def _entity_overlap(title_a: str, title_b: str) -> int:
-    """Подсчитать количество совпадающих ключевых сущностей в двух заголовках."""
-    a_lower = title_a.lower()
-    b_lower = title_b.lower()
-    count = 0
-    for entity in KEY_ENTITIES:
-        if entity in a_lower and entity in b_lower:
-            count += 1
-    return count
+    """Compatibility entrypoint; topic overlap alone cannot establish duplication."""
+    return dedup_level2_fuzzy(entries, history)
 
 
 def dedup_within_batch(entries: list) -> list:
-    """
-    Усиленная дедупликация внутри текущей пачки (одна тема из разных СМИ).
-
-    Три критерия — новость считается дублём если выполняется ХОТЯ БЫ ОДИН:
-      1. Fuzzy-matching заголовков >= BATCH_FUZZY_THRESHOLD (0.55)
-      2. Jaccard ключевых слов >= BATCH_JACCARD_THRESHOLD (0.40)
-      3. 2+ совпадающих ключевых сущностей (OpenAI, Sora, Copilot и т.д.)
-         И при этом Jaccard >= 0.25 (чтобы не отсекать разные новости об одной компании)
-
-    При дубле сохраняется новость с более высоким authority_score источника.
-    """
-    if not entries:
-        return entries
-
+    """Merge established events, preferring the more authoritative source."""
     result = []
-    removed = 0
     for entry in entries:
-        is_dup = False
-        entry_kw = title_keywords(entry["title"])
-        norm_title = normalize_title(entry["title"])
-        entry_authority = SOURCE_WEIGHTS.get(entry["source"], 0.65)
-
-        for idx, existing in enumerate(result):
-            existing_kw = title_keywords(existing["title"])
-            existing_norm = normalize_title(existing["title"])
-
-            # Критерий 1: fuzzy (снижен порог)
-            if fuzzy_match(norm_title, existing_norm) >= BATCH_FUZZY_THRESHOLD:
-                is_dup = True
-                # Заменяем на более авторитетный источник
-                if entry_authority > SOURCE_WEIGHTS.get(existing["source"], 0.65):
-                    result[idx] = entry
+        for index, existing in enumerate(result):
+            if same_event(entry, existing):
+                if SOURCE_WEIGHTS.get(entry.get('source'), 0.65) > SOURCE_WEIGHTS.get(existing.get('source'), 0.65):
+                    result[index] = entry
                 break
-
-            # Критерий 2: Jaccard ключевых слов (снижен порог)
-            if len(entry_kw) >= 2 and len(existing_kw) >= 2:
-                if jaccard_similarity(entry_kw, existing_kw) >= BATCH_JACCARD_THRESHOLD:
-                    is_dup = True
-                    if entry_authority > SOURCE_WEIGHTS.get(existing["source"], 0.65):
-                        result[idx] = entry
-                    break
-
-            # Критерий 3: сущностное совпадение (2+ сущностей + слабый Jaccard)
-            if len(entry_kw) >= 2 and len(existing_kw) >= 2:
-                entity_hits = _entity_overlap(entry["title"], existing["title"])
-                if entity_hits >= 2 and jaccard_similarity(entry_kw, existing_kw) >= 0.25:
-                    is_dup = True
-                    if entry_authority > SOURCE_WEIGHTS.get(existing["source"], 0.65):
-                        result[idx] = entry
-                    break
-
-        if not is_dup:
-            result.append(entry)
         else:
-            removed += 1
-
-    if removed:
-        print(f"  [Dedup Batch] Внутри пачки: отсеяно {removed} кросс-источниковых дублей")
+            result.append(entry)
     return result
 
 
@@ -884,7 +819,7 @@ def process_with_llm(entries: list, history: dict, trends: list = None) -> str |
 ВАЖНО — ПРЕДЫДУЩАЯ СВОДКА СОДЕРЖАЛА ЭТИ ТЕМЫ (НЕ ПОВТОРЯТЬ!):
 {prev_list}
 
-Если в списке ниже есть новости на те же темы (даже если из другого источника или с другим заголовком) — НЕ включай их. Выбирай ТОЛЬКО действительно НОВЫЕ темы, которых не было в предыдущей сводке.
+Сходство темы или заголовка не доказывает повтор события. Не исключай самостоятельное обновление только потому, что компания или тема уже упоминалась. Исключай повтор лишь при подтверждённой идентичности события.
 """
 
     available_count = len(entries[:20])
@@ -898,7 +833,7 @@ def process_with_llm(entries: list, history: dict, trends: list = None) -> str |
 
     prompt = f"""Ты — профессиональный редактор новостной сводки по искусственному интеллекту.
 
-ЗАДАЧА: Из списка новостей ниже отбери {count_instruction} самых обсуждаемых новостей из мира AI за последние 24 часа. {split_instruction}.
+ЗАДАЧА: Из списка новостей ниже отбери {count_instruction} самых обсуждаемых новостей из мира AI за окно сбора {collection_window_hours(entries)}ч. При окне 36ч явно укажи расширение с 24ч; не называй весь выпуск сводкой за 24ч. {split_instruction}.
 {prev_context}ПРАВИЛА ОТБОРА:
 1. ТЕМАТИКА: новости про искусственный интеллект — новые модели, исследования, продукты, обновления, применение AI в бизнесе/медицине/образовании, открытые модели, бенчмарки, прорывы.
 2. СТРОГО ИСКЛЮЧИТЬ (НЕЛЬЗЯ включать ни при каких условиях):
@@ -1089,46 +1024,95 @@ def extract_digest_titles(digest_text: str) -> list:
     return titles
 
 
-def validate_generated_digest(digest_text: str, html_content: str) -> list[str]:
-    """Return blocking QA issues before any external delivery."""
-    issues: list[str] = []
-    titles = extract_digest_titles(digest_text)
-    source_urls = re.findall(
-        r"^Источник:\s*.+?\s*\|\s*(https?://\S+)", digest_text, flags=re.MULTILINE
-    )
+class DigestHTMLSources(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.sources = []
+        self.cards = 0
 
-    if len(titles) < MIN_NEWS:
-        issues.append(f"новостей {len(titles)}, минимум {MIN_NEWS}")
-    if len(titles) > MAX_NEWS:
-        issues.append(f"новостей {len(titles)}, максимум {MAX_NEWS}")
-    if len(source_urls) != len(titles):
-        issues.append(
-            f"прямых ссылок на источники {len(source_urls)}, новостей {len(titles)}"
-        )
-    if html_content.count('class="news-card"') != len(titles):
-        issues.append("число HTML-карточек не совпадает с числом новостей")
-    if not html_content.lstrip().lower().startswith("<!doctype html>"):
-        issues.append("HTML не содержит корректный doctype")
-    if "</html>" not in html_content.lower():
-        issues.append("HTML не завершён")
-    if any(marker in html_content for marker in ("{{", "}}", "TODO", "example.com")):
-        issues.append("HTML содержит placeholder или тестовое значение")
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        classes = attrs.get('class', '').split()
+        if 'news-card' in classes:
+            self.cards += 1
+        if tag == 'a' and 'source-link' in classes:
+            self.sources.append(attrs.get('href', ''))
+
+
+def validate_generated_digest(digest_text: str, html_content: str,
+                              entries: list | None = None, now: datetime | None = None) -> list[str]:
+    """Block incomplete provenance and freshness before preparation and delivery.
+
+    Dates are feed publication evidence, not verification of claims/event dates.
+    This offline gate does not fetch links or substitute for editorial fact checking.
+    """
+    issues = []
+    if not isinstance(digest_text, str) or not isinstance(html_content, str):
+        return ['выпуск должен содержать текст и HTML']
+    if entries is not None and (not isinstance(entries, list) or any(not isinstance(e, dict) for e in entries)):
+        return ['entries должен быть списком записей источников']
+    digest_text = '\n'.join(line.strip() for line in digest_text.splitlines())
+    now = now or datetime.now(timezone.utc)
+    titles = extract_digest_titles(digest_text)
+    blocks = re.split(r'^\d+\.\s+', digest_text, flags=re.MULTILINE)[1:]
+    source_urls = []
+    for index, block in enumerate(blocks, 1):
+        urls = re.findall(r'^Источник:\s*.+?\s*\|\s*(https?://\S+)\s*$', block, flags=re.MULTILINE)
+        if len(urls) != 1:
+            issues.append(f'новость {index}: требуется ровно один прямой источник')
+        source_urls.extend(urls)
+    if not MIN_NEWS <= len(titles) <= MAX_NEWS:
+        issues.append(f'новостей {len(titles)}, допустимо {MIN_NEWS}–{MAX_NEWS}')
+    if len(blocks) != len(titles) or len(source_urls) != len(titles):
+        issues.append('число пунктов, заголовков и источников не совпадает')
+    if any(not is_public_source(url) for url in source_urls):
+        issues.append('источник содержит тестовый, локальный или некорректный URL')
+    keys = [article_key(url) for url in source_urls]
+    if len(keys) != len(set(keys)):
+        issues.append('один источник повторяется в нескольких новостях')
+    ledger = {}
+    for entry in entries or []:
+        key = article_key(entry.get('link', ''))
+        if key in ledger:
+            issues.append('реестр содержит неоднозначные записи одного источника')
+        ledger[key] = entry
+    for index, key in enumerate(keys, 1):
+        entry = ledger.get(key)
+        if not entry:
+            issues.append(f'новость {index}: источник отсутствует в реестре публикаций')
+            continue
+        try:
+            published = datetime.fromisoformat(entry['pub_date'].replace('Z', '+00:00'))
+            if published.tzinfo is None or not now - timedelta(hours=36) <= published <= now:
+                raise ValueError('outside publication window')
+        except (KeyError, ValueError, TypeError, AttributeError):
+            issues.append(f'новость {index}: нет корректной даты публикации в окне 36ч')
+    parser = DigestHTMLSources()
+    parser.feed(html_content)
+    if parser.cards != len(titles):
+        issues.append('число HTML-карточек не совпадает с числом новостей')
+    if [article_key(url) for url in parser.sources] != keys:
+        issues.append('источники HTML не совпадают с источниками текста')
+    if any(not is_public_source(url) for url in parser.sources):
+        issues.append('HTML содержит некорректный URL источника')
+    if not html_content.lstrip().lower().startswith('<!doctype html>') or '</html>' not in html_content.lower():
+        issues.append('HTML не завершён или не содержит doctype')
+    if any(marker in digest_text + html_content for marker in ('{{', '}}', 'TODO')):
+        issues.append('выпуск содержит незавершённые значения')
     return issues
 
 
 def extract_used_entries(digest_text: str, entries: list) -> list:
     """Определить, какие новости вошли в сводку (по ссылкам)."""
-    used = []
-    for e in entries:
-        if e["link"] in digest_text:
-            used.append(e)
-    return used
+    keys = {article_key(url) for url in re.findall(
+        r"^\s*Источник:\s*.+?\s*\|\s*(https?://\S+)", digest_text, flags=re.MULTILINE)}
+    return [e for e in entries if article_key(e['link']) in keys]
 
 
 # ─── Доработка 3: Генерация HTML-дайджеста ─────────────────────────────────
 
 
-def generate_html_digest(digest_text: str, trends: list = None) -> str:
+def generate_html_digest(digest_text: str, trends: list = None, window_hours: int = 24) -> str:
     """
     Генерирует красивый HTML-файл из текстовой сводки.
     Возвращает HTML-строку.
@@ -1234,7 +1218,8 @@ def generate_html_digest(digest_text: str, trends: list = None) -> str:
 
     # Генерируем карточки новостей
     news_html = ""
-    for item in news_items:
+    for raw_item in news_items:
+        item = {k: escape(v, quote=True) if isinstance(v, str) else v for k, v in raw_item.items()}
         cat_color = get_cat_color(item.get("category", ""))
         source_html = ""
         if item["source_url"]:
@@ -1528,7 +1513,7 @@ def generate_html_digest(digest_text: str, trends: list = None) -> str:
             <span class="header-emoji">🤖</span>
             <h1>УТРЕННЯЯ СВОДКА — МИР ИИ</h1>
             <div class="header-date">{today_full}</div>
-            <div class="header-subtitle">{len(news_items)} ключевых новостей · Только проверенные факты</div>
+            <div class="header-subtitle">{len(news_items)} ключевых новостей · Окно {window_hours}ч{' (расширено с 24ч)' if window_hours == 36 else ''}</div>
         </header>
 
         <main>
@@ -1613,6 +1598,8 @@ def main():
     # 2. Сбор RSS
     print("[INFO] Сбор новостей из RSS-лент...")
     all_entries = fetch_rss_entries()
+    run_record['rss_collected'] = len(all_entries)
+    run_record['collection_window_hours'] = collection_window_hours(all_entries)
     print(f"[INFO] Собрано {len(all_entries)} записей из RSS")
 
     # 3. Многоуровневая дедупликация
@@ -1627,7 +1614,14 @@ def main():
         return
 
     # 4. Пост-фильтр военно-политических тем (keyword + LLM)
-    new_entries = apply_post_filter(new_entries)
+    try:
+        new_entries = apply_post_filter(new_entries)
+    except ValueError as exc:
+        run_record['status'] = 'blocked'
+        run_record['note'] = str(exc)
+        append_run_history(run_record)
+        print('[BLOCKED] ' + str(exc))
+        return
     run_record["after_filter"] = len(new_entries)
 
     if len(new_entries) < MIN_NEWS:
@@ -1658,10 +1652,11 @@ def main():
 
     # 7. Генерация HTML-версии
     print("[INFO] Генерация HTML-дайджеста...")
-    html_content = generate_html_digest(digest, trends=trends)
+    html_content = generate_html_digest(digest, trends=trends, window_hours=run_record['collection_window_hours'])
     print(f"[INFO] HTML-дайджест сгенерирован ({len(html_content)} символов)")
 
-    qa_issues = validate_generated_digest(digest, html_content)
+    used_entries = extract_used_entries(digest, top_entries)
+    qa_issues = validate_generated_digest(digest, html_content, used_entries)
     if qa_issues:
         run_record["status"] = "blocked"
         run_record["note"] = "QA: " + "; ".join(qa_issues)
@@ -1677,8 +1672,9 @@ def main():
     # Сохранить подготовленный выпуск; история доставки не меняется.
     output = Path(os.environ.get("DIGEST_DATA_DIR", str(RUN_HISTORY_FILE.parent)))
     output.mkdir(parents=True, exist_ok=True)
-    bundle = {"digest": digest, "html": html_content, "entries": extract_used_entries(digest, top_entries),
-              "titles": digest_titles, "prepared_at": run_ts}
+    bundle = {"digest": digest, "html": html_content, "entries": [{k: v for k, v in entry.items() if k != "pub_date_dt"} for entry in used_entries],
+              "titles": digest_titles, "prepared_at": run_ts,
+              "collection_window_hours": run_record["collection_window_hours"]}
     (output / "prepared-digest.json").write_text(json.dumps(bundle, ensure_ascii=False), encoding="utf-8")
     (output / "prepared-digest.html").write_text(html_content, encoding="utf-8")
     run_record["status"] = "dry_run"

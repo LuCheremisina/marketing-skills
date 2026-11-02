@@ -21,7 +21,7 @@ def deliver(bundle_path, target_ids, confirmed=False, transport=None, token=None
         raise ValueError('Выпуск и журнал доставки должны храниться вне пакета')
     bundle = json.loads(bundle_path.read_text(encoding='utf-8'))
     import collect_and_send as collector
-    issues = collector.validate_generated_digest(bundle['digest'], bundle['html'])
+    issues = collector.validate_generated_digest(bundle['digest'], bundle['html'], bundle.get('entries'))
     if issues:
         raise ValueError('QA: ' + '; '.join(issues))
     targets = recipients(','.join(str(x) for x in target_ids))
@@ -58,12 +58,15 @@ def deliver(bundle_path, target_ids, confirmed=False, transport=None, token=None
         done.append(str(target))
         receipts_path.write_text(json.dumps(receipts), encoding='utf-8')
     if failures == 0:
-        history = collector.load_history()
+        # Default history follows the bundle profile, even in a separate process.
+        history_path = Path(os.environ.get('NEWS_HISTORY_FILE', str(bundle_path.parent / 'sent_news_history.json')))
+        history = collector.load_history(history_path)
         history.setdefault('sent_hashes', []).extend(
             collector.news_hash(e['title'], e['link']) for e in bundle.get('entries', []))
+        history.setdefault('sent_entries', []).extend(bundle.get('entries', []))
         history.setdefault('sent_titles', []).extend(collector.normalize_title(t) for t in bundle['titles'])
         history['previous_digest_titles'] = bundle['titles']
-        collector.save_history(history)
+        collector.save_history(history, history_path)
     return {'status': 'ok' if failures == 0 else 'partial', 'sent': sent, 'failed': failures}
 
 
