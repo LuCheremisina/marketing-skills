@@ -22,9 +22,9 @@ class OtherRegressions(unittest.TestCase):
         for base in BASES:
             script=base/'che-expert-article-workflow/scripts/validate_article.py'
             m=load(script)
-            for bad in ('https:bad','https:///missing','https://[invalid','https://example.invalid:bad','https://user:pass@example.invalid','https://@example.invalid','https://bad host/path','http://example.invalid'):
+            for bad in ('https:bad','https:///missing','https://[invalid','https://example.invalid:bad','https://user:pass@example.invalid','https://@example.invalid','https://exa%mple.invalid/article','https://example.invalid/a%2','https://bad host/path','http://example.invalid'):
                 with self.subTest(base=base,bad=bad):self.assertFalse(m.is_https(bad))
-            for good in ('https://example.invalid/path','https://example.invalid:443/path'):
+            for good in ('https://example.invalid/path','https://example.invalid:443/path','https://example.invalid/a%20b'):
                 self.assertTrue(m.is_https(good))
             claim={'claim_id':'c1','text':'Synthetic fact','claim_kind':'external_fact','materiality':'material','status':'verified','source_type':'official','source_url':'https:bad','source_date':'2026-01-01','checked_at':'2026-01-01','locator':'p1','article_locator':'p1'}
             with tempfile.TemporaryDirectory() as tmp:
@@ -39,13 +39,14 @@ class OtherRegressions(unittest.TestCase):
 case " $* " in
  *' -X POST '*)
   if [ "$FAKE_POST_MODE" = validation ]; then printf '%s\\n%s' '{"success":false,"errors":[{"code":123}]}' '400'
+  elif [ "$FAKE_POST_MODE" = no_sitekey ]; then printf '%s\\n%s' '{"success":true,"result":{}}' '200'
   else printf '%s\\n%s' '{"success":true,"result":{"sitekey":"SYNTHETIC_SITEKEY"}}' '200'; fi ;;
  *' -X DELETE '*) printf '%s' "$FAKE_DELETE_STATUS" ;;
  *) exit 9 ;;
 esac
 """)
             fake.chmod(0o755)
-            for mode,delete,expected in [('created','500','cleanup_failed'),('created','204','ok'),('validation','500','ok')]:
+            for mode,delete,expected in [('created','500','cleanup_failed'),('created','204','ok'),('validation','500','ok'),('no_sitekey','500','cleanup_unknown')]:
                 with self.subTest(mode=mode,delete=delete):
                     env={'PATH':str(folder)+os.pathsep+str(Path(sys.executable).parent)+os.pathsep+os.defpath,
                          'TMPDIR':tmp,'CLOUDFLARE_API_TOKEN':'SYNTHETIC_TOKEN','CLOUDFLARE_ACCOUNT_ID':'SYNTHETIC_ACCOUNT',

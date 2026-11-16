@@ -49,7 +49,7 @@ def strip_html(text: str) -> str:
 
 
 def is_https(value) -> bool:
-    if not isinstance(value, str) or any(ch.isspace() for ch in value):
+    if not isinstance(value, str) or any(ch.isspace() for ch in value) or re.search(r'%(?![0-9a-fA-F]{2})', value):
         return False
     try:
         parsed = urlparse(value)

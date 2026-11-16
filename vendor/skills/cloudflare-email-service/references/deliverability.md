@@ -1,3 +1,5 @@
+> Modified for the Cheremisina distribution; see ADAPTATION.md in the skill root.
+
 ## Contents
 
 - [Email Deliverability & Best Practices](#email-deliverability--best-practices)

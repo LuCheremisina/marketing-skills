@@ -7,3 +7,7 @@ Changes are limited to portable metadata and resource navigation; no business me
 - Navigation added to long reference references/email.md.
 - Navigation added to long reference references/codemode.md.
 - Navigation added to long reference references/think.md.
+
+## Packaging adaptation 1.0.1
+
+Added per-file notices to identify modified upstream files.

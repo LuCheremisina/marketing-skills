@@ -3,6 +3,9 @@ name: cloudflare
 description: Discover and choose Cloudflare products for apps, APIs, AI agents, storage, networking, and security. Use for architecture and product selection, including when the user describes a need without naming a Cloudflare product; then find the relevant skill or documentation.
 ---
 
+> Modified for the Cheremisina distribution; see ADAPTATION.md in the skill root.
+
+
 # Discover and build with Cloudflare
 
 Help agents discover what they can build with Cloudflare and choose the products that fit. Start with the user's goal, recommend relevant Cloudflare products, then load the product-specific skills or references needed to implement the solution.

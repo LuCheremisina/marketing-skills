@@ -7,3 +7,7 @@ Changes are limited to portable metadata and resource navigation; no business me
 - Navigation added to long reference references/routing.md.
 - Navigation added to long reference references/cli-and-mcp.md.
 - Navigation added to long reference references/deliverability.md.
+
+## Packaging adaptation 1.0.1
+
+Added per-file notices to identify modified upstream files.

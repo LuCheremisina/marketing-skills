@@ -1,3 +1,5 @@
+> Modified for the Cheremisina distribution; see ADAPTATION.md in the skill root.
+
 # TURN Gotchas & Troubleshooting
 
 Common mistakes, security best practices, and troubleshooting for Cloudflare TURN.

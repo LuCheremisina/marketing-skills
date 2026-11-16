@@ -556,7 +556,7 @@
       "checked_at": "2026-10-07",
       "redistribution_allowed": true,
       "display_name": "CHE_expert-article-workflow",
-      "content_sha256": "46c07c49df724c0ac5eafd6bdf055e7e786ef3fd2d4a2e03a829561f7e372719"
+      "content_sha256": "438fa9ccc5704ea18eaf96eb384e48cb4785ed2d3b6fecfb7d6eed3c461b0b21"
     },
     {
       "id": "che-industry-news-digest",
@@ -1184,7 +1184,7 @@
       "source_url": "https://github.com/cloudflare/skills/tree/41e0d19858946d18af9ee2c2feebbe2e11d829ff/skills/agents-sdk",
       "license": "Apache-2.0",
       "upstream_path": "skills/agents-sdk",
-      "content_sha256": "45f930c1fd47eedc66342d5f72f51352b887950bd96f24db0e9f26c7d56ba37d",
+      "content_sha256": "5e3e6f49bb224d744868f0e65da39ab4c1ec5ccfa56444c263c77ff96f7d773f",
       "upstream_tree_sha256": "8f0361c8f361bd0c1276c988e111ee61046e8e8fe614dabd79b45e566abd4857",
       "compatibility": {
         "codex": "not_verified",
@@ -1195,7 +1195,7 @@
       },
       "author": "cloudflare",
       "adaptation": "portable metadata and resource navigation only; see ADAPTATION.md",
-      "adaptation_version": "1.0.0",
+      "adaptation_version": "1.0.1",
       "upstream_files": [
         "SKILL.md",
         "references/browse-the-web.md",
@@ -1434,7 +1434,7 @@
       "source_url": "https://github.com/cloudflare/skills/tree/41e0d19858946d18af9ee2c2feebbe2e11d829ff/skills/cloudflare",
       "license": "Apache-2.0",
       "upstream_path": "skills/cloudflare",
-      "content_sha256": "de111c273ff3f02da09222c6c7eb343bf5fe3761b149d02a2b7b433707809539",
+      "content_sha256": "fd5d2fa8883fd48c12b0ee5d4cca37d39f212fd8db4907ff584e601124bcd3d8",
       "upstream_tree_sha256": "e08e47f9c8779eee4db16729dad4d2cda73b2a77600f32cc12e7b7e3745a57c0",
       "compatibility": {
         "codex": "not_verified",
@@ -1445,7 +1445,7 @@
       },
       "author": "cloudflare",
       "adaptation": "portable metadata and resource navigation only; see ADAPTATION.md",
-      "adaptation_version": "1.0.1",
+      "adaptation_version": "1.0.2",
       "upstream_files": [
         "SKILL.md",
         "references/ai-gateway/README.md",
@@ -2571,7 +2571,7 @@
       "source_url": "https://github.com/cloudflare/skills/tree/41e0d19858946d18af9ee2c2feebbe2e11d829ff/skills/cloudflare-email-service",
       "license": "Apache-2.0",
       "upstream_path": "skills/cloudflare-email-service",
-      "content_sha256": "d25274bcb63e9bc418259a3d0a1f208457b05de69b371e7ab9c630a03da42d0f",
+      "content_sha256": "4ae9b6171b79a114af6eb05882a7ee71daf938620e6b21cb2603e0aedbd248bf",
       "upstream_tree_sha256": "6e5e42e9daddc562dd16b341d61c66ed3f9989c4ba04dbe0312df9a79c9497b3",
       "compatibility": {
         "codex": "not_verified",
@@ -2582,7 +2582,7 @@
       },
       "author": "cloudflare",
       "adaptation": "portable metadata and resource navigation only; see ADAPTATION.md",
-      "adaptation_version": "1.0.0",
+      "adaptation_version": "1.0.1",
       "upstream_files": [
         "SKILL.md",
         "references/cli-and-mcp.md",
@@ -2720,7 +2720,7 @@
       "source_url": "https://github.com/cloudflare/skills/tree/41e0d19858946d18af9ee2c2feebbe2e11d829ff/skills/durable-objects",
       "license": "Apache-2.0",
       "upstream_path": "skills/durable-objects",
-      "content_sha256": "1270decacd2edbfa6ed261018256435a1b6b24693e12513e33887ee757db76c9",
+      "content_sha256": "497940e39e9198330681ad6c3a90df9f596bcbcc6d6c5b86cf229cb0b0d0a861",
       "upstream_tree_sha256": "d503440a9907ceaf19a63c7f49052a16eb2d877eb7a1358b4f44e5090087d2ff",
       "compatibility": {
         "codex": "not_verified",
@@ -2731,7 +2731,7 @@
       },
       "author": "cloudflare",
       "adaptation": "portable metadata and resource navigation only; see ADAPTATION.md",
-      "adaptation_version": "1.0.0",
+      "adaptation_version": "1.0.1",
       "upstream_files": [
         "SKILL.md",
         "references/rules.md",
@@ -2911,7 +2911,7 @@
       "source_url": "https://github.com/cloudflare/skills/tree/41e0d19858946d18af9ee2c2feebbe2e11d829ff/skills/turnstile-spin",
       "license": "Apache-2.0",
       "upstream_path": "skills/turnstile-spin",
-      "content_sha256": "19065807f861947c00ea73a05beae9e5add0d88c3dd108ab431f3c6dbdb5c160",
+      "content_sha256": "c41388a2e7fa4ef163721a3dcf00e5e8a291bdacabb18d490b6ad6347d8ff458",
       "upstream_tree_sha256": "1bf58659264a5196cc0c518f479bd9af6859e4737c0203140710325a8a65a94c",
       "compatibility": {
         "codex": "not_verified",
@@ -2921,7 +2921,7 @@
         "grok-bot": "not_verified"
       },
       "author": "cloudflare",
-      "adaptation": "portable metadata, navigation and auth-probe cleanup failure handling; see ADAPTATION.md",
+      "adaptation": "portable packaging and auth-probe cleanup failure/unknown handling; see ADAPTATION.md",
       "adaptation_version": "1.0.2",
       "upstream_files": [
         "README.md",
@@ -2939,7 +2939,7 @@
         "tests/validation.md"
       ],
       "original_name": "turnstile-spin",
-      "normalization_notes": "portable metadata, navigation and auth-probe cleanup failure handling; see ADAPTATION.md",
+      "normalization_notes": "portable packaging and auth-probe cleanup failure/unknown handling; see ADAPTATION.md",
       "upstream_file_hashes": {
         "README.md": {
           "git_blob_sha1": "e69238595d2b3d9c30983404cc042c3ea1f2f10b"
