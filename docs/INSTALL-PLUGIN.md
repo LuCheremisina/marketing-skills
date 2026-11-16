@@ -6,6 +6,17 @@ For ZIP installation, download **[marketing-skills-plugin-3.0.0.zip](https://git
 
 The optional **[marketing-skills-vendor-3.0.0.zip](https://github.com/LuCheremisina/marketing-skills/releases/download/v3.0.0/marketing-skills-vendor-3.0.0.zip)** adds 14 third-party engineering skills, with their original attribution and licenses. Install it separately if needed. Together the two plugins provide 48 skills. The complete repository/source ZIP is not the native plugin installer.
 
+### If Safari shows a folder instead of a ZIP
+
+Safari can automatically extract downloaded archives. To keep the ZIP for installation:
+
+1. Open **Safari → Settings → General**.
+2. Uncheck **Open “safe” files after downloading**.
+3. Download the archive using the link above again. Your Downloads folder should contain **`marketing-skills-plugin-3.0.0.zip`**.
+4. When installing in ChatGPT or another system, select this ZIP file.
+
+This also applies to individual skill ZIPs. If an archive has already been extracted, download it again after changing the setting. Renaming a folder to `.zip` does not create an archive.
+
 ## Choose a route
 
 | System | Complete plugin | Individual skills |
