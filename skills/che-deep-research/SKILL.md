@@ -3,7 +3,7 @@ name: che-deep-research
 license: MIT
 description: "Проводит глубокое исследование рынка, технологии или продукта с проверкой источников и утверждений. Применяется для комплексного сравнения, трендов и многостороннего отчёта; не применяется к вопросу, решаемому одним поиском."
 metadata:
-  version: 3.0.0
+  version: 3.0.1
   methodologist: Любовь Черемисина
   website_primary: https://cheremisina.ru
   website_secondary: https://cheremisina.online

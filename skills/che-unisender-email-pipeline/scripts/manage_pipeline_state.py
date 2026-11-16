@@ -123,6 +123,9 @@ def merge_lists(base: list[dict[str, Any]], delta: list[dict[str, Any]], spec: s
         if spec == "draft_key" and key in result:
             old_message_id = result[key].get("message_id")
             new_message_id = item.get("message_id")
+            if old_message_id and (new_message_id is None or (isinstance(new_message_id, str) and new_message_id.strip().lower() in {"", "unknown", "missing"})):
+                item = {**item, "message_id": None}
+                new_message_id = None
             if old_message_id and new_message_id and old_message_id != new_message_id:
                 raise ValueError(f"draft {key[0]} has conflicting message_id values")
             if result[key].get("status") in {"created", "existing_unchanged"} and item.get("status") in {"unknown", "missing"}:

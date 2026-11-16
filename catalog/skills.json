@@ -322,7 +322,7 @@
       "id": "che-deep-research",
       "path": "skills/che-deep-research",
       "origin": "authored",
-      "version": "3.0.0",
+      "version": "3.0.1",
       "license": "MIT",
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
@@ -350,7 +350,7 @@
       "checked_at": "2026-10-07",
       "redistribution_allowed": true,
       "display_name": "CHE_deep-research",
-      "content_sha256": "2299b7c2a011dcf59607b1971c44bdf45938e302df78881b621164254ce987f3"
+      "content_sha256": "c65023218fb7df3ce54dcb907f8da6e4898ebc24fe2ccae22387f38ab45b2a44"
     },
     {
       "id": "che-direct-analyst",
@@ -390,7 +390,7 @@
       "id": "che-direct-analytics-skill",
       "path": "skills/che-direct-analytics-skill",
       "origin": "authored",
-      "version": "3.0.0",
+      "version": "3.0.1",
       "license": "MIT",
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
@@ -418,7 +418,7 @@
       "checked_at": "2026-10-07",
       "redistribution_allowed": true,
       "display_name": "CHE_direct-analytics-skill",
-      "content_sha256": "58c28a3f29125e80ddc24248822299408bacdcae92a733909db25c3452083c9c"
+      "content_sha256": "1958ddeb8fc18b87235acd445a8a4cd8824476fd5f8cae21da156358c67271b6"
     },
     {
       "id": "che-editorial-cover-prompts",
@@ -1093,9 +1093,9 @@
         "grok-bot": "not_verified"
       },
       "display_name": "CHE_unisender-email-pipeline",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "Выполняет накопительный email-цикл: аудит, спрос, выбор материалов, письмо, UTM, QA и разрешённый черновик UniSender. Применяется для полного процесса или продолжения state; не запускается по запросу только текста письма.",
-      "content_sha256": "711bb5265661791ce63301091c1c97215811b5db4718b9e77a3e1572dddef63a",
+      "content_sha256": "5e5b8af5b31760f482191fcb6ac08110726aaba3affcae2e4f3c8e608c211d09",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-unisender-email-pipeline",
       "checked_at": "2026-10-07",
       "source_status": "published-2.0.5",

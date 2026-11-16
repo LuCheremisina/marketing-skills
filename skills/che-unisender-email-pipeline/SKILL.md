@@ -3,7 +3,7 @@ name: che-unisender-email-pipeline
 description: "Выполняет накопительный email-цикл: аудит, спрос, выбор материалов, письмо, UTM, QA и разрешённый черновик UniSender. Применяется для полного процесса или продолжения state; не запускается по запросу только текста письма."
 license: MIT
 metadata:
-  version: 1.0.1
+  version: 1.0.2
   author: Любовь Черемисина
   methodologist: Любовь Черемисина
   website: https://cheremisina.ru

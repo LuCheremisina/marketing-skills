@@ -3,7 +3,7 @@ name: che-direct-analytics-skill
 description: "Собирает и рассчитывает данные Директа и Метрики раздельно, сверяет периоды, KPI и аномалии. Применяется для диагностики кампаний, ключей, CPA/ROAS/CTR и атрибуции; не распределяет неизвестную выручку по расходам."
 license: MIT
 metadata:
-  version: 3.0.0
+  version: 3.0.1
   methodologist: Любовь Черемисина
   website_primary: https://cheremisina.ru
   website_secondary: https://cheremisina.online

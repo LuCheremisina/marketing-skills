@@ -293,8 +293,8 @@ class CitationVerifier:
             url_ok, url_status = self.verify_url(entry['url'])
             if url_ok:
                 result['verification_methods'].append('URL')
-                # Upgrade status if URL verifies
-                if result['status'] in ['unknown', 'no_doi', 'unverified']:
+                # An accessible URL cannot repair a failed DOI check.
+                if not entry['doi'] and result['status'] in ['unknown', 'no_doi']:
                     result['status'] = 'url_verified'
                 print(f"  [{entry['num']}] URL accessible ✓")
             else:

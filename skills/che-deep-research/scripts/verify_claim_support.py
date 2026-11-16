@@ -9,8 +9,8 @@ CLI subcommands:
 Version 1 is deterministic and cheap: entity, number, date, and
 lexical-overlap checks over stored evidence. No LLM calls.
 
-Only factual claims hard-fail on unsupported status.
-Synthesis/recommendation need traceability but softer thresholds.
+Strict mode fails when a factual claim lacks confirmed literal support.
+Lexical similarity alone requires review; it cannot establish meaning.
 """
 
 import argparse
@@ -52,7 +52,7 @@ def write_jsonl(path: str, rows: list[dict]) -> None:
 NUMBER_RE = re.compile(r'\b\d+(?:\.\d+)?(?:%|x|X)?\b')
 
 # Extract year-like numbers
-YEAR_RE = re.compile(r'\b(19|20)\d{2}\b')
+YEAR_RE = re.compile(r'\b(?:19|20)\d{2}\b')
 
 # Extract capitalized entities (naive NER)
 ENTITY_RE = re.compile(r'\b[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\b')
@@ -66,7 +66,7 @@ STOP_ENTITIES = frozenset([
 
 def extract_tokens(text: str) -> set[str]:
     """Extract significant lowercase tokens (>3 chars)."""
-    words = re.findall(r'\b[a-z]{4,}\b', text.lower())
+    words = re.findall(r'\b[^\W\d_]{4,}\b', text.lower())
     return set(words)
 
 
@@ -95,6 +95,13 @@ def compute_support_score(claim_text: str, evidence_quotes: list[str]) -> tuple[
     """
     if not evidence_quotes:
         return ('unsupported', 0.0, 'no evidence linked')
+
+    # Lexical similarity cannot distinguish agreement from contradiction.
+    # A literal match only confirms correspondence to the supplied quote;
+    # source authenticity and context still require separate review.
+    normalized_claim = ' '.join(claim_text.split()).casefold()
+    if normalized_claim and any(normalized_claim == ' '.join(q.split()).casefold() for q in evidence_quotes):
+        return ('supported', 1.0, 'literal match; verify source and context separately')
 
     claim_tokens = extract_tokens(claim_text)
     claim_numbers = extract_numbers(claim_text)
@@ -155,14 +162,13 @@ def compute_support_score(claim_text: str, evidence_quotes: list[str]) -> tuple[
                 best_notes.append('entity mismatch')
 
     # Threshold decision
-    if best_score >= 0.6:
-        status = 'supported'
-    elif best_score >= 0.35:
+    if best_score >= 0.35:
         status = 'partial'
     else:
         status = 'needs_review'
 
-    notes = '; '.join(best_notes) if best_notes else 'adequate overlap'
+    notes = '; '.join(best_notes) if best_notes else 'lexical overlap only'
+    notes += '; semantic support requires review'
     return (status, round(best_score, 3), notes)
 
 
@@ -244,13 +250,17 @@ def cmd_verify(args: argparse.Namespace) -> None:
     status_counts = Counter(c.get('support_status') for c in updated_claims)
     factual_unsupported = sum(
         1 for c in updated_claims
-        if c.get('claim_type') == 'factual' and c.get('support_status') == 'unsupported'
+        if c.get('claim_type', 'factual') == 'factual' and c.get('support_status') == 'unsupported'
     )
-    total_factual = sum(1 for c in updated_claims if c.get('claim_type') == 'factual')
+    factual_unresolved = sum(
+        1 for c in updated_claims
+        if c.get('claim_type', 'factual') == 'factual' and c.get('support_status') != 'supported'
+    )
+    total_factual = sum(1 for c in updated_claims if c.get('claim_type', 'factual') == 'factual')
 
-    # Strict mode: fail if any factual claim is unsupported
+    # Strict mode must not treat partial or unreviewed claims as verified.
     passed = True
-    if args.strict and factual_unsupported > 0:
+    if args.strict and factual_unresolved > 0:
         passed = False
 
     print(json.dumps({
@@ -258,6 +268,7 @@ def cmd_verify(args: argparse.Namespace) -> None:
         'verified': verified,
         'support_status_counts': dict(status_counts),
         'factual_unsupported': factual_unsupported,
+        'factual_unresolved': factual_unresolved,
         'total_factual': total_factual,
         'unsupported_rate': round(factual_unsupported / max(total_factual, 1), 3),
     }, indent=2))
@@ -293,7 +304,7 @@ def cmd_report(args: argparse.Namespace) -> None:
     # Unsupported factual claims (the failures)
     unsupported_factual = [
         c for c in unique
-        if c.get('claim_type') == 'factual' and c.get('support_status') in ('unsupported', 'needs_review')
+        if c.get('claim_type', 'factual') == 'factual' and c.get('support_status') != 'supported'
     ]
     if unsupported_factual:
         lines.append('## Unsupported/Review-needed Factual Claims')
@@ -306,7 +317,7 @@ def cmd_report(args: argparse.Namespace) -> None:
 
     # All clear
     if not unsupported_factual:
-        lines.append('## All factual claims have adequate support.')
+        lines.append('## All factual claims have literal evidence matches; verify sources and context.')
         lines.append('')
 
     print('\n'.join(lines))
@@ -326,7 +337,7 @@ def main() -> None:
     # verify
     p_ver = sub.add_parser('verify', help='Verify claims against evidence')
     p_ver.add_argument('--dir', required=True, help='Run directory')
-    p_ver.add_argument('--strict', action='store_true', help='Exit 1 if any factual claim unsupported')
+    p_ver.add_argument('--strict', action='store_true', help='Exit 1 if any factual claim lacks literal support')
 
     # report
     p_rep = sub.add_parser('report', help='Generate verification report')
