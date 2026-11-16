@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.0.0 — 2026-11-16
+
+- Strengthen email URL personal-data checks, draft-state handling, Direct analytics and research evidence validation.
+- Harden SEO demand data and HTML reports, the SEO auditor robots handling, article URL checks, news digest HTML and cover exports.
+- Update the Telegram content rubric and review adaptations of the optional Autopilot and Turnstile skills.
+- Compatibility: SEO demand output and SEO auditor behavior changed. Previously prepared AI news digest bundles must be prepared again before delivery.
+- Offline and scoped OpenBot checks do not establish native platform execution or live integration behavior.
+
 ## 2.0.7 — 2026-10-12
 
 - AI digest preparation no longer sends Telegram messages or starts background subscription processes. Delivery uses a separate command with explicit recipients, confirmation, quality checks and per-recipient receipts.

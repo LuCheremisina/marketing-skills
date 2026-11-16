@@ -2,7 +2,7 @@
 
 Read Yandex Direct and Metrika data, compare independent source tables and explain advertising performance without changing campaigns or budgets. Keep unmatched revenue visible rather than allocating it by spend.
 
-[Install](#install) · [Download ZIP 3.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v2.0.7/che-direct-analytics-skill-3.0.0.zip) · [Read the workflow](../../skills/che-direct-analytics-skill/SKILL.md) · [Русский пример](#русский-пример)
+[Install](#install) · [Download ZIP 3.0.1](https://github.com/LuCheremisina/marketing-skills/releases/download/v3.0.0/che-direct-analytics-skill-3.0.1.zip) · [Read the workflow](../../skills/che-direct-analytics-skill/SKILL.md) · [Русский пример](#русский-пример)
 
 ## Who it helps
 

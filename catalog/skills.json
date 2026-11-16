@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "release_candidate": "2.0.7",
+  "release_candidate": "3.0.0",
   "checked_at": "2026-10-07",
   "repository": "https://github.com/LuCheremisina/marketing-skills",
   "status_vocabulary": [
@@ -3166,5 +3166,5 @@
       "reason": "Root Remotion License grants eligible video/image-production use and modification for own use/contributions, prohibits specified derivative relicensing, and provides no general standalone skill-library redistribution grant. No permissive package-specific skill license found; obtain publisher terms or install upstream."
     }
   ],
-  "published_release": "2.0.7"
+  "published_release": "3.0.0"
 }

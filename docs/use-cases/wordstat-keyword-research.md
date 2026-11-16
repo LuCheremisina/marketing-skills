@@ -2,7 +2,7 @@
 
 Turn seed queries into a Yandex Wordstat keyword map: related phrases, intent, region and frequency. Useful for content planning and paid-search research in a selected market.
 
-[Install](#install) · [Download ZIP 3.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v2.0.7/che-wordstat-keyword-research-3.0.0.zip) · [Read the workflow](../../skills/che-wordstat-keyword-research/SKILL.md) · [Русский пример](#русский-пример)
+[Install](#install) · [Download ZIP 3.0.0](https://github.com/LuCheremisina/marketing-skills/releases/download/v3.0.0/che-wordstat-keyword-research-3.0.0.zip) · [Read the workflow](../../skills/che-wordstat-keyword-research/SKILL.md) · [Русский пример](#русский-пример)
 
 ## Who it helps
 
