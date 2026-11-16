@@ -1,3 +1,5 @@
+> Modified for the Cheremisina distribution; see ADAPTATION.md in the skill root.
+
 ## Contents
 
 - [Cloudflare Workers Best Practices](#cloudflare-workers-best-practices)

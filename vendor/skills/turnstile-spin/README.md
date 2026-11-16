@@ -1,5 +1,7 @@
 # turnstile-spin (skill)
 
+> Modified for the Cheremisina distribution; see ADAPTATION.md in the skill root. This distribution uses its locally packaged adapted bundle; the upstream clone and hosted prompt described below are separate upstream versions and do not include these local adaptations.
+
 End-to-end setup skill for Cloudflare Turnstile. Loads when an agent is asked to add Turnstile, set up CAPTCHA, or protect a form from bots.
 
 `SKILL.md` is the canonical machine-readable behavior. The hosted prompt at [`developers.cloudflare.com/turnstile/spin/prompt.md`](https://developers.cloudflare.com/turnstile/spin/prompt.md) packages the same behavior for agents that do not have this bundle installed. Product requirements come from the [Turnstile documentation](https://developers.cloudflare.com/turnstile/index.md).
@@ -38,7 +40,7 @@ mkdir -p .claude/skills/turnstile-spin && \
   -o .claude/skills/turnstile-spin/SKILL.md
 ```
 
-The single-file install does not include `scripts/` or `references/`; the hosted prompt fetches those on demand with `fetch_spin_script`. `scripts/persist-skill.sh` requires the cloned bundle above and cannot be used from a single-file install. For other agents, see the table in [`SKILL.md`](./SKILL.md#step-11--persist-the-skill).
+The single-file install does not include `scripts/` or `references/`; the hosted prompt fetches those on demand with `fetch_spin_script`. `scripts/persist-skill.sh` requires the cloned bundle above and cannot be used from a single-file install. For other agents, see the table in [`SKILL.md`](./SKILL.md#conversation-flow).
 
 ## Keep the hosted prompt in sync
 

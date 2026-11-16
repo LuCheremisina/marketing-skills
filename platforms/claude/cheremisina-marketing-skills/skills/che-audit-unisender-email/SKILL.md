@@ -3,7 +3,7 @@ name: che-audit-unisender-email
 license: MIT
 description: "Проверяет доставку, unique-клики, UTM и post-click результат существующих UniSender-кампаний. Применяется для диагностики CTR/CTOR, resend и атрибуции; не пишет новое письмо и не отправляет рассылку."
 metadata:
-  version: 3.0.0
+  version: 3.0.1
   methodologist: Любовь Черемисина
   website_primary: https://cheremisina.ru
   website_secondary: https://cheremisina.online

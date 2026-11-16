@@ -35,6 +35,7 @@ class DraftParser(HTMLParser):
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
         self.links: list[dict[str, str]] = []
+        self.duplicate_link_attributes = False
         self.article_cards = 0
         self.images: list[dict[str, str]] = []
         self.has_group = False
@@ -42,6 +43,10 @@ class DraftParser(HTMLParser):
         self.tr_roles: list[bool] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag.lower() == "a":
+            names = [key.lower() for key, _ in attrs]
+            if any(names.count(key) > 1 for key in ("href", "data-tracking")):
+                self.duplicate_link_attributes = True
         values = {key.lower(): value or "" for key, value in attrs}
         if values.get("em") == "group":
             self.has_group = True
@@ -150,6 +155,8 @@ def validate(payload: dict[str, Any]) -> dict[str, Any]:
     except Exception as exc:
         error(errors, f"HTML parser failed: {exc}")
 
+    if parser.duplicate_link_attributes:
+        error(errors, "links must not contain duplicate href or data-tracking attributes")
     if not parser.has_group:
         error(errors, 'HTML must preserve em="group"')
     if not parser.has_block:
@@ -181,7 +188,10 @@ def validate(payload: dict[str, Any]) -> dict[str, Any]:
         if item["material"] and ((posixpath.normpath(parts.path).rstrip("/") or "/") in GENERAL_PATHS or re.search(r"/(category|tag|search)(/|$)", parts.path)):
             error(errors, f"{prefix} points to a general section instead of a material")
         query = parse_qs(parts.query)
-        for key, values in query.items():
+        privacy_query = parse_qs(parts.query.replace(";", "&"), keep_blank_values=True)
+        for key, values in privacy_query.items():
+            if EMAIL_RE.search(key):
+                error(errors, f"{prefix} contains an email-like query key")
             if key.lower() in PII_KEYS:
                 error(errors, f"{prefix} contains prohibited PII key: {key}")
             if any(EMAIL_RE.search(value) for value in values):

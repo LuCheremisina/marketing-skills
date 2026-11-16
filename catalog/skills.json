@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "release_candidate": "2.0.7",
+  "release_candidate": "3.0.0",
   "checked_at": "2026-10-07",
   "repository": "https://github.com/LuCheremisina/marketing-skills",
   "status_vocabulary": [
@@ -14,7 +14,7 @@
       "id": "che-audit-unisender-email",
       "path": "skills/che-audit-unisender-email",
       "origin": "authored",
-      "version": "3.0.0",
+      "version": "3.0.1",
       "license": "MIT",
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
@@ -42,7 +42,7 @@
       "checked_at": "2026-10-07",
       "redistribution_allowed": true,
       "display_name": "CHE_audit-unisender-email",
-      "content_sha256": "49d5d640009bc2f0063224906fd16b370d348dc720ee7db05ad91447c4e471dd"
+      "content_sha256": "7cdcff0468282090bbeae04851499f765c63a6325d934184a17f754f69c50e21"
     },
     {
       "id": "che-brand-presence",
@@ -254,7 +254,7 @@
       "id": "che-cover-production",
       "path": "skills/che-cover-production",
       "origin": "authored",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "license": "MIT",
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
@@ -282,13 +282,13 @@
       "checked_at": "2026-10-07",
       "redistribution_allowed": true,
       "display_name": "CHE_cover-production",
-      "content_sha256": "4094bf2e9870ef3f8a42e504693fbbfb560e56021c3f382ec75a7631b5c0cb00"
+      "content_sha256": "e3732c7dc00f45b297b4ad47fc2f3cbc2abd062b778a269bb783c89fb31f2143"
     },
     {
       "id": "che-daily-ai-news-digest",
       "path": "skills/che-daily-ai-news-digest",
       "origin": "authored",
-      "version": "3.0.1",
+      "version": "4.0.0",
       "license": "MIT",
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
@@ -316,13 +316,13 @@
       "checked_at": "2026-10-12",
       "redistribution_allowed": true,
       "display_name": "CHE_daily-ai-news-digest",
-      "content_sha256": "19f50cbb314d59698b76e81ba123d38b158fbe83d8bd54408d689c33edb1902e"
+      "content_sha256": "3c5aed89eca08bc974eb8751288c3ec7be817a90dc3651d98a1552d4027a9a10"
     },
     {
       "id": "che-deep-research",
       "path": "skills/che-deep-research",
       "origin": "authored",
-      "version": "3.0.0",
+      "version": "3.0.1",
       "license": "MIT",
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
@@ -350,7 +350,7 @@
       "checked_at": "2026-10-07",
       "redistribution_allowed": true,
       "display_name": "CHE_deep-research",
-      "content_sha256": "2299b7c2a011dcf59607b1971c44bdf45938e302df78881b621164254ce987f3"
+      "content_sha256": "1fadec38dfd63c8a80584cabdba728f8b31eba524fe25b9586e2c82fb0479ca1"
     },
     {
       "id": "che-direct-analyst",
@@ -390,7 +390,7 @@
       "id": "che-direct-analytics-skill",
       "path": "skills/che-direct-analytics-skill",
       "origin": "authored",
-      "version": "3.0.0",
+      "version": "3.0.1",
       "license": "MIT",
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
@@ -418,7 +418,7 @@
       "checked_at": "2026-10-07",
       "redistribution_allowed": true,
       "display_name": "CHE_direct-analytics-skill",
-      "content_sha256": "58c28a3f29125e80ddc24248822299408bacdcae92a733909db25c3452083c9c"
+      "content_sha256": "1958ddeb8fc18b87235acd445a8a4cd8824476fd5f8cae21da156358c67271b6"
     },
     {
       "id": "che-editorial-cover-prompts",
@@ -528,7 +528,7 @@
       "id": "che-expert-article-workflow",
       "path": "skills/che-expert-article-workflow",
       "origin": "authored",
-      "version": "4.0.0",
+      "version": "4.0.1",
       "license": "MIT",
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
@@ -556,7 +556,7 @@
       "checked_at": "2026-10-07",
       "redistribution_allowed": true,
       "display_name": "CHE_expert-article-workflow",
-      "content_sha256": "f176a3c6a313655a0063cd8b1f4e78222cc7bc84690e230c7f4f50552ab57efd"
+      "content_sha256": "438fa9ccc5704ea18eaf96eb384e48cb4785ed2d3b6fecfb7d6eed3c461b0b21"
     },
     {
       "id": "che-industry-news-digest",
@@ -801,7 +801,7 @@
       "id": "che-seo-demand-analytics",
       "path": "skills/che-seo-demand-analytics",
       "origin": "authored",
-      "version": "3.0.0",
+      "version": "4.0.0",
       "license": "MIT",
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
@@ -829,13 +829,13 @@
       "checked_at": "2026-10-07",
       "redistribution_allowed": true,
       "display_name": "CHE_seo-demand-analytics",
-      "content_sha256": "f6f3510d48f4a29a0f485f584cd41a0ac6033e5e35d6755cb9a8848bce1e717d"
+      "content_sha256": "b99f6091b783cf1735e638848788b92df65ba5811a4a0cc012bee415ff6459c2"
     },
     {
       "id": "che-seo-geo-auditor",
       "path": "skills/che-seo-geo-auditor",
       "origin": "authored",
-      "version": "3.0.0",
+      "version": "4.0.1",
       "license": "MIT",
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
@@ -863,7 +863,7 @@
       "checked_at": "2026-10-07",
       "redistribution_allowed": true,
       "display_name": "CHE_seo-geo-auditor",
-      "content_sha256": "0f919dd4b349aae9c30eec71232312d4346321a05f54fa1f1e9153022f802147"
+      "content_sha256": "a0391f1d159e7e0042d2991e3c89812a117f9480bff9eedfad2d9bff3297e8ee"
     },
     {
       "id": "che-seo-geo-auditor-pro",
@@ -1006,7 +1006,7 @@
       "id": "che-telegram-content-creator",
       "path": "skills/che-telegram-content-creator",
       "origin": "authored",
-      "version": "3.0.0",
+      "version": "3.0.1",
       "license": "MIT",
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
@@ -1034,7 +1034,7 @@
       "checked_at": "2026-10-07",
       "redistribution_allowed": true,
       "display_name": "CHE_telegram-content-creator",
-      "content_sha256": "dcd3d7be48430db5f176bde555d125b1708e428cf8b63ac8bb1243f90b063845"
+      "content_sha256": "704333abd933df8f5516fab424a2317e8244778233eb5a2785f3b1193abe23a5"
     },
     {
       "id": "che-topic-planner",
@@ -1093,9 +1093,9 @@
         "grok-bot": "not_verified"
       },
       "display_name": "CHE_unisender-email-pipeline",
-      "version": "1.0.0",
+      "version": "1.0.2",
       "description": "Выполняет накопительный email-цикл: аудит, спрос, выбор материалов, письмо, UTM, QA и разрешённый черновик UniSender. Применяется для полного процесса или продолжения state; не запускается по запросу только текста письма.",
-      "content_sha256": "7b8ab9e482d33d28a2e909d2a05a811eb3d858e717925fe53b5b80cdd86d6e70",
+      "content_sha256": "769fe6d4c5b86e6db7fb5a26fa343a379cb022d31ffe10e9179b05408521540b",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-unisender-email-pipeline",
       "checked_at": "2026-10-07",
       "source_status": "published-2.0.5",
@@ -1184,7 +1184,7 @@
       "source_url": "https://github.com/cloudflare/skills/tree/41e0d19858946d18af9ee2c2feebbe2e11d829ff/skills/agents-sdk",
       "license": "Apache-2.0",
       "upstream_path": "skills/agents-sdk",
-      "content_sha256": "45f930c1fd47eedc66342d5f72f51352b887950bd96f24db0e9f26c7d56ba37d",
+      "content_sha256": "5e3e6f49bb224d744868f0e65da39ab4c1ec5ccfa56444c263c77ff96f7d773f",
       "upstream_tree_sha256": "8f0361c8f361bd0c1276c988e111ee61046e8e8fe614dabd79b45e566abd4857",
       "compatibility": {
         "codex": "not_verified",
@@ -1195,7 +1195,7 @@
       },
       "author": "cloudflare",
       "adaptation": "portable metadata and resource navigation only; see ADAPTATION.md",
-      "adaptation_version": "1.0.0",
+      "adaptation_version": "1.0.1",
       "upstream_files": [
         "SKILL.md",
         "references/browse-the-web.md",
@@ -1305,7 +1305,7 @@
       "source_url": "https://github.com/nick-vels/skills/tree/d6427a85557c16f1f3204a50923618e645fc7756/skills/autopilot",
       "license": "MIT",
       "upstream_path": "skills/autopilot",
-      "content_sha256": "27705f590751f9535faeeeb13d0f0eb460978e51ea97b8c6cc2450cb14d87aaf",
+      "content_sha256": "f4746b2520d4fbf3e00d30c8f910f88d0de1f3ba99fb8923d95eea404d07cd91",
       "upstream_tree_sha256": "05277792643f81068234ac6c85697d16690275bca90c88a362e44c8e59822dbd",
       "compatibility": {
         "codex": "not_verified",
@@ -1315,8 +1315,8 @@
         "grok-bot": "not_verified"
       },
       "author": "nick-vels",
-      "adaptation": "portable metadata and resource navigation only; see ADAPTATION.md",
-      "adaptation_version": "1.0.0",
+      "adaptation": "portable packaging and missing plan-artifact gate; see ADAPTATION.md",
+      "adaptation_version": "1.0.1",
       "upstream_files": [
         "SKILL.md",
         "phases/0-instruments.md",
@@ -1342,7 +1342,7 @@
         "tools/ap.py"
       ],
       "original_name": "autopilot",
-      "normalization_notes": "portable metadata and resource navigation only; see ADAPTATION.md",
+      "normalization_notes": "portable packaging and missing plan-artifact gate; see ADAPTATION.md",
       "upstream_file_hashes": {
         "SKILL.md": {
           "git_blob_sha1": "f9a07f67fe6cdb98c95d5c48550b79b9758a31d4"
@@ -1434,7 +1434,7 @@
       "source_url": "https://github.com/cloudflare/skills/tree/41e0d19858946d18af9ee2c2feebbe2e11d829ff/skills/cloudflare",
       "license": "Apache-2.0",
       "upstream_path": "skills/cloudflare",
-      "content_sha256": "de111c273ff3f02da09222c6c7eb343bf5fe3761b149d02a2b7b433707809539",
+      "content_sha256": "fd5d2fa8883fd48c12b0ee5d4cca37d39f212fd8db4907ff584e601124bcd3d8",
       "upstream_tree_sha256": "e08e47f9c8779eee4db16729dad4d2cda73b2a77600f32cc12e7b7e3745a57c0",
       "compatibility": {
         "codex": "not_verified",
@@ -1445,7 +1445,7 @@
       },
       "author": "cloudflare",
       "adaptation": "portable metadata and resource navigation only; see ADAPTATION.md",
-      "adaptation_version": "1.0.1",
+      "adaptation_version": "1.0.2",
       "upstream_files": [
         "SKILL.md",
         "references/ai-gateway/README.md",
@@ -2571,7 +2571,7 @@
       "source_url": "https://github.com/cloudflare/skills/tree/41e0d19858946d18af9ee2c2feebbe2e11d829ff/skills/cloudflare-email-service",
       "license": "Apache-2.0",
       "upstream_path": "skills/cloudflare-email-service",
-      "content_sha256": "d25274bcb63e9bc418259a3d0a1f208457b05de69b371e7ab9c630a03da42d0f",
+      "content_sha256": "4ae9b6171b79a114af6eb05882a7ee71daf938620e6b21cb2603e0aedbd248bf",
       "upstream_tree_sha256": "6e5e42e9daddc562dd16b341d61c66ed3f9989c4ba04dbe0312df9a79c9497b3",
       "compatibility": {
         "codex": "not_verified",
@@ -2582,7 +2582,7 @@
       },
       "author": "cloudflare",
       "adaptation": "portable metadata and resource navigation only; see ADAPTATION.md",
-      "adaptation_version": "1.0.0",
+      "adaptation_version": "1.0.1",
       "upstream_files": [
         "SKILL.md",
         "references/cli-and-mcp.md",
@@ -2720,7 +2720,7 @@
       "source_url": "https://github.com/cloudflare/skills/tree/41e0d19858946d18af9ee2c2feebbe2e11d829ff/skills/durable-objects",
       "license": "Apache-2.0",
       "upstream_path": "skills/durable-objects",
-      "content_sha256": "1270decacd2edbfa6ed261018256435a1b6b24693e12513e33887ee757db76c9",
+      "content_sha256": "497940e39e9198330681ad6c3a90df9f596bcbcc6d6c5b86cf229cb0b0d0a861",
       "upstream_tree_sha256": "d503440a9907ceaf19a63c7f49052a16eb2d877eb7a1358b4f44e5090087d2ff",
       "compatibility": {
         "codex": "not_verified",
@@ -2731,7 +2731,7 @@
       },
       "author": "cloudflare",
       "adaptation": "portable metadata and resource navigation only; see ADAPTATION.md",
-      "adaptation_version": "1.0.0",
+      "adaptation_version": "1.0.1",
       "upstream_files": [
         "SKILL.md",
         "references/rules.md",
@@ -2911,7 +2911,7 @@
       "source_url": "https://github.com/cloudflare/skills/tree/41e0d19858946d18af9ee2c2feebbe2e11d829ff/skills/turnstile-spin",
       "license": "Apache-2.0",
       "upstream_path": "skills/turnstile-spin",
-      "content_sha256": "49ddad6a0f65ec7f2188abcf202ac4507202a5fab120b0598d9fa54c370b1508",
+      "content_sha256": "5faf6123665f902d253c1799eed29031989f3c34694caad9ed5cc521a543932a",
       "upstream_tree_sha256": "1bf58659264a5196cc0c518f479bd9af6859e4737c0203140710325a8a65a94c",
       "compatibility": {
         "codex": "not_verified",
@@ -2921,8 +2921,8 @@
         "grok-bot": "not_verified"
       },
       "author": "cloudflare",
-      "adaptation": "portable metadata and resource navigation only; see ADAPTATION.md",
-      "adaptation_version": "1.0.1",
+      "adaptation": "portable packaging, auth-probe cleanup, local persistence, and Bash invocation; see ADAPTATION.md",
+      "adaptation_version": "1.0.5",
       "upstream_files": [
         "README.md",
         "SKILL.md",
@@ -2939,7 +2939,7 @@
         "tests/validation.md"
       ],
       "original_name": "turnstile-spin",
-      "normalization_notes": "portable metadata and resource navigation only; see ADAPTATION.md",
+      "normalization_notes": "portable packaging, auth-probe cleanup, local persistence, and Bash invocation; see ADAPTATION.md",
       "upstream_file_hashes": {
         "README.md": {
           "git_blob_sha1": "e69238595d2b3d9c30983404cc042c3ea1f2f10b"
@@ -3166,5 +3166,5 @@
       "reason": "Root Remotion License grants eligible video/image-production use and modification for own use/contributions, prohibits specified derivative relicensing, and provides no general standalone skill-library redistribution grant. No permissive package-specific skill license found; obtain publisher terms or install upstream."
     }
   ],
-  "published_release": "2.0.7"
+  "published_release": "3.0.0"
 }

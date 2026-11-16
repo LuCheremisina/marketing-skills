@@ -190,29 +190,41 @@ def validate_campaign(campaign: dict[str, Any], index: int) -> list[str]:
             errors.append(f"{link_prefix}.utm_content is required when utm is complete")
         if utm_content:
             utm_contents.append(str(utm_content))
-        if source_status.get("utm") == "complete":
-            url = link.get("url")
-            if not isinstance(url, str) or not url:
+        url = link.get("url")
+        if not isinstance(url, str) or not url:
+            if source_status.get("utm") == "complete":
                 errors.append(f"{link_prefix}.url is required when utm is complete")
+            elif url is not None and not isinstance(url, str):
+                errors.append(f"{link_prefix}.url must be a string or null")
+        else:
+            try:
+                raw_query = urlparse(url).query
+                query = parse_qs(raw_query, keep_blank_values=True)
+                # Some consumers also treat semicolons as query separators.
+                privacy_query = parse_qs(raw_query.replace(";", "&"), keep_blank_values=True)
+            except ValueError:
+                errors.append(f"{link_prefix}.url must be a valid URL")
             else:
-                query = parse_qs(urlparse(url).query)
-                for query_key, query_values in query.items():
+                for query_key, query_values in privacy_query.items():
                     if query_key.lower() in PII_QUERY_KEYS:
                         errors.append(f"{link_prefix}.url contains prohibited PII query key: {query_key}")
+                    if EMAIL_VALUE_PATTERN.search(query_key):
+                        errors.append(f"{link_prefix}.url contains an email-like query key")
                     if any(EMAIL_VALUE_PATTERN.search(value) for value in query_values):
                         errors.append(f"{link_prefix}.url contains an email-like query value")
-                expected = {
-                    "utm_source": "unisender",
-                    "utm_medium": "email",
-                    "utm_campaign": campaign.get("utm_campaign"),
-                    "utm_content": utm_content,
-                }
-                for parameter, expected_value in expected.items():
-                    actual = query.get(parameter, [None])[0]
-                    if not expected_value or actual != str(expected_value):
-                        errors.append(
-                            f"{link_prefix}.url must contain {parameter}={expected_value} when utm is complete"
-                        )
+                if source_status.get("utm") == "complete":
+                    expected = {
+                        "utm_source": "unisender",
+                        "utm_medium": "email",
+                        "utm_campaign": campaign.get("utm_campaign"),
+                        "utm_content": utm_content,
+                    }
+                    for parameter, expected_value in expected.items():
+                        actual = query.get(parameter, [None])[0]
+                        if not expected_value or actual != str(expected_value):
+                            errors.append(
+                                f"{link_prefix}.url must contain {parameter}={expected_value} when utm is complete"
+                            )
         for field in LINK_COUNT_FIELDS:
             value = link.get(field)
             if value is not None and (not isinstance(value, int) or isinstance(value, bool) or value < 0):

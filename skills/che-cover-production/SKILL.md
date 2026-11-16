@@ -3,7 +3,7 @@ name: che-cover-production
 description: "Создаёт готовые обложки статей и новостей по тексту или URL: визуальная метафора, генерация, проверка текста и экспорт PNG/WebP. Применять для запроса готового изображения; для одного промпта использовать che-editorial-cover-prompts."
 license: MIT
 metadata:
-  version: 2.0.0
+  version: 2.0.1
   methodologist: Любовь Черемисина
   website_primary: https://cheremisina.ru
   website_secondary: https://cheremisina.online
@@ -41,5 +41,7 @@ metadata:
 
 - Обычный WebP: [scripts/export_cover.py](scripts/export_cover.py) сохраняет исходник и применяет заданные размеры/лимит.
 - PNG-мастер и WebP: [scripts/export_article_cover.py](scripts/export_article_cover.py), Python 3.10+ и Pillow; параметры `--input`, `--slug`, `--output-dir`, `--png-width`, `--png-height`, `--webp-width`, `--webp-height`, `--max-kb`. Предустановки 1600×900 и 1280×720 — пример, параметры площадки имеют приоритет. Проверить смысловое кадрирование после экспорта.
+
+При ошибке экспорта проверить, не остался ли частичный файл текущего запуска; перед повтором выбрать свободные пути.
 
 Если инструмента генерации нет, вернуть промпт и отметить файлы незавершёнными. Не добавлять фирменный стиль методолога без выбранного профиля.

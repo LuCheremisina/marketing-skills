@@ -3,7 +3,7 @@ name: che-expert-article-workflow
 description: "Создаёт и редактирует экспертную статью: источники, бриф, текст, QA, HTML и метаданные. Применяется для доказательного экспертного материала в заданном бренде; не публикует без поручения."
 license: MIT
 metadata:
-  version: 4.0.0
+  version: 4.0.1
   methodologist: Любовь Черемисина
   website_primary: https://cheremisina.ru
   website_secondary: https://cheremisina.online

@@ -1,3 +1,5 @@
+> Modified for the Cheremisina distribution; see ADAPTATION.md in the skill root.
+
 # DO Storage Testing
 
 Choose tests around persistence, rollback, instance isolation, and scheduled-work behavior. Inspect installed test packages and configuration before changing the suite.

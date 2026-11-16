@@ -60,7 +60,7 @@ def save_webp(image: Image.Image, path: Path, max_bytes: int) -> tuple[int, int]
 
 
 def ensure_available(*paths: Path) -> None:
-    collisions = [str(path) for path in paths if path.exists()]
+    collisions = [str(path) for path in paths if path.exists() or path.is_symlink()]
     if collisions:
         raise SystemExit(
             "Refusing to overwrite existing file(s): " + ", ".join(collisions)
@@ -95,7 +95,8 @@ def main() -> None:
     png = crop_16_9(source, (args.png_width, args.png_height))
     webp = crop_16_9(png, (args.webp_width, args.webp_height))
     quality, webp_bytes = save_webp(webp, webp_path, args.max_kb * 1024)
-    png.save(png_path, "PNG", optimize=True, icc_profile=None, exif=b"")
+    with png_path.open("xb") as output:
+        png.save(output, "PNG", optimize=True, icc_profile=None, exif=b"")
 
     print(f"png={png_path} dimensions={png.width}x{png.height} colorspace=sRGB")
     print(

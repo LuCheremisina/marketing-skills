@@ -49,7 +49,13 @@ def strip_html(text: str) -> str:
 
 
 def is_https(value) -> bool:
-    return isinstance(value, str) and urlparse(value).scheme == "https"
+    if not isinstance(value, str) or any(ch.isspace() for ch in value) or re.search(r'%(?![0-9a-fA-F]{2})', value):
+        return False
+    try:
+        parsed = urlparse(value)
+        return bool(parsed.scheme == "https" and parsed.hostname and parsed.username is None and parsed.password is None and parsed.port != 0)
+    except ValueError:
+        return False
 
 
 def graph_nodes(data) -> list[dict]:

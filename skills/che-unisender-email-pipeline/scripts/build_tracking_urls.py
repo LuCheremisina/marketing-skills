@@ -42,7 +42,11 @@ def validate_url(url: str, placement_id: str) -> tuple[Any, list[tuple[str, str]
     if parts.scheme != "https" or not parts.netloc:
         raise ValueError(f"{placement_id}: URL must be absolute HTTPS")
     query = parse_qsl(parts.query, keep_blank_values=True)
-    for key, value in query:
+    # Check alternate query separators without changing the original URL semantics.
+    privacy_query = parse_qsl(parts.query.replace(";", "&"), keep_blank_values=True)
+    for key, value in privacy_query:
+        if EMAIL_RE.search(key):
+            raise ValueError(f"{placement_id}: email-like query key is prohibited")
         if key.lower() in PII_KEYS:
             raise ValueError(f"{placement_id}: prohibited PII query key: {key}")
         if EMAIL_RE.search(value):

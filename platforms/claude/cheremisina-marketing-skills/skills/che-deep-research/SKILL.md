@@ -3,7 +3,7 @@ name: che-deep-research
 license: MIT
 description: "Проводит глубокое исследование рынка, технологии или продукта с проверкой источников и утверждений. Применяется для комплексного сравнения, трендов и многостороннего отчёта; не применяется к вопросу, решаемому одним поиском."
 metadata:
-  version: 3.0.0
+  version: 3.0.1
   methodologist: Любовь Черемисина
   website_primary: https://cheremisina.ru
   website_secondary: https://cheremisina.online
@@ -75,7 +75,7 @@ metadata:
 
 **Скрипты**: запускать по абсолютному пути из произвольной папки результата; относительные пути ниже разрешать от установленного корня навыка:
 - `python scripts/validate_report.py --report [путь]`
-- `python scripts/verify_citations.py --report [путь]`
+- `python scripts/verify_citations.py --report [путь] --strict`
 - `python scripts/md_to_html.py [путь_к_markdown]`
 
 ---

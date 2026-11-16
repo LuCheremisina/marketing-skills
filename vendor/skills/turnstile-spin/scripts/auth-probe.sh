@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Modified for the Cheremisina distribution; see ADAPTATION.md.
 # Probes Cloudflare API auth state for the Turnstile Spin agent.
 #
 # Reads:
@@ -13,6 +14,8 @@
 #   "missing_scope"     ; token lacks Account.Turnstile:Edit on the selected account
 #   "multiple_accounts" ; token covers >1 accounts and $CLOUDFLARE_ACCOUNT_ID is unset
 #   "account_mismatch"  ; $CLOUDFLARE_ACCOUNT_ID is set but is not in the token's accounts list
+#   "cleanup_failed"    ; an unexpectedly created widget still needs manual cleanup
+#   "cleanup_unknown"   ; success response omitted a usable sitekey; inspect account
 #   "network_failure"   ; the Edit-scope probe could not reach the Cloudflare API
 #   "upstream_failure"  ; the Edit-scope probe returned an unexpected upstream response
 #
@@ -223,6 +226,8 @@ if isinstance(data, dict):
         sk = result.get("sitekey", "")
         if isinstance(sk, str) and sk:
             created_sitekey = sk
+    if data.get("success") is True and not created_sitekey:
+        verdict = "cleanup_unknown"
 print(f"{verdict}|{created_sitekey}")
 ' "$edit_code")
 unset probe_body probe_response
@@ -242,11 +247,16 @@ if [ -n "$created_sitekey" ]; then
   )
   case "$cleanup_code" in
     2*) echo "auth-probe: cleanup DELETE for widget $created_sitekey succeeded (HTTP $cleanup_code)." >&2 ;;
-    *)  echo "auth-probe: cleanup DELETE for widget $created_sitekey FAILED (HTTP $cleanup_code). Please remove it from the Turnstile dashboard manually." >&2 ;;
+    *)  echo "auth-probe: cleanup DELETE for widget $created_sitekey FAILED (HTTP $cleanup_code). Please remove it from the Turnstile dashboard manually." >&2
+        emit "$(python3 -I -c 'import json,sys; print(json.dumps({"status":"cleanup_failed","account_id":sys.argv[1],"sitekey":sys.argv[2],"http_code":sys.argv[3]}))' "$account_id" "$created_sitekey" "$cleanup_code")" ;;
   esac
 fi
 
 case "$verdict" in
+  cleanup_unknown)
+    echo "auth-probe: success response omitted a sitekey; inspect the account for an unexpected widget before retrying." >&2
+    emit "$(python3 -I -c 'import json,sys; print(json.dumps({"status":"cleanup_unknown","account_id":sys.argv[1]}))' "$account_id")"
+    ;;
   scope_ok)
     emit "$(python3 -I -c '
 import json, sys

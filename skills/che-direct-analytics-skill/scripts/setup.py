@@ -68,7 +68,7 @@ def prompt(label: str, default: str = "", secret: bool = False) -> str:
     """Интерактивный prompt с дефолтным значением."""
     import getpass
     if default:
-        label = f"{label} [{default}]"
+        label = f"{label} [сохранено; Enter — оставить]" if secret else f"{label} [{default}]"
     label += ": "
     if secret:
         value = getpass.getpass(label)

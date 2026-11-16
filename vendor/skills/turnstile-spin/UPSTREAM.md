@@ -8,4 +8,4 @@ Pinned commit: `41e0d19858946d18af9ee2c2feebbe2e11d829ff`.
 
 License: Apache-2.0; original license text is included.
 
-Original methodology and executable code are preserved. Portable packaging changes are recorded in ADAPTATION.md. Cross-platform execution is not verified. This package is not an original skill by the library methodologist.
+Original methodology is retained; executable and packaging adaptations are recorded in ADAPTATION.md. Cross-platform execution is not verified. This package is not an original skill by the library methodologist.

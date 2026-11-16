@@ -1,3 +1,5 @@
+> Modified for the Cheremisina distribution; see ADAPTATION.md in the skill root.
+
 ## Contents
 
 - [CLI, MCP, and Project Setup](#cli-mcp-and-project-setup)

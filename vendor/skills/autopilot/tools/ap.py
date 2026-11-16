@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Modified for the Cheremisina distribution; see ADAPTATION.md in the skill root.
 """Учёт прогона Autopilot: состояние, дашборд, сервер — одной командой на событие.
 
 Агент не правит .autopilot/state.js руками. Каждое событие прогона — один вызов:
@@ -280,9 +281,19 @@ def check_plan(state):
     """G3 механически: каждое живое требование — в таске, каждый таск — от требования,
     у каждого таска зона и волна, в одной волне зоны не пересекаются."""
     problems = []
-    rows = manifest_rows(state) or []
-    publish_tickets(state)
-    tickets = state.get("tickets") or []
+    rows = manifest_rows(state)
+    if rows is None:
+        problems.append("не найден manifest.md с требованиями")
+        rows = []
+    elif not any(not rid.startswith("D") for rid, _ in rows):
+        problems.append("в manifest.md нет распознанных требований")
+    files = glob.glob(os.path.join(run_dir(state), "tickets", "*.md"))
+    if not files:
+        problems.append("в плане нет файлов тасков")
+        tickets = []
+    else:
+        publish_tickets(state)
+        tickets = state.get("tickets") or []
     named = {r for t in tickets for r in t["requirements"]}
     base = {r.split(".")[0] for r in named}
     for rid, st in rows:

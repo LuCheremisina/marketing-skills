@@ -13,7 +13,8 @@ html='<!doctype html><html><div class="news-card"></div><div class="news-card"><
 class Safety(unittest.TestCase):
  def setUp(self):
   self.temp=tempfile.TemporaryDirectory();self.path=Path(self.temp.name)/'bundle.json'
-  self.path.write_text(json.dumps({'digest':text,'html':html,'titles':['one','two'],'entries':[]}))
+  context={'date':'2026-11-16','footer_url':'','footer_label':''}
+  self.path.write_text(json.dumps({'digest':text,'html':c.generate_html_digest(text,render_context=context),'render_context':context,'titles':['one','two'],'entries':[]}))
   self.gate=patch.object(c,'MIN_NEWS',2);self.gate.start()
  def tearDown(self):self.gate.stop();self.temp.cleanup()
  def test_prepare_even_legacy_dry_run_zero_cannot_deliver(self):
@@ -44,4 +45,35 @@ class Safety(unittest.TestCase):
   with patch.object(sys,'argv',['collect_digest.py','--config',str(p)]),patch.object(m,'fetch_rss_entries',return_value=[{}]),patch.object(m,'cluster_entries',return_value=[{}]),patch.object(m,'format_digest_raw',return_value='draft'),patch.object(m,'process_with_llm',side_effect=AssertionError('No OpenAI')):
    m.main()
   with self.assertRaises(ValueError):m.load_config(R/'che-industry-news-digest/references/config.example.json')
+ def test_escape_untrusted_fields_and_preserve_safe_url(self):
+  from html.parser import HTMLParser
+  data=('1. <b>synthetic title</b>\n<b>description</b>\n'
+        'Источник: <b>source</b> | https://news.fixture.test/?a=1&b=2\n'
+        'Категория: <b>category</b> | Для кого: <b>audience</b>\n'
+        'Что это значит для бизнеса: <b>insight</b>\n'
+        '2. Another synthetic title\nИсточник: Fixture | https://news.fixture.test/two\n'
+        '📊 Тренды дня:\n— <b>trend</b>\n')
+  context={'date':'2026-11-16','footer_url':'https://news.fixture.test/?a=1&b=2','footer_label':'<b>footer</b>'}
+  rendered=c.generate_html_digest(data,render_context=context)
+  class Parser(HTMLParser):
+   def __init__(self):super().__init__();self.bad=[];self.links=[]
+   def handle_starttag(self,tag,attrs):
+    if tag=='b':self.bad.append(tag)
+    if tag=='a':self.links.append(dict(attrs))
+  parsed=Parser();parsed.feed(rendered);self.assertEqual(parsed.bad,[])
+  for field in ['synthetic title','description','source','category','audience','insight','trend','footer']:
+   self.assertIn('&lt;b&gt;'+field+'&lt;/b&gt;',rendered)
+  self.assertEqual(parsed.links[0]['href'],'https://news.fixture.test/?a=1&b=2')
+ def test_reject_unsafe_url_and_unverified_bundle(self):
+  for url in ['javascript:alert(1)','https://fixture.test/" onclick="x','https://u:p@example.invalid/','https://fixture.test/%zz','https://fixture.test:99999/']:
+   with self.subTest(url=url):self.assertFalse(c.safe_http_url(url))
+  bundle=json.loads(self.path.read_text())
+  for invalid in [dict(bundle,html=bundle['html']+'<b>tampered</b>'),{k:v for k,v in bundle.items() if k!='render_context'}]:
+   self.path.write_text(json.dumps(invalid));transport=Mock()
+   with self.assertRaises(ValueError):s.deliver(self.path,[123],True,transport,'TEST')
+   transport.assert_not_called()
+ def test_each_card_requires_one_source(self):
+  bad=('1. First synthetic title\nИсточник: X | https://news.fixture.test/a\n'
+       'Источник: X | https://news.fixture.test/b\n2. Second synthetic title\n')
+  self.assertTrue(c.validate_generated_digest(bad,c.generate_html_digest(bad)))
 if __name__=='__main__':unittest.main()

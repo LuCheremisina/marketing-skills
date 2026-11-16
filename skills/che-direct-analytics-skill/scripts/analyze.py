@@ -54,7 +54,7 @@ def _derived(group: dict[str, Any]) -> dict[str, Any]:
     business_rows = group["business_rows"]
     matched_cost = group["matched_cost"]
     revenue = group["MetrikaRevenue"]
-    transactions = group["MetrikaTransactions"]
+    transactions = group["MetrikaTransactions"] if not group["missing_transactions_rows"] else None
     output = {
         "Impressions": int(impressions),
         "Clicks": int(clicks),
@@ -62,7 +62,7 @@ def _derived(group: dict[str, Any]) -> dict[str, Any]:
         "DirectCTR": round(clicks / impressions * 100, 4) if impressions else None,
         "DirectCPC": round(cost / clicks, 2) if clicks else None,
         "MetrikaRevenue": round(revenue, 2) if business_rows else None,
-        "MetrikaTransactions": round(transactions, 4) if business_rows else None,
+        "MetrikaTransactions": round(transactions, 4) if business_rows and transactions is not None else None,
         "matched_direct_cost": round(matched_cost, 2) if business_rows else None,
         "attribution_coverage": round(business_rows / group["rows"], 4) if group["rows"] else 0,
     }
@@ -70,7 +70,7 @@ def _derived(group: dict[str, Any]) -> dict[str, Any]:
         output["CrossSourceROAS"] = round(revenue / matched_cost * 100, 2)
         output["CrossSourceDRR"] = round(matched_cost / revenue * 100, 2) if revenue else None
         output["MetrikaCPA"] = round(matched_cost / transactions, 2) if transactions else None
-        output["MetrikaCR"] = round(transactions / group["matched_clicks"] * 100, 4) if group["matched_clicks"] else None
+        output["MetrikaCR"] = round(transactions / group["matched_clicks"] * 100, 4) if transactions is not None and group["matched_clicks"] else None
         output["AOV"] = round(revenue / transactions, 2) if transactions else None
     else:
         output.update({metric: None for metric in ("CrossSourceROAS", "CrossSourceDRR", "MetrikaCPA", "MetrikaCR", "AOV")})
@@ -92,7 +92,10 @@ def aggregate(rows: list[dict[str, Any]], dimension: str, field: str | None = No
             group["matched_cost"] += number(row.get("Cost"))
             group["matched_clicks"] += number(row.get("Clicks"))
             group["MetrikaRevenue"] += number(row.get("MetrikaRevenue"))
-            group["MetrikaTransactions"] += number(row.get("MetrikaTransactions"))
+            if row.get("MetrikaTransactions") is None:
+                group["missing_transactions_rows"] += 1
+            else:
+                group["MetrikaTransactions"] += number(row["MetrikaTransactions"])
     result = []
     for key, group in groups.items():
         item = {dimension: key, **_derived(group)}

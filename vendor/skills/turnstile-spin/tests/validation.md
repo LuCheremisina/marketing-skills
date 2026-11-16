@@ -1,5 +1,7 @@
 # Skill validation cases
 
+> Modified for the Cheremisina distribution; see ADAPTATION.md in the skill root.
+
 These cases match the assertions in the Turnstile Spin PRD. Run them after editing this skill to confirm an agent loading it can still execute the wizard end-to-end.
 
 ## Test 1: Dummy Siteverify returns a structured error
@@ -22,7 +24,7 @@ Expected exit code: 0.
 
 ```sh
 printf '%s' "$WIDGET_SECRET" |
-  scripts/validate.sh \
+  bash scripts/validate.sh \
     --sitekey "$SITEKEY" \
     --account-id "$ACCOUNT_ID" \
     --expected-domains '["example.com","localhost","127.0.0.1"]'

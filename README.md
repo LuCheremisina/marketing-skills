@@ -1,6 +1,6 @@
 # AI Marketing Skills — research, SEO/GEO, analytics & content
 
-> **Published v2.0.7:** 34 authored CHE_ workflows + 14 licensed engineering skills. [Release](https://github.com/LuCheremisina/marketing-skills/releases/tag/v2.0.7) · [Migration](docs/MIGRATION-2.0.md) · [MCP Panel connections](docs/MCP-CONNECTIONS.md).
+> **Published v3.0.0:** 34 authored CHE_ workflows + 14 licensed engineering skills. [Release](https://github.com/LuCheremisina/marketing-skills/releases/tag/v3.0.0) · [Migration](docs/MIGRATION-2.0.md) · [MCP Panel connections](docs/MCP-CONNECTIONS.md).
 
 **Install the complete plugin or one skill:** [Codex, Claude Code and Cursor commands](#quick-install) · [Claude / Cowork and ChatGPT](docs/INSTALL-PLUGIN.md).
 
@@ -35,7 +35,7 @@ codex plugin add marketing-skills@cheremisina-marketing
 
 In Codex with a plugin browser, open **Plugins → Add plugin marketplace**, enter `LuCheremisina/marketing-skills`, then install **Marketing Skill Cheremisina**. If that control or command is unavailable in your version, use the Skills route below.
 
-**Claude / Cowork** — open **Customize → Plugins → Add → Add marketplace → Add from a repository**, enter `https://github.com/LuCheremisina/marketing-skills`, then select and install the plugin. Alternatively, [download the ZIP with all 34 skills](https://github.com/LuCheremisina/marketing-skills/releases/download/v2.0.7/marketing-skills-plugin-2.0.7.zip) and use **Upload a plugin**.
+**Claude / Cowork** — open **Customize → Plugins → Add → Add marketplace → Add from a repository**, enter `https://github.com/LuCheremisina/marketing-skills`, then select and install the plugin. Alternatively, [download the ZIP with all 34 skills](https://github.com/LuCheremisina/marketing-skills/releases/download/v3.0.0/marketing-skills-plugin-3.0.0.zip) and use **Upload a plugin**.
 
 **ChatGPT** — download the same ZIP and ask **Plugin Creator** to create a private personal plugin from it; open the returned plugin page and install it. Your account needs Plugins / Plugin Creator support. Attaching a ZIP to an ordinary chat does not install a plugin. [Full platform instructions](docs/INSTALL-PLUGIN.md).
 
@@ -63,7 +63,7 @@ npx skills add LuCheremisina/marketing-skills
 npx skills add LuCheremisina/marketing-skills --skill che-deep-research
 ```
 
-Select your client if prompted. This installs into the current project by default. For a global Codex installation, for example, add `-a codex -g`. You can also import the [individual Deep Research ZIP](https://github.com/LuCheremisina/marketing-skills/releases/download/v2.0.7/che-deep-research-3.0.0.zip) through a supported Skills interface.
+Select your client if prompted. This installs into the current project by default. For a global Codex installation, for example, add `-a codex -g`. You can also import the [individual Deep Research ZIP](https://github.com/LuCheremisina/marketing-skills/releases/download/v3.0.0/che-deep-research-3.0.1.zip) through a supported Skills interface.
 
 ### Ask your agent to install
 
@@ -147,7 +147,7 @@ Include your client, chosen skill and a synthetic example. Keep account credenti
 
 The packages follow the [Agent Skills format](https://agentskills.io/specification). Marketing workflows are MIT licensed; engineering packages retain their original licences. Brand, business and author profiles are supplied at run time, so the public packages contain no client profiles or credentials.
 
-Current published release: [**v2.0.7**](https://github.com/LuCheremisina/marketing-skills/releases/tag/v2.0.7). Individual versions and sources are tracked in the [catalogue](catalog/skills.json). Verify downloads using the release manifest and SHA-256 checksums.
+Current published release: [**v3.0.0**](https://github.com/LuCheremisina/marketing-skills/releases/tag/v3.0.0). Individual versions and sources are tracked in the [catalogue](catalog/skills.json). Verify downloads using the release manifest and SHA-256 checksums.
 
 ## Choose a workflow
 
