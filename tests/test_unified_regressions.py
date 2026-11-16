@@ -67,5 +67,23 @@ class CoverExportTests(unittest.TestCase):
             self.assertEqual(source.read_bytes(), before)
             self.assertEqual((base / 'result/synthetic-cover-cover.png').read_bytes(), output_before)
 
+    def test_article_png_rejects_dangling_symlink(self):
+        try:
+            from PIL import Image
+        except ImportError:
+            self.skipTest('Pillow unavailable; image execution not verified')
+        bases = [ROOT/'skills', ROOT/'platforms/claude/cheremisina-marketing-skills/skills']
+        for base in bases:
+            with self.subTest(base=base), tempfile.TemporaryDirectory() as tmp:
+                folder = Path(tmp); output = folder/'out'; output.mkdir()
+                source = folder/'source.png'; Image.new('RGB', (160, 90), 'white').save(source)
+                link = output/'synthetic-cover.png'; outside = folder/'outside.png'; link.symlink_to(outside)
+                script = base/'che-cover-production/scripts/export_article_cover.py'
+                result = subprocess.run([sys.executable, str(script), '--input', str(source), '--slug', 'synthetic', '--output-dir', str(output), '--png-width', '160', '--png-height', '90', '--webp-width', '80', '--webp-height', '45'], capture_output=True, text=True)
+                self.assertNotEqual(result.returncode, 0)
+                self.assertTrue(link.is_symlink())
+                self.assertFalse(outside.exists())
+                self.assertFalse((output/'synthetic-cover.webp').exists())
+
 if __name__ == '__main__':
     unittest.main()

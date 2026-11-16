@@ -19,3 +19,7 @@ Credential documentation uses an unmistakable short placeholder. Turnstile crede
 If the authorization probe unexpectedly creates a widget and its cleanup fails, the script returns `cleanup_failed` with recovery identifiers instead of `ok`. A successful response without a usable sitekey returns `cleanup_unknown`. The workflow stops for manual inspection or cleanup. Original Cloudflare attribution and license are retained.
 
 Modified upstream files carry per-file distribution notices.
+
+## Packaging adaptation 1.0.3
+
+The persistence helper copies the current local reviewed bundle, preserving its adaptations and attribution, rather than fetching an unpinned upstream checkout. It rejects links in the source and reports copy failures without claiming success.
