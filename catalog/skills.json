@@ -14,7 +14,7 @@
       "id": "che-audit-unisender-email",
       "path": "skills/che-audit-unisender-email",
       "origin": "authored",
-      "version": "3.0.0",
+      "version": "3.0.1",
       "license": "MIT",
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
@@ -42,7 +42,7 @@
       "checked_at": "2026-10-07",
       "redistribution_allowed": true,
       "display_name": "CHE_audit-unisender-email",
-      "content_sha256": "49d5d640009bc2f0063224906fd16b370d348dc720ee7db05ad91447c4e471dd"
+      "content_sha256": "7cdcff0468282090bbeae04851499f765c63a6325d934184a17f754f69c50e21"
     },
     {
       "id": "che-brand-presence",
@@ -1093,9 +1093,9 @@
         "grok-bot": "not_verified"
       },
       "display_name": "CHE_unisender-email-pipeline",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Выполняет накопительный email-цикл: аудит, спрос, выбор материалов, письмо, UTM, QA и разрешённый черновик UniSender. Применяется для полного процесса или продолжения state; не запускается по запросу только текста письма.",
-      "content_sha256": "7b8ab9e482d33d28a2e909d2a05a811eb3d858e717925fe53b5b80cdd86d6e70",
+      "content_sha256": "711bb5265661791ce63301091c1c97215811b5db4718b9e77a3e1572dddef63a",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-unisender-email-pipeline",
       "checked_at": "2026-10-07",
       "source_status": "published-2.0.5",
