@@ -13,6 +13,7 @@
 #   "missing_scope"     ; token lacks Account.Turnstile:Edit on the selected account
 #   "multiple_accounts" ; token covers >1 accounts and $CLOUDFLARE_ACCOUNT_ID is unset
 #   "account_mismatch"  ; $CLOUDFLARE_ACCOUNT_ID is set but is not in the token's accounts list
+#   "cleanup_failed"    ; an unexpectedly created widget still needs manual cleanup
 #   "network_failure"   ; the Edit-scope probe could not reach the Cloudflare API
 #   "upstream_failure"  ; the Edit-scope probe returned an unexpected upstream response
 #
@@ -242,7 +243,8 @@ if [ -n "$created_sitekey" ]; then
   )
   case "$cleanup_code" in
     2*) echo "auth-probe: cleanup DELETE for widget $created_sitekey succeeded (HTTP $cleanup_code)." >&2 ;;
-    *)  echo "auth-probe: cleanup DELETE for widget $created_sitekey FAILED (HTTP $cleanup_code). Please remove it from the Turnstile dashboard manually." >&2 ;;
+    *)  echo "auth-probe: cleanup DELETE for widget $created_sitekey FAILED (HTTP $cleanup_code). Please remove it from the Turnstile dashboard manually." >&2
+        emit "$(python3 -I -c 'import json,sys; print(json.dumps({"status":"cleanup_failed","account_id":sys.argv[1],"sitekey":sys.argv[2],"http_code":sys.argv[3]}))' "$account_id" "$created_sitekey" "$cleanup_code")" ;;
   esac
 fi
 

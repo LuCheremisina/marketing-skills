@@ -13,3 +13,7 @@ Changes include portable metadata and resource navigation. Upstream business met
 ## Packaging adaptation 1.0.1
 
 Credential documentation uses an unmistakable short placeholder. Turnstile credential input labels and an equivalent scalar environment assignment avoid misclassifying runtime lookups as literal secrets. No account credential, authentication logic or original license was changed.
+
+## Packaging adaptation 1.0.2
+
+If the authorization probe unexpectedly creates a widget and its cleanup fails, the script returns `cleanup_failed` with recovery identifiers instead of `ok`; the workflow stops for manual cleanup. Original Cloudflare attribution and license are retained.

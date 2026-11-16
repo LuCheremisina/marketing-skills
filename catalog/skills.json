@@ -528,7 +528,7 @@
       "id": "che-expert-article-workflow",
       "path": "skills/che-expert-article-workflow",
       "origin": "authored",
-      "version": "4.0.0",
+      "version": "4.0.1",
       "license": "MIT",
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
@@ -556,7 +556,7 @@
       "checked_at": "2026-10-07",
       "redistribution_allowed": true,
       "display_name": "CHE_expert-article-workflow",
-      "content_sha256": "f176a3c6a313655a0063cd8b1f4e78222cc7bc84690e230c7f4f50552ab57efd"
+      "content_sha256": "46c07c49df724c0ac5eafd6bdf055e7e786ef3fd2d4a2e03a829561f7e372719"
     },
     {
       "id": "che-industry-news-digest",
@@ -801,7 +801,7 @@
       "id": "che-seo-demand-analytics",
       "path": "skills/che-seo-demand-analytics",
       "origin": "authored",
-      "version": "3.0.0",
+      "version": "4.0.0",
       "license": "MIT",
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
@@ -829,7 +829,7 @@
       "checked_at": "2026-10-07",
       "redistribution_allowed": true,
       "display_name": "CHE_seo-demand-analytics",
-      "content_sha256": "f6f3510d48f4a29a0f485f584cd41a0ac6033e5e35d6755cb9a8848bce1e717d"
+      "content_sha256": "b99f6091b783cf1735e638848788b92df65ba5811a4a0cc012bee415ff6459c2"
     },
     {
       "id": "che-seo-geo-auditor",
@@ -2911,7 +2911,7 @@
       "source_url": "https://github.com/cloudflare/skills/tree/41e0d19858946d18af9ee2c2feebbe2e11d829ff/skills/turnstile-spin",
       "license": "Apache-2.0",
       "upstream_path": "skills/turnstile-spin",
-      "content_sha256": "49ddad6a0f65ec7f2188abcf202ac4507202a5fab120b0598d9fa54c370b1508",
+      "content_sha256": "19065807f861947c00ea73a05beae9e5add0d88c3dd108ab431f3c6dbdb5c160",
       "upstream_tree_sha256": "1bf58659264a5196cc0c518f479bd9af6859e4737c0203140710325a8a65a94c",
       "compatibility": {
         "codex": "not_verified",
@@ -2921,8 +2921,8 @@
         "grok-bot": "not_verified"
       },
       "author": "cloudflare",
-      "adaptation": "portable metadata and resource navigation only; see ADAPTATION.md",
-      "adaptation_version": "1.0.1",
+      "adaptation": "portable metadata, navigation and auth-probe cleanup failure handling; see ADAPTATION.md",
+      "adaptation_version": "1.0.2",
       "upstream_files": [
         "README.md",
         "SKILL.md",
@@ -2939,7 +2939,7 @@
         "tests/validation.md"
       ],
       "original_name": "turnstile-spin",
-      "normalization_notes": "portable metadata and resource navigation only; see ADAPTATION.md",
+      "normalization_notes": "portable metadata, navigation and auth-probe cleanup failure handling; see ADAPTATION.md",
       "upstream_file_hashes": {
         "README.md": {
           "git_blob_sha1": "e69238595d2b3d9c30983404cc042c3ea1f2f10b"
