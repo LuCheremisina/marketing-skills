@@ -350,7 +350,7 @@
       "checked_at": "2026-10-07",
       "redistribution_allowed": true,
       "display_name": "CHE_deep-research",
-      "content_sha256": "c65023218fb7df3ce54dcb907f8da6e4898ebc24fe2ccae22387f38ab45b2a44"
+      "content_sha256": "1fadec38dfd63c8a80584cabdba728f8b31eba524fe25b9586e2c82fb0479ca1"
     },
     {
       "id": "che-direct-analyst",
@@ -1095,7 +1095,7 @@
       "display_name": "CHE_unisender-email-pipeline",
       "version": "1.0.2",
       "description": "Выполняет накопительный email-цикл: аудит, спрос, выбор материалов, письмо, UTM, QA и разрешённый черновик UniSender. Применяется для полного процесса или продолжения state; не запускается по запросу только текста письма.",
-      "content_sha256": "5e5b8af5b31760f482191fcb6ac08110726aaba3affcae2e4f3c8e608c211d09",
+      "content_sha256": "769fe6d4c5b86e6db7fb5a26fa343a379cb022d31ffe10e9179b05408521540b",
       "source_url": "https://github.com/LuCheremisina/marketing-skills/tree/main/skills/che-unisender-email-pipeline",
       "checked_at": "2026-10-07",
       "source_status": "published-2.0.5",

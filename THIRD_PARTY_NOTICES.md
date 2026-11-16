@@ -1,6 +1,6 @@
 # Licensing boundaries
 
-The root MIT license covers original repository tooling, documentation and skills in `skills/`. Third-party content in `vendor/skills/` retains each package's LICENSE, NOTICE, SOURCE.json and ADAPTATION.md. The methodologist of original workflows is not the author of those upstream skills.
+The root MIT license covers original repository tooling, documentation and skills in `skills/`. Third-party packages in `vendor/skills/` include the applicable LICENSE and UPSTREAM.md attribution; ADAPTATION.md is included where local adaptations are documented. Preserve any applicable upstream notices when updating a package. The methodologist of original workflows is not the author of those upstream skills.
 
 - Cloudflare skills: Cloudflare, Apache-2.0; original notices preserved.
 - Autopilot: nick-vels, MIT; original license preserved.

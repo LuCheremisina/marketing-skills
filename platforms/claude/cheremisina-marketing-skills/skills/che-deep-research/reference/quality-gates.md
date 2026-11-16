@@ -23,7 +23,7 @@
 ### Верификация ссылок
 
 ```bash
-python scripts/verify_citations.py --report [путь]
+python scripts/verify_citations.py --report [путь] --strict
 ```
 
 **Проверяет:**
@@ -61,7 +61,7 @@ python scripts/validate_report.py --report [путь]
 **После генерации ЛЮБОГО отчёта:**
 
 1. Запустить `python scripts/validate_report.py --report [путь]`
-2. Запустить `python scripts/verify_citations.py --report [путь]`
+2. Запустить `python scripts/verify_citations.py --report [путь] --strict`
 3. Если ЛЮБОЙ из них завершился с ошибкой: прочитать вывод → исправить → перезапустить ОБА
 4. Максимум 3 цикла повторных попыток. Если после 3 циклов всё ещё сбой: СТОП, сообщить пользователю.
 

@@ -75,7 +75,7 @@ metadata:
 
 **Скрипты**: запускать по абсолютному пути из произвольной папки результата; относительные пути ниже разрешать от установленного корня навыка:
 - `python scripts/validate_report.py --report [путь]`
-- `python scripts/verify_citations.py --report [путь]`
+- `python scripts/verify_citations.py --report [путь] --strict`
 - `python scripts/md_to_html.py [путь_к_markdown]`
 
 ---

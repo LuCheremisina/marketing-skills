@@ -3,6 +3,7 @@ import importlib.util
 import json
 from pathlib import Path
 import sys
+import subprocess
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -62,7 +63,8 @@ class ReviewRegressions(unittest.TestCase):
             folder = base / 'che-unisender-email-pipeline/scripts'
             builder = load(folder / 'build_tracking_urls.py', 'review_builder')
             draft = load(folder / 'validate_email_draft.py', 'review_draft')
-            state = load(folder / 'manage_pipeline_state.py', 'review_state')
+            folder_script = folder / 'manage_pipeline_state.py'
+            state = load(folder_script, 'review_state')
             for query in ('qa%40example.invalid=1', 'qa%40example.invalid=', 'qa%40example.invalid',
                           'email=', 'x=ok;PHONE=123', 'q=qa%40example.invalid'):
                 with self.subTest(base=base, query=query):
@@ -83,12 +85,30 @@ class ReviewRegressions(unittest.TestCase):
                 result = builder.build({'placements': [{'id': 'article_1', 'url': 'https://example.invalid/item?search=topic&optional=', 'track': track}]}, 'synthetic_digest')
                 self.assertIn('optional=', result['placements'][0]['url'])
             old = [{'draft_key': 'sample', 'status': 'created', 'message_id': 'SYNTHETIC_ID'}]
-            for missing in ('', None, 'unknown', 'missing', '  '):
+            for missing in ('', None, 'unknown', 'missing', '  ', 0, False):
                 result = state.merge_lists(old, [{'draft_key': 'sample', 'message_id': missing}], 'draft_key')
                 self.assertEqual(result[0]['message_id'], 'SYNTHETIC_ID')
             with self.assertRaises(ValueError):
                 state.merge_lists(old, [{'draft_key': 'sample', 'message_id': 'OTHER'}], 'draft_key')
             self.assertEqual(state.merge_lists([{'draft_key': 'sample'}], [{'draft_key': 'sample', 'message_id': 'NEW'}], 'draft_key')[0]['message_id'], 'NEW')
+            numeric = [{'draft_key': 'sample', 'status': 'created', 'message_id': 12345}]
+            self.assertEqual(state.merge_lists(numeric, [{'draft_key': 'sample', 'message_id': 0}], 'draft_key')[0]['message_id'], 12345)
+            self.assertEqual(state.merge_lists([{'draft_key': 'sample'}], [{'draft_key': 'sample', 'message_id': 12345}], 'draft_key')[0]['message_id'], 12345)
+            with tempfile.TemporaryDirectory() as tmp:
+                folder = Path(tmp)
+                original = {'schema_version': 1, 'project_key': 'synthetic', 'state_revision': 1,
+                            'updated_at': '2026-11-15T00:00:00+00:00', 'coverage': {},
+                            **{key: [] for key in state.LIST_KEYS}, 'draft_registry': old}
+                (folder / 'state.json').write_text(json.dumps(original))
+                for missing in (0, False):
+                    delta = {'project_key': 'synthetic', 'updated_at': '2026-11-16T00:00:00+00:00',
+                             'draft_registry': [{'draft_key': 'sample', 'status': 'created', 'message_id': missing}]}
+                    (folder / 'delta.json').write_text(json.dumps(delta))
+                    result = subprocess.run([sys.executable, str(folder_script), 'merge', str(folder / 'state.json'),
+                                             str(folder / 'delta.json'), '--output', str(folder / 'out.json')],
+                                            capture_output=True, text=True)
+                    self.assertEqual(result.returncode, 0, result.stderr)
+                    self.assertEqual(json.loads((folder / 'out.json').read_text())['draft_registry'][0]['message_id'], 'SYNTHETIC_ID')
 
 
 if __name__ == '__main__':
