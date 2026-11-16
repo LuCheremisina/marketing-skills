@@ -40,7 +40,7 @@ mkdir -p .claude/skills/turnstile-spin && \
   -o .claude/skills/turnstile-spin/SKILL.md
 ```
 
-The single-file install does not include `scripts/` or `references/`; the hosted prompt fetches those on demand with `fetch_spin_script`. `scripts/persist-skill.sh` requires the cloned bundle above and cannot be used from a single-file install. For other agents, see the table in [`SKILL.md`](./SKILL.md#step-11--persist-the-skill).
+The single-file install does not include `scripts/` or `references/`; the hosted prompt fetches those on demand with `fetch_spin_script`. `scripts/persist-skill.sh` requires the cloned bundle above and cannot be used from a single-file install. For other agents, see the table in [`SKILL.md`](./SKILL.md#conversation-flow).
 
 ## Keep the hosted prompt in sync
 

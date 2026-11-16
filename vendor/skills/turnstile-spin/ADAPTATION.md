@@ -27,3 +27,7 @@ The persistence helper copies the current local reviewed bundle, preserving its 
 ## Packaging adaptation 1.0.4
 
 Shell helper commands explicitly invoke Bash so they work with the distribution’s non-executable script files. The README distinguishes the local adapted bundle from separate upstream versions.
+
+## Packaging adaptation 1.0.5
+
+The README persistence link points to the existing conversation-flow section.

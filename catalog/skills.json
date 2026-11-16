@@ -1006,7 +1006,7 @@
       "id": "che-telegram-content-creator",
       "path": "skills/che-telegram-content-creator",
       "origin": "authored",
-      "version": "3.0.0",
+      "version": "3.0.1",
       "license": "MIT",
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
@@ -1034,7 +1034,7 @@
       "checked_at": "2026-10-07",
       "redistribution_allowed": true,
       "display_name": "CHE_telegram-content-creator",
-      "content_sha256": "dcd3d7be48430db5f176bde555d125b1708e428cf8b63ac8bb1243f90b063845"
+      "content_sha256": "704333abd933df8f5516fab424a2317e8244778233eb5a2785f3b1193abe23a5"
     },
     {
       "id": "che-topic-planner",
@@ -2911,7 +2911,7 @@
       "source_url": "https://github.com/cloudflare/skills/tree/41e0d19858946d18af9ee2c2feebbe2e11d829ff/skills/turnstile-spin",
       "license": "Apache-2.0",
       "upstream_path": "skills/turnstile-spin",
-      "content_sha256": "d31d67553c9b46be1f92daa8c1cb3fc9a353c4655cf1a17ef3b70451df17c17e",
+      "content_sha256": "5faf6123665f902d253c1799eed29031989f3c34694caad9ed5cc521a543932a",
       "upstream_tree_sha256": "1bf58659264a5196cc0c518f479bd9af6859e4737c0203140710325a8a65a94c",
       "compatibility": {
         "codex": "not_verified",
@@ -2922,7 +2922,7 @@
       },
       "author": "cloudflare",
       "adaptation": "portable packaging, auth-probe cleanup, local persistence, and Bash invocation; see ADAPTATION.md",
-      "adaptation_version": "1.0.4",
+      "adaptation_version": "1.0.5",
       "upstream_files": [
         "README.md",
         "SKILL.md",
