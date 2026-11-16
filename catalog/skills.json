@@ -1305,7 +1305,7 @@
       "source_url": "https://github.com/nick-vels/skills/tree/d6427a85557c16f1f3204a50923618e645fc7756/skills/autopilot",
       "license": "MIT",
       "upstream_path": "skills/autopilot",
-      "content_sha256": "27705f590751f9535faeeeb13d0f0eb460978e51ea97b8c6cc2450cb14d87aaf",
+      "content_sha256": "f4746b2520d4fbf3e00d30c8f910f88d0de1f3ba99fb8923d95eea404d07cd91",
       "upstream_tree_sha256": "05277792643f81068234ac6c85697d16690275bca90c88a362e44c8e59822dbd",
       "compatibility": {
         "codex": "not_verified",
@@ -1315,8 +1315,8 @@
         "grok-bot": "not_verified"
       },
       "author": "nick-vels",
-      "adaptation": "portable metadata and resource navigation only; see ADAPTATION.md",
-      "adaptation_version": "1.0.0",
+      "adaptation": "portable packaging and missing plan-artifact gate; see ADAPTATION.md",
+      "adaptation_version": "1.0.1",
       "upstream_files": [
         "SKILL.md",
         "phases/0-instruments.md",
@@ -1342,7 +1342,7 @@
         "tools/ap.py"
       ],
       "original_name": "autopilot",
-      "normalization_notes": "portable metadata and resource navigation only; see ADAPTATION.md",
+      "normalization_notes": "portable packaging and missing plan-artifact gate; see ADAPTATION.md",
       "upstream_file_hashes": {
         "SKILL.md": {
           "git_blob_sha1": "f9a07f67fe6cdb98c95d5c48550b79b9758a31d4"
