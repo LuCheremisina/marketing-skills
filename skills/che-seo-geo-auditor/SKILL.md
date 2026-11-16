@@ -3,7 +3,7 @@ name: che-seo-geo-auditor
 license: MIT
 description: "Проводит полный SEO/GEO-аудит сайта: crawl, технические сигналы, контент, scoring и приоритеты. Применяется для аудита всего сайта; отдельную страницу, метатег или спорный пункт проверяет che-seo-geo-auditor-pro."
 metadata:
-  version: 3.0.0
+  version: 4.0.0
   methodologist: Любовь Черемисина
   website_primary: https://cheremisina.ru
   website_secondary: https://cheremisina.online
@@ -41,6 +41,9 @@ python scripts/audit_website.py https://example.com
 
 Скрипт извлекает: мета-теги, заголовки, Schema.org, robots.txt, ссылки, изображения.
 Результат → `audit_data.json`.
+Автоматическая оценка robots.txt относится только к корневому URL; для остальных
+страниц проверять правила отдельно. Неоднозначные или неподдержанные правила
+отмечаются как неизвестные и требуют ручной проверки.
 
 ### 1b. Визуальная проверка
 

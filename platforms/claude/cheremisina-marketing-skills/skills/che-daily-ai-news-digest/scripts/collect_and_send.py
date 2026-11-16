@@ -45,6 +45,8 @@ import time
 from datetime import datetime, timedelta, timezone
 from difflib import SequenceMatcher
 from pathlib import Path
+from html import escape
+from urllib.parse import urlsplit
 
 import feedparser
 from openai import OpenAI
@@ -1089,6 +1091,24 @@ def extract_digest_titles(digest_text: str) -> list:
     return titles
 
 
+def safe_http_url(value: str) -> bool:
+    """Validate a link without fetching it or exposing credentials."""
+    if not isinstance(value, str) or not value or any(ch.isspace() or not ch.isprintable() or ch in "\"'<>\\" for ch in value):
+        return False
+    if re.search(r"%(?![0-9a-fA-F]{2})", value):
+        return False
+    try:
+        parsed = urlsplit(value)
+        return bool(parsed.scheme in {"http", "https"} and parsed.hostname and parsed.username is None and parsed.password is None and parsed.port != 0)
+    except ValueError:
+        return False
+
+
+def current_render_context() -> dict:
+    return {"date": datetime.now(SKILL_TZ).date().isoformat(),
+            "footer_url": DIGEST_FOOTER_URL, "footer_label": DIGEST_FOOTER_LABEL}
+
+
 def validate_generated_digest(digest_text: str, html_content: str) -> list[str]:
     """Return blocking QA issues before any external delivery."""
     issues: list[str] = []
@@ -1105,6 +1125,19 @@ def validate_generated_digest(digest_text: str, html_content: str) -> list[str]:
         issues.append(
             f"прямых ссылок на источники {len(source_urls)}, новостей {len(titles)}"
         )
+    # Count links within each item, not only across the whole digest: otherwise
+    # two sources on one card can conceal a missing source on another.
+    item_source_counts = []
+    for line in digest_text.splitlines():
+        line = line.strip()
+        if re.match(r"^\d+\.\s+(.+)$", line):
+            item_source_counts.append(0)
+        elif item_source_counts and re.match(r"^Источник:\s*(.+?)\s*\|\s*(https?://\S+)", line):
+            item_source_counts[-1] += 1
+    if len(item_source_counts) != len(titles) or any(count != 1 for count in item_source_counts):
+        issues.append("у каждой новости должна быть ровно одна прямая ссылка на источник")
+    if any(not safe_http_url(url) for url in source_urls):
+        issues.append("некорректная или небезопасная ссылка источника")
     if html_content.count('class="news-card"') != len(titles):
         issues.append("число HTML-карточек не совпадает с числом новостей")
     if not html_content.lstrip().lower().startswith("<!doctype html>"):
@@ -1128,19 +1161,24 @@ def extract_used_entries(digest_text: str, entries: list) -> list:
 # ─── Доработка 3: Генерация HTML-дайджеста ─────────────────────────────────
 
 
-def generate_html_digest(digest_text: str, trends: list = None) -> str:
-    """
-    Генерирует красивый HTML-файл из текстовой сводки.
-    Возвращает HTML-строку.
-    """
-    today = datetime.now(SKILL_TZ).strftime("%d.%m.%Y")
-    today_full = datetime.now(SKILL_TZ).strftime("%d %B %Y").replace(
-        "January", "января").replace("February", "февраля").replace(
-        "March", "марта").replace("April", "апреля").replace(
-        "May", "мая").replace("June", "июня").replace(
-        "July", "июля").replace("August", "августа").replace(
-        "September", "сентября").replace("October", "октября").replace(
-        "November", "ноября").replace("December", "декабря")
+def generate_html_digest(digest_text: str, trends: list = None, *, render_context: dict = None) -> str:
+    """Generate an HTML digest from text; all source fields are data."""
+    context = current_render_context() if render_context is None else render_context
+    if not isinstance(context, dict) or set(context) != {"date", "footer_url", "footer_label"}:
+        raise ValueError("Некорректный контекст выпуска; подготовьте дайджест заново")
+    try:
+        date_value = datetime.strptime(context["date"], "%Y-%m-%d")
+        if date_value.date().isoformat() != context["date"]:
+            raise ValueError
+    except (TypeError, ValueError):
+        raise ValueError("Некорректная дата выпуска; подготовьте дайджест заново") from None
+    footer_url, footer_label = context["footer_url"], context["footer_label"]
+    if not isinstance(footer_label, str) or not isinstance(footer_url, str) or (footer_url and not safe_http_url(footer_url)):
+        raise ValueError("Некорректная ссылка или подпись в подвале")
+    months = ("января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря")
+    today = date_value.strftime("%d.%m.%Y")
+    today_full = f"{date_value.day:02d} {months[date_value.month - 1]} {date_value.year}"
+    footer_html = (f'<br>Источник: <a href="{escape(footer_url, quote=True)}" target="_blank" rel="noopener noreferrer">{escape(footer_label)}</a>' if footer_url else '')
 
     # Парсим новости из текста
     news_items = []
@@ -1238,32 +1276,34 @@ def generate_html_digest(digest_text: str, trends: list = None) -> str:
         cat_color = get_cat_color(item.get("category", ""))
         source_html = ""
         if item["source_url"]:
-            source_html = f'<a href="{item["source_url"]}" class="source-link" target="_blank">🔗 {item["source_name"]}</a>'
+            if not safe_http_url(item["source_url"]):
+                raise ValueError("Некорректная или небезопасная ссылка источника")
+            source_html = f'<a href="{escape(item["source_url"], quote=True)}" class="source-link" target="_blank" rel="noopener noreferrer">🔗 {escape(item["source_name"])}</a>'
         elif item["source_name"]:
-            source_html = f'<span class="source-name">{item["source_name"]}</span>'
+            source_html = f'<span class="source-name">{escape(item["source_name"])}</span>'
 
         category_badge = ""
         if item["category"]:
-            category_badge = f'<span class="badge" style="background:{cat_color}20;color:{cat_color};border:1px solid {cat_color}40">{item["category"]}</span>'
+            category_badge = f'<span class="badge" style="background:{cat_color}20;color:{cat_color};border:1px solid {cat_color}40">{escape(item["category"])}</span>'
 
         audience_badge = ""
         if item["audience"]:
-            audience_badge = f'<span class="badge badge-audience">👤 {item["audience"]}</span>'
+            audience_badge = f'<span class="badge badge-audience">👤 {escape(item["audience"])}</span>'
 
         insight_html = ""
         if item["insight"]:
             insight_html = f'''
             <div class="insight-block">
                 <span class="insight-icon">💡</span>
-                <div class="insight-text"><strong>Для бизнеса:</strong> {item["insight"]}</div>
+                <div class="insight-text"><strong>Для бизнеса:</strong> {escape(item["insight"])}</div>
             </div>'''
 
         news_html += f'''
         <article class="news-card">
             <div class="news-number">{item["num"]}</div>
             <div class="news-content">
-                <h2 class="news-title">{item["title"]}</h2>
-                <p class="news-description">{item["description"]}</p>
+                <h2 class="news-title">{escape(item["title"])}</h2>
+                <p class="news-description">{escape(item["description"])}</p>
                 <div class="news-meta">
                     {source_html}
                     <div class="badges">
@@ -1278,7 +1318,7 @@ def generate_html_digest(digest_text: str, trends: list = None) -> str:
     # Блок трендов
     trends_html = ""
     if trend_lines_from_text:
-        trends_items = "".join(f'<li>{t}</li>' for t in trend_lines_from_text)
+        trends_items = "".join(f'<li>{escape(t)}</li>' for t in trend_lines_from_text)
         trends_html = f'''
     <section class="trends-section">
         <h3 class="trends-title">📊 Тренды дня</h3>
@@ -1540,7 +1580,7 @@ def generate_html_digest(digest_text: str, trends: list = None) -> str:
         <footer class="footer">
             <p class="footer-text">
                 Подготовлено ai-агентом · Только проверенные факты
-                {f'<br>Источник: <a href="{DIGEST_FOOTER_URL}" target="_blank">{DIGEST_FOOTER_LABEL}</a>' if DIGEST_FOOTER_URL else ''}
+                {footer_html}
             </p>
         </footer>
 
@@ -1658,7 +1698,15 @@ def main():
 
     # 7. Генерация HTML-версии
     print("[INFO] Генерация HTML-дайджеста...")
-    html_content = generate_html_digest(digest, trends=trends)
+    render_context = current_render_context()
+    try:
+        html_content = generate_html_digest(digest, trends=trends, render_context=render_context)
+    except ValueError as error:
+        run_record["status"] = "blocked"
+        run_record["note"] = "QA: " + str(error)
+        append_run_history(run_record)
+        print(f"[BLOCKED] Дайджест не прошёл QA: {error}")
+        return
     print(f"[INFO] HTML-дайджест сгенерирован ({len(html_content)} символов)")
 
     qa_issues = validate_generated_digest(digest, html_content)
@@ -1678,7 +1726,7 @@ def main():
     output = Path(os.environ.get("DIGEST_DATA_DIR", str(RUN_HISTORY_FILE.parent)))
     output.mkdir(parents=True, exist_ok=True)
     bundle = {"digest": digest, "html": html_content, "entries": extract_used_entries(digest, top_entries),
-              "titles": digest_titles, "prepared_at": run_ts}
+              "titles": digest_titles, "prepared_at": run_ts, "render_context": render_context}
     (output / "prepared-digest.json").write_text(json.dumps(bundle, ensure_ascii=False), encoding="utf-8")
     (output / "prepared-digest.html").write_text(html_content, encoding="utf-8")
     run_record["status"] = "dry_run"

@@ -21,6 +21,12 @@ def deliver(bundle_path, target_ids, confirmed=False, transport=None, token=None
         raise ValueError('Выпуск и журнал доставки должны храниться вне пакета')
     bundle = json.loads(bundle_path.read_text(encoding='utf-8'))
     import collect_and_send as collector
+    context = bundle.get('render_context')
+    if context is None:
+        raise ValueError('Старый формат выпуска: подготовьте и проверьте дайджест заново')
+    expected_html = collector.generate_html_digest(bundle['digest'], render_context=context)
+    if bundle.get('html') != expected_html:
+        raise ValueError('HTML не совпадает с безопасным выпуском: подготовьте и проверьте дайджест заново')
     issues = collector.validate_generated_digest(bundle['digest'], bundle['html'])
     if issues:
         raise ValueError('QA: ' + '; '.join(issues))

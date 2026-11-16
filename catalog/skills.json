@@ -288,7 +288,7 @@
       "id": "che-daily-ai-news-digest",
       "path": "skills/che-daily-ai-news-digest",
       "origin": "authored",
-      "version": "3.0.1",
+      "version": "4.0.0",
       "license": "MIT",
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
@@ -316,7 +316,7 @@
       "checked_at": "2026-10-12",
       "redistribution_allowed": true,
       "display_name": "CHE_daily-ai-news-digest",
-      "content_sha256": "19f50cbb314d59698b76e81ba123d38b158fbe83d8bd54408d689c33edb1902e"
+      "content_sha256": "3c5aed89eca08bc974eb8751288c3ec7be817a90dc3651d98a1552d4027a9a10"
     },
     {
       "id": "che-deep-research",
@@ -835,7 +835,7 @@
       "id": "che-seo-geo-auditor",
       "path": "skills/che-seo-geo-auditor",
       "origin": "authored",
-      "version": "3.0.0",
+      "version": "4.0.0",
       "license": "MIT",
       "author": "Любовь Черемисина",
       "methodologist": "Любовь Черемисина",
@@ -863,7 +863,7 @@
       "checked_at": "2026-10-07",
       "redistribution_allowed": true,
       "display_name": "CHE_seo-geo-auditor",
-      "content_sha256": "0f919dd4b349aae9c30eec71232312d4346321a05f54fa1f1e9153022f802147"
+      "content_sha256": "b45053fa3d343f765bf1cadf95146c9c983c41df478258a158eccd7633fcaa05"
     },
     {
       "id": "che-seo-geo-auditor-pro",

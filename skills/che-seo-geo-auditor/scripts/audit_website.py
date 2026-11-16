@@ -7,7 +7,8 @@ Sources: Google Search Essentials, Yandex Webmaster, Semrush, Ahrefs, Moz, Rank 
 
 import requests
 from bs4 import BeautifulSoup
-from urllib.parse import urlparse, urljoin
+from urllib.parse import urlparse, urljoin, unquote
+from urllib.robotparser import RobotFileParser
 import re
 import json
 import os
@@ -65,43 +66,42 @@ def check_robots_txt(base_url):
                 'sitemap_urls': [], 'error': result.get('error', f"Status {result['status']}")}
 
     content = result['text']
-    lines = content.lower().split('\n')
+    parser = RobotFileParser()
+    parser.parse(content.splitlines())
+    # urllib's parser handles common groups, but not every wildcard, duplicate
+    # group or equal-specificity tie. Report those cases as unknown.
+    wildcard_count = sum(1 for line in content.splitlines()
+                         if re.match(r'^\s*user-agent\s*:\s*\*\s*(?:#.*)?$', line, re.I))
 
-    ai_blocked = []
-    search_blocked = []
-    sitemaps = []
-    current_agent = '*'
+    def root_access(bot):
+        groups = [entry for entry in parser.entries if entry.applies_to(bot)]
+        declared = [match.group(1).strip().lower() for line in content.splitlines()
+                    if (match := re.match(r'^\s*user-agent\s*:\s*([^#]+)', line, re.I))]
+        if not groups and any(token != '*' and token in bot.lower() for token in declared):
+            # An explicitly named empty group may be discarded by robotparser.
+            return 'unknown'
+        if not groups and parser.default_entry:
+            if wildcard_count > 1:
+                return 'unknown'
+            groups = [parser.default_entry]
+        if len(groups) > 1:
+            return 'unknown'
+        if groups:
+            rules = groups[0].rulelines
+            if any('*' in unquote(rule.path) or '$' in unquote(rule.path) for rule in rules):
+                return 'unknown'
+            root_rules = {rule.allowance for rule in rules if rule.path == '/'}
+            if len(root_rules) > 1:
+                return 'unknown'
+        return 'allowed' if parser.can_fetch(bot, base_url + '/') else 'blocked'
 
-    for line in content.split('\n'):
-        line_stripped = line.strip()
-        if line_stripped.lower().startswith('user-agent:'):
-            current_agent = line_stripped.split(':', 1)[1].strip()
-        elif line_stripped.lower().startswith('disallow: /') and line_stripped.lower().strip() == 'disallow: /':
-            for bot in AI_BOTS:
-                if current_agent == '*' or current_agent.lower() == bot.lower():
-                    ai_blocked.append(bot)
-            for bot in SEARCH_BOTS:
-                if current_agent == '*' or current_agent.lower() == bot.lower():
-                    search_blocked.append(bot)
-        elif line_stripped.lower().startswith('sitemap:'):
-            sitemaps.append(line_stripped.split(':', 1)[1].strip())
-
-    # More precise check per bot
-    ai_blocked_precise = []
-    for bot in AI_BOTS:
-        bot_lower = bot.lower()
-        in_bot_section = False
-        for line in content.split('\n'):
-            ls = line.strip().lower()
-            if ls.startswith('user-agent:'):
-                agent = ls.split(':', 1)[1].strip()
-                in_bot_section = (agent == bot_lower or agent == '*')
-            elif in_bot_section and ls == 'disallow: /':
-                ai_blocked_precise.append(bot)
-                break
-
-    return {'found': True, 'content': content[:2000], 'ai_bots_blocked': list(set(ai_blocked_precise)),
-            'search_bots_blocked': list(set(search_blocked)), 'sitemap_urls': sitemaps, 'error': None}
+    access = {bot: root_access(bot) for bot in AI_BOTS + SEARCH_BOTS}
+    return {'found': True, 'content': content[:2000],
+            'ai_bots_blocked': [bot for bot in AI_BOTS if access[bot] == 'blocked'],
+            'search_bots_blocked': [bot for bot in SEARCH_BOTS if access[bot] == 'blocked'],
+            'ai_bots_unknown': [bot for bot in AI_BOTS if access[bot] == 'unknown'],
+            'search_bots_unknown': [bot for bot in SEARCH_BOTS if access[bot] == 'unknown'],
+            'scope': 'root_url_only', 'sitemap_urls': parser.site_maps() or [], 'error': None}
 
 
 def check_sitemap(base_url):
@@ -377,7 +377,7 @@ def calculate_score(findings):
     if context.get('public_indexing_intended') is True and findings.get('robots_txt', {}).get('search_bots_blocked'):
         score -= SCORE_CRITICAL
         bots = ', '.join(findings['robots_txt']['search_bots_blocked'])
-        issues.append(('КРИТИЧНО', f'Поисковые боты заблокированы в robots.txt: {bots}'))
+        issues.append(('КРИТИЧНО', f'robots.txt ограничивает корневую страницу для поисковых ботов: {bots}'))
 
     meta = findings.get('meta_tags', {})
     if not meta.get('title'):
@@ -427,7 +427,7 @@ def calculate_score(findings):
     intended = set(context.get('required_ai_bots', []))
     if blocked & intended:
         score -= SCORE_HIGH
-        issues.append(('ВЫСОКИЙ', 'Заблокированы боты выбранного владельцем канала: ' + ', '.join(sorted(blocked & intended))))
+        issues.append(('ВЫСОКИЙ', 'Корневая страница закрыта для ботов выбранного владельцем канала: ' + ', '.join(sorted(blocked & intended))))
 
     # --- MEDIUM (5 pts each) ---
     if not meta.get('open_graph'):
@@ -584,13 +584,16 @@ def generate_report(url, site_type, findings, score, issues):
     r.append(f"**robots.txt:** {'✅ Файл найден.' if robots.get('found') else '❌ Файл не найден или недоступен.'}")
     if robots.get('found'):
         if robots.get('ai_bots_blocked'):
-            r.append(f"  - ⚠️ **AI-боты заблокированы:** {', '.join(robots['ai_bots_blocked'])}. Сверить с намерением владельца и функцией каждого бота; ограничения обучения и поискового доступа различаются.")
+            r.append(f"  - ⚠️ **Корневая страница закрыта для AI-ботов:** {', '.join(robots['ai_bots_blocked'])}. Сверить с намерением владельца и функцией каждого бота; ограничения обучения и поискового доступа различаются.")
         else:
-            r.append("  - ✅ AI-боты (GPTBot, PerplexityBot, ClaudeBot) не заблокированы.")
+            r.append("  - ℹ️ Полной блокировки корневой страницы для проверенных AI-ботов не выявлено; другие URL и неоднозначные правила требуют проверки.")
         if robots.get('search_bots_blocked'):
-            r.append(f"  - 🔴 **Поисковые боты заблокированы:** {', '.join(robots['search_bots_blocked'])}. Критическая ошибка!")
+            r.append(f"  - 🔴 **Корневая страница закрыта для поисковых ботов:** {', '.join(robots['search_bots_blocked'])}. Сверить с намерением владельца!")
         else:
-            r.append("  - ✅ Поисковые боты (Googlebot, YandexBot) не заблокированы.")
+            r.append("  - ℹ️ Полной блокировки корневой страницы для проверенных поисковых ботов не выявлено; другие URL и неоднозначные правила требуют проверки.")
+        unknown = robots.get('ai_bots_unknown', []) + robots.get('search_bots_unknown', [])
+        if unknown:
+            r.append(f"  - ❔ **Неоднозначные правила robots.txt:** {', '.join(unknown)}. Проверить вручную.")
     r.append("")
     r.append(f"**sitemap.xml:** {'✅ Найден.' if findings.get('sitemap', {}).get('found') else '❌ Не найден. Рекомендуется создать и зарегистрировать в Google Search Console и Яндекс.Вебмастере.'}")
     r.append("")
