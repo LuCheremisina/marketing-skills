@@ -23,3 +23,7 @@ Modified upstream files carry per-file distribution notices.
 ## Packaging adaptation 1.0.3
 
 The persistence helper copies the current local reviewed bundle, preserving its adaptations and attribution, rather than fetching an unpinned upstream checkout. It rejects links in the source and reports copy failures without claiming success.
+
+## Packaging adaptation 1.0.4
+
+Shell helper commands explicitly invoke Bash so they work with the distribution’s non-executable script files. The README distinguishes the local adapted bundle from separate upstream versions.

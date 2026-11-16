@@ -2911,7 +2911,7 @@
       "source_url": "https://github.com/cloudflare/skills/tree/41e0d19858946d18af9ee2c2feebbe2e11d829ff/skills/turnstile-spin",
       "license": "Apache-2.0",
       "upstream_path": "skills/turnstile-spin",
-      "content_sha256": "89896c334f5a16de08d63ce89a6c31955fdce7a280777868f518da5eec46e0aa",
+      "content_sha256": "d31d67553c9b46be1f92daa8c1cb3fc9a353c4655cf1a17ef3b70451df17c17e",
       "upstream_tree_sha256": "1bf58659264a5196cc0c518f479bd9af6859e4737c0203140710325a8a65a94c",
       "compatibility": {
         "codex": "not_verified",
@@ -2921,8 +2921,8 @@
         "grok-bot": "not_verified"
       },
       "author": "cloudflare",
-      "adaptation": "portable packaging, auth-probe cleanup handling and local reviewed-bundle persistence; see ADAPTATION.md",
-      "adaptation_version": "1.0.3",
+      "adaptation": "portable packaging, auth-probe cleanup, local persistence, and Bash invocation; see ADAPTATION.md",
+      "adaptation_version": "1.0.4",
       "upstream_files": [
         "README.md",
         "SKILL.md",
@@ -2939,7 +2939,7 @@
         "tests/validation.md"
       ],
       "original_name": "turnstile-spin",
-      "normalization_notes": "portable packaging, auth-probe cleanup handling and local reviewed-bundle persistence; see ADAPTATION.md",
+      "normalization_notes": "portable packaging, auth-probe cleanup, local persistence, and Bash invocation; see ADAPTATION.md",
       "upstream_file_hashes": {
         "README.md": {
           "git_blob_sha1": "e69238595d2b3d9c30983404cc042c3ea1f2f10b"

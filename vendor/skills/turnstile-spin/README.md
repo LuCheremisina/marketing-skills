@@ -1,5 +1,7 @@
 # turnstile-spin (skill)
 
+> Modified for the Cheremisina distribution; see ADAPTATION.md in the skill root. This distribution uses its locally packaged adapted bundle; the upstream clone and hosted prompt described below are separate upstream versions and do not include these local adaptations.
+
 End-to-end setup skill for Cloudflare Turnstile. Loads when an agent is asked to add Turnstile, set up CAPTCHA, or protect a form from bots.
 
 `SKILL.md` is the canonical machine-readable behavior. The hosted prompt at [`developers.cloudflare.com/turnstile/spin/prompt.md`](https://developers.cloudflare.com/turnstile/spin/prompt.md) packages the same behavior for agents that do not have this bundle installed. Product requirements come from the [Turnstile documentation](https://developers.cloudflare.com/turnstile/index.md).
